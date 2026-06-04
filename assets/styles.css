@@ -101,7 +101,7 @@ img { max-width: 100%; height: auto; display: block; }
 .nav-inner {
   display: flex; align-items: center; justify-content: space-between; height: 80px;
 }
-.nav-logo img { height: 38px; display: block; }
+.nav-logo img { height: 38px; width: auto; display: block; }
 .nav-links { display: flex; align-items: center; gap: 2rem; }
 .nav-links a {
   font-size: 0.96rem; font-weight: 500; color: var(--ink); white-space: nowrap;
@@ -301,7 +301,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .footer { background: var(--foot); color: var(--foot-ink); padding: clamp(3.5rem, 6vw, 5rem) 0 0; }
 .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1.2fr 1.3fr; gap: 2.5rem; padding-bottom: 3.2rem; }
-.foot-brand img { height: 40px; margin-bottom: 1.3rem; filter: brightness(0) saturate(100%) invert(88%) sepia(8%) saturate(180%) hue-rotate(46deg) brightness(98%); }
+.foot-brand img { height: 40px; width: auto; margin-bottom: 1.3rem; filter: brightness(0) saturate(100%) invert(88%) sepia(8%) saturate(180%) hue-rotate(46deg) brightness(98%); }
 .foot-brand p { color: var(--foot-soft); font-size: 0.95rem; max-width: 30ch; margin-bottom: 1.5rem; }
 .foot-contact { display: grid; gap: 0.7rem; }
 .foot-contact a, .foot-contact span { display: flex; align-items: center; gap: 0.7rem; color: var(--foot-ink); font-size: 0.95rem; }
