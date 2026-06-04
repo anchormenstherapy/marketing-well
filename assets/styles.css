@@ -115,6 +115,26 @@ img { max-width: 100%; height: auto; display: block; }
 .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 .nav-cta { display: flex; align-items: center; gap: 1.2rem; }
 
+/* Nav dropdown */
+.nav-dropdown { position: relative; }
+.nav-dropdown > a { cursor: pointer; }
+.nav-dropdown > a::after { content: ""; width: 0; height: 1.5px; background: var(--sage); transition: width 0.25s ease; position: absolute; left: 0; bottom: -2px; }
+.nav-dropdown:hover > a::after { width: 100%; }
+.nav-dropdown-menu {
+  position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-sm);
+  padding: 0.6rem 0; min-width: 220px; box-shadow: 0 12px 30px -10px rgba(58,47,50,0.2);
+  opacity: 0; visibility: hidden; transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 60; margin-top: 0.5rem;
+}
+.nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; }
+.nav-dropdown-menu a {
+  display: block; padding: 0.55rem 1.2rem; font-family: var(--sans); font-size: 0.92rem;
+  font-weight: 500; color: var(--ink); transition: background 0.15s ease, color 0.15s ease;
+}
+.nav-dropdown-menu a::after { display: none; }
+.nav-dropdown-menu a:hover { background: var(--pale-2); color: var(--sage-2); }
+
 /* Mobile nav toggle */
 .nav-toggle {
   display: none; background: none; border: none; cursor: pointer;
@@ -368,6 +388,14 @@ img { max-width: 100%; height: auto; display: block; }
   }
   .nav-links a.active { color: var(--sage-2); }
   .nav-toggle { z-index: 110; position: relative; }
+
+  /* Mobile: flatten dropdown */
+  .nav-dropdown-menu {
+    position: static; transform: none; opacity: 1; visibility: visible;
+    background: none; border: none; box-shadow: none; padding: 0; margin: 0; min-width: 0;
+  }
+  .nav-dropdown-menu a { padding: 0.4em 0; font-size: 1.1rem; text-align: center; font-family: var(--serif); }
+  .nav-dropdown > a { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--sage-2); padding: 1.2em 0 0.3em; }
 }
 
 /* Reveal-on-scroll */
