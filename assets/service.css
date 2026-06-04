@@ -5,8 +5,9 @@
 
 .svc-hero { position: relative; padding: clamp(2.5rem, 5vw, 4.5rem) 0 clamp(3rem, 6vw, 5rem); overflow: hidden; }
 .svc-hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
-.svc-hero h1 { font-size: clamp(2.6rem, 5.2vw, 4.3rem); margin: 1.4rem 0 1.3rem; }
-.svc-hero h1 em { font-style: italic; color: var(--sage-2); }
+.svc-hero h1.eyebrow { margin-bottom: 0; }
+.svc-hero-headline, .svc-hero h1:not(.eyebrow) { font-size: clamp(2.6rem, 5.2vw, 4.3rem); margin: 1.4rem 0 1.3rem; }
+.svc-hero-headline em, .svc-hero h1:not(.eyebrow) em { font-style: italic; color: var(--sage-2); }
 .svc-hero-sub { font-size: 1.18rem; color: var(--ink-2); max-width: 36ch; margin-bottom: 2rem; text-wrap: pretty; }
 .svc-hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-bottom: 2rem; }
 .cs-chips { display: flex; flex-direction: column; gap: 0.7rem; }
