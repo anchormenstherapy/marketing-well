@@ -50,6 +50,50 @@
     });
   }
 
+  // Testimonial slider
+  document.querySelectorAll('.testi-slider').forEach(function (slider) {
+    var track = slider.querySelector('.testi-track');
+    var slides = slider.querySelectorAll('.testi-slide');
+    var dotsWrap = slider.querySelector('.testi-dots');
+    var prev = slider.querySelector('.testi-prev');
+    var next = slider.querySelector('.testi-next');
+    var current = 0;
+    var total = slides.length;
+
+    slides.forEach(function (_, i) {
+      var dot = document.createElement('button');
+      dot.className = 'testi-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Testimonial ' + (i + 1));
+      dot.addEventListener('click', function () { goTo(i); });
+      dotsWrap.appendChild(dot);
+    });
+
+    function goTo(i) {
+      current = i;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      var dots = dotsWrap.querySelectorAll('.testi-dot');
+      dots.forEach(function (d, j) { d.classList.toggle('active', j === current); });
+    }
+
+    prev.addEventListener('click', function () { goTo((current - 1 + total) % total); });
+    next.addEventListener('click', function () { goTo((current + 1) % total); });
+
+    // Auto-advance every 8 seconds
+    var auto = setInterval(function () { goTo((current + 1) % total); }, 8000);
+    slider.addEventListener('mouseenter', function () { clearInterval(auto); });
+    slider.addEventListener('mouseleave', function () {
+      auto = setInterval(function () { goTo((current + 1) % total); }, 8000);
+    });
+
+    // Swipe support
+    var startX = 0;
+    slider.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+    slider.addEventListener('touchend', function (e) {
+      var diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) { diff > 0 ? goTo((current + 1) % total) : goTo((current - 1 + total) % total); }
+    });
+  });
+
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
       if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
