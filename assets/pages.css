@@ -103,7 +103,7 @@
 .article-byline img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
 .article-byline .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--sage); }
 .article-hero-img { max-width: 1000px; margin: clamp(1.5rem,3vw,2.5rem) auto 0; border-radius: var(--r-lg); overflow: hidden; box-shadow: 0 28px 56px -36px rgba(38,48,42,0.5); }
-.article-hero-img img { display: block; width: 100%; height: clamp(300px,40vw,480px); object-fit: cover; }
+.article-hero-img img { display: block; width: 100%; height: auto; }
 
 .article-body { padding: clamp(2.5rem,5vw,4rem) 0; }
 .prose { max-width: 720px; margin: 0 auto; font-size: 1.16rem; line-height: 1.75; color: var(--ink); }

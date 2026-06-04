@@ -120,5 +120,8 @@
 }
 @media (max-width: 640px) {
   .steps { grid-template-columns: 1fr; }
+  .testi-card { padding: 1.4rem; }
+  .testi-mark { font-size: 3rem; }
+  .testi-slider { margin-left: -4vw; margin-right: -4vw; padding: 0 4vw; }
   .blog-grid { grid-template-columns: 1fr; }
 }

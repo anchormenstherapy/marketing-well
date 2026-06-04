@@ -25,11 +25,15 @@
   // Mobile Services dropdown toggle
   var dropdown = document.querySelector('.nav-dropdown');
   if (dropdown) {
-    dropdown.querySelector(':scope > a').addEventListener('click', function (e) {
-      if (window.innerWidth <= 760) {
-        e.preventDefault();
-        dropdown.classList.toggle('open');
-      }
+    var dropLink = dropdown.querySelector(':scope > a');
+    dropLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      dropdown.classList.toggle('open');
+    });
+    // On desktop, allow hover behavior and prevent click from doing nothing
+    dropLink.addEventListener('mouseenter', function () {
+      if (window.innerWidth > 760) dropdown.classList.remove('open');
     });
   }
 
