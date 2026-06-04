@@ -133,8 +133,7 @@
   display: flex; flex-direction: column;
 }
 .cs-index-card:hover { transform: translateY(-5px); box-shadow: 0 24px 46px -30px rgba(38,48,42,0.4); }
-.cs-index-thumb { height: 200px; background: linear-gradient(135deg, var(--pale) 0%, color-mix(in srgb, var(--sage) 38%, var(--surface)) 100%); position: relative; }
-.cs-index-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.cs-index-thumb { display: none; }
 .cs-index-body { padding: 1.6rem; flex: 1; display: flex; flex-direction: column; }
 .cs-index-body h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
 .cs-index-body p { color: var(--ink-2); font-size: 0.98rem; margin-bottom: 1rem; flex: 1; }

@@ -22,6 +22,17 @@
     });
   }
 
+  // Mobile Services dropdown toggle
+  var dropdown = document.querySelector('.nav-dropdown');
+  if (dropdown) {
+    dropdown.querySelector(':scope > a').addEventListener('click', function (e) {
+      if (window.innerWidth <= 760) {
+        e.preventDefault();
+        dropdown.classList.toggle('open');
+      }
+    });
+  }
+
   document.querySelectorAll('.faq-q').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var item = btn.closest('.faq-item');

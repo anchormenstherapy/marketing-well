@@ -71,7 +71,7 @@
 .testi-slider { max-width: 920px; margin: clamp(2rem,4vw,3rem) auto 0; position: relative; overflow: hidden; }
 .testi-track { display: flex; transition: transform 0.45s ease; }
 .testi-slide { min-width: 100%; flex-shrink: 0; }
-.testi-slide .testi-card { margin: 0; box-shadow: none; overflow: hidden; word-wrap: break-word; }
+.testi-slide .testi-card { margin: 0; box-shadow: none; overflow: hidden; word-wrap: break-word; max-width: 100%; }
 .testi-nav { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1.8rem; }
 .testi-prev, .testi-next {
   width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line-2);
