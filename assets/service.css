@@ -61,7 +61,7 @@
   position: relative; box-shadow: 0 30px 60px -40px rgba(38,48,42,0.45);
 }
 .testi-mark { font-family: var(--serif); font-size: 6rem; line-height: 0.7; color: var(--accent); opacity: 0.28; height: 0.5em; display: block; }
-.testi-quote { font-size: clamp(1.15rem, 1.9vw, 1.45rem); line-height: 1.55; color: var(--ink); font-family: var(--serif); font-weight: var(--serif-w); text-wrap: pretty; margin-bottom: 1.8rem; }
+.testi-quote { font-size: 1rem; line-height: 1.65; color: var(--ink); font-family: var(--sans); font-weight: 400; text-wrap: pretty; margin-bottom: 1.8rem; }
 .testi-author { display: flex; align-items: center; gap: 1rem; }
 .testi-author img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
 .testi-author .n { font-weight: 700; font-size: 1.05rem; }
@@ -71,7 +71,7 @@
 .testi-slider { max-width: 920px; margin: clamp(2rem,4vw,3rem) auto 0; position: relative; overflow: hidden; }
 .testi-track { display: flex; transition: transform 0.45s ease; }
 .testi-slide { min-width: 100%; flex-shrink: 0; }
-.testi-slide .testi-card { margin: 0; box-shadow: none; }
+.testi-slide .testi-card { margin: 0; box-shadow: none; overflow: hidden; word-wrap: break-word; }
 .testi-nav { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1.8rem; }
 .testi-prev, .testi-next {
   width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line-2);
@@ -96,7 +96,7 @@
   display: flex; flex-direction: column;
 }
 .blog-card:hover { transform: translateY(-5px); box-shadow: 0 24px 46px -30px rgba(38,48,42,0.4); border-color: var(--line-2); }
-.blog-thumb { height: 92px; background: linear-gradient(135deg, var(--pale) 0%, color-mix(in srgb, var(--sage) 38%, var(--surface)) 100%); position: relative; }
+.blog-thumb { height: 180px; background: linear-gradient(135deg, var(--pale) 0%, color-mix(in srgb, var(--sage) 38%, var(--surface)) 100%); position: relative; }
 .blog-thumb img { width: 100%; height: 100%; object-fit: cover; }
 .blog-tag { position: absolute; left: 1rem; bottom: 1rem; white-space: nowrap; background: var(--surface); color: var(--sage-2); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.35em 0.8em; border-radius: var(--r-pill); }
 .blog-body { padding: 1.4rem 1.4rem 1.6rem; display: flex; flex-direction: column; flex: 1; }
@@ -112,7 +112,7 @@
 
 @media (max-width: 980px) {
   .svc-hero-grid { grid-template-columns: 1fr; }
-  .svc-hero-media { order: -1; }
+  /* text first on mobile, image below */
   .narrative-grid { grid-template-columns: 1fr; }
   .narrative-aside { position: static; }
   .steps { grid-template-columns: 1fr 1fr; }
