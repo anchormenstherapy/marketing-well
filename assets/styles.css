@@ -375,3 +375,4 @@ img { max-width: 100%; height: auto; display: block; }
 .reveal.in { animation: mwRise 0.7s ease both; }
 @keyframes mwRise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .reveal.in { animation: none; } }
+
