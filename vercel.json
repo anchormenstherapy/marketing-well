@@ -1,0 +1,28 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/assets/:path*",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ],
+  "redirects": [
+    { "source": "/home-2", "destination": "/", "permanent": true },
+    { "source": "/registration", "destination": "/", "permanent": true },
+    { "source": "/registration-success", "destination": "/", "permanent": true },
+    { "source": "/reset-password", "destination": "/", "permanent": true },
+    { "source": "/confirmation", "destination": "/", "permanent": true },
+    { "source": "/all-courses", "destination": "/", "permanent": true },
+    { "source": "/training", "destination": "/", "permanent": true },
+    { "source": "/therapist-growth-accelerator", "destination": "/", "permanent": true },
+    { "source": "/tga-established-therapists", "destination": "/", "permanent": true },
+    { "source": "/courses/:path*", "destination": "/", "permanent": true },
+    { "source": "/lessons/:path*", "destination": "/", "permanent": true },
+    { "source": "/topics/:path*", "destination": "/", "permanent": true },
+    { "source": "/category/:path*", "destination": "/blog", "permanent": true },
+    { "source": "/author/:path*", "destination": "/about-me", "permanent": true }
+  ]
+}
