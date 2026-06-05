@@ -159,7 +159,7 @@ img{max-width:100%;height:auto;display:block}
       <h3>Send a message</h3>
       <p class="sub">Fill out the form below and I'll get back to you within one business day.</p>
 
-      <form onsubmit="return false">
+      <form id="contactForm">
         <div class="form-row two">
           <div class="form-row">
             <label for="c-name">Full Name</label>
@@ -188,8 +188,46 @@ img{max-width:100%;height:auto;display:block}
           <label for="c-message">Message</label>
           <textarea id="c-message" name="message" placeholder="Tell me a bit about your practice and what you're looking for..." required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Send Message <span class="arr">&rarr;</span></button>
+        <button type="submit" class="btn btn-primary" id="contactSubmit">Send Message <span class="arr">&rarr;</span></button>
+        <div id="contactStatus" style="margin-top:1rem;font-size:0.95rem;display:none"></div>
       </form>
+      <script>
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+          e.preventDefault();
+          var btn = document.getElementById('contactSubmit');
+          var status = document.getElementById('contactStatus');
+          btn.disabled = true;
+          btn.textContent = 'Sending...';
+          status.style.display = 'none';
+          try {
+            var res = await fetch('/api/contact', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                name: document.getElementById('c-name').value,
+                email: document.getElementById('c-email').value,
+                practice: document.getElementById('c-practice').value,
+                service: document.getElementById('c-service').value,
+                message: document.getElementById('c-message').value
+              })
+            });
+            if (res.ok) {
+              status.style.display = 'block';
+              status.style.color = 'var(--sage-2)';
+              status.textContent = 'Message sent! I\'ll get back to you within one business day.';
+              document.getElementById('contactForm').reset();
+            } else {
+              throw new Error();
+            }
+          } catch (err) {
+            status.style.display = 'block';
+            status.style.color = 'var(--accent)';
+            status.textContent = 'Something went wrong. Please email jordan@marketingwell.ca directly.';
+          }
+          btn.disabled = false;
+          btn.innerHTML = 'Send Message <span class="arr">&rarr;</span>';
+        });
+      </script>
 
       <div class="book-divider">or book instantly</div>
       <a href="https://calendly.com/jordan-marketing-well" target="_blank" rel="noopener" class="btn btn-ghost" style="width:100%;justify-content:center">Schedule on Calendly <span class="arr">&rarr;</span></a>
