@@ -14,11 +14,21 @@
       toggle.classList.toggle('open');
       links.classList.toggle('open');
     });
-    // Close mobile menu when a real page link is clicked (not the Services toggle)
+
+    // Close mobile menu only when clicking actual page navigation links
+    // (not the Services toggle or dropdown sub-items on mobile)
     links.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', function () {
-        // Don't close menu if this is the Services dropdown toggle
-        if (a.parentElement.classList.contains('nav-dropdown')) return;
+        // Skip if this link is inside the dropdown (toggle or sub-items)
+        if (a.closest('.nav-dropdown')) return;
+        toggle.classList.remove('open');
+        links.classList.remove('open');
+      });
+    });
+
+    // Close menu when a dropdown sub-item is clicked (it navigates to a page)
+    links.querySelectorAll('.nav-dropdown-menu a').forEach(function (a) {
+      a.addEventListener('click', function () {
         toggle.classList.remove('open');
         links.classList.remove('open');
       });
@@ -30,11 +40,9 @@
   if (dropdown) {
     var dropLink = dropdown.querySelector(':scope > a');
     dropLink.addEventListener('click', function (e) {
-      if (window.innerWidth <= 760) {
-        e.preventDefault();
-        e.stopPropagation();
-        dropdown.classList.toggle('open');
-      }
+      e.preventDefault();
+      e.stopPropagation();
+      dropdown.classList.toggle('open');
     });
   }
 
