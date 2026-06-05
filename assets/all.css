@@ -387,7 +387,7 @@ img { max-width: 100%; height: auto; display: block; }
   }
   .nav-links.open { opacity: 1; pointer-events: auto; }
   .nav-links a {
-    font-size: 1.3rem; padding: 0.7em 0; font-weight: 500;
+    font-size: 1.3rem; padding: 0.35em 0; font-weight: 500;
     color: var(--ink); text-align: center;
   }
   .nav-links a.active { color: var(--sage-2); }
