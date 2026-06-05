@@ -14,8 +14,11 @@
       toggle.classList.toggle('open');
       links.classList.toggle('open');
     });
+    // Close mobile menu when a real page link is clicked (not the Services toggle)
     links.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', function () {
+        // Don't close menu if this is the Services dropdown toggle
+        if (a.parentElement.classList.contains('nav-dropdown')) return;
         toggle.classList.remove('open');
         links.classList.remove('open');
       });
@@ -27,13 +30,11 @@
   if (dropdown) {
     var dropLink = dropdown.querySelector(':scope > a');
     dropLink.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      dropdown.classList.toggle('open');
-    });
-    // On desktop, allow hover behavior and prevent click from doing nothing
-    dropLink.addEventListener('mouseenter', function () {
-      if (window.innerWidth > 760) dropdown.classList.remove('open');
+      if (window.innerWidth <= 760) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
+      }
     });
   }
 
