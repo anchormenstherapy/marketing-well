@@ -65,9 +65,8 @@
     });
   }
 
-  // Testimonial slider
+  // Testimonial slider — simple fade show/hide
   document.querySelectorAll('.testi-slider').forEach(function (slider) {
-    var track = slider.querySelector('.testi-track');
     var slides = slider.querySelectorAll('.testi-slide');
     var dotsWrap = slider.querySelector('.testi-dots');
     var prev = slider.querySelector('.testi-prev');
@@ -75,6 +74,10 @@
     var current = 0;
     var total = slides.length;
 
+    // Show first slide
+    if (slides[0]) slides[0].classList.add('active');
+
+    // Create dots
     slides.forEach(function (_, i) {
       var dot = document.createElement('button');
       dot.className = 'testi-dot' + (i === 0 ? ' active' : '');
@@ -84,8 +87,9 @@
     });
 
     function goTo(i) {
+      slides[current].classList.remove('active');
       current = i;
-      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      slides[current].classList.add('active');
       var dots = dotsWrap.querySelectorAll('.testi-dot');
       dots.forEach(function (d, j) { d.classList.toggle('active', j === current); });
     }
