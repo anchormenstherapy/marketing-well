@@ -393,19 +393,8 @@ img { max-width: 100%; height: auto; display: block; }
   .nav-links a.active { color: var(--sage-2); }
   .nav-toggle { z-index: 110; position: relative; }
 
-  /* Mobile: hide Services label, show sub-items flat */
-  .nav-dropdown { display: contents; }
-  .nav-dropdown > a { display: none !important; }
-  .nav-dropdown-menu {
-    display: contents !important;
-    position: static; transform: none;
-    background: none; border: none; box-shadow: none; padding: 0; margin: 0; min-width: 0;
-    opacity: 1; visibility: visible; max-height: none;
-  }
-  .nav-dropdown-menu a {
-    padding: 0.7em 0; font-size: 1.3rem; text-align: center;
-    font-family: var(--serif); font-weight: 500; color: var(--ink) !important;
-  }
+  /* Mobile: hide entire Services dropdown */
+  .nav-dropdown { display: none !important; }
 
   /* Who I work with — one per line on mobile */
   .serve-list { flex-direction: column; align-items: center; gap: 0.5rem; }
