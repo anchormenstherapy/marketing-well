@@ -393,8 +393,9 @@ img { max-width: 100%; height: auto; display: block; }
   .nav-links a.active { color: var(--sage-2); }
   .nav-toggle { z-index: 110; position: relative; }
 
-  /* Mobile: hide entire Services dropdown */
+  /* Mobile: hide dropdown, show flat service links */
   .nav-dropdown { display: none !important; }
+  .mobile-only { display: block !important; }
 
   /* Who I work with — one per line on mobile */
   .serve-list { flex-direction: column; align-items: center; gap: 0.5rem; }

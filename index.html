@@ -51,7 +51,7 @@ img{max-width:100%;height:auto;display:block}
 .reveal{opacity:1}
 .testi-slide{display:none}.testi-slide.active{display:block}
 @media(max-width:980px){.hero-grid{grid-template-columns:1fr}}
-@media(max-width:760px){body{font-size:17px}.nav-links{position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100vh;background:#F8F2EC;flex-direction:column;align-items:center;justify-content:center;padding:2rem;gap:.4rem;z-index:100;opacity:0;pointer-events:none;transition:opacity .3s ease}.nav-links.open{opacity:1;pointer-events:auto}.nav-toggle{display:block}.nav-dropdown{display:none!important}}
+@media(max-width:760px){body{font-size:17px}.nav-links{position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100vh;background:#F8F2EC;flex-direction:column;align-items:center;justify-content:center;padding:2rem;gap:.4rem;z-index:100;opacity:0;pointer-events:none;transition:opacity .3s ease}.nav-links.open{opacity:1;pointer-events:auto}.nav-toggle{display:block}.mobile-only{display:block!important}.nav-dropdown{display:none!important}}
 </style>
 <link rel="preload" href="/assets/all.css" as="style">
 <link href="/assets/all.css" rel="stylesheet" media="print" onload="this.media='all'">
@@ -70,6 +70,7 @@ img{max-width:100%;height:auto;display:block}
       <a href="/" class="active">Home</a>
       <a href="/about-me">About</a>
       <div class="nav-dropdown"><a href="#">Services</a><div class="nav-dropdown-menu"><a href="/therapist-web-design">Web Design</a><a href="/google-ads-therapists">Google Ads</a><a href="/therapy-seo">SEO</a><a href="/consulting">Consulting</a></div></div>
+      <a href="/therapist-web-design" class="mobile-only">Web Design</a><a href="/google-ads-therapists" class="mobile-only">Google Ads</a><a href="/therapy-seo" class="mobile-only">SEO</a><a href="/consulting" class="mobile-only">Consulting</a>
       <a href="/case-studies">Case Studies</a>
       <a href="/blog">Blog</a>
       <a href="/contact-me">Contact</a>
