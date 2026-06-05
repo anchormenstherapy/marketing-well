@@ -393,26 +393,19 @@ img { max-width: 100%; height: auto; display: block; }
   .nav-links a.active { color: var(--sage-2); }
   .nav-toggle { z-index: 110; position: relative; }
 
-  /* Mobile: collapse dropdown — click to expand */
+  /* Mobile: hide Services label, show sub-items flat */
+  .nav-dropdown { display: contents; }
+  .nav-dropdown > a { display: none !important; }
   .nav-dropdown-menu {
+    display: contents !important;
     position: static; transform: none;
     background: none; border: none; box-shadow: none; padding: 0; margin: 0; min-width: 0;
-    max-height: 0; overflow: hidden; opacity: 0;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 1; visibility: visible; max-height: none;
   }
-  .nav-dropdown.open .nav-dropdown-menu { max-height: 300px; opacity: 1; }
-  .nav-dropdown-menu a { padding: 0.4em 0; font-size: 1.1rem; text-align: center; font-family: var(--serif); color: var(--ink) !important; }
-  .nav-dropdown > a {
-    font-size: 1.3rem; font-weight: 500; color: var(--ink); padding: 0.7em 0;
-    display: flex; align-items: center; justify-content: center; gap: 0.5em;
+  .nav-dropdown-menu a {
+    padding: 0.7em 0; font-size: 1.3rem; text-align: center;
+    font-family: var(--serif); font-weight: 500; color: var(--ink) !important;
   }
-  .nav-dropdown > a::after {
-    content: ""; width: 8px; height: 8px;
-    border-right: 2px solid var(--sage-2); border-bottom: 2px solid var(--sage-2);
-    transform: rotate(45deg); transition: transform 0.3s ease; display: inline-block;
-    position: static; background: none;
-  }
-  .nav-dropdown.open > a::after { transform: rotate(-135deg); }
 
   /* Who I work with — one per line on mobile */
   .serve-list { flex-direction: column; align-items: center; gap: 0.5rem; }
