@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Dynamic <base> so relative asset paths resolve on any host/subpath (GitHub Pages, etc.) — KEEP THIS -->
 <script>(function(){var b=document.createElement('base'),p=location.pathname;if(p.endsWith('.html'))p=p.replace(/\/[^/]*$/,'/');else if(!p.endsWith('/'))p+='/';b.href=p;document.head.appendChild(b);})()</script>
 <title>Inspire Wellness Therapy — Modern Minimal</title>
 <link rel="stylesheet" href="_ds/marketing-well-core-design-system-2f2c2c66-b140-455f-9838-0f4a465d1163/styles.css" />
@@ -72,18 +73,33 @@
   .mm-mbs__col p { color: var(--text-soft); font-size: 15.5px; line-height: 1.7; margin: 14px 0 0; }
 
   /* services pillars */
-  .mm-pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 58px; }
-  @media (max-width: 760px) { .mm-pillars { grid-template-columns: 1fr; } }
-  .mm-pillar { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 40px; display: flex; gap: 28px; align-items: flex-start; transition: transform .25s, box-shadow .25s, border-color .25s; box-shadow: var(--shadow-card); }
+  .mm-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 58px; }
+  @media (max-width: 940px) { .mm-pillars { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .mm-pillars { grid-template-columns: 1fr; } }
+  .mm-pillar { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 34px 30px 32px; display: flex; flex-direction: column; gap: 14px; align-items: flex-start; transition: transform .25s, box-shadow .25s, border-color .25s; box-shadow: var(--shadow-card); } .25s, border-color .25s; box-shadow: var(--shadow-card); }
   .mm-pillar:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: transparent; }
-  @media (max-width: 500px) { .mm-pillar { flex-direction: column; gap: 18px; padding: 30px 26px; } }
-  .mm-pillar__n { font-family: var(--font-display); font-weight: 600; font-size: 64px; line-height: .8; color: var(--accent); flex: none; }
+  @media (max-width: 500px) { .mm-pillar { padding: 30px 26px; } }
+  .mm-pillar__n { font-family: var(--font-display); font-weight: 600; font-size: 46px; line-height: .8; color: var(--accent); flex: none; }
   .mm-pillar h3 { font-family: var(--font-display); font-weight: 600; font-size: 28px; color: var(--brand-strong); margin: 0 0 10px; }
   .mm-pillar p { color: var(--text-soft); font-size: 16px; line-height: 1.65; margin: 0 0 14px; }
   .mm-pillar__tags { font-size: 12.5px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); }
   .mm-assess { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; justify-content: center; }
   .mm-assess b { font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--text-muted); }
   .mm-assess span { font-size: 14px; font-weight: 600; color: var(--brand); background: var(--brand-soft); border-radius: 999px; padding: 7px 15px; }
+
+  /* CTA band — plum/lavender, cream text */
+  .mm-ctaband { position: relative; overflow: hidden; padding: 104px 0; text-align: center;
+    background: linear-gradient(135deg, #8a6d85 0%, #6f5569 100%); }
+  .mm-ctaband__glow { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 120% at 50% -10%, rgba(255,255,255,.16), transparent 60%); pointer-events: none; }
+  .mm-ctaband__in { position: relative; z-index: 1; max-width: 720px; }
+  .mm-ctaband h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(32px, 4vw, 48px); line-height: 1.1; color: #FBF7F1; margin: 0; letter-spacing: -.015em; }
+  .mm-ctaband h2 em { font-style: italic; color: #F0E4ED; }
+  .mm-ctaband p { color: rgba(251,247,241,.88); font-size: 18px; line-height: 1.65; max-width: 600px; margin: 18px auto 34px; }
+  .mm-ctaband__btn { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; background: #FBF7F1; color: #6f5569; font-family: var(--font-body); font-weight: 600; font-size: 16px; padding: 16px 32px; border-radius: 999px; box-shadow: 0 6px 22px rgba(60,40,56,.28); transition: transform .2s var(--ease-out), box-shadow .2s var(--ease-out); }
+  .mm-ctaband__btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(60,40,56,.34); }
+  .mm-ctaband__btn svg { transition: transform .2s var(--ease-out); }
+  .mm-ctaband__btn:hover svg { transform: translateX(4px); }
+  @media (max-width: 700px) { .mm-ctaband { padding: 72px 0; } }
 
   /* process */
   .mm-proc { background: var(--bg-alt); border-block: 1px solid var(--line); }

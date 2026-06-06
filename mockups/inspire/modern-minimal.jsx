@@ -5,7 +5,7 @@ const I = window.IWIcons;
 const D = window.IW;
 const BOOK = D.booking;
 const PILLAR_SUB = { Mind: "clarity & understanding", Body: "safety & regulation", Soul: "meaning & connection" };
-const SPEC_ICON = { flower: I.flower, cloud: I.cloud, shield: I.shield, zap: I.zap, repeat: I.repeat, heart: I.heart, leaf: I.leaf, users: I.users, sprout: I.sprout, child: I.child, home: I.home, sparkle: I.sparkle };
+const SPEC_ICON = { flower: I.flower, cloud: I.cloud, shield: I.shield, zap: I.zap, repeat: I.repeat, heart: I.heart, leaf: I.leaf, users: I.users, sprout: I.sprout, child: I.child, home: I.home, sparkle: I.sparkle, compass: I.compass, user: I.user, wind: I.wind, rainbow: I.rainbow };
 
 function Book({ children, variant = "primary", size = "lg" }) {
   return <Button variant={variant} size={size} href={BOOK} target="_blank" rel="noopener" arrow>{children}</Button>;
@@ -65,7 +65,7 @@ function Hero() {
       <div className="mm-wrap mm-hero__in">
         <p className="mm-hero__eyebrow">Counselling &amp; therapy · Calgary, Alberta</p>
         <h1>Healing for the<br /><em>whole</em> you.</h1>
-        <p className="mm-hero__sub">Holistic, evidence-based therapy for children, teens, women, men, and couples — plus assessments, coaching, and Reiki. Mind, body, and soul.</p>
+        <p className="mm-hero__sub">Holistic, evidence-based therapy for children, teens, women, men, and couples, plus assessments, coaching, and Reiki. Mind, body, and soul.</p>
         <div className="mm-hero__cta">
           <Book>Book a free 15-minute call</Book>
           <span className="mm-hero__note">No pressure, no commitment · Most clients seen within 1 week</span>
@@ -91,7 +91,7 @@ function MindBodySoul() {
           <Flourish />
           <p className="mm-shead__eyebrow">Our approach</p>
           <h2>We don't treat a symptom. We care for <em>a whole person.</em></h2>
-          <p className="mm-lede">Your mind, your body, and your sense of self are not separate problems. We work with all three — so the change actually holds.</p>
+          <p className="mm-lede">Your mind, your body, and your sense of self are not separate problems. We work with all three, so the change actually holds.</p>
         </div>
         <div className="mm-mbs__grid">
           {D.pillars.map((p) => (
@@ -114,7 +114,7 @@ function Services() {
         <div className="mm-shead center">
           <Flourish />
           <p className="mm-shead__eyebrow">What we offer</p>
-          <h2>Four ways we <em>help you forward</em></h2>
+          <h2>Six ways we <em>help you forward</em></h2>
         </div>
         <div className="mm-pillars">
           {D.servicePillars.map((s, i) => (
@@ -123,7 +123,6 @@ function Services() {
               <div>
                 <h3>{s.title}</h3>
                 <p>{s.desc}</p>
-                <div className="mm-pillar__tags">{s.tags}</div>
               </div>
             </article>
           ))}
@@ -132,6 +131,22 @@ function Services() {
           <b>Assessments for</b>
           {D.assessments.map((a) => <span key={a}>{a}</span>)}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function CTABand() {
+  return (
+    <section className="mm-ctaband">
+      <div className="mm-ctaband__glow" aria-hidden="true"></div>
+      <div className="mm-wrap mm-ctaband__in">
+        <h2>Not sure where to start? <em>That's okay.</em></h2>
+        <p>A free 15-minute call is the easiest first step. No pressure, no commitment, just a chance to see if we're the right fit for what you're carrying.</p>
+        <a className="mm-ctaband__btn" href={BOOK} target="_blank" rel="noopener">
+          Book a free 15-minute call
+          <I.arrowRight size={18} />
+        </a>
       </div>
     </section>
   );
@@ -226,7 +241,7 @@ function Team() {
           <Flourish />
           <p className="mm-shead__eyebrow">The team</p>
           <h2>Meet the people behind <em>your care</em></h2>
-          <p className="mm-lede">Psychologists, counsellors, social workers, a wellness coach and Reiki practitioners — a multidisciplinary team in Calgary, so you can find genuinely the right fit.</p>
+          <p className="mm-lede">Psychologists, counsellors, social workers, a wellness coach and Reiki practitioners, a multidisciplinary team in Calgary, so you can find genuinely the right fit.</p>
         </div>
         <div className="mm-team__grid">
           {D.team.map((p) => <TeamCard p={p} key={p.name} />)}
@@ -344,7 +359,7 @@ function Footer() {
 function App() {
   return (
     <div className="theme-slate mm">
-      <Header /><Hero /><MindBodySoul /><Services /><Specializations /><Process />
+      <Header /><Hero /><MindBodySoul /><Services /><CTABand /><Specializations /><Process />
       <Founder /><Team /><FaqContact /><FinalCta />
       <Footer />
     </div>
