@@ -45,7 +45,7 @@ function Header() {
   return (
     <header className="mm-header">
       <div className="mm-wrap mm-header__in">
-        <span className="mm-brand"><I.leaf size={21} />Inspire Wellness Therapy</span>
+        <a className="mm-brand" href="#top" aria-label="Inspire Wellness Therapy"><img src={D.img.logoCream} alt="Inspire Wellness Therapy" /></a>
         <nav className="mm-nav">
           {NAV.map((n) => (
             <a key={n.id} href={"#" + n.id} className={active === n.id ? "is-active" : ""}>{n.label}</a>
@@ -326,7 +326,7 @@ function Footer() {
       <div className="mm-wrap">
         <div className="mm-foot__grid">
           <div>
-            <p className="mm-foot__brand"><I.leaf size={22} />Inspire Wellness Therapy</p>
+            <p className="mm-foot__brand"><img src={D.img.logoCream} alt="Inspire Wellness Therapy" /></p>
             <p className="mm-foot__tag">{D.tagline}</p>
             <p style={{ fontSize: 14, color: "rgba(255,255,255,.6)", marginTop: 14, maxWidth: 320, lineHeight: 1.6 }}>{D.address[0]}, {D.address[1]} · {D.email}</p>
           </div>
