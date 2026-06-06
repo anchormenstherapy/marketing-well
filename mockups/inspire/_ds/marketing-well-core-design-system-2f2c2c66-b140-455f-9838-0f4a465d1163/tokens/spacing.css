@@ -1,0 +1,52 @@
+/* ============================================================
+   Marketing Well Core — Spacing, radii, shadow & layout tokens
+   ------------------------------------------------------------
+   Generous, airy rhythm — these are calm, breathing marketing
+   pages. Cards are softly rounded with low-contrast warm
+   shadows; controls are fully pill-shaped.
+   ============================================================ */
+
+:root {
+  /* ---- Spacing scale (4px base) ---- */
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-8:   32px;
+  --space-10:  40px;
+  --space-12:  48px;
+  --space-16:  64px;
+  --space-20:  80px;
+  --space-24:  92px;   /* default vertical section padding */
+  --space-32: 128px;
+
+  /* ---- Radii ---- */
+  --radius-sm:   10px;
+  --radius-md:   16px;
+  --radius-lg:   24px;
+  --radius-card: 18px;  /* the house card radius */
+  --radius-pill: 999px;
+
+  /* ---- Shadows (warm, low-contrast, ink-tinted) ---- */
+  --shadow-xs: 0 1px 2px rgba(38,70,83,.05);
+  --shadow-sm: 0 1px 2px rgba(38,70,83,.05), 0 6px 18px rgba(38,70,83,.06);
+  --shadow-md: 0 2px 6px rgba(38,70,83,.06), 0 18px 44px rgba(38,70,83,.10);
+  --shadow-lg: 0 6px 14px rgba(38,70,83,.08), 0 26px 56px rgba(38,70,83,.16);
+  --shadow-card: 0 1px 2px rgba(38,70,83,.04), 0 10px 26px rgba(38,70,83,.06);
+
+  /* ---- Layout ---- */
+  --container:      1180px;
+  --container-wide: 1280px;
+  --container-text: 720px;
+  --gutter:         32px;
+  --section-y:      var(--space-24);
+
+  /* ---- Motion ---- */
+  --ease-out:   cubic-bezier(.4,.1,.2,1); /* @kind other */
+  --ease-soft:  cubic-bezier(.6,.1,.2,1); /* @kind other */
+  --dur-fast:   .18s; /* @kind other */
+  --dur-base:   .25s; /* @kind other */
+  --dur-slow:   .7s; /* @kind other */
+}

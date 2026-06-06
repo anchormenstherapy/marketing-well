@@ -1,0 +1,150 @@
+/* ============================================================
+   Marketing Well Core — Color tokens
+   ------------------------------------------------------------
+   Two layers:
+   1. PALETTE  — raw brand ramps (sage / coral / teal / mint /
+                 slate / mauve) + warm neutrals. Named by hue so
+                 they read the same everywhere.
+   2. SEMANTIC — role aliases (--brand, --accent, --bg-page …).
+                 The default :root is the house "Sage" theme.
+                 Wrap any subtree in .theme-teal / .theme-slate
+                 to re-skin it to a different client palette
+                 without touching markup.
+   ============================================================ */
+
+:root {
+  /* ---- Warm neutrals (shared across every theme) ---- */
+  --cream:        #FEFAE0;   /* signature page wash */
+  --cream-50:     #FFFDF2;
+  --cream-100:    #FCF5D4;
+  --cream-300:    #EDE4BD;
+  --cream-400:    #C9BE8E;
+  --paper:        #fdfcf6;   /* warm white page bg */
+  --paper-warm:   #FFFDF2;   /* warm white surface / inputs */
+  --sand:         #f3ead2;   /* soft cream-sand for chips/lines */
+  --stone:        #D1D0CA;   /* warm grey hairline / borders */
+  --off-white:    #F8F6F2;   /* greige section wash */
+  --white:        #ffffff;
+  --ink:          #1a201c;   /* near-black warm ink for body text */
+
+  /* ---- Sage ramp — CK Mental Health primary ---- */
+  --sage-900:     #1f2a23;
+  --sage-800:     #2a3830;
+  --sage-700:     #36453C;   /* primary */
+  --sage-600:     #475a4f;
+  --sage-500:     #5b7164;
+  --sage-300:     #9aae9f;
+  --sage-100:     #dde3dc;
+  --sage-tint:    #eef1ec;
+
+  /* ---- Coral ramp — warm accent ---- */
+  --coral-700:    #b85a3d;
+  --coral-600:    #c96849;
+  --coral-500:    #D97757;   /* accent */
+  --coral-400:    #e08e74;
+  --coral-200:    #efc8b8;
+  --coral-100:    #f6e1d6;
+
+  /* ---- Teal ramp — Still Standing primary ---- */
+  --teal-900:     #1b3640;
+  --teal-800:     #264653;   /* deep teal primary */
+  --teal-600:     #247BA0;   /* secondary blue */
+  --teal-500:     #1f6b8c;
+  --teal-tint:    #e6f0f4;
+  --mint:         #94d2bd;   /* mint accent */
+  --mint-600:     #82c8b2;
+  --mint-tint:    #e7f4ef;
+  --teal-green:   #1f7d6e;   /* readable accent text on light */
+
+  /* ---- Slate ramp — Inspire Wellness primary ---- */
+  --slate-700:    #5b6480;
+  --slate-600:    #717A95;   /* muted slate primary */
+  --slate-400:    #9aa1b6;
+  --slate-tint:   #ecedf2;
+  --mauve:        #9A7C95;   /* dusty mauve accent */
+  --mauve-tint:   #efe7ed;
+
+  /* ---- Functional ---- */
+  --success:      #1f7d6e;
+  --danger:       #b85a3d;
+  --warning:      #c98a3d;
+
+  /* ============================================================
+     SEMANTIC — default house theme = SAGE (CK)
+     ============================================================ */
+  --bg-page:        var(--cream);
+  --bg-alt:         var(--cream-100);
+  --surface:        var(--white);
+  --surface-warm:   var(--paper-warm);
+  --surface-inset:  var(--off-white);
+
+  --brand:          var(--sage-700);
+  --brand-strong:   var(--sage-800);
+  --brand-deep:     var(--sage-900);
+  --brand-soft:     var(--sage-100);
+  --brand-tint:     var(--sage-tint);
+
+  --accent:         var(--coral-500);
+  --accent-strong:  var(--coral-600);
+  --accent-soft:    var(--coral-100);
+
+  --text:           var(--ink);
+  --text-soft:      color-mix(in srgb, var(--ink) 68%, transparent);
+  --text-muted:     color-mix(in srgb, var(--ink) 45%, transparent);
+  --text-on-brand:  var(--cream);
+  --text-on-accent: var(--white);
+
+  --line:           color-mix(in srgb, var(--sage-700) 15%, transparent);
+  --line-strong:    color-mix(in srgb, var(--sage-700) 30%, transparent);
+
+  --eyebrow:        var(--accent);
+  --focus-ring:     color-mix(in srgb, var(--sage-700) 22%, transparent);
+}
+
+/* ============================================================
+   THEME · SAGE  (CK Mental Health & Trauma Therapy Centre)
+   identical to default — provided so it can be named explicitly
+   ============================================================ */
+.theme-sage {
+  --bg-page: var(--cream); --bg-alt: var(--cream-100);
+  --brand: var(--sage-700); --brand-strong: var(--sage-800); --brand-deep: var(--sage-900);
+  --brand-soft: var(--sage-100); --brand-tint: var(--sage-tint);
+  --accent: var(--coral-500); --accent-strong: var(--coral-600); --accent-soft: var(--coral-100);
+  --text-on-brand: var(--cream);
+  --line: color-mix(in srgb, var(--sage-700) 15%, transparent);
+  --line-strong: color-mix(in srgb, var(--sage-700) 30%, transparent);
+  --eyebrow: var(--accent);
+  --focus-ring: color-mix(in srgb, var(--sage-700) 22%, transparent);
+}
+
+/* ============================================================
+   THEME · TEAL  (Still Standing Therapy)
+   ============================================================ */
+.theme-teal {
+  --bg-page: var(--paper); --bg-alt: var(--cream);
+  --surface-inset: var(--cream);
+  --brand: var(--teal-800); --brand-strong: var(--teal-900); --brand-deep: var(--teal-900);
+  --brand-soft: var(--teal-tint); --brand-tint: var(--teal-tint);
+  --accent: var(--mint); --accent-strong: var(--mint-600); --accent-soft: var(--mint-tint);
+  --text: #2c3a40; --text-on-brand: #ffffff; --text-on-accent: #15302a;
+  --line: color-mix(in srgb, var(--teal-800) 12%, transparent);
+  --line-strong: color-mix(in srgb, var(--teal-800) 26%, transparent);
+  --eyebrow: var(--teal-green);
+  --focus-ring: color-mix(in srgb, var(--teal-600) 28%, transparent);
+}
+
+/* ============================================================
+   THEME · SLATE  (Inspire Wellness Therapy)
+   ============================================================ */
+.theme-slate {
+  --bg-page: var(--off-white); --bg-alt: var(--white);
+  --surface-inset: var(--off-white);
+  --brand: var(--slate-600); --brand-strong: var(--slate-700); --brand-deep: var(--slate-700);
+  --brand-soft: var(--slate-tint); --brand-tint: var(--slate-tint);
+  --accent: var(--mauve); --accent-strong: #8a6d85; --accent-soft: var(--mauve-tint);
+  --text: var(--slate-600); --text-on-brand: #ffffff; --text-on-accent: #ffffff;
+  --line: color-mix(in srgb, var(--stone) 80%, transparent);
+  --line-strong: var(--stone);
+  --eyebrow: var(--mauve);
+  --focus-ring: color-mix(in srgb, var(--slate-600) 28%, transparent);
+}

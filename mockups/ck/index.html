@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CK Mental Health & Trauma Therapy Centre — Chatham-Kent, Ontario</title>
+<meta name="description" content="In-person & online therapy for individuals, couples, families & children in Chatham-Kent and across Ontario. Registered Psychotherapists. Direct billing available." />
+<meta name="robots" content="noindex, nofollow" />
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NQGJMKP');</script>
+<!-- End Google Tag Manager -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          sage: {
+            900: '#1f2a23',
+            800: '#2a3830',
+            700: '#36453C',     // primary
+            600: '#475a4f',
+            500: '#5b7164',
+            300: '#9aae9f',
+            100: '#dde3dc',
+          },
+          coral: {
+            700: '#b85a3d',
+            600: '#c96849',
+            500: '#D97757',     // accent
+            400: '#e08e74',
+            200: '#efc8b8',
+            100: '#f6e1d6',
+          },
+          cream: {
+            DEFAULT: '#FEFAE0',
+            50: '#FFFDF2',
+            100: '#FCF5D4',
+            200: '#FEFAE0',
+            300: '#EDE4BD',
+            400: '#C9BE8E',
+          },
+          ink: '#1a201c',
+        },
+        fontFamily: {
+          serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+          sans: ['Manrope', 'system-ui', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Manrope', system-ui, sans-serif; color: #1a201c; background:#FEFAE0; }
+  .font-serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .display { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; letter-spacing: -0.01em; line-height: 1.05; }
+  .eyebrow { font-family: 'Manrope', sans-serif; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; font-size: 11px; }
+
+  /* Subtle leaf-tree placeholder using CSS — used for hero bg overlay only */
+  .hero-bg {
+    background-color: #2a3830;
+    background-image:
+      radial-gradient(ellipse at 50% 0%, rgba(120, 150, 120, 0.45) 0%, transparent 55%),
+      radial-gradient(ellipse at 20% 80%, rgba(60, 90, 70, 0.55) 0%, transparent 50%),
+      radial-gradient(ellipse at 85% 70%, rgba(50, 80, 60, 0.5) 0%, transparent 55%),
+      linear-gradient(180deg, #36453C 0%, #2a3830 60%, #1f2a23 100%);
+  }
+
+  /* Curve at bottom of hero */
+  .hero-curve {
+    position: absolute; left: 0; right: 0; bottom: -1px; height: 80px;
+    background: #FEFAE0;
+    clip-path: ellipse(75% 100% at 50% 100%);
+  }
+
+  /* Card hover */
+  .spec-card { transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease, border-color .25s ease; }
+  .spec-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px -16px rgba(31,42,35,0.35); border-color: #36453C; }
+  .spec-card:hover .spec-icon-wrap { background: #36453C; color: #FEFAE0; }
+  .spec-card:hover .spec-arrow { transform: translateX(4px); opacity: 1; }
+  .spec-arrow { transition: transform .25s ease, opacity .25s ease; opacity: 0.5; }
+
+  .modality-tab { transition: background-color .2s ease, color .2s ease, border-color .2s ease; }
+  .modality-tab[aria-selected="true"] { background:#36453C; color:#FEFAE0; border-color:#36453C; }
+  .modality-tab[aria-selected="true"] .mod-num { color:#D97757; }
+
+  /* image placeholder pattern */
+  .ph {
+    background:
+      repeating-linear-gradient(135deg, rgba(54,69,60,0.08) 0 1px, transparent 1px 14px),
+      linear-gradient(180deg, #EDE4BD 0%, #D9CFA0 100%);
+    color: #36453C;
+    position: relative;
+    overflow: hidden;
+  }
+  .ph::after {
+    content: attr(data-label);
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #36453C; opacity: 0.72;
+    text-align: center; padding: 12px;
+  }
+  .ph-dark {
+    background:
+      repeating-linear-gradient(135deg, rgba(232,226,213,0.06) 0 1px, transparent 1px 14px),
+      linear-gradient(180deg, #475a4f 0%, #2a3830 100%);
+    color:#FEFAE0;
+  }
+  .ph-dark::after { color:#FEFAE0; opacity:.7; }
+
+  .form-input {
+    width: 100%; padding: 12px 14px; border: 1px solid #C9BE8E; background: #FFFDF2;
+    color: #1a201c; border-radius: 4px; font: inherit; transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  .form-input:focus { outline: none; border-color:#36453C; box-shadow: 0 0 0 3px rgba(54,69,60,0.15); }
+  .form-input.error { border-color:#b85a3d; background:#fbeee7; }
+
+  /* Sticky header */
+  .nav-shadow { box-shadow: 0 1px 0 rgba(31,42,35,0.08), 0 6px 24px -18px rgba(31,42,35,0.4); }
+
+  /* Modal */
+  .modal-backdrop { background: rgba(31,42,35,0.55); backdrop-filter: blur(4px); }
+  .modal-enter { animation: modalIn .25s ease both; }
+  @keyframes modalIn { from { opacity: 0; transform: translateY(8px) scale(.98);} to { opacity: 1; transform: none;} }
+
+  /* fade-in on scroll */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* Underlined link */
+  .ulink { position: relative; display: inline-flex; align-items: center; gap: 6px; }
+  .ulink::after {
+    content: ""; position: absolute; left: 0; right: 18px; bottom: -2px;
+    height: 1px; background: currentColor; transform: scaleX(1); transform-origin: left;
+    transition: transform .3s ease;
+  }
+  .ulink:hover::after { transform: scaleX(0.6); }
+
+  /* Map placeholder (location cards) */
+  .map-ph {
+    background:
+      linear-gradient(135deg, rgba(54,69,60,0.05), rgba(54,69,60,0.10)),
+      repeating-linear-gradient(45deg, #EDE4BD 0 12px, #DFCFA0 12px 24px);
+    position: relative;
+  }
+  .map-ph::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(90deg, transparent 49%, rgba(54,69,60,0.18) 50%, transparent 51%),
+      linear-gradient(0deg,  transparent 49%, rgba(54,69,60,0.18) 50%, transparent 51%);
+    background-size: 80px 80px, 80px 80px;
+    opacity: .6;
+  }
+  .map-pin {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -100%);
+  }
+
+  /* Therapist card frame */
+  .therapist-card { transition: transform .25s ease; }
+  .therapist-card:hover { transform: translateY(-3px); }
+  .therapist-card:hover .therapist-photo { filter: saturate(1.05) brightness(1.02); }
+  .therapist-photo { transition: filter .25s ease; }
+</style>
+</head>
+<body class="bg-cream">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NQGJMKP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ============== HEADER ============== -->
+<header id="site-header" class="fixed top-0 inset-x-0 z-40 transition-colors duration-300">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-3 group">
+      <span class="inline-flex w-10 h-10 rounded-full bg-cream items-center justify-center border border-sage-700/30">
+        <!-- mark: simple two-leaf shape -->
+        <svg viewBox="0 0 32 32" class="w-6 h-6" aria-hidden="true">
+          <path d="M16 4 C 9 9, 9 19, 16 28 C 23 19, 23 9, 16 4 Z" fill="#36453C"/>
+          <path d="M16 8 V 26" stroke="#FEFAE0" stroke-width="1.2"/>
+        </svg>
+      </span>
+      <span class="leading-tight">
+        <span class="block font-serif text-[18px] text-cream tracking-tight" data-nav-text>CK Mental Health</span>
+        <span class="block text-[10.5px] tracking-[0.18em] uppercase text-cream/70" data-nav-sub>& Trauma Therapy Centre</span>
+      </span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-7 text-[13.5px] font-medium" data-nav-links>
+      <a href="#specializations" class="text-cream/85 hover:text-cream">Specializations</a>
+      <a href="#modalities" class="text-cream/85 hover:text-cream">Modalities</a>
+      <a href="#therapists" class="text-cream/85 hover:text-cream">Therapists</a>
+      <a href="#locations" class="text-cream/85 hover:text-cream">Locations</a>
+      <a href="#contact" class="text-cream/85 hover:text-cream">Contact</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a href="tel:5198097971" class="hidden md:inline-flex items-center gap-2 text-[13px] text-cream/85 hover:text-cream pr-3" data-nav-phone>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+        519-809-7971
+      </a>
+      <button data-open-booking class="inline-flex items-center gap-2 px-4 py-2.5 bg-coral-500 hover:bg-coral-600 text-white text-[13px] font-semibold rounded-full shadow-sm transition-colors">
+        Book Now
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============== HERO ============== -->
+<section id="top" class="relative hero-bg text-cream overflow-hidden">
+  <!-- decorative tree silhouette placeholder -->
+  <div class="absolute inset-0 opacity-[0.18] pointer-events-none" aria-hidden="true">
+    <svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" class="w-full h-full">
+      <defs>
+        <radialGradient id="lg" cx="50%" cy="0%" r="60%">
+          <stop offset="0%" stop-color="#fffbe6" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#fffbe6" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="1440" height="800" fill="url(#lg)"/>
+    </svg>
+  </div>
+
+  <div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 pt-36 pb-44 lg:pt-44 lg:pb-56">
+    <div class="max-w-3xl">
+      <p class="eyebrow text-coral-200 mb-6">Chatham · Blenheim · Across Ontario</p>
+      <h1 class="display text-[44px] sm:text-[60px] lg:text-[76px] text-cream mb-7">
+        A grounded space to <em class="italic font-serif text-coral-200">feel,</em> heal, and grow.
+      </h1>
+      <p class="text-cream/85 text-[17px] sm:text-[18px] leading-relaxed max-w-2xl mb-10">
+        In-person &amp; online therapy for individuals, couples, families &amp; children in Chatham-Kent and across Ontario. A team of Registered Psychotherapists offering evidence-based, trauma-informed care.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-3">
+        <button data-open-booking class="inline-flex items-center gap-2 px-6 py-3.5 bg-coral-500 hover:bg-coral-600 text-white font-semibold rounded-full shadow-lg shadow-coral-900/20 transition-colors">
+          Book your first session
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+        <a href="#therapists" class="inline-flex items-center gap-2 px-6 py-3.5 border border-cream/40 hover:border-cream/80 text-cream font-medium rounded-full transition-colors">
+          Meet our therapists
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- inline trust ribbon under CTAs -->
+      <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-[12.5px] text-cream/70">
+        <span class="inline-flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-coral-400"></span> Free 15-min consultation</span>
+        <span class="inline-flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-coral-400"></span> Direct billing available</span>
+        <span class="inline-flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-coral-400"></span> Most clients seen within 1 week</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-curve" aria-hidden="true"></div>
+</section>
+
+<!-- ============== TRUST STRIP ============== -->
+<section aria-label="Trust" class="relative -mt-8 z-10">
+  <div class="max-w-[1180px] mx-auto px-6 lg:px-10">
+    <div class="bg-white/80 backdrop-blur border border-sage-700/15 rounded-2xl shadow-sm">
+      <div class="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-sage-700/12">
+        <div class="px-6 py-5 flex items-center gap-3">
+          <svg class="w-6 h-6 text-sage-700 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6"/><path d="M5 8v4a7 7 0 0 0 14 0V8"/><circle cx="12" cy="18" r="3"/></svg>
+          <div>
+            <div class="text-[11px] uppercase tracking-[0.16em] text-sage-700/70 font-semibold">Established</div>
+            <div class="text-sage-800 font-medium text-[14px]">Serving Ontario since 2020</div>
+          </div>
+        </div>
+        <div class="px-6 py-5 flex items-center gap-3">
+          <svg class="w-6 h-6 text-sage-700 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <div class="text-[11px] uppercase tracking-[0.16em] text-sage-700/70 font-semibold">Locations</div>
+            <div class="text-sage-800 font-medium text-[14px]">Chatham + Blenheim</div>
+          </div>
+        </div>
+        <div class="px-6 py-5 flex items-center gap-3">
+          <svg class="w-6 h-6 text-sage-700 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15c-3.866 0-7 2.239-7 5v2h14v-2c0-2.761-3.134-5-7-5z"/><circle cx="12" cy="8" r="4"/><path d="M19 6l1.5 1.5L23 5"/></svg>
+          <div>
+            <div class="text-[11px] uppercase tracking-[0.16em] text-sage-700/70 font-semibold">Credentialed</div>
+            <div class="text-sage-800 font-medium text-[14px]">Registered Psychotherapists</div>
+          </div>
+        </div>
+        <div class="px-6 py-5 flex items-center gap-3">
+          <svg class="w-6 h-6 text-sage-700 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg>
+          <div>
+            <div class="text-[11px] uppercase tracking-[0.16em] text-sage-700/70 font-semibold">Coverage</div>
+            <div class="text-sage-800 font-medium text-[14px]">Direct billing available</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SPECIALIZATIONS ============== -->
+<section id="specializations" class="py-24 lg:py-32">
+  <div class="max-w-[1180px] mx-auto px-6 lg:px-10">
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12 reveal">
+      <div class="max-w-2xl">
+        <p class="eyebrow text-coral-500 mb-4">What we treat</p>
+        <h2 class="display text-[40px] sm:text-[52px] text-sage-800">
+          Treatment <em class="italic">specializations.</em>
+        </h2>
+        <p class="text-sage-800/75 text-[16px] mt-4 max-w-xl">
+          Each of our therapists brings deep, evidence-based experience in specific areas of concern. Explore where you are — and find the support that fits.
+        </p>
+      </div>
+      <a href="#contact" class="ulink text-sage-700 font-semibold text-[14px]">
+        Not sure where to start? Talk to us
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div id="spec-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 reveal">
+      <!-- cards injected by JS -->
+    </div>
+
+    <p class="mt-6 text-[13px] text-sage-700/70 reveal">
+      Also supporting: Self Esteem · Emotional Regulation · Sexual Violence · Panic · Conflict · Identity & Personality Disorders · Addiction
+    </p>
+  </div>
+</section>
+
+<!-- ============== MODALITIES ============== -->
+<section id="modalities" class="bg-sage-700 text-cream py-24 lg:py-32 relative overflow-hidden">
+  <div class="absolute inset-0 opacity-[0.04] pointer-events-none" aria-hidden="true" style="background-image: radial-gradient(circle at 1px 1px, #FEFAE0 1px, transparent 0); background-size: 32px 32px;"></div>
+
+  <div class="relative max-w-[1180px] mx-auto px-6 lg:px-10">
+    <div class="max-w-2xl mb-14 reveal">
+      <p class="eyebrow text-coral-300 mb-4">How we work</p>
+      <h2 class="display text-[40px] sm:text-[52px] text-cream">
+        Treatment <em class="italic text-coral-200">modalities.</em>
+      </h2>
+      <p class="text-cream/75 text-[16px] mt-4">
+        We draw from multiple evidence-based frameworks — chosen and combined based on what you bring into the room.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-[360px_1fr] gap-8 lg:gap-12 reveal">
+      <!-- Tab list -->
+      <div role="tablist" aria-label="Treatment modalities" id="mod-tabs" class="flex flex-col gap-2">
+        <!-- injected -->
+      </div>
+
+      <!-- Detail panel -->
+      <div id="mod-panel" class="bg-sage-800/60 border border-cream/10 rounded-2xl p-8 lg:p-10 min-h-[340px]">
+        <!-- injected -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TEAM ============== -->
+<section id="therapists" class="py-24 lg:py-32">
+  <div class="max-w-[1180px] mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16 items-end mb-14">
+      <div class="reveal">
+        <p class="eyebrow text-coral-500 mb-4">The team</p>
+        <h2 class="display text-[40px] sm:text-[52px] text-sage-800">
+          Care from <em class="italic">people who get it.</em>
+        </h2>
+      </div>
+      <p class="text-sage-800/75 text-[16px] reveal">
+        Our team of passionate Registered Psychotherapists brings warmth, lived experience, and rigorous training to every session. Browse the team to find a fit — or let us recommend a match based on your needs.
+      </p>
+    </div>
+
+    <!-- Group photo placeholder -->
+    <div class="rounded-2xl aspect-[3/2] mb-12 reveal overflow-hidden bg-cream-300 max-w-4xl mx-auto">
+      <img src="https://marketingwell.ca/mockups/ck/images/team.webp"
+           alt="The CK Mental Health & Trauma Therapy Centre team"
+           loading="lazy"
+           class="w-full h-full object-cover" />
+    </div>
+
+    <div id="team-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-6 reveal">
+      <!-- therapist cards injected -->
+    </div>
+  </div>
+</section>
+
+<!-- ============== LOCATIONS ============== -->
+<section id="locations" class="py-24 lg:py-32 bg-cream-100">
+  <div class="max-w-[1180px] mx-auto px-6 lg:px-10">
+    <div class="max-w-2xl mb-12 reveal">
+      <p class="eyebrow text-coral-500 mb-4">Visit us</p>
+      <h2 class="display text-[40px] sm:text-[52px] text-sage-800">
+        Two locations, <em class="italic">one community.</em>
+      </h2>
+      <p class="text-sage-800/75 text-[16px] mt-4">
+        We meet clients where they are — in our Chatham and Blenheim offices, online from anywhere in Ontario, or a flexible combination of both.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- Chatham -->
+      <article class="bg-white border border-sage-700/15 rounded-2xl overflow-hidden reveal">
+        <div class="map-ph h-56 relative">
+          <div class="map-pin">
+            <svg width="38" height="46" viewBox="0 0 38 46" fill="none" aria-hidden="true">
+              <path d="M19 1C9.6 1 2 8.6 2 18c0 12 17 27 17 27s17-15 17-27c0-9.4-7.6-17-17-17z" fill="#D97757" stroke="#36453C" stroke-width="1.4"/>
+              <circle cx="19" cy="18" r="6" fill="#36453C"/>
+            </svg>
+          </div>
+          <div class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 bg-cream rounded-full text-[11px] font-semibold text-sage-800 border border-sage-700/15">
+            <span class="w-1.5 h-1.5 rounded-full bg-coral-500"></span> Main office
+          </div>
+        </div>
+        <div class="p-7">
+          <div class="flex items-baseline justify-between gap-3 mb-1">
+            <h3 class="font-serif text-[28px] text-sage-800 leading-tight">Chatham</h3>
+            <span class="text-[12px] text-sage-700/70">N7L 2Z9</span>
+          </div>
+          <p class="text-sage-700 font-medium">43 Victoria Avenue</p>
+          <p class="text-sage-700/70 text-[14px]">Chatham, Ontario</p>
+
+          <dl class="mt-5 pt-5 border-t border-sage-700/10 grid grid-cols-2 gap-y-2 text-[13.5px]">
+            <dt class="text-sage-700/70">Hours</dt>
+            <dd class="text-sage-800 font-medium">Mon–Fri · 8:30–7:00</dd>
+            <dt class="text-sage-700/70">Saturday</dt>
+            <dd class="text-sage-800 font-medium">By appointment</dd>
+            <dt class="text-sage-700/70">Parking</dt>
+            <dd class="text-sage-800 font-medium">Free on-site</dd>
+            <dt class="text-sage-700/70">Accessibility</dt>
+            <dd class="text-sage-800 font-medium">Ground floor</dd>
+          </dl>
+
+          <div class="mt-6 flex flex-wrap gap-2">
+            <a href="#" class="inline-flex items-center gap-1.5 px-4 py-2 bg-sage-700 text-cream text-[13px] font-semibold rounded-full hover:bg-sage-800 transition-colors">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Get directions
+            </a>
+            <button data-open-booking class="px-4 py-2 border border-sage-700/30 hover:border-sage-700 text-sage-700 text-[13px] font-semibold rounded-full transition-colors">
+              Book at Chatham
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Blenheim -->
+      <article class="bg-white border border-sage-700/15 rounded-2xl overflow-hidden reveal">
+        <div class="map-ph h-56 relative">
+          <div class="map-pin">
+            <svg width="38" height="46" viewBox="0 0 38 46" fill="none" aria-hidden="true">
+              <path d="M19 1C9.6 1 2 8.6 2 18c0 12 17 27 17 27s17-15 17-27c0-9.4-7.6-17-17-17z" fill="#36453C" stroke="#36453C" stroke-width="1.4"/>
+              <circle cx="19" cy="18" r="6" fill="#FEFAE0"/>
+            </svg>
+          </div>
+          <div class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 bg-cream rounded-full text-[11px] font-semibold text-sage-800 border border-sage-700/15">
+            <span class="w-1.5 h-1.5 rounded-full bg-sage-700"></span> Satellite office
+          </div>
+        </div>
+        <div class="p-7">
+          <div class="flex items-baseline justify-between gap-3 mb-1">
+            <h3 class="font-serif text-[28px] text-sage-800 leading-tight">Blenheim</h3>
+            <span class="text-[12px] text-sage-700/70">N0P 1A0</span>
+          </div>
+          <p class="text-sage-700 font-medium">2 Hyland Drive</p>
+          <p class="text-sage-700/70 text-[14px]">Blenheim, Ontario</p>
+
+          <dl class="mt-5 pt-5 border-t border-sage-700/10 grid grid-cols-2 gap-y-2 text-[13.5px]">
+            <dt class="text-sage-700/70">Hours</dt>
+            <dd class="text-sage-800 font-medium">Tue–Thu · 9:00–6:00</dd>
+            <dt class="text-sage-700/70">Saturday</dt>
+            <dd class="text-sage-800 font-medium">By appointment</dd>
+            <dt class="text-sage-700/70">Parking</dt>
+            <dd class="text-sage-800 font-medium">Free on-site</dd>
+            <dt class="text-sage-700/70">Accessibility</dt>
+            <dd class="text-sage-800 font-medium">Ground floor</dd>
+          </dl>
+
+          <div class="mt-6 flex flex-wrap gap-2">
+            <a href="#" class="inline-flex items-center gap-1.5 px-4 py-2 bg-sage-700 text-cream text-[13px] font-semibold rounded-full hover:bg-sage-800 transition-colors">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Get directions
+            </a>
+            <button data-open-booking class="px-4 py-2 border border-sage-700/30 hover:border-sage-700 text-sage-700 text-[13px] font-semibold rounded-full transition-colors">
+              Book at Blenheim
+            </button>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="mt-6 flex items-center gap-3 text-sage-700/75 text-[14px] reveal">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M2 9h20"/><path d="M7 14h2"/></svg>
+      <span>Prefer online? Virtual sessions available across Ontario — no driving required.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============== MISSION ============== -->
+<section class="py-24 lg:py-32 bg-cream relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-[40%] h-full opacity-[0.05] pointer-events-none" aria-hidden="true">
+    <svg viewBox="0 0 400 600" class="w-full h-full" preserveAspectRatio="xMidYMid slice">
+      <path d="M200 0 C 100 100, 100 300, 200 400 C 300 300, 300 100, 200 0Z" fill="#36453C"/>
+    </svg>
+  </div>
+
+  <div class="relative max-w-[1180px] mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-20 items-center">
+      <div class="reveal">
+        <p class="eyebrow text-coral-500 mb-4">Our mission</p>
+        <div class="h-[2px] w-16 bg-coral-500 mb-6"></div>
+        <p class="text-sage-700/70 text-[14px]">Established 2020</p>
+      </div>
+      <blockquote class="reveal">
+        <p class="display text-[34px] sm:text-[44px] lg:text-[48px] text-coral-600 leading-[1.15]">
+          To provide <em class="italic">individualized, evidence-based therapy</em> that supports healing, personal growth, resilience, and a more fulfilling life.
+        </p>
+        <footer class="mt-8 text-sage-800/80 text-[15px]">
+          — The CK Mental Health team
+        </footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CONTACT ============== -->
+<section id="contact" class="bg-sage-800 text-cream py-24 lg:py-32">
+  <div class="max-w-[1180px] mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+      <!-- Left intro -->
+      <div class="reveal">
+        <p class="eyebrow text-coral-300 mb-4">Get in touch</p>
+        <h2 class="display text-[40px] sm:text-[52px] text-cream mb-6">
+          Take the <em class="italic text-coral-200">first step.</em>
+        </h2>
+        <p class="text-cream/80 text-[16px] mb-8 max-w-md">
+          We're honored to accompany you on your healing journey. Our office secretary, Laura, will reach out within one business day to match you with a therapist and find a time that works.
+        </p>
+
+        <div class="space-y-5">
+          <div class="flex items-start gap-3">
+            <span class="inline-flex w-10 h-10 rounded-full bg-cream/8 items-center justify-center border border-cream/15 shrink-0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FEFAE0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+            </span>
+            <div>
+              <div class="text-[12px] uppercase tracking-[0.16em] text-cream/55">Phone</div>
+              <a href="tel:5198097971" class="text-cream font-medium text-[18px] hover:text-coral-200 transition-colors">519-809-7971</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="inline-flex w-10 h-10 rounded-full bg-cream/8 items-center justify-center border border-cream/15 shrink-0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FEFAE0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+            </span>
+            <div>
+              <div class="text-[12px] uppercase tracking-[0.16em] text-cream/55">Email</div>
+              <a href="/cdn-cgi/l/email-protection#e58481888c8ba5868e919784908884918d809784959c86808b919780cb8684" class="text-cream font-medium text-[16px] hover:text-coral-200 transition-colors break-all"><span class="__cf_email__" data-cfemail="19787d747077597a726d6b786c74786d717c6b7869607a7c776d6b7c377a78">[email&#160;protected]</span></a>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="inline-flex w-10 h-10 rounded-full bg-cream/8 items-center justify-center border border-cream/15 shrink-0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FEFAE0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </span>
+            <div>
+              <div class="text-[12px] uppercase tracking-[0.16em] text-cream/55">Typical reply</div>
+              <p class="text-cream font-medium text-[16px]">Within 1 business day</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 p-5 border border-coral-500/40 rounded-xl bg-coral-500/10">
+          <div class="flex items-center gap-2 mb-1">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="10"/></svg>
+            <span class="font-semibold text-coral-200">In crisis right now?</span>
+          </div>
+          <p class="text-cream/75 text-[13.5px]">
+            If you're in immediate danger, call <strong class="text-cream">911</strong> or contact <strong class="text-cream">9-8-8 Suicide Crisis Helpline</strong>. We are not a 24/7 service.
+          </p>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <form id="contact-form" novalidate class="bg-cream rounded-2xl p-7 lg:p-9 text-sage-800 reveal">
+        <h3 class="font-serif text-[28px] text-sage-800 mb-1">Connect with a therapist</h3>
+        <p class="text-sage-700/75 text-[14px] mb-6">All fields required. Your information is confidential.</p>
+
+        <div class="grid sm:grid-cols-2 gap-4 mb-4">
+          <label class="block">
+            <span class="block text-[12px] font-semibold text-sage-700 mb-1.5">First name</span>
+            <input name="first" type="text" required class="form-input" />
+          </label>
+          <label class="block">
+            <span class="block text-[12px] font-semibold text-sage-700 mb-1.5">Last name</span>
+            <input name="last" type="text" required class="form-input" />
+          </label>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4 mb-4">
+          <label class="block">
+            <span class="block text-[12px] font-semibold text-sage-700 mb-1.5">Email</span>
+            <input name="email" type="email" required class="form-input" />
+          </label>
+          <label class="block">
+            <span class="block text-[12px] font-semibold text-sage-700 mb-1.5">Phone</span>
+            <input name="phone" type="tel" required class="form-input" />
+          </label>
+        </div>
+
+        <div class="mb-4">
+          <span class="block text-[12px] font-semibold text-sage-700 mb-2">I'm looking for</span>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" data-pill-group>
+            <label class="block"><input type="radio" name="for" value="myself" class="sr-only peer" /><span class="block text-center px-3 py-2 border border-sage-700/25 rounded-full text-[13px] cursor-pointer peer-checked:bg-sage-700 peer-checked:text-cream peer-checked:border-sage-700">Myself</span></label>
+            <label class="block"><input type="radio" name="for" value="couple" class="sr-only peer" /><span class="block text-center px-3 py-2 border border-sage-700/25 rounded-full text-[13px] cursor-pointer peer-checked:bg-sage-700 peer-checked:text-cream peer-checked:border-sage-700">A couple</span></label>
+            <label class="block"><input type="radio" name="for" value="family" class="sr-only peer" /><span class="block text-center px-3 py-2 border border-sage-700/25 rounded-full text-[13px] cursor-pointer peer-checked:bg-sage-700 peer-checked:text-cream peer-checked:border-sage-700">My family</span></label>
+            <label class="block"><input type="radio" name="for" value="child" class="sr-only peer" /><span class="block text-center px-3 py-2 border border-sage-700/25 rounded-full text-[13px] cursor-pointer peer-checked:bg-sage-700 peer-checked:text-cream peer-checked:border-sage-700">My child</span></label>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <span class="block text-[12px] font-semibold text-sage-700 mb-2">Preferred format</span>
+          <div class="grid grid-cols-3 gap-2" data-pill-group>
+            <label class="block"><input type="radio" name="format" value="inperson" class="sr-only peer" /><span class="block text-center px-3 py-2 border border-sage-700/25 rounded-full text-[13px] cursor-pointer peer-checked:bg-sage-700 peer-checked:text-cream peer-checked:border-sage-700">In-person</span></label>
+            <label class="block"><input type="radio" name="format" value="online" class="sr-only peer" /><span class="block text-center px-3 py-2 border border-sage-700/25 rounded-full text-[13px] cursor-pointer peer-checked:bg-sage-700 peer-checked:text-cream peer-checked:border-sage-700">Online</span></label>
+            <label class="block"><input type="radio" name="format" value="either" class="sr-only peer" /><span class="block text-center px-3 py-2 border border-sage-700/25 rounded-full text-[13px] cursor-pointer peer-checked:bg-sage-700 peer-checked:text-cream peer-checked:border-sage-700">Either</span></label>
+          </div>
+        </div>
+
+        <label class="block mb-5">
+          <span class="block text-[12px] font-semibold text-sage-700 mb-1.5">A bit about what's bringing you in</span>
+          <textarea name="message" rows="4" required placeholder="Describe what's bringing you to therapy, and the best days/times to reach you." class="form-input resize-y"></textarea>
+        </label>
+
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <button type="submit" class="inline-flex items-center gap-2 px-6 py-3 bg-coral-500 hover:bg-coral-600 text-white font-semibold rounded-full transition-colors">
+            Send message
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </button>
+          <p class="text-[12px] text-sage-700/70">By submitting, you agree to be contacted by our team.</p>
+        </div>
+
+        <div id="form-success" class="hidden mt-5 p-4 rounded-lg bg-sage-700 text-cream text-[14px]">
+          ✓ Thanks — we've got your message. Laura will be in touch within one business day.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer class="bg-sage-900 text-cream/75 py-14">
+  <div class="max-w-[1180px] mx-auto px-6 lg:px-10">
+    <div class="grid md:grid-cols-4 gap-8 mb-10">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="inline-flex w-10 h-10 rounded-full bg-cream/5 items-center justify-center border border-cream/15">
+            <svg viewBox="0 0 32 32" class="w-6 h-6" aria-hidden="true">
+              <path d="M16 4 C 9 9, 9 19, 16 28 C 23 19, 23 9, 16 4 Z" fill="#FEFAE0"/>
+              <path d="M16 8 V 26" stroke="#36453C" stroke-width="1.2"/>
+            </svg>
+          </span>
+          <div>
+            <div class="font-serif text-cream text-[20px] leading-tight">CK Mental Health</div>
+            <div class="text-[11px] uppercase tracking-[0.18em] text-cream/55">& Trauma Therapy Centre</div>
+          </div>
+        </div>
+        <p class="text-[14px] max-w-md">Trauma therapists in Chatham-Kent since 2020. Serving all of Ontario, in-person and online.</p>
+      </div>
+      <div>
+        <div class="text-[11px] uppercase tracking-[0.18em] text-cream/55 mb-3">Visit</div>
+        <p class="text-[13.5px] mb-2"><span class="text-cream">Chatham</span><br>43 Victoria Ave, N7L 2Z9</p>
+        <p class="text-[13.5px]"><span class="text-cream">Blenheim</span><br>2 Hyland Drive, N0P 1A0</p>
+      </div>
+      <div>
+        <div class="text-[11px] uppercase tracking-[0.18em] text-cream/55 mb-3">Contact</div>
+        <p class="text-[13.5px] mb-1"><a href="tel:5198097971" class="hover:text-coral-200">519-809-7971</a></p>
+        <p class="text-[13.5px] mb-4"><a href="/cdn-cgi/l/email-protection#2342474e4a4d634048575142564e42574b465142535a40464d5751460d4042" class="hover:text-coral-200 break-all"><span class="__cf_email__" data-cfemail="e786838a8e89a7848c939586928a86938f829586979e848289939582c98486">[email&#160;protected]</span></a></p>
+        <div class="flex items-center gap-2">
+          <a href="#" aria-label="Instagram" class="inline-flex w-8 h-8 items-center justify-center rounded-full border border-cream/20 hover:border-coral-300 hover:text-coral-200"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Facebook" class="inline-flex w-8 h-8 items-center justify-center rounded-full border border-cream/20 hover:border-coral-300 hover:text-coral-200"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5c0-1.2.5-2 2.2-2H17V2.1C16.6 2 15.5 2 14.4 2 11.8 2 10 3.7 10 6.7V10H7v4h3v8h3z"/></svg></a>
+          <a href="#" aria-label="X" class="inline-flex w-8 h-8 items-center justify-center rounded-full border border-cream/20 hover:border-coral-300 hover:text-coral-200"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 3h3l-7.5 8.6L22 21h-6l-5-6.4L5 21H2l8-9.2L2 3h6.2l4.5 5.9L18 3z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="pt-6 border-t border-cream/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-[12px] text-cream/55">
+      <p>© 2020–2026 CK Mental Health &amp; Trauma Therapy Centre. All rights reserved.</p>
+      <div class="flex items-center gap-4">
+        <a href="#" class="hover:text-cream">Privacy</a>
+        <a href="#" class="hover:text-cream">Accessibility</a>
+        <a href="#" class="hover:text-cream">FAQ</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============== BOOKING MODAL ============== -->
+<div id="booking-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="booking-title">
+  <div class="relative bg-cream rounded-2xl max-w-lg w-full p-7 lg:p-9 modal-enter">
+    <button data-close-booking aria-label="Close" class="absolute top-3 right-3 w-9 h-9 inline-flex items-center justify-center rounded-full hover:bg-sage-700/10 text-sage-700">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <p class="eyebrow text-coral-500 mb-2">Book a free consultation</p>
+    <h3 id="booking-title" class="font-serif text-[30px] text-sage-800 leading-tight mb-2">Let's find the right fit.</h3>
+    <p class="text-sage-700/80 text-[14.5px] mb-6">A free 15-minute call helps us match you with the right therapist. No pressure, no commitment.</p>
+
+    <div class="space-y-3">
+      <a href="tel:5198097971" class="flex items-center justify-between gap-3 p-4 bg-sage-700 hover:bg-sage-800 text-cream rounded-xl transition-colors">
+        <span class="flex items-center gap-3">
+          <span class="inline-flex w-9 h-9 rounded-full bg-cream/10 items-center justify-center">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <span>
+            <span class="block font-semibold">Call us — 519-809-7971</span>
+            <span class="block text-[12px] text-cream/70">Mon–Fri · 8:30 am – 7:00 pm</span>
+          </span>
+        </span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+
+      <a href="#contact" data-close-booking class="flex items-center justify-between gap-3 p-4 border border-sage-700/25 hover:border-sage-700 rounded-xl transition-colors">
+        <span class="flex items-center gap-3">
+          <span class="inline-flex w-9 h-9 rounded-full bg-sage-700/10 items-center justify-center text-sage-700">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+          </span>
+          <span>
+            <span class="block font-semibold text-sage-800">Send a message</span>
+            <span class="block text-[12px] text-sage-700/70">Laura replies within 1 business day</span>
+          </span>
+        </span>
+        <svg class="text-sage-700" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+
+      <a href="#" class="flex items-center justify-between gap-3 p-4 border border-sage-700/25 hover:border-sage-700 rounded-xl transition-colors">
+        <span class="flex items-center gap-3">
+          <span class="inline-flex w-9 h-9 rounded-full bg-sage-700/10 items-center justify-center text-sage-700">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          </span>
+          <span>
+            <span class="block font-semibold text-sage-800">Book online</span>
+            <span class="block text-[12px] text-sage-700/70">Self-serve scheduler — pick a time</span>
+          </span>
+        </span>
+        <svg class="text-sage-700" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <p class="mt-6 text-[12px] text-sage-700/65 text-center">Direct billing available for most major insurers · OHIP-covered services where applicable</p>
+  </div>
+</div>
+
+<!-- ============== APP SCRIPT ============== -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  /* ---------- DATA ---------- */
+  const SPECIALIZATIONS = [
+    { name: "Trauma & PTSD", desc: "Process and integrate difficult experiences safely.", icon: "shield" },
+    { name: "Anxiety", desc: "Quiet the noise. Reclaim a steady nervous system.", icon: "wave" },
+    { name: "Depression", desc: "Find traction and meaning when everything feels heavy.", icon: "sun" },
+    { name: "ADHD", desc: "Tools for focus, executive function, and self-trust.", icon: "spark" },
+    { name: "Disordered Eating", desc: "A compassionate path to food and body peace.", icon: "leaf" },
+    { name: "Grief & Loss", desc: "Move through loss without going around it.", icon: "drop" },
+    { name: "OCD", desc: "Evidence-based support for intrusive thoughts and rituals.", icon: "loop" },
+    { name: "Relationships", desc: "For couples, families, and the connections that matter.", icon: "heart" },
+  ];
+
+  const ICONS = {
+    shield: '<path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/>',
+    wave:   '<path d="M3 12c2-3 4-3 6 0s4 3 6 0 4-3 6 0"/><path d="M3 17c2-3 4-3 6 0s4 3 6 0 4-3 6 0"/>',
+    sun:    '<circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/>',
+    spark:  '<path d="M12 3l1.6 5.4L19 10l-5.4 1.6L12 17l-1.6-5.4L5 10l5.4-1.6z"/><path d="M19 17l.7 2.3L22 20l-2.3.7L19 23l-.7-2.3L16 20l2.3-.7z"/>',
+    leaf:   '<path d="M11 3c-4 0-7 3-7 7 0 8 10 11 10 11s0-3 1-5"/><path d="M20 4c-4 0-7 3-7 7s3 7 7 7c0-4 0-10 0-14z"/>',
+    drop:   '<path d="M12 2s7 7 7 12a7 7 0 1 1-14 0c0-5 7-12 7-12z"/>',
+    loop:   '<path d="M17 7a5 5 0 0 0-5-5 5 5 0 0 0-5 5v3"/><path d="M7 17a5 5 0 0 0 5 5 5 5 0 0 0 5-5v-3"/><path d="M4 10l3 3 3-3M14 14l3-3 3 3"/>',
+    heart:  '<path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6.5 5 5 0 0 1 21.5 12C19 16.5 12 21 12 21z"/>',
+  };
+
+  const MODALITIES = [
+    { abbr: "CBT", name: "Cognitive Behavioural Therapy", desc: "Identify and reshape the thought patterns that fuel anxiety, depression, and stuck behaviour. Practical, skills-based, and well-studied.", best: ["Anxiety", "Depression", "OCD", "Insomnia"] },
+    { abbr: "DBT", name: "Dialectical Behaviour Therapy", desc: "Build skills for emotional regulation, distress tolerance, and healthier relationships. Originally developed for intense emotions and self-harm; broadly useful today.", best: ["Emotional regulation", "Self-harm", "Borderline traits", "Relationship conflict"] },
+    { abbr: "IFS", name: "Internal Family Systems", desc: "Meet the different 'parts' of you — protectors, exiles, the wounded inner child — with curiosity and care, so the Self can lead.", best: ["Trauma", "Inner critic", "Identity", "Complex feelings"] },
+    { abbr: "BSP", name: "Brainspotting", desc: "Uses fixed eye positions to access and release trauma stored in the body and brain — often where words can't reach.", best: ["Trauma", "Performance blocks", "Grief", "Anxiety"] },
+    { abbr: "EMDR", name: "Eye Movement Desensitization & Reprocessing", desc: "An evidence-based protocol that helps the brain reprocess distressing memories so they no longer hijack the present.", best: ["PTSD", "Single-event trauma", "Phobias", "Disturbing memories"] },
+    { abbr: "SFBT", name: "Solution-Focused Brief Therapy", desc: "Future-oriented and pragmatic — builds on what's already working. Often a fit for clients wanting shorter-term, goal-focused work.", best: ["Life transitions", "Goal setting", "Short-term focus"] },
+    { abbr: "TIST", name: "Trauma-Informed Stabilization Treatment", desc: "Developed by Janina Fisher — gently works with traumatized parts of self, prioritizing stability before deeper processing.", best: ["Complex trauma", "Dissociation", "Stabilization phase"] },
+  ];
+
+  const THERAPISTS = [
+    { name: "Rebecca Attewell",      first: "rebecca",  title: "Clinic Founder, Registered Psychotherapist", focus: "CRPO #003345 · Clinical Supervisor" },
+    { name: "Kelsey Oswald-Bauer",   first: "kelsey",   title: "Registered Psychotherapist",                  focus: "CRPO #10847" },
+    { name: "Courtney Myers",        first: "courtney", title: "Registered Psychotherapist",                  focus: "CRPO #15302" },
+    { name: "Bailey Stadder",        first: "bailey",   title: "Registered Psychotherapist (Qualifying)",    focus: "CRPO #18821" },
+    { name: "Lauren Bonner",         first: "lauren",   title: "Nurse Psychotherapist",                       focus: "CNO #AE096664" },
+    { name: "Meg Ellis",             first: "meg",      title: "Registered Psychotherapist (Qualifying)",    focus: "CRPO #20583" },
+    { name: "Laura Foster",          first: "laura",    title: "Office Administrator",                         focus: "Client intake & scheduling" },
+    { name: "Coming Soon",           first: "placeholder", title: "Registered Psychotherapist",              focus: "Joining the team", placeholder: true },
+    { name: "Coming Soon",           first: "placeholder", title: "Registered Psychotherapist",              focus: "Joining the team", placeholder: true },
+  ];
+
+  /* ---------- RENDER: SPEC GRID ---------- */
+  (function renderSpecs() {
+    const grid = document.getElementById('spec-grid');
+    grid.innerHTML = SPECIALIZATIONS.map(s => `
+      <a href="#" class="spec-card group block p-6 bg-white border border-sage-700/15 rounded-xl">
+        <div class="flex items-start justify-between mb-5">
+          <span class="spec-icon-wrap inline-flex w-11 h-11 items-center justify-center rounded-lg bg-cream-100 text-sage-700 border border-sage-700/15">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICONS[s.icon]}</svg>
+          </span>
+          <span class="text-[11px] uppercase tracking-[0.14em] text-sage-700/55 font-semibold">Specialization</span>
+        </div>
+        <h3 class="font-serif text-[24px] text-sage-800 leading-tight mb-2">${s.name}</h3>
+        <p class="text-sage-700/75 text-[14px] leading-relaxed mb-5">${s.desc}</p>
+        <span class="inline-flex items-center gap-1.5 text-sage-700 font-semibold text-[13px]">
+          Explore Therapy Type
+          <svg class="spec-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </span>
+      </a>
+    `).join('');
+  })();
+
+  /* ---------- RENDER: MODALITY TABS ---------- */
+  (function renderModalities() {
+    const tabs = document.getElementById('mod-tabs');
+    const panel = document.getElementById('mod-panel');
+
+    tabs.innerHTML = MODALITIES.map((m, i) => `
+      <button role="tab"
+              aria-selected="${i === 0 ? 'true' : 'false'}"
+              data-mod-tab="${i}"
+              class="modality-tab text-left flex items-center gap-4 px-4 py-3.5 border border-cream/20 hover:border-cream/40 rounded-xl">
+        <span class="mod-num font-serif text-[22px] text-cream/50 w-8 shrink-0">${String(i + 1).padStart(2, '0')}</span>
+        <span class="grow">
+          <span class="block font-semibold text-cream text-[14.5px]">${m.abbr}</span>
+          <span class="block text-cream/65 text-[12px]">${m.name}</span>
+        </span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </button>
+    `).join('');
+
+    function showMod(i) {
+      const m = MODALITIES[i];
+      panel.innerHTML = `
+        <div class="flex items-baseline justify-between mb-6">
+          <p class="eyebrow text-coral-300">${String(i + 1).padStart(2, '0')} / ${String(MODALITIES.length).padStart(2, '0')}</p>
+          <span class="font-serif text-[42px] text-cream/15 leading-none">${m.abbr}</span>
+        </div>
+        <h3 class="display text-[34px] sm:text-[40px] text-cream mb-4">${m.name}</h3>
+        <p class="text-cream/80 text-[16px] leading-relaxed max-w-2xl mb-7">${m.desc}</p>
+        <div class="pt-6 border-t border-cream/10">
+          <p class="text-[11px] uppercase tracking-[0.16em] text-cream/55 font-semibold mb-3">Often used for</p>
+          <div class="flex flex-wrap gap-2">
+            ${m.best.map(b => `<span class="inline-flex items-center px-3 py-1.5 rounded-full bg-cream/8 border border-cream/15 text-cream/85 text-[12.5px]">${b}</span>`).join('')}
+          </div>
+        </div>
+      `;
+      tabs.querySelectorAll('[role="tab"]').forEach((t, idx) => {
+        t.setAttribute('aria-selected', idx === i ? 'true' : 'false');
+      });
+    }
+    showMod(0);
+    tabs.addEventListener('click', (e) => {
+      const t = e.target.closest('[data-mod-tab]');
+      if (!t) return;
+      showMod(parseInt(t.dataset.modTab, 10));
+    });
+  })();
+
+  /* ---------- RENDER: TEAM ---------- */
+  (function renderTeam() {
+    const grid = document.getElementById('team-grid');
+    grid.innerHTML = THERAPISTS.map((t) => {
+      if (t.placeholder) {
+        return `
+          <div class="therapist-card block opacity-60">
+            <div class="rounded-xl aspect-[3/4] mb-3 bg-cream-300 border-2 border-dashed border-sage-700/30 flex items-center justify-center">
+              <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="text-sage-700/40">
+                <circle cx="12" cy="8" r="4"/>
+                <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
+              </svg>
+            </div>
+            <p class="font-serif text-[20px] text-sage-800/60 leading-tight italic">${t.name}</p>
+            <p class="text-sage-700/60 text-[12.5px] mt-0.5">${t.title}</p>
+            <p class="text-coral-600/70 text-[12px] font-semibold mt-1 uppercase tracking-[0.08em]">${t.focus}</p>
+          </div>
+        `;
+      }
+      return `
+        <a href="#" class="therapist-card block group">
+          <div class="rounded-xl aspect-[3/4] mb-3 overflow-hidden bg-cream-300">
+            <img src="https://marketingwell.ca/mockups/ck/images/${t.first}.webp"
+                 alt="${t.name}"
+                 loading="lazy"
+                 class="therapist-photo w-full h-full object-cover" />
+          </div>
+          <p class="font-serif text-[20px] text-sage-800 leading-tight">${t.name}</p>
+          <p class="text-sage-700/75 text-[12.5px] mt-0.5">${t.title}</p>
+          <p class="text-coral-600 text-[12px] font-semibold mt-1 uppercase tracking-[0.08em]">${t.focus}</p>
+          <span class="inline-flex items-center gap-1.5 mt-3 text-sage-700 font-semibold text-[13px] group-hover:text-coral-600 transition-colors">
+            Meet ${t.name.split(' ')[0]}
+            <svg class="transition-transform group-hover:translate-x-1" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      `;
+    }).join('');
+  })();
+
+  /* ---------- STICKY HEADER STATE ---------- */
+  (function stickyHeader() {
+    const header = document.getElementById('site-header');
+    const navText = document.querySelector('[data-nav-text]');
+    const navSub = document.querySelector('[data-nav-sub]');
+    const navLinks = document.querySelectorAll('[data-nav-links] a');
+    const navPhone = document.querySelector('[data-nav-phone]');
+    function update() {
+      const scrolled = window.scrollY > 30;
+      if (scrolled) {
+        header.classList.add('bg-cream', 'nav-shadow');
+        navText.classList.remove('text-cream'); navText.classList.add('text-sage-800');
+        navSub.classList.remove('text-cream/70'); navSub.classList.add('text-sage-700/65');
+        navLinks.forEach(a => { a.classList.remove('text-cream/85', 'hover:text-cream'); a.classList.add('text-sage-700', 'hover:text-sage-900'); });
+        if (navPhone) { navPhone.classList.remove('text-cream/85', 'hover:text-cream'); navPhone.classList.add('text-sage-700', 'hover:text-sage-900'); }
+      } else {
+        header.classList.remove('bg-cream', 'nav-shadow');
+        navText.classList.add('text-cream'); navText.classList.remove('text-sage-800');
+        navSub.classList.add('text-cream/70'); navSub.classList.remove('text-sage-700/65');
+        navLinks.forEach(a => { a.classList.add('text-cream/85', 'hover:text-cream'); a.classList.remove('text-sage-700', 'hover:text-sage-900'); });
+        if (navPhone) { navPhone.classList.add('text-cream/85', 'hover:text-cream'); navPhone.classList.remove('text-sage-700', 'hover:text-sage-900'); }
+      }
+    }
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+  })();
+
+  /* ---------- BOOKING MODAL ---------- */
+  (function bookingModal() {
+    const modal = document.getElementById('booking-modal');
+    const open = () => { modal.classList.remove('hidden'); modal.classList.add('flex'); document.body.style.overflow = 'hidden'; };
+    const close = () => { modal.classList.add('hidden'); modal.classList.remove('flex'); document.body.style.overflow = ''; };
+    document.querySelectorAll('[data-open-booking]').forEach(b => b.addEventListener('click', open));
+    document.querySelectorAll('[data-close-booking]').forEach(b => b.addEventListener('click', close));
+    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+  })();
+
+  /* ---------- CONTACT FORM ---------- */
+  (function form() {
+    const f = document.getElementById('contact-form');
+    f.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fields = ['first', 'last', 'email', 'phone', 'message'];
+      let ok = true;
+      fields.forEach(n => {
+        const el = f.querySelector(`[name="${n}"]`);
+        if (!el.value.trim() || (n === 'email' && !/^\S+@\S+\.\S+$/.test(el.value))) {
+          el.classList.add('error'); ok = false;
+        } else {
+          el.classList.remove('error');
+        }
+      });
+      if (ok) {
+        document.getElementById('form-success').classList.remove('hidden');
+        f.querySelector('button[type="submit"]').disabled = true;
+        f.querySelector('button[type="submit"]').classList.add('opacity-60', 'cursor-not-allowed');
+      }
+    });
+    f.querySelectorAll('.form-input').forEach(el => {
+      el.addEventListener('input', () => el.classList.remove('error'));
+    });
+  })();
+
+  /* ---------- REVEAL ON SCROLL ---------- */
+  (function reveal() {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  })();
+</script>
+</body>
+</html>

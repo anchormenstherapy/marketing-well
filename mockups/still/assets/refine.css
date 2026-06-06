@@ -1,0 +1,214 @@
+/* ============================================================
+   Still Standing Therapy — REFINE layer  (mint brand palette)
+   Ink #264653 · Mint #94d2bd · Teal-green #1f7d6e · Cream #FEFAE0
+   Adds depth, rhythm & warmth. No waves. No team-photo animation.
+   Loaded LAST so it wins on source order.
+   ============================================================ */
+
+:root{
+  --mint:      #94d2bd;
+  --mint-600:  #82c8b2;
+  --mint-tint: #e7f4ef;
+  --mint-tint2:#d6ebe2;
+  --teal:      #1f7d6e;   /* readable teal-green accent on light bg */
+}
+
+/* ---- give every section a stacking context + clip for motifs ---- */
+.section, .foot { position: relative; overflow: hidden; }
+.section > .wrap,
+.foot > .wrap { position: relative; z-index: 2; }
+
+/* ============================================================
+   1 · SOFT MESH + PAPER-GRAIN on the flat light sections
+   ============================================================ */
+.reassure::before,
+.areasA::before,
+.fundA::before,
+.teamA::before,
+.locA::before{
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background-image:
+    radial-gradient(58% 48% at 8% 4%,    rgba(148,210,189,.16), transparent 72%),
+    radial-gradient(46% 44% at 100% 28%, rgba(148,210,189,.10), transparent 70%),
+    radial-gradient(50% 50% at 86% 100%, rgba(254,250,224,.55), transparent 72%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  background-size: auto, auto, auto, 170px 170px;
+  background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+}
+
+/* soft organic blob motif drifting off one corner of each light section */
+.reassure::after,
+.areasA::after,
+.fundA::after,
+.teamA::after,
+.locA::after{
+  content:""; position:absolute; z-index:0; pointer-events:none;
+  width:520px; height:520px; right:-180px; bottom:-220px;
+  background:radial-gradient(circle at 50% 50%, rgba(148,210,189,.16), transparent 64%);
+  border-radius:46% 54% 57% 43% / 52% 44% 56% 48%;
+}
+.areasA::after{ left:-200px; right:auto; top:-220px; bottom:auto;
+  background:radial-gradient(circle at 50% 50%, rgba(31,125,110,.08), transparent 64%); }
+.teamA::after{ left:-220px; right:auto; bottom:-200px;
+  background:radial-gradient(circle at 50% 50%, rgba(254,250,224,.6), transparent 64%); }
+
+/* ============================================================
+   2 · DEEP-INK FEATURE BAND  (the Approaches section)
+   breaks the cream/white monotony — brand primary, not forest
+   ============================================================ */
+.approachesA{ background:var(--ink); }
+.approachesA .eyebrow{ color:var(--mint); }
+.approachesA h2,
+.approachesA .h-display{ color:#fff; }
+.approachesA .section-head p{ color:rgba(255,255,255,.84); }
+/* faint topographic contour motif in both corners */
+.topo{ position:absolute; z-index:1; pointer-events:none; opacity:.5; }
+.topo--l{ left:-120px; top:-40px; }
+.topo--r{ right:-120px; bottom:-60px; transform:scaleX(-1); }
+@media (max-width:760px){ .topo--r{ display:none; } }
+
+/* ============================================================
+   3 · SERVICE CARDS (How We Help) — depth, rhythm, two-tone icons
+   ============================================================ */
+.areasA .area-card{
+  background:var(--white);
+  border-color:#efe7d4;
+  border-radius:18px;
+  box-shadow:0 1px 2px rgba(38,70,83,.04), 0 10px 26px rgba(38,70,83,.06);
+  padding-top:30px;
+  transition:transform .22s cubic-bezier(.4,.1,.2,1), box-shadow .22s ease;
+}
+.areasA .area-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 6px 14px rgba(38,70,83,.08), 0 26px 56px rgba(38,70,83,.16);
+  border-color:transparent;
+}
+/* tonal top accent — cycles brand tones for quiet rhythm */
+.areasA .area-card::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:5px;
+  border-radius:18px 18px 0 0; background:var(--mint);
+}
+.areasA .area-card:nth-child(4n+2)::before{ background:var(--ink); }
+.areasA .area-card:nth-child(4n+3)::before{ background:var(--teal); }
+.areasA .area-card:nth-child(4n+4)::before{ background:#7fb6a6; }
+
+/* larger two-tone medallion icon on a soft circular field */
+.areasA .area-card__ico{
+  width:62px; height:62px; border-radius:50%;
+  background:radial-gradient(circle at 32% 28%, var(--mint-tint), var(--mint-tint2));
+  color:var(--teal); position:relative; margin-bottom:20px;
+}
+.areasA .area-card__ico::after{   /* second tone — offset deeper disc */
+  content:""; position:absolute; right:-3px; bottom:-3px;
+  width:24px; height:24px; border-radius:50%;
+  background:radial-gradient(circle at 40% 40%, rgba(148,210,189,.55), rgba(31,125,110,.20));
+  z-index:-1;
+}
+.areasA .area-card__ico svg{ width:28px; height:28px; stroke-width:1.9; }
+.areasA .area-card h4{ font-size:21px; }
+
+/* ============================================================
+   4 · COVERAGE / BILLING icons on tinted circular fields + lift
+   ============================================================ */
+.fundA .fund-card{
+  border-radius:18px;
+  box-shadow:0 1px 2px rgba(38,70,83,.04), 0 10px 26px rgba(38,70,83,.06);
+  transition:transform .22s cubic-bezier(.4,.1,.2,1), box-shadow .22s ease;
+}
+.fundA .fund-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 6px 14px rgba(38,70,83,.08), 0 24px 50px rgba(38,70,83,.15);
+}
+.fundA .fund-card__ico{
+  width:60px; height:60px; border-radius:50%;
+  background:radial-gradient(circle at 32% 28%, var(--mint-tint), var(--mint-tint2));
+  color:var(--teal); position:relative;
+}
+.fundA .fund-card__ico::after{
+  content:""; position:absolute; right:-2px; bottom:-2px;
+  width:22px; height:22px; border-radius:50%;
+  background:radial-gradient(circle at 40% 40%, rgba(148,210,189,.5), rgba(31,125,110,.18));
+  z-index:-1;
+}
+.fundA .fund-card__ico svg{ width:27px; height:27px; }
+
+/* ============================================================
+   5 · MODALITY PILLS — soft fills + interactive selected state
+   (now sit on the deep-ink feature band)
+   ============================================================ */
+.approachesA .chips{ gap:14px; }
+.approachesA .chip{
+  background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,255,255,.22);
+  color:#f4f7f3; cursor:pointer;
+  transition:background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+.approachesA .chip:hover{
+  background:rgba(255,255,255,.16); border-color:rgba(255,255,255,.4);
+  transform:translateY(-2px);
+}
+.approachesA .chip.is-active,
+.approachesA .chip--star{
+  background:var(--mint); color:#15302a; border-color:var(--mint);
+  box-shadow:0 6px 16px rgba(0,0,0,.16);
+}
+.approachesA .chip.is-active:hover,
+.approachesA .chip--star:hover{ background:#a6dbc8; color:#15302a; }
+
+/* ============================================================
+   6 · IMAGERY — organic blob masks + soft frame (NO animation)
+   ============================================================ */
+.blob-wrap{ position:relative; }
+.blob-wrap::before{        /* layered mint blob peeking behind the photo */
+  content:""; position:absolute; z-index:0;
+  inset:18px -22px -24px 24px;
+  background:radial-gradient(circle at 40% 40%, rgba(148,210,189,.30), rgba(148,210,189,.10) 70%, transparent 72%);
+  border-radius:54% 46% 50% 50% / 48% 54% 46% 52%;
+}
+.blob-wrap image-slot{ position:relative; z-index:1; }
+
+#a-reassure::part(frame){
+  border-radius:58% 42% 56% 44% / 56% 52% 48% 44%;
+  box-shadow:0 24px 54px rgba(38,70,83,.20);
+}
+#a-loc::part(frame){
+  border-radius:44% 56% 48% 52% / 52% 44% 56% 48%;
+  box-shadow:0 24px 54px rgba(38,70,83,.20);
+}
+#a-reassure::part(image),
+#a-loc::part(image){ filter:saturate(.96) contrast(1.02); }
+
+/* Team cards — gentle hover lift only (no photo zoom/pan animation) */
+.tcardB{
+  border-radius:18px;
+  transition:transform .22s cubic-bezier(.4,.1,.2,1), box-shadow .22s ease;
+}
+.tcardB:hover{
+  transform:translateY(-5px);
+  box-shadow:0 6px 14px rgba(38,70,83,.08), 0 24px 50px rgba(38,70,83,.15);
+}
+
+/* ============================================================
+   7 · TYPOGRAPHIC ACCENTS — marker highlight + underline swoosh
+   ============================================================ */
+.mark{
+  background:linear-gradient(104deg,
+     transparent 0.4%, rgba(148,210,189,.42) 1.4%,
+     rgba(148,210,189,.6) 96%, transparent 98.5%);
+  padding:.04em .18em; border-radius:3px;
+  -webkit-box-decoration-break:clone; box-decoration-break:clone;
+}
+.swoosh-wrap{ position:relative; display:inline-block; }
+.swoosh{
+  position:absolute; left:-2%; right:-2%; width:104%;
+  bottom:-.42em; height:.4em; overflow:visible; pointer-events:none;
+}
+.swoosh path{
+  fill:none; stroke:var(--teal); stroke-width:6; stroke-linecap:round;
+  stroke-dasharray:520; stroke-dashoffset:520;
+  animation:swoosh-draw 1.1s cubic-bezier(.6,.1,.2,1) .35s forwards;
+}
+@keyframes swoosh-draw{ to{ stroke-dashoffset:0; } }
+@media (prefers-reduced-motion:reduce){
+  .swoosh path{ animation:none; stroke-dashoffset:0; }
+}

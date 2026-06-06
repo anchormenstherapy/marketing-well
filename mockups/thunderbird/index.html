@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thunderbird Insurance Brokers | Our Family Insuring Your Family Since 1974 | Victoria, BC</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2A4A;
+    --navy-deep: #0F1D36;
+    --navy-light: #2D4470;
+    --gold: #C9A961;
+    --gold-light: #E8D5A3;
+    --gold-pale: #F5EDD8;
+    --cream: #FAFAF7;
+    --warm-white: #F7F5F0;
+    --stone: #E8E4DC;
+    --charcoal: #2A2A2A;
+    --charcoal-soft: #555555;
+    --white: #FFFFFF;
+    --shadow-soft: 0 4px 24px rgba(27,42,74,0.06);
+    --shadow-md: 0 8px 40px rgba(27,42,74,0.08);
+    --shadow-lg: 0 16px 60px rgba(27,42,74,0.1);
+    --radius: 12px;
+    --radius-lg: 20px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--charcoal);
+    background: var(--cream);
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── TOP BAR ─── */
+  .top-bar {
+    background: var(--navy-deep);
+    color: rgba(255,255,255,0.7);
+    padding: 8px 40px;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .top-bar a {
+    color: var(--gold-light);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .top-bar a:hover { color: var(--gold); }
+  .top-bar-right {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+  .top-bar-right span { display: flex; align-items: center; gap: 6px; }
+
+  /* ─── HEADER ─── */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(232,228,220,0.6);
+    padding: 0 40px;
+    transition: box-shadow 0.3s ease;
+  }
+  .header.scrolled { box-shadow: var(--shadow-soft); }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: var(--charcoal);
+  }
+  .logo-mark {
+    width: 46px;
+    height: 46px;
+    background: var(--navy);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .logo-text { line-height: 1.2; }
+  .logo-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .logo-tagline {
+    font-size: 0.68rem;
+    color: var(--charcoal-soft);
+    letter-spacing: 0.06em;
+    font-weight: 500;
+  }
+
+  nav { display: flex; align-items: center; gap: 28px; }
+  nav a {
+    font-size: 0.88rem;
+    color: var(--charcoal-soft);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+    position: relative;
+  }
+  nav a:hover { color: var(--navy); }
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+  }
+  nav a:hover::after { width: 100%; }
+
+  .header-cta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--navy);
+    color: var(--white);
+    padding: 11px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 12px rgba(27,42,74,0.2);
+  }
+  .header-cta:hover {
+    background: var(--navy-deep);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(27,42,74,0.3);
+  }
+  .header-cta svg { width: 16px; height: 16px; }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 78vh;
+    display: flex;
+    align-items: center;
+    background-image: url('hero.avif');
+    background-size: cover;
+    background-position: center 35%;
+    background-color: var(--navy-deep);
+    overflow: hidden;
+  }
+  /* darken + warm-tone the photo so navy text-on-light still reads, and pull focus to the left */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(100deg, rgba(15,29,54,0.78) 0%, rgba(15,29,54,0.55) 45%, rgba(15,29,54,0.25) 75%, rgba(15,29,54,0.15) 100%),
+      linear-gradient(180deg, rgba(15,29,54,0.20) 0%, rgba(15,29,54,0.0) 30%, rgba(15,29,54,0.0) 70%, rgba(15,29,54,0.35) 100%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -220px;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,169,97,0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 110px 40px 130px;
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-content { max-width: 720px; }
+  .hero-content { animation: fadeUp 0.9s ease-out; }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(201,169,97,0.25);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 28px;
+  }
+  .hero-badge-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.6rem;
+    font-weight: 500;
+    line-height: 1.12;
+    color: var(--white);
+    margin-bottom: 24px;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.35);
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-sub {
+    font-size: 1.12rem;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.8;
+    margin-bottom: 40px;
+    max-width: 560px;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.4);
+  }
+  .hero-ctas { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold);
+    color: var(--navy-deep);
+    padding: 16px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(201,169,97,0.3);
+  }
+  .btn-gold:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(201,169,97,0.4);
+  }
+  .btn-outline-light {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--white);
+    padding: 16px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    transition: all 0.3s ease;
+  }
+  .btn-outline-light:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(201,169,97,0.06);
+  }
+
+  /* Hero visual */
+  .hero-visual {
+    position: relative;
+    animation: fadeUp 0.9s ease-out 0.2s both;
+  }
+  .hero-card-stack { position: relative; }
+  .hero-main-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    z-index: 2;
+  }
+  .hero-main-card-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .hero-main-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .hero-main-card p {
+    font-size: 0.9rem;
+    color: var(--charcoal-soft);
+    margin-bottom: 24px;
+    line-height: 1.7;
+  }
+  .hero-stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding-top: 20px;
+    border-top: 1px solid var(--stone);
+  }
+  .hero-stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .hero-stat-label {
+    font-size: 0.72rem;
+    color: var(--charcoal-soft);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  .hero-float-card {
+    position: absolute;
+    bottom: -24px;
+    right: -20px;
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 3;
+    animation: floatSoft 4s ease-in-out infinite;
+  }
+  .hero-float-icon {
+    width: 42px;
+    height: 42px;
+    background: rgba(27,42,74,0.06);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--navy);
+  }
+  .hero-float-title { font-weight: 600; font-size: 0.85rem; color: var(--navy); }
+  .hero-float-sub { font-size: 0.72rem; color: var(--charcoal-soft); }
+
+  .hero-float-card-2 {
+    position: absolute;
+    top: -16px;
+    left: -16px;
+    background: var(--navy);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    box-shadow: var(--shadow-md);
+    z-index: 3;
+    animation: floatSoft 4s ease-in-out 1.5s infinite;
+  }
+  .hero-float-card-2 .stars { display: flex; gap: 2px; margin-bottom: 6px; }
+  .hero-float-card-2 .star { color: var(--gold); font-size: 0.8rem; }
+  .hero-float-card-2 .review-snippet {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.7);
+    font-style: italic;
+    max-width: 170px;
+    line-height: 1.5;
+  }
+
+  /* ─── HERITAGE / STATS BAND ─── */
+  .heritage-band {
+    background: var(--white);
+    padding: 90px 40px;
+    position: relative;
+  }
+  .heritage-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+  .heritage-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .heritage-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  .heritage-content p {
+    font-size: 1.02rem;
+    color: var(--charcoal-soft);
+    line-height: 1.85;
+    max-width: 520px;
+  }
+  .heritage-content .quote {
+    margin-top: 28px;
+    padding-left: 18px;
+    border-left: 2px solid var(--gold);
+    font-style: italic;
+    color: var(--navy);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 480px;
+  }
+  .heritage-stats {
+    background: var(--navy);
+    border-radius: var(--radius-lg);
+    padding: 44px 40px;
+    color: var(--white);
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+  }
+  .heritage-stats::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+  }
+  .heritage-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .heritage-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .heritage-stat-label {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+  }
+  .heritage-bbb {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 24px;
+  }
+  .heritage-bbb-icon {
+    width: 44px; height: 44px;
+    background: rgba(201,169,97,0.15);
+    border: 1px solid rgba(201,169,97,0.3);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+  .heritage-bbb-text { line-height: 1.35; }
+  .heritage-bbb-title { font-weight: 600; font-size: 0.92rem; color: var(--white); }
+  .heritage-bbb-sub { font-size: 0.78rem; color: rgba(255,255,255,0.6); }
+
+  /* ─── TRUST BAR ─── */
+  .trust-bar {
+    background: var(--white);
+    border-bottom: 1px solid rgba(232,228,220,0.4);
+    padding: 40px;
+  }
+  .trust-bar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 56px;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .trust-icon {
+    width: 46px;
+    height: 46px;
+    background: rgba(27,42,74,0.04);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--navy);
+    flex-shrink: 0;
+  }
+  .trust-label { font-weight: 600; font-size: 0.88rem; color: var(--navy); }
+  .trust-sub { font-size: 0.75rem; color: var(--charcoal-soft); }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 100px 40px; }
+  .section-header { text-align: center; margin-bottom: 64px; }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.2;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ─── SERVICES ─── */
+  .services { background: var(--cream); }
+  .services-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .service-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 40px 32px;
+    transition: all 0.4s ease;
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--navy), var(--gold));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+    transform-origin: left;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(27,42,74,0.06);
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(27,42,74,0.05);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--navy);
+    margin-bottom: 24px;
+    transition: background 0.3s;
+  }
+  .service-card:hover .service-icon { background: rgba(27,42,74,0.08); }
+  .service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--navy);
+  }
+  .service-card p {
+    font-size: 0.9rem;
+    color: var(--charcoal-soft);
+    line-height: 1.7;
+  }
+
+  /* ─── WHY THUNDERBIRD ─── */
+  .why-section { background: var(--white); }
+  .why-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .why-image {
+    background: linear-gradient(160deg, var(--warm-white) 0%, var(--stone) 100%);
+    border-radius: var(--radius-lg);
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    color: var(--charcoal-soft);
+    font-size: 0.85rem;
+    box-shadow: var(--shadow-soft);
+    position: relative;
+  }
+  .why-image::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border: 1px solid rgba(27,42,74,0.06);
+    border-radius: calc(var(--radius-lg) + 8px);
+    pointer-events: none;
+  }
+  .why-content .section-label { text-align: left; }
+  .why-content .section-title { text-align: left; margin: 0 0 24px 0; font-size: 2.4rem; }
+  .why-text {
+    font-size: 1rem;
+    color: var(--charcoal-soft);
+    line-height: 1.85;
+    margin-bottom: 32px;
+  }
+  .why-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .why-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .why-feature-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(201,169,97,0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .why-feature-text { line-height: 1.4; }
+  .why-feature-title { font-weight: 600; font-size: 0.9rem; color: var(--navy); }
+  .why-feature-sub { font-size: 0.8rem; color: var(--charcoal-soft); }
+
+  /* ─── REVIEWS ─── */
+  .reviews { background: var(--cream); }
+  .reviews-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .review-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 36px 30px;
+    border: 1px solid rgba(232,228,220,0.3);
+    transition: all 0.3s ease;
+  }
+  .review-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  .review-stars { display: flex; gap: 3px; margin-bottom: 16px; color: var(--gold); font-size: 0.85rem; }
+  .review-quote {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--charcoal);
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+  .review-author { font-size: 0.8rem; font-weight: 600; color: var(--charcoal-soft); text-transform: uppercase; letter-spacing: 0.06em; }
+  .review-source { font-size: 0.72rem; color: var(--stone); font-weight: 500; margin-top: 2px; }
+
+  /* ─── PARTNERS ─── */
+  .partners {
+    background: var(--navy-deep);
+    padding: 60px 40px;
+    text-align: center;
+  }
+  .partners .section-label { color: rgba(255,255,255,0.4); margin-bottom: 28px; }
+  .partners-logos {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .partner-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── CTA SECTION ─── */
+  .cta-section {
+    background: linear-gradient(135deg, var(--warm-white) 0%, var(--stone) 100%);
+    text-align: center;
+  }
+  .cta-inner { max-width: 650px; margin: 0 auto; }
+  .cta-inner .section-title { margin-bottom: 20px; }
+  .cta-sub {
+    font-size: 1.05rem;
+    color: var(--charcoal-soft);
+    margin-bottom: 40px;
+    line-height: 1.8;
+  }
+  .cta-phone-big {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+    margin-bottom: 12px;
+    transition: color 0.3s;
+  }
+  .cta-phone-big:hover { color: var(--navy-light); }
+  .cta-address { font-size: 0.88rem; color: var(--charcoal-soft); margin-top: 8px; }
+  .cta-hours { font-size: 0.82rem; color: var(--charcoal-soft); margin-top: 4px; }
+  .cta-btn-row {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 32px;
+  }
+  .btn-navy {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--navy);
+    color: var(--white);
+    padding: 16px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(27,42,74,0.2);
+  }
+  .btn-navy:hover {
+    background: var(--navy-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(27,42,74,0.3);
+  }
+  .btn-outline-navy {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--navy);
+    padding: 16px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: 1.5px solid var(--navy);
+    transition: all 0.3s ease;
+    background: transparent;
+  }
+  .btn-outline-navy:hover {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--navy-deep);
+    color: rgba(255,255,255,0.5);
+    padding: 60px 40px 40px;
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+  }
+  .footer-brand .logo-name { color: var(--white); }
+  .footer-brand .logo-tagline { color: rgba(255,255,255,0.35); }
+  .footer-brand-desc {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    margin-top: 16px;
+    max-width: 300px;
+    color: rgba(255,255,255,0.4);
+  }
+  .footer h5 {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .footer ul { list-style: none; }
+  .footer li { margin-bottom: 12px; }
+  .footer a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 0.88rem;
+    transition: color 0.2s;
+  }
+  .footer a:hover { color: var(--white); }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 0.78rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-territory {
+    font-size: 0.75rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    margin-top: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ─── MOBILE CTA ─── */
+  .mobile-cta {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: var(--navy);
+    padding: 14px 20px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+  }
+  .mobile-cta a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes floatSoft {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .hero h1 { font-size: 2.8rem; }
+    .heritage-inner { grid-template-columns: 1fr; gap: 40px; }
+    .why-inner { grid-template-columns: 1fr; gap: 48px; }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+  @media (max-width: 768px) {
+    .top-bar { display: none; }
+    .header { padding: 0 16px; }
+    nav { display: none; }
+    .header-cta { padding: 10px 14px; font-size: 0; gap: 0; }
+    .header-cta svg { width: 20px; height: 20px; }
+    .logo-name { font-size: 1rem; }
+    .logo-tagline { font-size: 0.6rem; }
+    .logo-mark { width: 38px; height: 38px; font-size: 1.2rem; }
+    section { padding: 72px 20px; }
+    .hero { min-height: auto; }
+    .hero-inner { padding: 64px 20px 88px; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero-sub { font-size: 1rem; }
+    .hero-ctas { flex-direction: column; align-items: flex-start; }
+    .heritage-band { padding: 56px 20px; }
+    .heritage-content h2 { font-size: 1.7rem; }
+    .heritage-stats { padding: 32px 24px; }
+    .heritage-stats-grid { gap: 16px; }
+    .heritage-stat-num { font-size: 1.9rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .trust-bar-inner { gap: 28px; justify-content: flex-start; }
+    .trust-bar { padding: 32px 20px; }
+    .section-title { font-size: 2rem; }
+    .why-features { grid-template-columns: 1fr; }
+    .cta-btn-row { flex-direction: column; align-items: center; }
+    .partners-logos { gap: 28px; }
+    .mobile-cta { display: block; }
+    .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    body { padding-bottom: 60px; }
+  }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJ7SHWELLJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJ7SHWELLJ');
+</script>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <span>1032 Yates St, Victoria, BC &nbsp;|&nbsp; Mon–Fri 8:30am–5pm &nbsp;|&nbsp; Sat 10am–2:30pm</span>
+  <div class="top-bar-right">
+    <span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <a href="/cdn-cgi/l/email-protection#a4cdcac2cbe4d0ccd1cac0c1d6c6cdd6c0cdcad7d1d6c5cac7c18ac7cbc9"><span class="__cf_email__" data-cfemail="83eaede5ecc3f7ebf6ede7e6f1e1eaf1e7eaedf0f6f1e2ede0e6ade0ecee">[email&#160;protected]</span></a>
+    </span>
+    <span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <a href="tel:250-385-9795">(250) 385-9795</a>
+    </span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <img src="https://marketingwell.ca/mockups/thunderbird-logo.jpeg" alt="Thunderbird Insurance" style="height:46px; width:auto;">
+    </a>
+    <nav>
+      <a href="#services">Insurance</a>
+      <a href="#why">Why Thunderbird</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+      <a href="#">ICBC Renewals</a>
+    </nav>
+    <a href="tel:250-385-9795" class="header-cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      (250) 385-9795
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Proudly Serving Victoria for 52 Years
+      </div>
+      <h1>Insurance that feels like it's from someone who <em>actually&nbsp;knows&nbsp;you.</em></h1>
+      <p class="hero-sub">Thunderbird Insurance is a 4th-generation, family-owned brokerage protecting over 9,000 families and businesses across Greater Victoria. We shop multiple insurers to find you the best coverage at the best price — and we're here when you need us most.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-gold">Get a Free Quote</a>
+        <a href="tel:250-385-9795" class="btn-outline-light">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call (250) 385-9795
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HERITAGE / STATS BAND -->
+<section class="heritage-band">
+  <div class="heritage-inner">
+    <div class="heritage-content">
+      <div class="heritage-eyebrow">Trusted Since 1974</div>
+      <h2>Four Generations of Family Protection</h2>
+      <p>Founded by Gene Potvin, Thunderbird has grown from a one-person office to a team of experienced brokers — each one dedicated to treating you like family, not a policy number.</p>
+      <div class="quote">“The only place I trust with my insurance.”</div>
+    </div>
+    <div class="heritage-stats">
+      <div class="heritage-stats-grid">
+        <div>
+          <div class="heritage-stat-num">52</div>
+          <div class="heritage-stat-label">Years in Victoria</div>
+        </div>
+        <div>
+          <div class="heritage-stat-num">9,000+</div>
+          <div class="heritage-stat-label">Clients Protected</div>
+        </div>
+        <div>
+          <div class="heritage-stat-num">A+</div>
+          <div class="heritage-stat-label">BBB Rating</div>
+        </div>
+      </div>
+      <div class="heritage-bbb">
+        <div class="heritage-bbb-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="heritage-bbb-text">
+          <div class="heritage-bbb-title">BBB Accredited</div>
+          <div class="heritage-bbb-sub">Since 1988</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div>
+        <div class="trust-label">Family-Owned</div>
+        <div class="trust-sub">4th generation, locally operated</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <div class="trust-label">Multiple Insurers</div>
+        <div class="trust-sub">We shop the market for you</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div>
+        <div class="trust-label">4.4 Stars &bull; 176 Reviews</div>
+        <div class="trust-sub">Rated by Victoria families</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      </div>
+      <div>
+        <div class="trust-label">Open 6 Days</div>
+        <div class="trust-sub">Including Saturdays</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-header">
+    <div class="section-label">What We Cover</div>
+    <h2 class="section-title">Complete insurance protection for every part of your life</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      </div>
+      <h3>Auto &amp; ICBC</h3>
+      <p>We'll help you navigate ICBC coverage options and find all the discounts you qualify for. From basic insurance to optional extended coverage, we make sure you're protected and informed.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <h3>Home Insurance</h3>
+      <p>Whether you own a house, a condo, or rent — your home is your sanctuary. We compare policies across multiple insurers to find the right coverage for your home and belongings.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      </div>
+      <h3>Business Insurance</h3>
+      <p>From retail to trades to strata — we've been insuring commercial risks since 1974. Our experience means better coverage recommendations and access to competitive markets.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+      </div>
+      <h3>Marine Insurance</h3>
+      <p>Living on the West Coast means life on the water. Big or small, sail, power, or paddle — we know marine insurance inside and out and we'll have you covered for every adventure.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
+      <h3>Travel Insurance</h3>
+      <p>Don't leave behind your peace of mind when you travel. Medical, trip cancellation, baggage, and visitors to Canada coverage — we can quote you in minutes.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <h3>Life &amp; Bonds</h3>
+      <p>Protect the people who depend on you. We offer life insurance and bonding services with the same personal, straightforward advice you get on everything else we do.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY THUNDERBIRD -->
+<section class="why-section" id="why">
+  <div class="why-inner">
+    <div class="why-image">
+  <img src="thunderbirdteam.jpg" alt="The Thunderbird Insurance team" style="width:100%; height:100%; object-fit:cover; border-radius: 20px;">
+</div>
+    <div class="why-content">
+      <div class="section-label">Why Thunderbird</div>
+      <h2 class="section-title">Not a call centre. Not a chatbot. Real people who know your name.</h2>
+      <p class="why-text">
+        When you call Thunderbird, you get a real person who remembers your policy, knows your family, and cares about getting it right. We're not a 1-800 number — we're your neighbours on Yates Street, and we've been doing this for four generations.
+      </p>
+      <div class="why-features">
+        <div class="why-feature">
+          <div class="why-feature-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="why-feature-text">
+            <div class="why-feature-title">We Shop for You</div>
+            <div class="why-feature-sub">Multiple insurers, one best quote</div>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-feature-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="why-feature-text">
+            <div class="why-feature-title">Free Policy Reviews</div>
+            <div class="why-feature-sub">Even if you bought elsewhere</div>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-feature-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="why-feature-text">
+            <div class="why-feature-title">We Do House Calls</div>
+            <div class="why-feature-sub">Seriously — we come to you</div>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-feature-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="why-feature-text">
+            <div class="why-feature-title">Claims Support</div>
+            <div class="why-feature-sub">We advocate for you, always</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="section-header">
+    <div class="section-label">What Our Clients Say</div>
+    <h2 class="section-title">176 reviews and counting from Victoria families</h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-quote">"Thunderbird is the only place I trust with my insurance. Becky is absolutely amazing — friendly, approachable, and makes the entire process effortless. I know everything's done right the first time."</p>
+      <div class="review-author">Verified Client</div>
+      <div class="review-source">Google Review</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-quote">"Ryan's helped us multiple times get quotes for homeowner insurance on short notice. Each time he was very responsive and turned around quotes incredibly fast, always with a thorough review of our coverage and options."</p>
+      <div class="review-author">Verified Client</div>
+      <div class="review-source">Google Review</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-quote">"Even though we no longer live in Victoria, we stick with Ryan because of his promptness and his willingness to take the time to be thorough during reviews and renewals. I recommend him to everyone."</p>
+      <div class="review-author">Verified Client</div>
+      <div class="review-source">Google Review</div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<div class="partners">
+  <div class="section-label">Trusted Insurance Partners</div>
+  <div class="partners-logos">
+    <span class="partner-logo">ICBC</span>
+    <span class="partner-logo">Wawanesa</span>
+    <span class="partner-logo">Intact</span>
+    <span class="partner-logo">TuGo</span>
+    <span class="partner-logo">Optimum West</span>
+    <span class="partner-logo">Travelers</span>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">Let's make sure you're properly protected.</h2>
+    <p class="cta-sub">Whether you need a new policy, a free review of your current coverage, or just have a question — give us a call or stop by our office on Yates Street. No cost, no obligation, no pressure.</p>
+    <a href="tel:250-385-9795" class="cta-phone-big">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      (250) 385-9795
+    </a>
+    <div class="cta-address">1032 Yates Street, Victoria, BC  V8V 3M6</div>
+    <div class="cta-hours">Mon–Fri 8:30am–5pm &nbsp;|&nbsp; Sat 10am–2:30pm</div>
+    <div class="cta-btn-row">
+      <a href="#" class="btn-navy">Request a Free Quote</a>
+      <a href="#" class="btn-outline-navy">Renew ICBC Online</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo-name">Thunderbird Insurance</div>
+      <div class="logo-tagline">Our Family Insuring Your Family Since 1974</div>
+      <p class="footer-brand-desc">A 4th-generation, family-owned insurance brokerage protecting over 9,000 individuals, families, and businesses across Greater Victoria and throughout British Columbia.</p>
+    </div>
+    <div>
+      <h5>Insurance</h5>
+      <ul>
+        <li><a href="#">Auto &amp; ICBC</a></li>
+        <li><a href="#">Home Insurance</a></li>
+        <li><a href="#">Business Insurance</a></li>
+        <li><a href="#">Marine Insurance</a></li>
+        <li><a href="#">Travel Insurance</a></li>
+        <li><a href="#">Life &amp; Bonds</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Resources</h5>
+      <ul>
+        <li><a href="#">Request a Quote</a></li>
+        <li><a href="#">ICBC Renewals</a></li>
+        <li><a href="#">Go Paperless</a></li>
+        <li><a href="#">Helpful Tips</a></li>
+        <li><a href="#">Disclosure</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="tel:250-385-9795">(250) 385-9795</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#adc4c3cbc2edd9c5d8c3c9c8dfcfc4dfc9c4c3ded8dfccc3cec883cec2c0"><span class="__cf_email__" data-cfemail="274e49414867534f5249434255454e55434e49545255464944420944484a">[email&#160;protected]</span></a></li>
+        <li><a href="#">1032 Yates St</a></li>
+        <li><a href="#">Victoria, BC V8V 3M6</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Thunderbird Insurance Brokers Ltd. All rights reserved.</span>
+    <span>Website by Marketing Well</span>
+  </div>
+  <div class="footer-territory">Honoured to work &amp; play on the Coast Salish Territory of the Lekwungen and W̱SÁNEĆ First Nations</div>
+</footer>
+
+<!-- MOBILE CTA -->
+<div class="mobile-cta">
+  <a href="tel:250-385-9795">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Call Thunderbird — (250) 385-9795
+  </a>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 20);
+  });
+</script>
+
+</body>
+</html>
