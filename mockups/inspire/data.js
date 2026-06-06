@@ -19,6 +19,8 @@
       office: IMG + "location.jpeg",
       group: IMG + "team-group.webp",
       field: IMG + "field-sunset.jpeg",
+      logoCream: IMG + "logo-cream.png",
+      logoSlate: IMG + "logo-slate.png",
     },
 
     // ---- Mind / Body / Soul centrepiece ----
