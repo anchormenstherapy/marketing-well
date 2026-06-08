@@ -664,6 +664,10 @@ img { max-width: 100%; height: auto; display: block; }
 .ab-stat .n { font-family: var(--serif); font-weight: var(--serif-w); font-size: clamp(2.6rem,5vw,3.8rem); line-height: 1; }
 .ab-stat .l { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.12em; color: color-mix(in srgb, var(--accent-ink) 80%, transparent); margin-top: 0.6rem; }
 
+.ab-brand { padding: clamp(3.5rem,6vw,5.5rem) 0; background: var(--surface); }
+.ab-brand-copy { max-width: 700px; margin: 1.8rem auto 0; text-align: center; font-size: 1.12rem; line-height: 1.75; color: var(--ink-2); }
+.ab-brand-copy em { font-style: italic; color: var(--sage-2); }
+
 .ab-values { padding: clamp(3.5rem,6vw,5.5rem) 0; }
 .ab-val-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.4rem; margin-top: clamp(2rem,4vw,3rem); }
 .ab-val { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 2rem 1.8rem; }
