@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers | James & McIntyre Chartered Professional Accountants LLP</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #111111; --charcoal: #1C1C1C; --dark-gray: #333333; --mid-gray: #666666; --light-gray: #999999; --border: #E5E5E5; --bg-warm: #FAF9F7; --bg-light: #F5F4F1; --white: #FFFFFF; --accent: #8B7355; --accent-light: #B8A88A; --accent-pale: #F0EBE3; --accent-deep: #6B5740; --shadow-soft: 0 2px 20px rgba(0,0,0,0.04); --shadow-md: 0 8px 30px rgba(0,0,0,0.08); --radius: 8px; --radius-lg: 16px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: var(--dark-gray); background: var(--white); line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+  /* ═══ HEADER ═══ */
+  .header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); padding: 0 48px; transition: box-shadow 0.3s ease; }
+  .header.scrolled { box-shadow: var(--shadow-soft); }
+  .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 80px; }
+  .logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .logo img { height: 80px; width: auto; }
+  .logo-text { line-height: 1.15; }
+  .logo-name { font-family: 'EB Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--black); }
+  .logo-sub { font-size: 0.6rem; color: var(--light-gray); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; }
+  .nav-desktop { display: flex; align-items: center; gap: 8px; }
+  .nav-item { position: relative; }
+  .nav-link { display: flex; align-items: center; gap: 4px; padding: 8px 16px; font-size: 0.82rem; color: var(--mid-gray); text-decoration: none; font-weight: 500; transition: color 0.2s; border-radius: 6px; cursor: pointer; }
+  .nav-link:hover { color: var(--black); }
+  .nav-link svg { width: 12px; height: 12px; transition: transform 0.2s; }
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); }
+  .nav-item:hover .nav-link { color: var(--black); background: var(--bg-warm); }
+  .dropdown { position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 8px; min-width: 260px; opacity: 0; visibility: hidden; transform: translateX(-50%) translateY(8px); transition: all 0.2s ease; z-index: 100; }
+  .nav-item:hover .dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+  .nav-item::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 12px; }
+  .dropdown-link { display: block; padding: 12px 16px; font-size: 0.85rem; color: var(--dark-gray); text-decoration: none; font-weight: 500; border-radius: 6px; transition: all 0.15s ease; line-height: 1.4; }
+  .dropdown-link:hover { background: var(--bg-warm); color: var(--black); }
+  .dropdown-link-sub { display: block; font-size: 0.72rem; color: var(--light-gray); font-weight: 400; margin-top: 2px; }
+  .header-ctas { display: flex; align-items: center; gap: 12px; }
+  .header-upload { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; font-size: 0.8rem; color: var(--mid-gray); text-decoration: none; font-weight: 500; border: 1px solid var(--border); border-radius: 6px; transition: all 0.2s; }
+  .header-upload:hover { border-color: var(--accent); color: var(--accent); }
+  .header-upload svg { width: 14px; height: 14px; }
+  .header-cta-btn { display: inline-flex; align-items: center; background: var(--accent); color: var(--white); padding: 10px 22px; border-radius: 6px; text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: all 0.3s ease; }
+  .header-cta-btn:hover { background: var(--accent-deep); transform: translateY(-1px); }
+  .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--dark-gray); }
+  .mobile-toggle svg { width: 24px; height: 24px; }
+
+  /* ═══ PAGE HERO ═══ */
+  .page-hero { background: var(--charcoal); padding: 80px 48px 92px; position: relative; overflow: hidden; }
+  .page-hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(139,115,85,0.06) 0%, transparent 60%); pointer-events: none; }
+  .page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+  .page-hero-breadcrumb { font-size: 0.82rem; color: var(--accent-light); margin-bottom: 28px; display: flex; align-items: center; gap: 8px; }
+  .page-hero-breadcrumb a { color: var(--accent-light); text-decoration: none; }
+  .page-hero-breadcrumb a:hover { color: var(--accent-pale); }
+  .page-hero-breadcrumb span { color: var(--accent); }
+  .page-hero h1 { font-family: 'EB Garamond', serif; font-size: 3.2rem; font-weight: 400; color: var(--white); line-height: 1.1; margin-bottom: 24px; letter-spacing: -0.02em; max-width: 700px; }
+  .page-hero h1 em { font-style: italic; color: var(--accent-light); }
+  .page-hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.45); line-height: 1.85; max-width: 580px; }
+
+  /* ═══ CONTENT ═══ */
+  section { padding: 100px 48px; }
+  .section-narrow { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 14px; }
+  .section-title { font-family: 'EB Garamond', serif; font-size: 2.4rem; font-weight: 400; color: var(--charcoal); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 20px; }
+
+  .content-section { background: var(--white); }
+  .content-body { max-width: 780px; }
+  .content-body p { font-size: 1.08rem; color: var(--mid-gray); line-height: 1.9; margin-bottom: 22px; }
+
+  /* Perks grid */
+  .perks-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+  .perk-card { background: var(--bg-warm); border-radius: var(--radius-lg); padding: 32px 24px; border: 1px solid var(--border); text-align: center; transition: all 0.3s ease; }
+  .perk-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--accent); }
+  .perk-icon { width: 48px; height: 48px; background: var(--accent-pale); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; color: var(--accent); }
+  .perk-card h3 { font-family: 'EB Garamond', serif; font-size: 1.15rem; font-weight: 500; color: var(--charcoal); margin-bottom: 8px; }
+  .perk-card p { font-size: 0.88rem; color: var(--mid-gray); line-height: 1.6; }
+
+  /* Locations strip */
+  .locations-strip { background: var(--bg-warm); }
+  .locations-strip .section-header { text-align: center; margin-bottom: 40px; }
+  .locations-tags { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .locations-tag { background: var(--white); border: 1px solid var(--border); border-radius: 50px; padding: 10px 24px; font-size: 0.88rem; font-weight: 500; color: var(--dark-gray); }
+
+  /* ═══ CTA ═══ */
+  .cta-section { background: var(--charcoal); text-align: center; }
+  .cta-inner { max-width: 620px; margin: 0 auto; }
+  .cta-section .section-label { color: var(--accent-light); }
+  .cta-section .section-title { color: var(--white); margin-bottom: 16px; }
+  .cta-sub { font-size: 1.05rem; color: rgba(255,255,255,0.4); margin-bottom: 36px; line-height: 1.85; }
+  .cta-row { display: flex; gap: 14px; justify-content: center; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: var(--white); padding: 16px 32px; border-radius: 6px; text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: all 0.3s ease; }
+  .btn-primary:hover { background: var(--accent-light); color: var(--charcoal); transform: translateY(-1px); }
+  .btn-secondary { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.5); padding: 16px 28px; border-radius: 6px; text-decoration: none; font-size: 0.95rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.12); transition: all 0.3s ease; }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent-light); }
+
+  /* ═══ FOOTER ═══ */
+  .footer { background: var(--black); color: rgba(255,255,255,0.35); padding: 60px 48px 40px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .footer-brand-name { font-family: 'EB Garamond', serif; font-size: 1.1rem; color: var(--white); margin-bottom: 4px; }
+  .footer-brand-sub { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-bottom: 16px; }
+  .footer-brand-desc { font-size: 0.88rem; line-height: 1.7; max-width: 280px; color: rgba(255,255,255,0.25); }
+  .footer h5 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); font-weight: 600; margin-bottom: 20px; }
+  .footer ul { list-style: none; } .footer li { margin-bottom: 10px; }
+  .footer a { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+  .footer a:hover { color: var(--white); }
+  .footer-bottom { max-width: 1100px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.75rem; display: flex; justify-content: space-between; }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 1024px) { .perks-grid { grid-template-columns: 1fr; } .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; } }
+  @media (max-width: 768px) { .header { padding: 0 20px; } .header-inner { height: 68px; } .nav-desktop, .header-upload { display: none; } .header-cta-btn { display: none; } .mobile-toggle { display: block; } .logo img { height: 60px; } .page-hero { padding: 56px 20px 64px; } .page-hero h1 { font-size: 2.2rem; } section { padding: 72px 20px; } .section-title { font-size: 1.9rem; } .cta-row { flex-direction: column; align-items: center; } .footer { padding: 48px 20px 32px; } .footer-inner { grid-template-columns: 1fr; gap: 28px; } .footer-bottom { flex-direction: column; gap: 8px; text-align: center; } }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="https://marketingwell.ca/mockups/jamesmcintyrelogo.png" alt="James & McIntyre CPAs">
+      <div class="logo-text">
+        <div class="logo-name">James & McIntyre LLP</div>
+        <div class="logo-sub">Chartered Professional Accountants</div>
+      </div>
+    </a>
+    <nav class="nav-desktop">
+      <div class="nav-item"><a href="#" class="nav-link">About</a></div>
+      <div class="nav-item">
+        <span class="nav-link">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        <div class="dropdown">
+          <a href="/mockups/corporate-personal-tax.html" class="dropdown-link">Corporate & Personal Tax<span class="dropdown-link-sub">Planning, compliance & optimization</span></a>
+          <a href="/mockups/business-advisory.html" class="dropdown-link">Business Advisory<span class="dropdown-link-sub">Strategy, acquisitions & restructuring</span></a>
+          <a href="/mockups/estate-tax-planning.html" class="dropdown-link">Estate Tax Planning<span class="dropdown-link-sub">Estate administration & tax reduction</span></a>
+          <a href="/mockups/business-start-up.html" class="dropdown-link">Business Start-Up<span class="dropdown-link-sub">Structure, registration & setup</span></a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="/team" class="nav-link">Our Team</a></div>
+      <div class="nav-item">
+        <span class="nav-link">Locations <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        <div class="dropdown">
+          <a href="/mockups/victoria.html" class="dropdown-link">Victoria<span class="dropdown-link-sub">210, 1677 Poplar Avenue</span></a>
+          <a href="/mockups/langford.html" class="dropdown-link">Langford<span class="dropdown-link-sub">867 Goldstream Ave</span></a>
+          <a href="/mockups/calgary.html" class="dropdown-link">Calgary<span class="dropdown-link-sub">160 Quarry Park Blvd SE</span></a>
+          <a href="/mockups/sechelt.html" class="dropdown-link">Sechelt<span class="dropdown-link-sub">#25A-5755 Cowrie Street</span></a>
+          <a href="/mockups/gibsons.html" class="dropdown-link">Gibsons<span class="dropdown-link-sub">#100-938 Gibsons Way</span></a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="/mockups/blog.html" class="nav-link">Blog</a></div>
+    </nav>
+    <div class="header-ctas">
+      <a href="https://rfcpa.sharefile.com/filedrop" class="header-upload"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> Upload a File</a>
+      <a href="/mockups/request-appointment.html" class="header-cta-btn">Request an Appointment</a>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </div>
+</header>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-breadcrumb">
+      <a href="/">Home</a> <span>/</span> Careers
+    </div>
+    <h1>Join our <em>team</em></h1>
+    <p class="page-hero-sub">We believe that great people drive great results. Whether you're just starting your accounting career or are a seasoned professional, we'd love to hear from you.</p>
+  </div>
+</section>
+
+<!-- ═══ CONTENT ═══ -->
+<section class="content-section">
+  <div class="section-narrow">
+    <div class="content-body">
+      <div class="section-label">We're Always Hiring for the Right Fit</div>
+      <h2 class="section-title">Build your career with a boutique firm that values your growth</h2>
+      <p>Whether you're just starting your accounting career or are a seasoned professional ready for your next challenge, we're looking for talented individuals who are committed to accuracy, client service, and collaboration.</p>
+      <p>With offices in Victoria, Langford, Calgary, and the Sunshine Coast (Sechelt and Gibsons), we offer a flexible work environment where you can grow professionally while contributing to meaningful client work. You'll gain hands-on experience across tax preparation, accounting, and advisory services, and work alongside a supportive team that values learning, innovation, and results.</p>
+    </div>
+
+    <div class="perks-grid">
+      <div class="perk-card">
+        <div class="perk-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+        </div>
+        <h3>Professional Development</h3>
+        <p>Support for continuing education, CPA designation, and in-depth tax courses.</p>
+      </div>
+      <div class="perk-card">
+        <div class="perk-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Flexible Work</h3>
+        <p>In-office, remote, and hybrid arrangements across five locations in Western Canada.</p>
+      </div>
+      <div class="perk-card">
+        <div class="perk-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Competitive Benefits</h3>
+        <p>Comprehensive salary and benefits package, paid time off, and programs to support work-life balance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LOCATIONS ═══ -->
+<section class="locations-strip">
+  <div class="section-narrow">
+    <div class="section-header">
+      <div class="section-label">Our Offices</div>
+      <h2 class="section-title">Positions available across Western Canada</h2>
+    </div>
+    <div class="locations-tags">
+      <span class="locations-tag">Victoria, BC</span>
+      <span class="locations-tag">Langford, BC</span>
+      <span class="locations-tag">Calgary, AB</span>
+      <span class="locations-tag">Sechelt, BC</span>
+      <span class="locations-tag">Gibsons, BC</span>
+      <span class="locations-tag">Remote</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Interested? We'd love to hear from you.</h2>
+    <p class="cta-sub">We're always hiring for the right fit. Send us your resume and a brief introduction — even if we don't have a specific posting, we want to know about great people.</p>
+    <div class="cta-row">
+      <a href="mailto:info@jamesmcintyre.ca" class="btn-primary">Email Your Resume</a>
+      <a href="tel:1-877-319-4111" class="btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        1-877-319-4111
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">James & McIntyre</div>
+      <div class="footer-brand-sub">Chartered Professional Accountants</div>
+      <p class="footer-brand-desc">A boutique CPA firm delivering corporate tax, advisory, and estate planning expertise across Western Canada.</p>
+    </div>
+    <div><h5>Services</h5><ul><li><a href="/mockups/accounting-tax-services.html">Corporate & Personal Tax</a></li><li><a href="/mockups/business-advice-planning.html">Business Advisory</a></li><li><a href="/mockups/estate-tax-planning-and-returns.html">Estate Tax Planning</a></li><li><a href="/mockups/business-start-up.html">Business Start-Up</a></li></ul></div>
+    <div><h5>Firm</h5><ul><li><a href="/about">About</a></li><li><a href="/team">Our Team</a></li><li><a href="/blog">Blog</a></li><li><a href="/careers">Careers</a></li><li><a href="/privacy-policy">Privacy Policy</a></li></ul></div>
+    <div><h5>Contact</h5><ul><li><a href="tel:1-877-319-4111">1-877-319-4111</a></li><li><a href="mailto:info@jamesmcintyre.ca">info@jamesmcintyre.ca</a></li><li><a href="https://rfcpa.sharefile.com/filedrop">Upload a File</a></li><li><a href="/mockups/request-appointment.html">Request an Appointment</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 James & McIntyre Chartered Professional Accountants LLP. All rights reserved.</span>
+    <span>Website by Marketing Well</span>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 10); });
+</script>
+</body>
+</html>

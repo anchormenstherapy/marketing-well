@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Victoria Office | James & McIntyre Chartered Professional Accountants LLP</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #111111;
+    --charcoal: #1C1C1C;
+    --dark-gray: #333333;
+    --mid-gray: #666666;
+    --light-gray: #999999;
+    --border: #E5E5E5;
+    --bg-warm: #FAF9F7;
+    --bg-light: #F5F4F1;
+    --white: #FFFFFF;
+    --accent: #8B7355;
+    --accent-light: #B8A88A;
+    --accent-pale: #F0EBE3;
+    --accent-deep: #6B5740;
+    --shadow-soft: 0 2px 20px rgba(0,0,0,0.04);
+    --shadow-md: 0 8px 30px rgba(0,0,0,0.08);
+    --radius: 8px;
+    --radius-lg: 16px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--dark-gray);
+    background: var(--white);
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ═══ HEADER ═══ */
+  .header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); padding: 0 48px; transition: box-shadow 0.3s ease; }
+  .header.scrolled { box-shadow: var(--shadow-soft); }
+  .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 80px; }
+  .logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .logo img { height: 80px; width: auto; }
+  .logo-text { line-height: 1.15; }
+  .logo-name { font-family: 'EB Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--black); }
+  .logo-sub { font-size: 0.6rem; color: var(--light-gray); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; }
+  .nav-desktop { display: flex; align-items: center; gap: 8px; }
+  .nav-item { position: relative; }
+  .nav-link { display: flex; align-items: center; gap: 4px; padding: 8px 16px; font-size: 0.82rem; color: var(--mid-gray); text-decoration: none; font-weight: 500; transition: color 0.2s; border-radius: 6px; cursor: pointer; }
+  .nav-link:hover { color: var(--black); }
+  .nav-link svg { width: 12px; height: 12px; transition: transform 0.2s; }
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); }
+  .nav-item:hover .nav-link { color: var(--black); background: var(--bg-warm); }
+  .dropdown { position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 8px; min-width: 260px; opacity: 0; visibility: hidden; transform: translateX(-50%) translateY(8px); transition: all 0.2s ease; z-index: 100; }
+  .nav-item:hover .dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+  .nav-item::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 12px; }
+  .dropdown-link { display: block; padding: 12px 16px; font-size: 0.85rem; color: var(--dark-gray); text-decoration: none; font-weight: 500; border-radius: 6px; transition: all 0.15s ease; line-height: 1.4; }
+  .dropdown-link:hover { background: var(--bg-warm); color: var(--black); }
+  .dropdown-link.active { background: var(--accent-pale); color: var(--accent-deep); }
+  .dropdown-link-sub { display: block; font-size: 0.72rem; color: var(--light-gray); font-weight: 400; margin-top: 2px; }
+  .header-ctas { display: flex; align-items: center; gap: 12px; }
+  .header-upload { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; font-size: 0.8rem; color: var(--mid-gray); text-decoration: none; font-weight: 500; border: 1px solid var(--border); border-radius: 6px; transition: all 0.2s; }
+  .header-upload:hover { border-color: var(--accent); color: var(--accent); }
+  .header-upload svg { width: 14px; height: 14px; }
+  .header-cta-btn { display: inline-flex; align-items: center; background: var(--accent); color: var(--white); padding: 10px 22px; border-radius: 6px; text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: all 0.3s ease; }
+  .header-cta-btn:hover { background: var(--accent-deep); transform: translateY(-1px); }
+  .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--dark-gray); }
+  .mobile-toggle svg { width: 24px; height: 24px; }
+
+  /* ═══ PAGE HERO ═══ */
+  .page-hero {
+    background: var(--charcoal);
+    padding: 80px 48px 92px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139,115,85,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+  .page-hero-breadcrumb { font-size: 0.82rem; color: var(--accent-light); margin-bottom: 28px; display: flex; align-items: center; gap: 8px; }
+  .page-hero-breadcrumb a { color: var(--accent-light); text-decoration: none; }
+  .page-hero-breadcrumb a:hover { color: var(--accent-pale); }
+  .page-hero-breadcrumb span { color: var(--accent); }
+  .page-hero h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: 3.2rem;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+    max-width: 700px;
+  }
+  .page-hero h1 em { font-style: italic; color: var(--accent-light); }
+  .page-hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.45); line-height: 1.85; max-width: 580px; }
+
+  /* ═══ COMMON ═══ */
+  section { padding: 100px 48px; }
+  .section-narrow { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 14px; }
+  .section-title { font-family: 'EB Garamond', serif; font-size: 2.4rem; font-weight: 400; color: var(--charcoal); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 20px; }
+
+  /* ═══ LOCATION INFO ═══ */
+  .location-info { background: var(--white); }
+  .location-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .location-content p {
+    font-size: 1.08rem;
+    color: var(--mid-gray);
+    line-height: 1.9;
+    margin-bottom: 20px;
+  }
+
+  /* Map container — responsive iframe wrapper */
+  .map-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+  .map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  /* Details card */
+  .location-details-card {
+    background: var(--bg-warm);
+    border-radius: var(--radius-lg);
+    padding: 40px 32px;
+    border: 1px solid var(--border);
+  }
+  .detail-row {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .detail-row:first-child { padding-top: 0; }
+  .detail-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .detail-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .detail-value {
+    font-size: 1rem;
+    color: var(--dark-gray);
+    line-height: 1.55;
+  }
+  .detail-value a {
+    color: var(--dark-gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .detail-value a:hover { color: var(--accent); }
+  .location-cta {
+    display: block;
+    text-align: center;
+    background: var(--accent);
+    color: var(--white);
+    padding: 16px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 24px;
+  }
+  .location-cta:hover { background: var(--accent-deep); }
+
+  /* ═══ SERVICES OFFERED ═══ */
+  .services-offered { background: var(--bg-warm); }
+  .services-offered-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .service-offered-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 36px 28px;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--dark-gray);
+    transition: all 0.3s ease;
+    display: block;
+  }
+  .service-offered-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent);
+  }
+  .service-offered-card h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 10px;
+  }
+  .service-offered-card p {
+    font-size: 0.92rem;
+    color: var(--mid-gray);
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+  .service-offered-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* ═══ OTHER LOCATIONS ═══ */
+  .other-locations { background: var(--white); }
+  .other-locations .section-header { text-align: center; margin-bottom: 48px; }
+  .locations-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .location-card {
+    background: var(--bg-warm);
+    border-radius: var(--radius-lg);
+    padding: 32px 24px;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--dark-gray);
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+  .location-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent);
+  }
+  .location-card-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin: 0 auto 14px;
+  }
+  .location-card h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 6px;
+  }
+  .location-card p {
+    font-size: 0.82rem;
+    color: var(--light-gray);
+    line-height: 1.5;
+  }
+
+  /* ═══ CTA ═══ */
+  .cta-section { background: linear-gradient(135deg, var(--bg-warm) 0%, var(--bg-light) 100%); text-align: center; }
+  .cta-inner { max-width: 620px; margin: 0 auto; }
+  .cta-inner .section-title { margin-bottom: 16px; }
+  .cta-sub { font-size: 1.05rem; color: var(--mid-gray); margin-bottom: 36px; line-height: 1.85; }
+  .cta-row { display: flex; gap: 14px; justify-content: center; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: var(--white); padding: 16px 32px; border-radius: 6px; text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: all 0.3s ease; }
+  .btn-primary:hover { background: var(--accent-deep); transform: translateY(-1px); }
+  .btn-secondary { display: inline-flex; align-items: center; gap: 8px; color: var(--dark-gray); padding: 16px 28px; border-radius: 6px; text-decoration: none; font-size: 0.95rem; font-weight: 500; border: 1px solid var(--border); transition: all 0.3s ease; }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ═══ FOOTER ═══ */
+  .footer { background: var(--black); color: rgba(255,255,255,0.35); padding: 60px 48px 40px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .footer-brand-name { font-family: 'EB Garamond', serif; font-size: 1.1rem; color: var(--white); margin-bottom: 4px; }
+  .footer-brand-sub { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-bottom: 16px; }
+  .footer-brand-desc { font-size: 0.88rem; line-height: 1.7; max-width: 280px; color: rgba(255,255,255,0.25); }
+  .footer h5 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); font-weight: 600; margin-bottom: 20px; }
+  .footer ul { list-style: none; }
+  .footer li { margin-bottom: 10px; }
+  .footer a { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+  .footer a:hover { color: var(--white); }
+  .footer-bottom { max-width: 1100px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.75rem; display: flex; justify-content: space-between; }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 1024px) {
+    .location-grid { grid-template-columns: 1fr; gap: 40px; }
+    .services-offered-grid { grid-template-columns: 1fr; }
+    .locations-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+  @media (max-width: 768px) {
+    .header { padding: 0 20px; }
+    .header-inner { height: 68px; }
+    .nav-desktop, .header-upload { display: none; }
+    .header-cta-btn { display: none; }
+    .mobile-toggle { display: block; }
+    .logo img { height: 80px; }
+    .page-hero { padding: 56px 20px 64px; }
+    .page-hero h1 { font-size: 2.2rem; }
+    section { padding: 72px 20px; }
+    .locations-grid { grid-template-columns: 1fr; }
+    .section-title { font-size: 1.9rem; }
+    .cta-row { flex-direction: column; align-items: center; }
+    .footer { padding: 48px 20px 32px; }
+    .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="https://marketingwell.ca/mockups/jamesmcintyrelogo.png" alt="James & McIntyre CPAs">
+      <div class="logo-text">
+        <div class="logo-name">James & McIntyre LLP</div>
+        <div class="logo-sub">Chartered Professional Accountants</div>
+      </div>
+    </a>
+    <nav class="nav-desktop">
+      <div class="nav-item"><a href="#" class="nav-link">About</a></div>
+      <div class="nav-item">
+        <span class="nav-link">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        <div class="dropdown">
+          <a href="/mockups/corporate-personal-tax.html" class="dropdown-link">Corporate & Personal Tax<span class="dropdown-link-sub">Planning, compliance & optimization</span></a>
+          <a href="/mockups/business-advisory.html" class="dropdown-link">Business Advisory<span class="dropdown-link-sub">Strategy, acquisitions & restructuring</span></a>
+          <a href="/mockups/estate-tax-planning.html" class="dropdown-link">Estate Tax Planning<span class="dropdown-link-sub">Estate administration & tax reduction</span></a>
+          <a href="/mockups/business-start-up.html" class="dropdown-link">Business Start-Up<span class="dropdown-link-sub">Structure, registration & setup</span></a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="/team" class="nav-link">Our Team</a></div>
+      <div class="nav-item">
+        <span class="nav-link" style="color:var(--black);background:var(--bg-warm);">Locations <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        <div class="dropdown">
+          <a href="/mockups/victoria.html" class="dropdown-link active">Victoria<span class="dropdown-link-sub">210, 1677 Poplar Avenue</span></a>
+          <a href="/mockups/langford.html" class="dropdown-link">Langford<span class="dropdown-link-sub">867 Goldstream Ave</span></a>
+          <a href="/mockups/calgary.html" class="dropdown-link">Calgary<span class="dropdown-link-sub">160 Quarry Park Blvd SE</span></a>
+          <a href="/mockups/sechelt.html" class="dropdown-link">Sechelt<span class="dropdown-link-sub">#25A-5755 Cowrie Street</span></a>
+          <a href="/mockups/gibsons.html" class="dropdown-link">Gibsons<span class="dropdown-link-sub">#100-938 Gibsons Way</span></a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="/mockups/blog.html" class="nav-link">Blog</a></div>
+    </nav>
+    <div class="header-ctas">
+      <a href="https://rfcpa.sharefile.com/filedrop" class="header-upload"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> Upload a File</a>
+      <a href="/mockups/request-appointment.html" class="header-cta-btn">Request an Appointment</a>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </div>
+</header>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-breadcrumb">
+      <a href="/">Home</a> <span>/</span> <a href="#">Locations</a> <span>/</span> Victoria
+    </div>
+    <h1>Our <em>Victoria</em> Office</h1>
+    <p class="page-hero-sub">Serving Greater Victoria with professional accounting, tax planning, and business advisory services. Visit us on Poplar Avenue or book a virtual appointment.</p>
+  </div>
+</section>
+
+<!-- ═══ LOCATION INFO ═══ -->
+<section class="location-info">
+  <div class="section-narrow">
+    <div class="location-grid">
+
+      <!-- Left: content + map -->
+      <div class="location-content">
+        <div class="section-label">About This Location</div>
+        <h2 class="section-title">Professional accountants in Victoria</h2>
+        <p>As the home of our main office, Victoria is where James & McIntyre was founded and continues to grow. Our Poplar Avenue office is led by Partners Huf McIntyre, CPA, CA and Terris Smith, CPA, who bring deep expertise in corporate tax, advisory, and estate planning to clients across Greater Victoria and beyond.</p>
+        <p>Whether you're a business owner looking for proactive tax planning, an individual navigating a complex financial situation, or a growing company that needs strategic advisory — our Victoria team is here to help.</p>
+
+        <!-- Map -- replace src with correct Google Maps embed for Victoria -->
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2645.8844941570114!2d-123.33105289999997!3d48.4587457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x548f73f0903e595b%3A0x1e556d3c3e847482!2sJames%20%26%20McIntyre%20Chartered%20Professional%20Accountants!5e0!3m2!1sen!2sca!4v1773253878494!5m2!1sen!2sca" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+      <!-- Right: details card -->
+      <div class="location-details-card">
+        <div class="detail-row">
+          <div class="detail-label">Address</div>
+          <div class="detail-value">
+            210, 1677 Poplar Avenue<br>
+            Victoria, BC V8P 4K5
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-label">Phone</div>
+          <div class="detail-value"><a href="tel:1-877-319-4111">1-877-319-4111</a></div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-label">Email</div>
+          <div class="detail-value"><a href="mailto:info@jamesmcintyre.ca">info@jamesmcintyre.ca</a></div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-label">Office Hours</div>
+          <div class="detail-value">
+            Monday – Friday: 9:00 AM – 4:30 PM (by appointment)<br>
+            Saturday & Sunday: Closed<br>
+            Statutory Holidays: Closed
+          </div>
+        </div>
+        <a href="/mockups/request-appointment.html" class="location-cta">Request an Appointment</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES AT THIS LOCATION ═══ -->
+<section class="services-offered">
+  <div class="section-narrow">
+    <div class="section-label">What We Offer</div>
+    <h2 class="section-title">Services available at our Victoria office</h2>
+    <div class="services-offered-grid">
+      <a href="/mockups/accounting-tax-services.html" class="service-offered-card">
+        <h3>Corporate & Personal Tax</h3>
+        <p>Comprehensive tax planning and filing for businesses and individuals. We structure your affairs to minimize tax exposure and maximize what you keep.</p>
+        <span class="service-offered-link">Learn more →</span>
+      </a>
+      <a href="/mockups/business-advice-planning.html" class="service-offered-card">
+        <h3>Business Advisory</h3>
+        <p>Strategic planning, acquisitions, restructuring, and succession planning to help you make better decisions with your numbers.</p>
+        <span class="service-offered-link">Learn more →</span>
+      </a>
+      <a href="/mockups/estate-tax-planning-and-returns.html" class="service-offered-card">
+        <h3>Estate Tax Planning</h3>
+        <p>Efficient estate administration, liability reduction, and tax compliance for individuals and their families.</p>
+        <span class="service-offered-link">Learn more →</span>
+      </a>
+      <a href="/mockups/business-start-up.html" class="service-offered-card">
+        <h3>Business Start-Up</h3>
+        <p>Incorporation, tax registration, bookkeeping setup, and ongoing advisory for new businesses in Victoria and Greater Victoria.</p>
+        <span class="service-offered-link">Learn more →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ OTHER LOCATIONS ═══ -->
+<section class="other-locations">
+  <div class="section-narrow">
+    <div class="section-header">
+      <div class="section-label">Our Offices</div>
+      <h2 class="section-title">Other locations across Western Canada</h2>
+    </div>
+    <div class="locations-grid">
+      <a href="/mockups/gibsons.html" class="location-card">
+        <div class="location-card-dot"></div>
+        <h3>Gibsons</h3>
+        <p>#100-938 Gibsons Way<br>Gibsons, BC V0N 1V0</p>
+      </a>
+      <a href="/mockups/langford.html" class="location-card">
+        <div class="location-card-dot"></div>
+        <h3>Langford</h3>
+        <p>867 Goldstream Ave<br>(within Maxxam)<br>Victoria, BC V9B 2X8</p>
+      </a>
+      <a href="/mockups/calgary.html" class="location-card">
+        <div class="location-card-dot"></div>
+        <h3>Calgary</h3>
+        <p>160 Quarry Park Blvd SE<br>Suite 300<br>Calgary, AB T2C 3G3</p>
+      </a>
+      <a href="/mockups/sechelt.html" class="location-card">
+        <div class="location-card-dot"></div>
+        <h3>Sechelt</h3>
+        <p>#25A-5755 Cowrie Street<br>Sechelt, BC V0N 3A0</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="section-label">Get Started</div>
+    <h2 class="section-title">Ready to work with accountants who know Victoria?</h2>
+    <p class="cta-sub">Book an appointment at our Victoria office or connect with us virtually. We're here when you need us.</p>
+    <div class="cta-row">
+      <a href="/mockups/request-appointment.html" class="btn-primary">Request an Appointment</a>
+      <a href="tel:1-877-319-4111" class="btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        1-877-319-4111
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">James & McIntyre</div>
+      <div class="footer-brand-sub">Chartered Professional Accountants</div>
+      <p class="footer-brand-desc">A boutique CPA firm delivering corporate tax, advisory, and estate planning expertise across Western Canada.</p>
+    </div>
+    <div><h5>Services</h5><ul><li><a href="/mockups/accounting-tax-services.html">Corporate & Personal Tax</a></li><li><a href="/mockups/business-advice-planning.html">Business Advisory</a></li><li><a href="/mockups/estate-tax-planning-and-returns.html">Estate Tax Planning</a></li><li><a href="/mockups/business-start-up.html">Business Start-Up</a></li></ul></div>
+    <div><h5>Firm</h5><ul><li><a href="/about">About</a></li><li><a href="/team">Our Team</a></li><li><a href="/blog">Blog</a></li><li><a href="/careers">Careers</a></li><li><a href="/privacy-policy">Privacy Policy</a></li></ul></div>
+    <div><h5>Contact</h5><ul><li><a href="tel:1-877-319-4111">1-877-319-4111</a></li><li><a href="/cdn-cgi/l/email-protection#b6dfd8d0d9f6dcd7dbd3c5dbd5dfd8c2cfc4d398d5d7"><span class="__cf_email__" data-cfemail="573e393138173d363a32243a343e39232e2532793436">[email&#160;protected]</span></a></li><li><a href="https://rfcpa.sharefile.com/filedrop">Upload a File</a></li><li><a href="/mockups/request-appointment.html">Request an Appointment</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 James & McIntyre Chartered Professional Accountants LLP. All rights r

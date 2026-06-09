@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corporate Accountants Victoria BC | James & McIntyre CPAs</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #111111;
+    --charcoal: #1C1C1C;
+    --dark-gray: #333333;
+    --mid-gray: #666666;
+    --light-gray: #999999;
+    --border: #E5E5E5;
+    --bg-warm: #FAF9F7;
+    --bg-light: #F5F4F1;
+    --white: #FFFFFF;
+    --accent: #8B7355;
+    --accent-light: #B8A88A;
+    --accent-pale: #F0EBE3;
+    --accent-deep: #6B5740;
+    --shadow-soft: 0 2px 20px rgba(0,0,0,0.04);
+    --shadow-md: 0 8px 30px rgba(0,0,0,0.08);
+    --shadow-lg: 0 16px 60px rgba(0,0,0,0.08);
+    --radius: 8px;
+    --radius-lg: 16px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--dark-gray);
+    background: var(--white);
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ═══ HEADER (simplified for landing page) ═══ */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 0 48px;
+    transition: box-shadow 0.3s ease;
+  }
+  .header.scrolled { box-shadow: var(--shadow-soft); }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+  }
+  .logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .logo img { height: 48px; width: auto; }
+  .logo-text { line-height: 1.15; }
+  .logo-name { font-family: 'EB Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--black); }
+  .logo-sub { font-size: 0.6rem; color: var(--light-gray); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; }
+  .header-cta-row { display: flex; align-items: center; gap: 16px; }
+  .header-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--dark-gray);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+  .header-phone:hover { color: var(--accent); }
+  .header-phone svg { width: 16px; height: 16px; }
+  .header-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    background: var(--accent);
+    color: var(--white);
+    padding: 10px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  .header-cta-btn:hover { background: var(--accent-deep); transform: translateY(-1px); }
+
+  /* ═══ HERO ═══ */
+  .hero {
+    background: var(--charcoal);
+    padding: 80px 48px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139,115,85,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent-light);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-label::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .hero h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em { font-style: italic; color: var(--accent-light); }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.85;
+    margin-bottom: 36px;
+    max-width: 500px;
+  }
+  .hero-trust {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+  }
+  .trust-item svg {
+    width: 16px;
+    height: 16px;
+    color: var(--accent-light);
+  }
+
+  /* Hero Form */
+  .hero-form-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 40px 32px;
+    box-shadow: var(--shadow-lg);
+  }
+  .hero-form-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 6px;
+  }
+  .hero-form-sub {
+    font-size: 0.88rem;
+    color: var(--mid-gray);
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+  .form-group { margin-bottom: 18px; }
+  .form-group label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--dark-gray);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.92rem;
+    color: var(--dark-gray);
+    background: var(--white);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--accent);
+  }
+  .form-group textarea { resize: vertical; min-height: 80px; }
+  .form-submit {
+    display: block;
+    width: 100%;
+    background: var(--accent);
+    color: var(--white);
+    padding: 16px 24px;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+  }
+  .form-submit:hover { background: var(--accent-deep); }
+  .form-note {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--light-gray);
+    margin-top: 14px;
+  }
+
+  /* ═══ COMMON ═══ */
+  section { padding: 100px 48px; }
+  .section-narrow { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 14px; }
+  .section-title { font-family: 'EB Garamond', serif; font-size: 2.4rem; font-weight: 400; color: var(--charcoal); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 20px; }
+
+  /* ═══ SERVICES ═══ */
+  .services { background: var(--bg-warm); }
+  .services .section-header { text-align: center; margin-bottom: 56px; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .service-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 40px 32px;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent);
+  }
+  .service-number {
+    font-family: 'EB Garamond', serif;
+    font-size: 2.4rem;
+    color: var(--accent-pale);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .service-card h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--black);
+    margin-bottom: 10px;
+  }
+  .service-card p {
+    font-size: 0.92rem;
+    color: var(--mid-gray);
+    line-height: 1.75;
+  }
+
+  /* ═══ WHY ═══ */
+  .why-section { background: var(--white); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .why-content .section-label { text-align: left; }
+  .why-content .section-title { text-align: left; margin: 0 0 24px 0; font-size: 2.2rem; max-width: none; }
+  .why-text {
+    font-size: 1rem;
+    color: var(--mid-gray);
+    line-height: 1.85;
+    margin-bottom: 32px;
+  }
+  .why-points { display: flex; flex-direction: column; gap: 22px; }
+  .why-point {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .why-point-line {
+    width: 2px;
+    min-height: 40px;
+    background: var(--accent);
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+  .why-point-title { font-weight: 600; font-size: 0.95rem; color: var(--black); margin-bottom: 4px; }
+  .why-point-text { font-size: 0.85rem; color: var(--mid-gray); line-height: 1.6; }
+
+  /* Reviews on landing page */
+  .lp-reviews {
+    background: var(--bg-warm);
+    border-radius: var(--radius-lg);
+    padding: 40px 36px;
+    border: 1px solid var(--border);
+  }
+  .lp-review {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .lp-review:first-child { padding-top: 0; }
+  .lp-review:last-child { border-bottom: none; padding-bottom: 0; }
+  .lp-review-stars {
+    color: var(--accent);
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+  }
+  .lp-review-quote {
+    font-size: 0.92rem;
+    font-style: italic;
+    color: var(--dark-gray);
+    line-height: 1.65;
+    margin-bottom: 8px;
+  }
+  .lp-review-author {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--charcoal);
+  }
+  .lp-review-source {
+    font-size: 0.72rem;
+    color: var(--light-gray);
+  }
+
+  /* ═══ REVIEWS SECTION ═══ */
+  .reviews { background: var(--charcoal); color: var(--white); }
+  .reviews .section-header { text-align: center; margin-bottom: 56px; }
+  .reviews .section-label { color: var(--accent-light); }
+  .reviews .section-title { color: var(--white); }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .review-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius-lg);
+    padding: 36px 28px;
+  }
+  .review-stars { color: var(--accent-light); margin-bottom: 16px; font-size: 0.9rem; }
+  .review-quote { font-size: 0.95rem; font-style: italic; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 18px; }
+  .review-author { font-size: 0.85rem; font-weight: 600; color: var(--white); }
+  .review-source { font-size: 0.72rem; color: rgba(255,255,255,0.35); margin-top: 2px; }
+
+  /* ═══ CTA (bottom of page, with form) ═══ */
+  .bottom-cta { background: var(--bg-warm); text-align: center; }
+  .bottom-cta-inner { max-width: 580px; margin: 0 auto; }
+  .bottom-cta .section-title { margin-bottom: 16px; }
+  .bottom-cta-sub { font-size: 1.05rem; color: var(--mid-gray); margin-bottom: 36px; line-height: 1.85; }
+  .bottom-cta-row { display: flex; gap: 14px; justify-content: center; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: var(--white); padding: 16px 32px; border-radius: 6px; text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: all 0.3s ease; }
+  .btn-primary:hover { background: var(--accent-deep); transform: translateY(-1px); }
+  .btn-secondary { display: inline-flex; align-items: center; gap: 8px; color: var(--dark-gray); padding: 16px 28px; border-radius: 6px; text-decoration: none; font-size: 0.95rem; font-weight: 500; border: 1px solid var(--border); transition: all 0.3s ease; }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ═══ FOOTER (simplified for landing page) ═══ */
+  .footer { background: var(--black); color: rgba(255,255,255,0.35); padding: 40px 48px; }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-brand {
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.5);
+  }
+  .footer-copy {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 1024px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+    .why-grid { grid-template-columns: 1fr; gap: 48px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    .header { padding: 0 20px; }
+    .header-inner { height: 68px; }
+    .header-phone span { display: none; }
+    .logo img { height: 40px; }
+    .hero { padding: 56px 20px 72px; }
+    .hero h1 { font-size: 2.2rem; }
+    section { padding: 72px 20px; }
+    .section-title { font-size: 1.9rem; }
+    .hero-trust { gap: 16px; }
+    .bottom-cta-row { flex-direction: column; align-items: center; }
+    .footer { padding: 32px 20px; }
+    .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER (simplified — no full nav, conversion-focused) ═══ -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="https://marketingwell.ca/mockups/jamesmcintyrelogo.png" alt="James & McIntyre CPAs">
+      <div class="logo-text">
+        <div class="logo-name">James & McIntyre</div>
+        <div class="logo-sub">Chartered Professional Accountants</div>
+      </div>
+    </a>
+    <div class="header-cta-row">
+      <a href="tel:1-877-319-4111" class="header-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>1-877-319-4111</span>
+      </a>
+      <a href="#contact-form" class="header-cta-btn">Request an Appointment</a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-label">Corporate Accountants · Victoria, BC</div>
+      <h1>Victoria's boutique CPA firm for businesses that demand <em>more</em></h1>
+      <p class="hero-sub">James & McIntyre delivers corporate tax planning, business advisory, and estate expertise with the responsiveness and personal attention that larger firms can't match. Five offices across Western Canada — senior-level expertise, every engagement.</p>
+      <div class="hero-trust">
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Designated CPA Partners
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          5 Offices across Western Canada
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Virtual service nationwide
+        </div>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div class="hero-form-card" id="contact-form">
+      <div class="hero-form-title">Request an Appointment</div>
+      <p class="hero-form-sub">Tell us a bit about your situation and we'll be in touch promptly.</p>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Your full name">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="you@email.com">
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" placeholder="(250) 000-0000">
+      </div>
+      <div class="form-group">
+        <label for="service">I need help with</label>
+        <select id="service">
+          <option value="">Select a service...</option>
+          <option>Corporate Tax Planning</option>
+          <option>Personal Tax</option>
+          <option>Business Advisory</option>
+          <option>Estate Tax Planning</option>
+          <option>Business Start-Up</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Message (optional)</label>
+        <textarea id="message" placeholder="Briefly describe what you need help with..."></textarea>
+      </div>
+      <button class="form-submit">Request an Appointment</button>
+      <p class="form-note">We typically respond within 1 business day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section class="services">
+  <div class="section-narrow">
+    <div class="section-header">
+      <div class="section-label">Our Services</div>
+      <h2 class="section-title">Tailored accounting and tax services for Victoria businesses</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-number">01</div>
+        <h3>Corporate & Personal Tax</h3>
+        <p>Comprehensive tax planning and filing that goes beyond compliance. We structure your affairs to minimize tax exposure, maximize deferrals, and keep you ahead of CRA changes.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">02</div>
+        <h3>Business Advisory</h3>
+        <p>Strategic planning, acquisitions and sales, corporate restructuring, reorganizations, and succession planning. We help you use your numbers to make better decisions.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">03</div>
+        <h3>Estate Tax Planning</h3>
+        <p>Efficient estate administration, liability reduction, and tax compliance for high-net-worth clients and their families.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">04</div>
+        <h3>Business Start-Up</h3>
+        <p>The right structure from day one. Incorporation, tax registration, bookkeeping setup, and ongoing advisory for new Victoria businesses.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY J&M ═══ -->
+<section class="why-section">
+  <div class="section-narrow">
+    <div class="why-grid">
+      <div class="why-content">
+        <div class="section-label">Why James & McIntyre</div>
+        <h2 class="section-title">The firm between Big Four overhead and sole practitioner limitations</h2>
+        <p class="why-text">You need senior-level expertise without paying for a tower of glass. You need a team that answers the phone, knows your business, and gives you advice that actually moves the needle.</p>
+        <div class="why-points">
+          <div class="why-point">
+            <div class="why-point-line"></div>
+            <div>
+              <div class="why-point-title">You work with partners, not associates</div>
+              <div class="why-point-text">Your engagement is led by a designated CPA with deep expertise — not handed off to junior staff.</div>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-point-line"></div>
+            <div>
+              <div class="why-point-title">Proactive, not reactive</div>
+              <div class="why-point-text">We identify tax planning opportunities and risks before they become problems — not just at year-end.</div>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-point-line"></div>
+            <div>
+              <div class="why-point-title">Responsive when it matters</div>
+              <div class="why-point-text">When you need an answer, you get one. We're known for being available, clear, and fast.</div>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-point-line"></div>
+            <div>
+              <div class="why-point-title">Victoria-based, Western Canada reach</div>
+              <div class="why-point-text">Five offices in Victoria, Langford, Calgary, Sechelt, and Gibsons — plus virtual service nationwide.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reviews sidebar -->
+      <div class="lp-reviews">
+        <div class="section-label" style="margin-bottom:24px;">Client Reviews</div>
+        <div class="lp-review">
+          <div class="lp-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="lp-review-quote">"The service provided by this company is truly exceptional! Their work is consistently thorough, accurate, and delivered with a friendly approach."</p>
+          <div class="lp-review-author">Marijke Cameron</div>
+          <div class="lp-review-source">Google Review</div>
+        </div>
+        <div class="lp-review">
+          <div class="lp-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="lp-review-quote">"Our accountant Huf, and his team have been awesome. They're so quick to answer, and are so helpful with both our personal and business taxes."</p>
+          <div class="lp-review-author">Danielle Escude</div>
+          <div class="lp-review-source">Google Review</div>
+        </div>
+        <div class="lp-review">
+          <div class="lp-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="lp-review-quote">"Huf and his team at James & McIntyre are bar none some of the best accountants I have had the benefit of working with."</p>
+          <div class="lp-review-author">Samuel Gane</div>
+          <div class="lp-review-source">Google Review</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BOTTOM CTA ═══ -->
+<section class="bottom-cta">
+  <div class="bottom-cta-inner">
+    <div class="section-label">Get Started</div>
+    <h2 class="section-title">Ready for accountants who think beyond compliance?</h2>
+    <p class="bottom-cta-sub">Whether you need a fresh perspective on your tax structure, advisory on an acquisition, or a firm that finally responds when you call — let's talk.</p>
+    <div class="bottom-cta-row">
+      <a href="#contact-form" class="btn-primary">Request an Appointment</a>
+      <a href="tel:1-877-319-4111" class="btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        1-877-319-4111
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER (simplified) ═══ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">James & McIntyre — Chartered Professional Accountants</div>
+    <div class="footer-copy">&copy; 2026 James & McIntyre Chartered Professional Accountants LLP. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  });
+</script>
+</body>
+</html>

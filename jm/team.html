@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Team | James & McIntyre Chartered Professional Accountants</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #111111;
+    --charcoal: #1C1C1C;
+    --dark-gray: #333333;
+    --mid-gray: #666666;
+    --light-gray: #999999;
+    --border: #E5E5E5;
+    --bg-warm: #FAF9F7;
+    --bg-light: #F5F4F1;
+    --white: #FFFFFF;
+    --accent: #8B7355;
+    --accent-light: #B8A88A;
+    --accent-pale: #F0EBE3;
+    --accent-deep: #6B5740;
+    --shadow-soft: 0 2px 20px rgba(0,0,0,0.04);
+    --shadow-md: 0 8px 30px rgba(0,0,0,0.08);
+    --radius: 8px;
+    --radius-lg: 16px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--dark-gray);
+    background: var(--white);
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ═══ HEADER ═══ */
+  .header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); padding: 0 48px; transition: box-shadow 0.3s ease; }
+  .header.scrolled { box-shadow: var(--shadow-soft); }
+  .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 80px; }
+  .logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .logo img { height: 48px; width: auto; }
+  .logo-text { line-height: 1.15; }
+  .logo-name { font-family: 'EB Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--black); }
+  .logo-sub { font-size: 0.6rem; color: var(--light-gray); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; }
+  .nav-desktop { display: flex; align-items: center; gap: 8px; }
+  .nav-item { position: relative; }
+  .nav-link { display: flex; align-items: center; gap: 4px; padding: 8px 16px; font-size: 0.82rem; color: var(--mid-gray); text-decoration: none; font-weight: 500; transition: color 0.2s; border-radius: 6px; cursor: pointer; }
+  .nav-link:hover { color: var(--black); }
+  .nav-link svg { width: 12px; height: 12px; transition: transform 0.2s; }
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); }
+  .nav-item:hover .nav-link { color: var(--black); background: var(--bg-warm); }
+  .dropdown { position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 8px; min-width: 260px; opacity: 0; visibility: hidden; transform: translateX(-50%) translateY(8px); transition: all 0.2s ease; z-index: 100; }
+  .nav-item:hover .dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+  .nav-item::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 12px; }
+  .dropdown-link { display: block; padding: 12px 16px; font-size: 0.85rem; color: var(--dark-gray); text-decoration: none; font-weight: 500; border-radius: 6px; transition: all 0.15s ease; line-height: 1.4; }
+  .dropdown-link:hover { background: var(--bg-warm); color: var(--black); }
+  .dropdown-link-sub { display: block; font-size: 0.72rem; color: var(--light-gray); font-weight: 400; margin-top: 2px; }
+  .header-ctas { display: flex; align-items: center; gap: 12px; }
+  .header-upload { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; font-size: 0.8rem; color: var(--mid-gray); text-decoration: none; font-weight: 500; border: 1px solid var(--border); border-radius: 6px; transition: all 0.2s; }
+  .header-upload:hover { border-color: var(--accent); color: var(--accent); }
+  .header-upload svg { width: 14px; height: 14px; }
+  .header-cta-btn { display: inline-flex; align-items: center; background: var(--accent); color: var(--white); padding: 10px 22px; border-radius: 6px; text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: all 0.3s ease; }
+  .header-cta-btn:hover { background: var(--accent-deep); transform: translateY(-1px); }
+  .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--dark-gray); }
+  .mobile-toggle svg { width: 24px; height: 24px; }
+
+  /* ═══ PAGE HERO ═══ */
+  .page-hero {
+    background: var(--charcoal);
+    padding: 80px 48px 92px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139,115,85,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+  .page-hero-breadcrumb {
+    font-size: 0.82rem;
+    color: var(--accent-light);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .page-hero-breadcrumb a { color: var(--accent-light); text-decoration: none; }
+  .page-hero-breadcrumb a:hover { color: var(--accent-pale); }
+  .page-hero-breadcrumb span { color: var(--accent); }
+  .page-hero h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: 3.2rem;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+    max-width: 700px;
+  }
+  .page-hero h1 em { font-style: italic; color: var(--accent-light); }
+  .page-hero-sub {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.85;
+    max-width: 580px;
+  }
+
+  /* ═══ COMMON ═══ */
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  /* ═══ PARTNERS SECTION ═══ */
+  .partners-section { background: var(--white); padding: 100px 48px; }
+  .partners-section .section-narrow { max-width: 1100px; margin: 0 auto; }
+  .partners-section .section-header { text-align: center; margin-bottom: 64px; }
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .partner-card {
+    background: var(--bg-warm);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+  .partner-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent);
+  }
+  .partner-photo-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 110%;
+    overflow: hidden;
+  }
+  .partner-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .partner-card:hover .partner-photo { transform: scale(1.03); }
+  .partner-info { padding: 28px 28px 32px; }
+  .partner-name {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--black);
+    margin-bottom: 4px;
+  }
+  .partner-role {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .partner-creds {
+    font-size: 0.8rem;
+    color: var(--light-gray);
+    margin-bottom: 14px;
+  }
+  .partner-bio {
+    font-size: 0.88rem;
+    color: var(--mid-gray);
+    line-height: 1.7;
+  }
+
+  /* ═══ STAFF SECTION ═══ */
+  .staff-section { background: var(--bg-warm); padding: 100px 48px; }
+  .staff-section .section-narrow { max-width: 1100px; margin: 0 auto; }
+  .staff-section .section-header { text-align: center; margin-bottom: 64px; }
+  .staff-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .staff-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    padding: 36px 28px;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+  .staff-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent);
+  }
+  .staff-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px;
+    display: block;
+    border: 3px solid var(--bg-light);
+  }
+  .staff-avatar-placeholder {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--accent-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: var(--accent);
+    font-family: 'EB Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
+  .staff-name {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--black);
+    margin-bottom: 4px;
+  }
+  .staff-role {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .staff-creds {
+    font-size: 0.78rem;
+    color: var(--light-gray);
+    margin-bottom: 14px;
+  }
+  .staff-bio {
+    font-size: 0.85rem;
+    color: var(--mid-gray);
+    line-height: 1.65;
+  }
+
+  /* ═══ FOUNDER ═══ */
+  .founder-section { background: var(--charcoal); padding: 100px 48px; }
+  .founder-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 0.4fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .founder-photo-wrapper {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 3/4;
+  }
+  .founder-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .founder-section .section-label { color: var(--accent-light); }
+  .founder-section .section-title { color: var(--white); font-size: 2rem; }
+  .founder-name {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .founder-role {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-light);
+    margin-bottom: 6px;
+  }
+  .founder-creds {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 20px;
+  }
+  .founder-bio {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.85;
+  }
+
+  /* ═══ CTA ═══ */
+  .cta-section { background: linear-gradient(135deg, var(--bg-warm) 0%, var(--bg-light) 100%); text-align: center; padding: 100px 48px; }
+  .cta-inner { max-width: 620px; margin: 0 auto; }
+  .cta-inner .section-title { margin-bottom: 16px; }
+  .cta-sub { font-size: 1.05rem; color: var(--mid-gray); margin-bottom: 36px; line-height: 1.85; }
+  .cta-row { display: flex; gap: 14px; justify-content: center; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: var(--white); padding: 16px 32px; border-radius: 6px; text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: all 0.3s ease; }
+  .btn-primary:hover { background: var(--accent-deep); transform: translateY(-1px); }
+  .btn-secondary { display: inline-flex; align-items: center; gap: 8px; color: var(--dark-gray); padding: 16px 28px; border-radius: 6px; text-decoration: none; font-size: 0.95rem; font-weight: 500; border: 1px solid var(--border); transition: all 0.3s ease; }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ═══ FOOTER ═══ */
+  .footer { background: var(--black); color: rgba(255,255,255,0.35); padding: 60px 48px 40px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .footer-brand-name { font-family: 'EB Garamond', serif; font-size: 1.1rem; color: var(--white); margin-bottom: 4px; }
+  .footer-brand-sub { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-bottom: 16px; }
+  .footer-brand-desc { font-size: 0.88rem; line-height: 1.7; max-width: 280px; color: rgba(255,255,255,0.25); }
+  .footer h5 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); font-weight: 600; margin-bottom: 20px; }
+  .footer ul { list-style: none; }
+  .footer li { margin-bottom: 10px; }
+  .footer a { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+  .footer a:hover { color: var(--white); }
+  .footer-bottom { max-width: 1100px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.75rem; display: flex; justify-content: space-between; }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 1024px) {
+    .partners-grid { grid-template-columns: repeat(2, 1fr); }
+    .staff-grid { grid-template-columns: repeat(2, 1fr); }
+    .founder-inner { grid-template-columns: 1fr; gap: 40px; }
+    .founder-photo-wrapper { max-width: 300px; }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+  @media (max-width: 768px) {
+    .header { padding: 0 20px; }
+    .header-inner { height: 68px; }
+    .nav-desktop, .header-upload { display: none; }
+    .header-cta-btn { display: none; }
+    .mobile-toggle { display: block; }
+    .logo img { height: 40px; }
+    .page-hero { padding: 56px 20px 64px; }
+    .page-hero h1 { font-size: 2.2rem; }
+    .partners-section, .staff-section, .founder-section, .cta-section { padding: 72px 20px; }
+    .partners-grid { grid-template-columns: 1fr; }
+    .staff-grid { grid-template-columns: 1fr; }
+    .section-title { font-size: 1.9rem; }
+    .cta-row { flex-direction: column; align-items: center; }
+    .footer { padding: 48px 20px 32px; }
+    .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="https://marketingwell.ca/mockups/jamesmcintyrelogo.png" alt="James & McIntyre CPAs">
+      <div class="logo-text">
+        <div class="logo-name">James & McIntyre</div>
+        <div class="logo-sub">Chartered Professional Accountants</div>
+      </div>
+    </a>
+    <nav class="nav-desktop">
+      <div class="nav-item"><a href="/about" class="nav-link">About</a></div>
+      <div class="nav-item">
+        <span class="nav-link">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        <div class="dropdown">
+          <a href="/mockups/accounting-tax-services.html" class="dropdown-link">Corporate & Personal Tax<span class="dropdown-link-sub">Planning, compliance & optimization</span></a>
+          <a href="/mockups/business-advice-planning.html" class="dropdown-link">Business Advisory<span class="dropdown-link-sub">Strategy, acquisitions & restructuring</span></a>
+          <a href="/mockups/estate-tax-planning-and-returns.html" class="dropdown-link">Estate Tax Planning<span class="dropdown-link-sub">Estate administration & tax reduction</span></a>
+          <a href="/mockups/business-start-up.html" class="dropdown-link">Business Start-Up<span class="dropdown-link-sub">Structure, registration & setup</span></a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="/team" class="nav-link" style="color:var(--black);">Our Team</a></div>
+      <div class="nav-item">
+        <span class="nav-link">Locations <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        <div class="dropdown">
+          <a href="/mockups/victoria.html" class="dropdown-link">Victoria<span class="dropdown-link-sub">210, 1677 Poplar Avenue</span></a>
+          <a href="/mockups/langford.html" class="dropdown-link">Langford<span class="dropdown-link-sub">867 Goldstream Ave</span></a>
+          <a href="/mockups/calgary.html" class="dropdown-link">Calgary<span class="dropdown-link-sub">160 Quarry Park Blvd SE</span></a>
+          <a href="/mockups/sechelt.html" class="dropdown-link">Sechelt<span class="dropdown-link-sub">#25A-5755 Cowrie Street</span></a>
+          <a href="/mockups/gibsons.html" class="dropdown-link">Gibsons<span class="dropdown-link-sub">#100-938 Gibsons Way</span></a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="/blog" class="nav-link">Blog</a></div>
+    </nav>
+    <div class="header-ctas">
+      <a href="https://rfcpa.sharefile.com/filedrop" class="header-upload"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> Upload a File</a>
+      <a href="/mockups/request-appointment.html" class="header-cta-btn">Request an Appointment</a>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </div>
+</header>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-breadcrumb">
+      <a href="/">Home</a> <span>/</span> Our Team
+    </div>
+    <h1>The people behind the <em>expertise</em></h1>
+    <p class="page-hero-sub">Our team of designated CPAs and experienced professionals bring deep expertise in tax, advisory, and accounting — with the responsiveness and personal attention a boutique firm is built on.</p>
+  </div>
+</section>
+
+<!-- ═══ PARTNERS ═══ -->
+<section class="partners-section">
+  <div class="section-narrow">
+    <div class="section-header">
+      <div class="section-label">Leadership</div>
+      <h2 class="section-title">Our Partners</h2>
+    </div>
+    <div class="partners-grid">
+      <div class="partner-card">
+        <div class="partner-photo-wrapper">
+          <img src="https://marketingwell.ca/mockups/huf.jpg" alt="Huf McIntyre, CPA, CA" class="partner-photo">
+        </div>
+        <div class="partner-info">
+          <div class="partner-name">Huf McIntyre</div>
+          <div class="partner-role">Accounting & Tax Partner</div>
+          <div class="partner-creds">CPA, CA</div>
+          <p class="partner-bio">Huf takes pride in being a client-centered accountant, specializing in tax, advisory and accounting for private companies and their shareholders. His experience includes personal and trust taxation, reorganization of companies, estate and succession planning, and sales and acquisitions of businesses and property. Born and raised in Victoria, he completed CPA Canada's In-Depth Tax Course in 2018.</p>
+        </div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-photo-wrapper">
+          <img src="https://marketingwell.ca/mockups/linda.webp" alt="Linda Iverson, CPA, CGA" class="partner-photo">
+        </div>
+        <div class="partner-info">
+          <div class="partner-name">Linda Iverson</div>
+          <div class="partner-role">Accounting & Tax Partner</div>
+          <div class="partner-creds">CPA, CGA</div>
+          <p class="partner-bio">A long-standing fixture in the Gibsons office, Linda has many years of experience focusing on general practice accounting and tax for small to medium-sized businesses. She has many long-standing client relationships and is well known in the Gibsons community as an excellent all-around problem solver.</p>
+        </div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-photo-wrapper">
+          <img src="https://marketingwell.ca/mockups/terris.webp" alt="Terris Smith, CPA" class="partner-photo">
+        </div>
+        <div class="partner-info">
+          <div class="partner-name">Terris Smith</div>
+          <div class="partner-role">Accounting & Tax Partner</div>
+          <div class="partner-creds">CPA</div>
+          <p class="partner-bio">Terris is based in our Victoria office, working closely with small to medium-sized businesses. She supports clients at every stage — whether they're just starting out, navigating growth, or planning a transition. She is currently in her final year of the In-Depth Tax Program with CPA Canada.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROFESSIONAL & STAFF ACCOUNTANTS ═══ -->
+<section class="staff-section">
+  <div class="section-narrow">
+    <div class="section-header">
+      <div class="section-label">Our Team</div>
+      <h2 class="section-title">Professional & Staff Accountants</h2>
+    </div>
+    <div class="staff-grid">
+      <div class="staff-card">
+        <img src="/mockups/lori.jpg" alt="Lori Foley" class="staff-avatar">
+        <div class="staff-name">Lori Foley</div>
+        <div class="staff-role">Professional Accountant</div>
+        <div class="staff-creds">CPA, CGA</div>
+        <p class="staff-bio">After more than 20 years in the construction industry and over 10 years as a CFO, Lori now focuses her career on accounting for small business owners. She excels at accounting and CRA compliance issues.</p>
+      </div>
+      <div class="staff-card">
+        <img src="/mockups/shannon.jpg" alt="Shannon Wells" class="staff-avatar">
+        <div class="staff-name">Shannon Wells</div>
+        <div class="staff-role">Senior Staff Accountant</div>
+        <div class="staff-creds"></div>
+        <p class="staff-bio">Shannon has been working in the accounting industry for over 30 years and is extremely knowledgeable about all things accounting. She has a long history working in public accounting.</p>
+      </div>
+      <div class="staff-card">
+        <div class="staff-avatar-placeholder">JN</div>
+        <div class="staff-name">John Nguyen</div>
+        <div class="staff-role">Staff Accountant</div>
+        <div class="staff-creds"></div>
+        <p class="staff-bio">Bio coming soon.</p>
+      </div>
+      <div class="staff-card">
+        <div class="staff-avatar-placeholder">RG</div>
+        <div class="staff-name">Rebecca Goundry</div>
+        <div class="staff-role">Professional Accountant</div>
+        <div class="staff-creds">CPA</div>
+        <p class="staff-bio">Rebecca has been in the accounting field since 2015 and is based in Cochrane, Alberta. With her meticulous and conscientious approach, she has gained extensive experience in various accounting roles.</p>
+      </div>
+      <div class="staff-card">
+        <div class="staff-avatar-placeholder">CJ</div>
+        <div class="staff-name">Catherine Jones</div>
+        <div class="staff-role">Senior Staff Accountant</div>
+        <div class="staff-creds"></div>
+        <p class="staff-bio">Catherine has been working in the accounting industry for many years. She has plenty of experience helping small businesses from both an accounting and tax perspective, and is knowledgeable about cloud solutions like Xero.</p>
+      </div>
+      <div class="staff-card">
+        <div class="staff-avatar-placeholder">MJ</div>
+        <div class="staff-name">Margaret Jang</div>
+        <div class="staff-role">Staff Accountant</div>
+        <div class="staff-creds"></div>
+        <p class="staff-bio">Margaret works with small to medium-sized business owners, providing practical solutions and reliable support. Known for her attention to detail and problem-solving skills.</p>
+      </div>
+    </div>
+
+    <!-- Admin & Support Staff -->
+    <div class="section-header" style="margin-top: 80px;">
+      <div class="section-label">Support</div>
+      <h2 class="section-title">Administration & Client Services</h2>
+    </div>
+    <div class="staff-grid">
+      <div class="staff-card">
+        <div class="staff-avatar-placeholder">AP</div>
+        <div class="staff-name">Amanda Parkin</div>
+        <div class="staff-role">Executive Assistant & Administrator</div>
+        <div class="staff-creds"></div>
+        <p class="staff-bio">Amanda joined in 2021 and quickly became an integral part of operations. With a sharp eye for detail and a knack for organization, she keeps our team aligned and on track.</p>
+      </div>
+      <div class="staff-card">
+        <div class="staff-avatar-placeholder">AS</div>
+        <div class="staff-name">Ashley Service</div>
+        <div class="staff-role">Client Services Coordinator</div>
+        <div class="staff-creds"></div>
+        <p class="staff-bio">Ashley looks after our Sechelt office, and is the first person to do what needs to be done. Constantly working to make our lives and those of our clients better and more efficient.</p>
+      </div>
+      <div class="staff-card">
+        <div class="staff-avatar-placeholder">MG</div>
+        <div class="staff-name">Melanie Gibb</div>
+        <div class="staff-role">Client Services Coordinator</div>
+        <div class="staff-creds"></div>
+        <p class="staff-bio">Melanie looks after our Gibsons office. She is friendly, efficient, and always willing to tackle a new challenge. If you've called and hung up feeling well taken care of, you've probably talked to Melanie.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOUNDER ═══ -->
+<section class="founder-section">
+  <div class="founder-inner">
+    <div class="founder-photo-wrapper">
+      <div style="width:100%;height:100%;background:var(--accent-pale);display:flex;align-items:center;justify-content:center;color:var(--accent);font-family:'EB Garamond',serif;font-size:3rem;">AJ</div>
+    </div>
+    <div>
+      <div class="section-label">Founder</div>
+      <div class="founder-name">Allison James</div>
+      <div class="founder-role">Founder / Advisor</div>
+      <div class="founder-creds">CPA, CGA</div>
+      <p class="founder-bio">Allison's practice has focused primarily on tax planning and strategic financial advisory services for businesses. She excels at business problem solving and strategic planning, and is a great person to call if you have a complex problem or if you're just not sure where to start when it comes to accounting and tax.</p>
+      <p class="founder-bio" style="margin-top:16px;">Her experience includes 20 years of accounting and bookkeeping work, including five years at a boutique North Vancouver firm. She has significant experience with accounting operations, corporate reorganizations, business sales and acquisitions, estate planning, and family trusts. She founded this firm in 2017 and is not currently active in the day-to-day business.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="section-label">Get Started</div>
+    <h2 class="section-title">Ready to work with a team that puts your business first?</h2>
+    <p class="cta-sub">Whether you need a fresh perspective on your tax structure, advisory on an acquisition, or a firm that finally responds when you call — let's talk.</p>
+    <div class="cta-row">
+      <a href="/mockups/request-appointment.html" class="btn-primary">Request an Appointment</a>
+      <a href="tel:1-877-319-4111" class="btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        1-877-319-4111
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">James & McIntyre</div>
+      <div class="footer-brand-sub">Chartered Professional Accountants</div>
+      <p class="footer-brand-desc">A boutique CPA firm delivering corporate tax, advisory, and estate planning expertise across Western Canada.</p>
+    </div>
+    <div><h5>Services</h5><ul><li><a href="/mockups/accounting-tax-services.html">Corporate & Personal Tax</a></li><li><a href="/mockups/business-advice-planning.html">Business Advisory</a></li><li><a href="/mockups/estate-tax-planning-and-returns.html">Estate Tax Planning</a></li><li><a href="/mockups/business-start-up.html">Business Start-Up</a></li></ul></div>
+    <div><h5>Firm</h5><ul><li><a href="/about">About</a></li><li><a href="/team">Our Team</a></li><li><a href="/blog">Blog</a></li><li><a href="/careers">Careers</a></li><li><a href="/privacy-policy">Privacy Policy</a></li></ul></div>
+    <div><h5>Contact</h5><ul><li><a href="tel:1-877-319-4111">1-877-319-4111</a></li><li><a href="/cdn-cgi/l/email-protection#b6dfd8d0d9f6dcd7dbd3c5dbd5dfd8c2cfc4d398d5d7"><span class="__cf_email__" data-cfemail="573e393138173d363a32243a343e39232e2532793436">[email&#160;protected]</span></a></li><li><a href="https://rfcpa.sharefile.com/filedrop">Upload a File</a></li><li><a href="/mockups/request-appointment.html">Request an Appointment</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 James & McIntyre Chartered Professional Accountants LLP. All rights reserved.</span>
+    <span>Website by Marketing Well</span>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  });
+</script>
+</body>
+</html>

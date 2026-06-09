@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What the 2025 Federal Budget Means for Small Business Owners | James & McIntyre CPAs</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #111111;
+    --charcoal: #1C1C1C;
+    --dark-gray: #333333;
+    --mid-gray: #666666;
+    --light-gray: #999999;
+    --border: #E5E5E5;
+    --bg-warm: #FAF9F7;
+    --bg-light: #F5F4F1;
+    --white: #FFFFFF;
+    --accent: #8B7355;
+    --accent-light: #B8A88A;
+    --accent-pale: #F0EBE3;
+    --accent-deep: #6B5740;
+    --shadow-soft: 0 2px 20px rgba(0,0,0,0.04);
+    --shadow-md: 0 8px 30px rgba(0,0,0,0.08);
+    --radius: 8px;
+    --radius-lg: 16px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--dark-gray);
+    background: var(--white);
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ═══ HEADER ═══ */
+  .header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); padding: 0 48px; transition: box-shadow 0.3s ease; }
+  .header.scrolled { box-shadow: var(--shadow-soft); }
+  .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 80px; }
+  .logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .logo img { height: 48px; width: auto; }
+  .logo-text { line-height: 1.15; }
+  .logo-name { font-family: 'EB Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--black); }
+  .logo-sub { font-size: 0.6rem; color: var(--light-gray); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; }
+  .nav-desktop { display: flex; align-items: center; gap: 8px; }
+  .nav-item { position: relative; }
+  .nav-link { display: flex; align-items: center; gap: 4px; padding: 8px 16px; font-size: 0.82rem; color: var(--mid-gray); text-decoration: none; font-weight: 500; transition: color 0.2s; border-radius: 6px; cursor: pointer; }
+  .nav-link:hover { color: var(--black); }
+  .nav-link svg { width: 12px; height: 12px; transition: transform 0.2s; }
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); }
+  .nav-item:hover .nav-link { color: var(--black); background: var(--bg-warm); }
+  .dropdown { position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 8px; min-width: 260px; opacity: 0; visibility: hidden; transform: translateX(-50%) translateY(8px); transition: all 0.2s ease; z-index: 100; }
+  .nav-item:hover .dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+  .nav-item::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 12px; }
+  .dropdown-link { display: block; padding: 12px 16px; font-size: 0.85rem; color: var(--dark-gray); text-decoration: none; font-weight: 500; border-radius: 6px; transition: all 0.15s ease; line-height: 1.4; }
+  .dropdown-link:hover { background: var(--bg-warm); color: var(--black); }
+  .dropdown-link-sub { display: block; font-size: 0.72rem; color: var(--light-gray); font-weight: 400; margin-top: 2px; }
+  .header-ctas { display: flex; align-items: center; gap: 12px; }
+  .header-upload { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; font-size: 0.8rem; color: var(--mid-gray); text-decoration: none; font-weight: 500; border: 1px solid var(--border); border-radius: 6px; transition: all 0.2s; }
+  .header-upload:hover { border-color: var(--accent); color: var(--accent); }
+  .header-upload svg { width: 14px; height: 14px; }
+  .header-cta-btn { display: inline-flex; align-items: center; background: var(--accent); color: var(--white); padding: 10px 22px; border-radius: 6px; text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: all 0.3s ease; }
+  .header-cta-btn:hover { background: var(--accent-deep); transform: translateY(-1px); }
+  .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--dark-gray); }
+  .mobile-toggle svg { width: 24px; height: 24px; }
+
+  /* ═══ PAGE HERO ═══ */
+  .page-hero {
+    background: var(--charcoal);
+    padding: 80px 48px 92px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139,115,85,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+  .page-hero-breadcrumb { font-size: 0.82rem; color: var(--accent-light); margin-bottom: 28px; display: flex; align-items: center; gap: 8px; }
+  .page-hero-breadcrumb a { color: var(--accent-light); text-decoration: none; }
+  .page-hero-breadcrumb a:hover { color: var(--accent-pale); }
+  .page-hero-breadcrumb span { color: var(--accent); }
+  .page-hero h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+    max-width: 700px;
+  }
+  .page-hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.4);
+  }
+  .page-hero-meta .category {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-light);
+    background: rgba(139,115,85,0.15);
+    padding: 5px 12px;
+    border-radius: 4px;
+  }
+
+  /* ═══ BLOG CONTENT LAYOUT ═══ */
+  .blog-layout {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 48px;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 64px;
+    align-items: start;
+  }
+
+  /* ═══ ARTICLE ═══ */
+  .article-content h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin: 48px 0 18px;
+    line-height: 1.25;
+  }
+  .article-content h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin: 36px 0 14px;
+    line-height: 1.3;
+  }
+  .article-content p {
+    font-size: 1.05rem;
+    color: var(--mid-gray);
+    line-height: 1.9;
+    margin-bottom: 22px;
+  }
+  .article-content p:first-child {
+    font-size: 1.15rem;
+    color: var(--dark-gray);
+  }
+  .article-content blockquote {
+    background: var(--bg-warm);
+    border-left: 3px solid var(--accent);
+    padding: 28px 32px;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    margin: 36px 0;
+  }
+  .article-content blockquote p {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--dark-gray);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+  .article-content ul {
+    margin: 16px 0 24px 24px;
+    list-style: none;
+  }
+  .article-content ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-size: 1.02rem;
+    color: var(--mid-gray);
+    line-height: 1.75;
+  }
+  .article-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  /* Article author box */
+  .article-author-box {
+    background: var(--bg-warm);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    padding: 32px;
+    margin-top: 56px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  .article-author-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--accent-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-family: 'EB Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+  .article-author-name {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--black);
+    margin-bottom: 2px;
+  }
+  .article-author-role {
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* ═══ SIDEBAR ═══ */
+  .sidebar {
+    position: sticky;
+    top: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  /* Contact Form */
+  .sidebar-contact-form {
+    background: var(--bg-warm);
+    border-radius: var(--radius-lg);
+    padding: 36px 28px;
+    border: 1px solid var(--border);
+  }
+  .sidebar-form-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 6px;
+  }
+  .sidebar-form-sub {
+    font-size: 0.85rem;
+    color: var(--mid-gray);
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+  .form-group { margin-bottom: 16px; }
+  .form-group label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--dark-gray);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+    background: var(--white);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--accent);
+  }
+  .form-group textarea { resize: vertical; min-height: 90px; }
+  .form-submit {
+    display: block;
+    width: 100%;
+    background: var(--accent);
+    color: var(--white);
+    padding: 14px 24px;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .form-submit:hover { background: var(--accent-deep); }
+
+  /* Recent Posts Sidebar */
+  .sidebar-recent {
+    background: var(--bg-warm);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    border: 1px solid var(--border);
+  }
+  .sidebar-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .sidebar-post {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .sidebar-post:first-of-type { padding-top: 0; }
+  .sidebar-post:last-child { border-bottom: none; padding-bottom: 0; }
+  .sidebar-post a {
+    text-decoration: none;
+    display: block;
+  }
+  .sidebar-post-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    line-height: 1.3;
+    margin-bottom: 4px;
+    transition: color 0.2s;
+  }
+  .sidebar-post a:hover .sidebar-post-title { color: var(--accent); }
+  .sidebar-post-date {
+    font-size: 0.75rem;
+    color: var(--light-gray);
+  }
+
+  /* ═══ FOOTER ═══ */
+  .footer { background: var(--black); color: rgba(255,255,255,0.35); padding: 60px 48px 40px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .footer-brand-name { font-family: 'EB Garamond', serif; font-size: 1.1rem; color: var(--white); margin-bottom: 4px; }
+  .footer-brand-sub { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-bottom: 16px; }
+  .footer-brand-desc { font-size: 0.88rem; line-height: 1.7; max-width: 280px; color: rgba(255,255,255,0.25); }
+  .footer h5 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); font-weight: 600; margin-bottom: 20px; }
+  .footer ul { list-style: none; }
+  .footer li { margin-bottom: 10px; }
+  .footer a { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+  .footer a:hover { color: var(--white); }
+  .footer-bottom { max-width: 1100px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.75rem; display: flex; justify-content: space-between; }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 1024px) {
+    .blog-layout { grid-template-columns: 1fr; gap: 48px; }
+    .sidebar { position: static; }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+  @media (max-width: 768px) {
+    .header { padding: 0 20px; }
+    .header-inner { height: 68px; }
+    .nav-desktop, .header-upload { display: none; }
+    .header-cta-btn { display: none; }
+    .mobile-toggle { display: block; }
+    .logo img { height: 40px; }
+    .page-hero { padding: 56px 20px 64px; }
+    .page-hero h1 { font-size: 2rem; }
+    .blog-layout { padding: 48px 20px; }
+    .footer { padding: 48px 20px 32px; }
+    .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="https://marketingwell.ca/mockups/jamesmcintyrelogo.png" alt="James & McIntyre CPAs">
+      <div class="logo-text">
+        <div class="logo-name">James & McIntyre</div>
+        <div class="logo-sub">Chartered Professional Accountants</div>
+      </div>
+    </a>
+    <nav class="nav-desktop">
+      <div class="nav-item"><a href="/about" class="nav-link">About</a></div>
+      <div class="nav-item">
+        <span class="nav-link">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        <div class="dropdown">
+          <a href="/services/corporate-personal-tax" class="dropdown-link">Corporate & Personal Tax<span class="dropdown-link-sub">Planning, compliance & optimization</span></a>
+          <a href="/services/business-advisory" class="dropdown-link">Business Advisory<span class="dropdown-link-sub">Strategy, acquisitions & restructuring</span></a>
+          <a href="/services/estate-tax-planning" class="dropdown-link">Estate Tax Planning<span class="dropdown-link-sub">Estate administration & tax reduction</span></a>
+          <a href="/services/business-start-up" class="dropdown-link">Business Start-Up<span class="dropdown-link-sub">Structure, registration & setup</span></a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="/team" class="nav-link">Our Team</a></div>
+      <div class="nav-item">
+        <span class="nav-link">Locations <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        <div class="dropdown">
+          <a href="/locations/victoria" class="dropdown-link">Victoria<span class="dropdown-link-sub">210, 1677 Poplar Avenue</span></a>
+          <a href="/locations/langford" class="dropdown-link">Langford<span class="dropdown-link-sub">867 Goldstream Ave</span></a>
+          <a href="/locations/calgary" class="dropdown-link">Calgary<span class="dropdown-link-sub">160 Quarry Park Blvd SE</span></a>
+          <a href="/locations/sechelt" class="dropdown-link">Sechelt<span class="dropdown-link-sub">#25A-5755 Cowrie Street</span></a>
+          <a href="/locations/gibsons" class="dropdown-link">Gibsons<span class="dropdown-link-sub">#100-938 Gibsons Way</span></a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="/blog" class="nav-link" style="color:var(--black);">Blog</a></div>
+    </nav>
+    <div class="header-ctas">
+      <a href="https://rfcpa.sharefile.com/filedrop" class="header-upload"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> Upload a File</a>
+      <a href="/request-appointment" class="header-cta-btn">Request an Appointment</a>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </div>
+</header>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-breadcrumb">
+      <a href="/">Home</a> <span>/</span> <a href="/blog">Blog</a> <span>/</span> Tax Planning
+    </div>
+    <h1>What the 2025 Federal Budget Means for Small Business Owners</h1>
+    <div class="page-hero-meta">
+      <span class="category">Tax Planning</span>
+      <span>March 5, 2026</span>
+      <span>·</span>
+      <span>By Huf McIntyre, CPA, CA</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BLOG LAYOUT ═══ -->
+<div class="blog-layout">
+
+  <!-- Article Content -->
+  <article class="article-content">
+    <p>The 2025 Federal Budget introduced several notable changes to the Canadian tax landscape, particularly for small and medium-sized business owners. While many of the headlines focused on larger policy initiatives, there are specific provisions that will directly affect how you plan your corporate and personal tax affairs over the coming years.</p>
+
+    <h2>Changes to the Small Business Deduction</h2>
+    <p>One of the most significant changes involves adjustments to the small business deduction rate and the thresholds at which it begins to phase out. For business owners who have been relying on the lower tax rate available to Canadian-Controlled Private Corporations (CCPCs), it's important to understand how these changes affect your after-tax income and retained earnings.</p>
+    <p>The phase-out range for the small business deduction has been adjusted, meaning that businesses with taxable capital between certain thresholds will see a gradual reduction in their access to the lower rate. This is particularly relevant for growing businesses that are approaching or have recently exceeded the previous thresholds.</p>
+
+    <blockquote>
+      <p>"The biggest mistake we see business owners make is treating budget announcements as distant policy — rather than understanding the direct, dollar-for-dollar impact on their bottom line."</p>
+    </blockquote>
+
+    <h2>Capital Gains Inclusion Rate</h2>
+    <p>The budget confirmed changes to the capital gains inclusion rate that were first proposed in the previous fiscal year. For business owners considering a sale, succession plan, or significant asset disposition, the timing of these transactions relative to the implementation dates could have a substantial impact on your tax liability.</p>
+
+    <h3>What this means in practice</h3>
+    <ul>
+      <li>Owners planning to sell their business should review the timeline with their accountant to optimize the tax treatment</li>
+      <li>Real estate held within corporate structures may be affected differently depending on the nature and timing of disposition</li>
+      <li>The Lifetime Capital Gains Exemption (LCGE) amount has been updated, providing some additional shelter for qualifying dispositions</li>
+    </ul>
+
+    <h2>Employee Ownership Trusts</h2>
+    <p>The budget expanded provisions for Employee Ownership Trusts (EOTs), making it easier for business owners to transition ownership to their employees. This is a meaningful development for owners who are approaching retirement and want to ensure business continuity while receiving fair compensation for the value they've built.</p>
+
+    <h2>What should you do now?</h2>
+    <p>If you're a small business owner, the key takeaway is this: don't wait until year-end to assess how these changes affect your situation. Proactive planning — reviewing your corporate structure, compensation strategy, and any planned transactions — is the most effective way to minimize your tax exposure and take advantage of the opportunities these changes create.</p>
+    <p>At James & McIntyre, we work with our clients throughout the year to identify these opportunities as they emerge. If you have questions about how the 2025 budget changes affect your business, we'd be happy to discuss your specific situation.</p>
+
+    <!-- Author Box -->
+    <div class="article-author-box">
+      <div class="article-author-avatar">HM</div>
+      <div>
+        <div class="article-author-name">Huf McIntyre</div>
+        <div class="article-author-role">Accounting & Tax Partner · CPA, CA</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+
+    <!-- Contact Form -->
+    <div class="sidebar-contact-form">
+      <div class="sidebar-form-title">Have a question?</div>
+      <p class="sidebar-form-sub">Get in touch with our team and we'll get back to you promptly.</p>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Your full name">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="you@email.com">
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" placeholder="(250) 000-0000">
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="How can we help?"></textarea>
+      </div>
+      <button class="form-submit">Send Message</button>
+    </div>
+
+    <!-- Recent Posts -->
+    <div class="sidebar-recent">
+      <div class="sidebar-label">Recent Posts</div>
+      <div class="sidebar-post">
+        <a href="/blog/corporate-restructuring-when-to-consider">
+          <div class="sidebar-post-title">Corporate Restructuring: When Should You Consider a Reorganization?</div>
+          <div class="sidebar-post-date">February 18, 2026</div>
+        </a>
+      </div>
+      <div class="sidebar-post">
+        <a href="/blog/estate-planning-basics-bc">
+          <div class="sidebar-post-title">Estate Planning Essentials for British Columbia Business Owners</div>
+          <div class="sidebar-post-date">January 29, 2026</div>
+        </a>
+      </div>
+      <div class="sidebar-post">
+        <a href="/blog/shareholder-compensation-salary-vs-dividends">
+          <div class="sidebar-post-title">Salary vs. Dividends: How to Pay Yourself as a Business Owner</div>
+          <div class="sidebar-post-date">January 12, 2026</div>
+        </a>
+      </div>
+      <div class="sidebar-post">
+        <a href="/blog/cra-audit-what-to-expect">
+          <div class="sidebar-post-title">Received a CRA Audit Notice? Here's What to Expect</div>
+          <div class="sidebar-post-date">December 3, 2025</div>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">James & McIntyre</div>
+      <div class="footer-brand-sub">Chartered Professional Accountants</div>
+      <p class="footer-brand-desc">A boutique CPA firm delivering corporate tax, advisory, and estate planning expertise across Western Canada.</p>
+    </div>
+    <div><h5>Services</h5><ul><li><a href="/services/corporate-personal-tax">Corporate & Personal Tax</a></li><li><a href="/services/business-advisory">Business Advisory</a></li><li><a href="/services/estate-tax-planning">Estate Tax Planning</a></li><li><a href="/services/business-start-up">Business Start-Up</a></li></ul></div>
+    <div><h5>Firm</h5><ul><li><a href="/about">About</a></li><li><a href="/team">Our Team</a></li><li><a href="/blog">Blog</a></li><li><a href="/careers">Careers</a></li><li><a href="/privacy-policy">Privacy Policy</a></li></ul></div>
+    <div><h5>Contact</h5><ul><li><a href="tel:1-877-319-4111">1-877-319-4111</a></li><li><a href="mailto:info@jamesmcintyre.ca">info@jamesmcintyre.ca</a></li><li><a href="https://rfcpa.sharefile.com/filedrop">Upload a File</a></li><li><a href="/request-appointment">Request an Appointment</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 James & McIntyre Chartered Professional Accountants LLP. All rights reserved.</span>
+    <span>Website by Marketing Well</span>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  });
+</script>
+</body>
+</html>

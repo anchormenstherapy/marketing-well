@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Start-Up Services | James & McIntyre CPAs</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #111111;
+    --charcoal: #1C1C1C;
+    --dark-gray: #333333;
+    --mid-gray: #666666;
+    --light-gray: #999999;
+    --border: #E5E5E5;
+    --bg-warm: #FAF9F7;
+    --bg-light: #F5F4F1;
+    --white: #FFFFFF;
+    --accent: #8B7355;
+    --accent-light: #B8A88A;
+    --accent-pale: #F0EBE3;
+    --accent-deep: #6B5740;
+    --shadow-soft: 0 2px 20px rgba(0,0,0,0.04);
+    --shadow-md: 0 8px 30px rgba(0,0,0,0.08);
+    --radius: 8px;
+    --radius-lg: 16px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--dark-gray);
+    background: var(--white);
+    font-size: 18px;
+    line-height: 1.75;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ═══ HEADER ═══ */
+  .header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); padding: 0 48px; transition: box-shadow 0.3s ease; }
+  .header.scrolled { box-shadow: var(--shadow-soft); }
+  .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 80px; }
+  .logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .logo img { height: 48px; width: auto; }
+  .logo-text { line-height: 1.15; }
+  .logo-name { font-family: 'EB Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--black); }
+  .logo-sub { font-size: 0.6rem; color: var(--light-gray); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; }
+  .nav-desktop { display: flex; align-items: center; gap: 8px; }
+  .nav-item { position: relative; }
+  .nav-link { display: flex; align-items: center; gap: 4px; padding: 8px 16px; font-size: 0.82rem; color: var(--mid-gray); text-decoration: none; font-weight: 500; transition: color 0.2s; border-radius: 6px; cursor: pointer; }
+  .nav-link:hover { color: var(--black); }
+  .nav-link svg { width: 12px; height: 12px; transition: transform 0.2s; }
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); }
+  .nav-item:hover .nav-link { color: var(--black); background: var(--bg-warm); }
+  .dropdown { position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 8px; min-width: 260px; opacity: 0; visibility: hidden; transform: translateX(-50%) translateY(8px); transition: all 0.2s ease; z-index: 100; }
+  .nav-item:hover .dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+  .nav-item::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 12px; }
+  .dropdown-link { display: block; padding: 12px 16px; font-size: 0.85rem; color: var(--dark-gray); text-decoration: none; font-weight: 500; border-radius: 6px; transition: all 0.15s ease; line-height: 1.4; }
+  .dropdown-link:hover { background: var(--bg-warm); color: var(--black); }
+  .dropdown-link-sub { display: block; font-size: 0.72rem; color: var(--light-gray); font-weight: 400; margin-top: 2px; }
+  .dropdown-link.active { background: var(--accent-pale); color: var(--accent-deep); }
+  .header-ctas { display: flex; align-items: center; gap: 12px; }
+  .header-upload { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; font-size: 0.8rem; color: var(--mid-gray); text-decoration: none; font-weight: 500; border: 1px solid var(--border); border-radius: 6px; transition: all 0.2s; }
+  .header-upload:hover { border-color: var(--accent); color: var(--accent); }
+  .header-upload svg { width: 14px; height: 14px; }
+  .header-cta-btn { display: inline-flex; align-items: center; background: var(--accent); color: var(--white); padding: 10px 22px; border-radius: 6px; text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: all 0.3s ease; }
+  .header-cta-btn:hover { background: var(--accent-deep); transform: translateY(-1px); }
+  .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--dark-gray); }
+  .mobile-toggle svg { width: 24px; height: 24px; }
+
+  /* ═══ PAGE HERO ═══ */
+  .page-hero {
+    background: var(--charcoal);
+    padding: 80px 48px 92px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139,115,85,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+  .page-hero-breadcrumb {
+    font-size: 0.82rem;
+    color: var(--accent-light);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .page-hero-breadcrumb a { color: var(--accent-light); text-decoration: none; }
+  .page-hero-breadcrumb a:hover { color: var(--accent-pale); }
+  .page-hero-breadcrumb span { color: var(--accent); }
+  .page-hero h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: 3.2rem;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+    max-width: 700px;
+  }
+  .page-hero h1 em { font-style: italic; color: var(--accent-light); 
+  }
+  .page-hero-sub {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.85;
+    max-width: 580px;
+  }
+
+  /* ═══ CONTENT ═══ */
+  section { padding: 100px 48px; }
+  .section-narrow { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  /* ═══ INTRO ═══ */
+  .intro { background: var(--white); }
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .intro-text {
+    font-size: 1.12rem;
+    color: var(--mid-gray);
+    line-height: 1.9;
+    margin-bottom: 24px;
+  }
+  .intro-highlight {
+    background: var(--bg-warm);
+    border-left: 3px solid var(--accent);
+    padding: 28px 32px;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    margin-top: 28px;
+  }
+  .intro-highlight p {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--dark-gray);
+    line-height: 1.6;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    background: var(--bg-warm);
+    border-radius: var(--radius-lg);
+    padding: 40px 32px;
+    border: 1px solid var(--border);
+    position: sticky;
+    top: 120px;
+  }
+  .sidebar-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .sidebar-links { display: flex; flex-direction: column; gap: 4px; }
+  .sidebar-link {
+    display: block;
+    padding: 14px 16px;
+    font-size: 1rem;
+    color: var(--mid-gray);
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+  }
+  .sidebar-link:hover { background: var(--white); color: var(--black); }
+  .sidebar-link.active { background: var(--accent-pale); color: var(--accent-deep); font-weight: 600; }
+  .sidebar-divider { height: 1px; background: var(--border); margin: 20px 0; }
+  .sidebar-contact { margin-top: 4px; }
+  .sidebar-contact-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--light-gray); font-weight: 600; margin-bottom: 8px; }
+  .sidebar-contact-value { font-size: 1rem; color: var(--dark-gray); margin-bottom: 4px; }
+  .sidebar-contact-value a { color: var(--dark-gray); text-decoration: none; }
+  .sidebar-contact-value a:hover { color: var(--accent); }
+  .sidebar-cta {
+    display: block;
+    text-align: center;
+    background: var(--accent);
+    color: var(--white);
+    padding: 15px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+  }
+  .sidebar-cta:hover { background: var(--accent-deep); }
+
+  /* ═══ SERVICE BLOCKS ═══ */
+  .service-blocks { background: var(--bg-warm); }
+  .blocks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-top: 52px;
+  }
+  .block-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 44px 36px;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+  }
+  .block-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--accent); }
+  .block-card-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .block-card h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 20px;
+  }
+  .block-list { display: flex; flex-direction: column; gap: 14px; }
+  .block-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 1.05rem;
+    color: var(--mid-gray);
+    line-height: 1.6;
+  }
+  .block-check {
+    width: 24px; height: 24px;
+    background: var(--accent-pale);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ═══ OUTCOMES ═══ */
+  .outcomes { background: var(--charcoal); color: var(--white); }
+  .outcomes .section-label { color: var(--accent-light); }
+  .outcomes .section-title { color: var(--white); }
+  .outcomes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 52px;
+  }
+  .outcome-card {
+    padding: 40px 32px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius-lg);
+  }
+  .outcome-number {
+    font-family: 'EB Garamond', serif;
+    font-size: 2.6rem;
+    color: var(--accent-light);
+    line-height: 1;
+    margin-bottom: 18px;
+  }
+  .outcome-card h4 { font-size: 1.05rem; font-weight: 600; color: var(--white); margin-bottom: 10px; }
+  .outcome-card p { font-size: 1rem; color: rgba(255,255,255,0.45); line-height: 1.75; }
+
+  /* ═══ RELATED SERVICES ═══ */
+  .related { background: var(--white); }
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 52px;
+  }
+  .related-card {
+    background: var(--bg-warm);
+    border-radius: var(--radius-lg);
+    padding: 40px 32px;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--dark-gray);
+    transition: all 0.3s ease;
+    display: block;
+  }
+  .related-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--accent); }
+  .related-card h3 { font-family: 'EB Garamond', serif; font-size: 1.3rem; font-weight: 500; color: var(--charcoal); margin-bottom: 10px; }
+  .related-card p { font-size: 1rem; color: var(--mid-gray); line-height: 1.75; margin-bottom: 18px; }
+  .related-card-link { font-size: 0.88rem; font-weight: 600; color: var(--accent); display: flex; align-items: center; gap: 6px; }
+
+  /* ═══ CTA ═══ */
+  .cta-section { background: linear-gradient(135deg, var(--bg-warm) 0%, var(--bg-light) 100%); text-align: center; padding: 100px 48px; }
+  .cta-inner { max-width: 620px; margin: 0 auto; }
+  .cta-inner .section-title { margin-bottom: 16px; }
+  .cta-sub { font-size: 1.1rem; color: var(--mid-gray); margin-bottom: 36px; line-height: 1.85; }
+  .cta-row { display: flex; gap: 14px; justify-content: center; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: var(--white); padding: 16px 32px; border-radius: 6px; text-decoration: none; font-size: 1rem; font-weight: 600; transition: all 0.3s ease; }
+  .btn-primary:hover { background: var(--accent-deep); transform: translateY(-1px); }
+  .btn-secondary { display: inline-flex; align-items: center; gap: 8px; color: var(--dark-gray); padding: 16px 28px; border-radius: 6px; text-decoration: none; font-size: 1rem; font-weight: 500; border: 1px solid var(--border); transition: all 0.3s ease; }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ═══ FOOTER ═══ */
+  .footer { background: var(--black); color: rgba(255,255,255,0.35); padding: 60px 48px 40px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .footer-brand-name { font-family: 'EB Garamond', serif; font-size: 1.1rem; color: var(--white); margin-bottom: 4px; }
+  .footer-brand-sub { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-bottom: 16px; }
+  .footer-brand-desc { font-size: 0.92rem; line-height: 1.7; max-width: 280px; color: rgba(255,255,255,0.25); }
+  .footer h5 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); font-weight: 600; margin-bottom: 20px; }
+  .footer ul { list-style: none; }
+  .footer li { margin-bottom: 10px; }
+  .footer a { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 0.92rem; transition: color 0.2s; }
+  .footer a:hover { color: var(--white); }
+  .footer-bottom { max-width: 1100px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.78rem; display: flex; justify-content: space-between; }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 1024px) {
+    .intro-grid { grid-template-columns: 1fr; gap: 40px; }
+    .sidebar { position: static; }
+    .blocks-grid { grid-template-columns: 1fr; }
+    .outcomes-grid { grid-template-columns: 1fr; }
+    .related-grid { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+  @media (max-width: 768px) {
+    .header { padding: 0 20px; }
+    .header-inner { height: 68px; }
+    .nav-desktop, .header-upload { display: none; }
+    .header-cta-btn { display: none; }
+    .mobile-toggle { display: block; }
+    .logo img { height: 40px; }
+    .page-hero { padding: 56px 20px 64px; }
+    .page-hero h1 { font-size: 2.2rem; }
+    .page-hero-sub { font-size: 1.05rem; }
+    section { padding: 72px 20px; }
+    .cta-section { padding: 72px 20px; }
+    .section-title { font-size: 1.9rem; }
+    .cta-row { flex-direction: column; align-items: center; }
+    .footer { padding: 48px 20px 32px; }
+    .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="https://marketingwell.ca/mockups/jamesmcintyrelogo.png" alt="James & McIntyre CPAs">
+      <div class="logo-text">
+        <div class="logo-name">James & McIntyre</div>
+        <div class="logo-sub">Chartered Professional Accountants</div>
+      </div>
+    </a>
+    <nav class="nav-desktop">
+      <div class="nav-item"><a href="/about" class="nav-link">About</a></div>
+      <div class="nav-item">
+        <span class="nav-link">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        <div class="dropdown">
+          <a href="/mockups/accounting-tax-services.html" class="dropdown-link">Corporate & Personal Tax<span class="dropdown-link-sub">Planning, compliance & optimization</span></a>
+          <a href="/mockups/business-advice-planning.html" class="dropdown-link">Business Advisory<span class="dropdown-link-sub">Strategy, acquisitions & restructuring</span></a>
+          <a href="/mockups/estate-tax-planning-and-returns.html" class="dropdown-link">Estate Tax Planning<span class="dropdown-link-sub">Estate administration & tax reduction</span></a>
+          <a href="/mockups/business-start-up.html" class="dropdown-link active">Business Start-Up<span class="dropdown-link-sub">Structure, registration & setup</span></a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="/mockups/team.html" class="nav-link">Our Team</a></div>
+      <div class="nav-item">
+        <span class="nav-link">Locations <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        <div class="dropdown">
+          <a href="/mockups/victoria.html" class="dropdown-link">Victoria<span class="dropdown-link-sub">210, 1677 Poplar Avenue</span></a>
+          <a href="/mockups/langford.html" class="dropdown-link">Langford<span class="dropdown-link-sub">867 Goldstream Ave</span></a>
+          <a href="/mockups/calgary.html" class="dropdown-link">Calgary<span class="dropdown-link-sub">160 Quarry Park Blvd SE</span></a>
+          <a href="/mockups/sechelt.html" class="dropdown-link">Sechelt<span class="dropdown-link-sub">#25A-5755 Cowrie Street</span></a>
+          <a href="/mockups/gibsons.html" class="dropdown-link">Gibsons<span class="dropdown-link-sub">#100-938 Gibsons Way</span></a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="/mockups.blog.html" class="nav-link">Blog</a></div>
+    </nav>
+    <div class="header-ctas">
+      <a href="https://rfcpa.sharefile.com/filedrop" class="header-upload"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> Upload a File</a>
+      <a href="/mockups/request-appointment.html" class="header-cta-btn">Request an Appointment</a>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </div>
+</header>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-breadcrumb">
+      <a href="/">Home</a> <span>/</span> <a href="#">Services</a> <span>/</span> Business Start-Up
+    </div>
+    <h1>The right structure from day one saves you <em>years of headaches</em></h1>
+    <p class="page-hero-sub">Incorporation, tax registration, bookkeeping — the decisions you make at the start determine what your business looks like for years. We make sure you get them right.</p>
+  </div>
+</section>
+
+<!-- ═══ INTRO + SIDEBAR ═══ -->
+<section class="intro">
+  <div class="section-narrow">
+    <div class="intro-grid">
+      <div class="intro-content">
+        <div class="section-label">Overview</div>
+        <h2 class="section-title">Starting a business is exciting — getting the accounting wrong isn't</h2>
+        <p class="intro-text">Should you incorporate? Register for GST? Hire employees or contractors? Do the bookkeeping yourself or outsource it? How do you pay yourself to minimize taxes? What should you budget for? These aren't questions you should be guessing at.</p>
+        <p class="intro-text">At James & McIntyre, we help new business owners answer these questions before they become expensive mistakes. We set up the right legal structure, register you with the right authorities, and build the bookkeeping and reporting foundation your business needs to scale.</p>
+        <p class="intro-text">The answers will be unique to your business, your industry, and your personal situation. That's exactly why you need a CPA who takes the time to understand all three — not a one-size-fits-all template from the internet.</p>
+
+        <div class="intro-highlight">
+          <p>"Every decision you make in the first year of your business has tax consequences for years to come. We make sure you're making the right ones from day one."</p>
+        </div>
+      </div>
+
+      <!-- SIDEBAR — reusable across all service pages -->
+      <div class="sidebar">
+        <div class="sidebar-label">Our Services</div>
+        <div class="sidebar-links">
+          <a href="/mockups/accounting-tax-services.html" class="sidebar-link">Corporate & Personal Tax</a>
+          <a href="/mockups/business-advice-planning.html" class="sidebar-link">Business Advisory</a>
+          <a href="/mockups/estate-tax-planning-and-returns.html" class="sidebar-link">Estate Tax Planning</a>
+          <a href="/mockups/business-start-up.html" class="sidebar-link active">Business Start-Up</a>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-contact">
+          <div class="sidebar-contact-label">Get in Touch</div>
+          <div class="sidebar-contact-value"><a href="tel:1-877-319-4111">1-877-319-4111</a></div>
+          <div class="sidebar-contact-value"><a href="/cdn-cgi/l/email-protection#2c45424a436c464d41495f414f454258555e49024f4d"><span class="__cf_email__" data-cfemail="a6cfc8c0c9e6ccc7cbc3d5cbc5cfc8d2dfd4c388c5c7">[email&#160;protected]</span></a></div>
+        </div>
+        <a href="/mockups/request-appointment.html" class="sidebar-cta">Request an Appointment</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICE BLOCKS ═══ -->
+<section class="service-blocks">
+  <div class="section-narrow">
+    <div class="section-label">What's Included</div>
+    <h2 class="section-title">Everything you need to launch with confidence — and stay compliant</h2>
+
+    <div class="blocks-grid">
+      <div class="block-card">
+        <div class="block-card-label">Structure & Setup</div>
+        <h3>Get the foundation right so your business can scale without surprises</h3>
+        <div class="block-list">
+          <div class="block-list-item"><div class="block-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>Incorporation advice and setup (sole prop, partnership, or corporation)</div>
+          <div class="block-list-item"><div class="block-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>GST/HST and PST registration</div>
+          <div class="block-list-item"><div class="block-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>Payroll registration and setup</div>
+          <div class="block-list-item"><div class="block-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>Business number and CRA account registration</div>
+          <div class="block-list-item"><div class="block-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>Employee vs. contractor classification guidance</div>
+        </div>
+      </div>
+
+      <div class="block-card">
+        <div class="block-card-label">Ongoing Support</div>
+        <h3>From bookkeeping to tax strategy — ongoing advisory that grows with you</h3>
+        <div class="block-list">
+          <div class="block-list-item"><div class="block-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>Bookkeeping system setup and training</div>
+          <div class="block-list-item"><div class="block-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>Owner compensation planning (salary vs. dividends)</div>
+          <div class="block-list-item"><div class="block-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>Tax budgeting and instalment planning</div>
+          <div class="block-list-item"><div class="block-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>Ongoing tax compliance and filing</div>
+          <div class="block-list-item"><div class="block-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>Year-round advisory and reporting support</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ OUTCOMES ═══ -->
+<section class="outcomes">
+  <div class="section-narrow">
+    <div class="section-label">What You Get</div>
+    <h2 class="section-title">The difference between winging it and building on solid ground</h2>
+    <div class="outcomes-grid">
+      <div class="outcome-card">
+        <div class="outcome-number">01</div>
+        <h4>No expensive surprises</h4>
+        <p>When your structure, registrations, and tax obligations are set up correctly from the start, you avoid the costly fixes that catch unprepared business owners off guard.</p>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-number">02</div>
+        <h4>Answers, not ambiguity</h4>
+        <p>Should you incorporate? Register for GST? Hire or contract? We give you clear, specific answers based on your situation — not generic advice from a blog post.</p>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-number">03</div>
+        <h4>A CPA who grows with you</h4>
+        <p>We don't just set you up and disappear. As your business evolves, we're here for tax planning, advisory, and the inevitable questions that come with growth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ RELATED SERVICES ═══ -->
+<section class="related">
+  <div class="section-narrow">
+    <div class="section-label">Related Services</div>
+    <h2 class="section-title">Other ways we help our clients</h2>
+    <div class="related-grid">
+      <a href="/mockups/accounting-tax-services.html" class="related-card">
+        <h3>Corporate & Personal Tax</h3>
+        <p>Comprehensive tax planning that goes beyond compliance. We structure your affairs to minimize exposure and maximize what you keep.</p>
+        <span class="related-card-link">Learn more →</span>
+      </a>
+      <a href="/mockups/business-advice-planning.html" class="related-card">
+        <h3>Business Advisory</h3>
+        <p>Strategic planning, acquisitions and sales, restructuring, and succession planning. We help you use your numbers to make better decisions.</p>
+        <span class="related-card-link">Learn more →</span>
+      </a>
+      <a href="/mockups/estate-tax-planning-and-returns.html" class="related-card">
+        <h3>Estate Tax Planning</h3>
+        <p>Efficient estate administration, liability reduction, and tax compliance for high-net-worth clients and their families.</p>
+        <span class="related-card-link">Learn more →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="section-label">Get Started</div>
+    <h2 class="section-title">Ready to start your business on solid ground?</h2>
+    <p class="cta-sub">Whether you're deciding on a structure, setting up bookkeeping, or figuring out how to pay yourself — we'll make sure you get it right from the start.</p>
+    <div class="cta-row">
+      <a href="/mockups/request-appointment.html" class="btn-primary">Request an Appointment</a>
+      <a href="tel:1-877-319-4111" class="btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        1-877-319-4111
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">James & McIntyre</div>
+      <div class="footer-brand-sub">Chartered Professional Accountants</div>
+      <p class="footer-brand-desc">A boutique CPA firm delivering corporate tax, advisory, and estate planning expertise across Western Canada.</p>
+    </div>
+    <div><h5>Services</h5><ul><li><a href="/mockups/accounting-tax-services.html">Corporate & Personal Tax</a></li><li><a href="/mockups/business-advice-planning.html">Business Advisory</a></li><li><a href="/mockups/estate-tax-planning-and-returns.html">Estate Tax Planning</a></li><li><a href="/mockups/business-start-up.html">Business Start-Up</a></li></ul></div>
+    <div><h5>Firm</h5><ul><li><a href="#">About</a></li><li><a href="/mockups/team.html">Our Team</a></li><li><a href="/mockups/blog.html">Blog</a></li><li><a href="/mockups/careers.html">Careers</a></li><li><a href="/mockups/privacy-policy.html">Privacy Policy</a></li></ul></div>
+    <div><h5>Contact</h5><ul><li><a href="tel:1-877-319-4111">1-877-319-4111</a></li><li><a href="/cdn-cgi/l/email-protection#d5bcbbb3ba95bfb4b8b0a6b8b6bcbba1aca7b0fbb6b4"><span class="__cf_email__" data-cfemail="177e797178577d767a72647a747e79636e6572397476">[email&#160;protected]</span></a></li><li><a href="#">Upload a File</a></li><li><a href="/mockups/request-appointment.html">Request an Appointment</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 James & McIntyre Chartered Professional Accountants LLP. All rig

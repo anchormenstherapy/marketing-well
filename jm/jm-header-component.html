@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>James & McIntyre CPAs — Header Component</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #111111;
+    --charcoal: #1C1C1C;
+    --dark-gray: #333333;
+    --mid-gray: #666666;
+    --light-gray: #999999;
+    --border: #E5E5E5;
+    --bg-warm: #FAF9F7;
+    --bg-light: #F5F4F1;
+    --white: #FFFFFF;
+    --accent: #8B7355;
+    --accent-light: #B8A88A;
+    --accent-pale: #F0EBE3;
+    --shadow-soft: 0 2px 20px rgba(0,0,0,0.04);
+    --shadow-md: 0 8px 30px rgba(0,0,0,0.08);
+    --radius: 8px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--dark-gray);
+    background: var(--bg-warm);
+  }
+
+  /* ═══════════════════════════════════════
+     HEADER — DESKTOP
+     ═══════════════════════════════════════ */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 0 48px;
+    transition: box-shadow 0.3s ease;
+  }
+  .header.scrolled { box-shadow: var(--shadow-soft); }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+  }
+
+  /* Logo */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+  }
+  .logo img { height: 48px; width: auto; }
+  .logo-text { line-height: 1.15; }
+  .logo-name {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--black);
+    letter-spacing: -0.01em;
+  }
+  .logo-sub {
+    font-size: 0.6rem;
+    color: var(--light-gray);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* Navigation */
+  .nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 16px;
+    font-size: 0.82rem;
+    color: var(--mid-gray);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .nav-link:hover { color: var(--black); }
+  .nav-link svg {
+    width: 12px;
+    height: 12px;
+    transition: transform 0.2s;
+  }
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); }
+  .nav-item:hover .nav-link { color: var(--black); background: var(--bg-warm); }
+
+  /* Dropdown */
+  .dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    padding: 8px;
+    min-width: 260px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: all 0.2s ease;
+    z-index: 100;
+  }
+  .nav-item:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* Dropdown bridge — prevents gap between nav-link and dropdown */
+  .nav-item::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background: transparent;
+  }
+
+  .dropdown-link {
+    display: block;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    color: var(--dark-gray);
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+    line-height: 1.4;
+  }
+  .dropdown-link:hover {
+    background: var(--bg-warm);
+    color: var(--black);
+  }
+  .dropdown-link-sub {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--light-gray);
+    font-weight: 400;
+    margin-top: 2px;
+  }
+  .dropdown-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 6px 12px;
+  }
+
+  /* Header CTA */
+  .header-ctas {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .header-upload {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 18px;
+    font-size: 0.8rem;
+    color: var(--mid-gray);
+    text-decoration: none;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+  .header-upload:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .header-upload svg { width: 14px; height: 14px; }
+
+  .header-cta {
+    display: inline-flex;
+    align-items: center;
+    background: var(--accent);
+    color: var(--white);
+    padding: 10px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition: all 0.3s ease;
+  }
+  .header-cta:hover {
+    background: var(--accent-deep);
+    transform: translateY(-1px);
+  }
+
+  /* ═══════════════════════════════════════
+     MOBILE MENU
+     ═══════════════════════════════════════ */
+  .mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: var(--dark-gray);
+  }
+  .mobile-toggle svg { width: 24px; height: 24px; }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--white);
+    z-index: 2000;
+    overflow-y: auto;
+    padding: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+  .mobile-menu.active {
+    transform: translateX(0);
+  }
+  .mobile-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: var(--dark-gray);
+  }
+  .mobile-close svg { width: 24px; height: 24px; }
+
+  .mobile-nav {
+    padding: 16px 24px;
+  }
+  .mobile-nav-link {
+    display: block;
+    padding: 14px 0;
+    font-size: 1.05rem;
+    color: var(--dark-gray);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-nav-link:last-child { border-bottom: none; }
+
+  .mobile-section-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    padding: 20px 0 8px;
+  }
+  .mobile-sub-link {
+    display: block;
+    padding: 10px 0 10px 16px;
+    font-size: 0.95rem;
+    color: var(--mid-gray);
+    text-decoration: none;
+    font-weight: 400;
+    border-bottom: 1px solid rgba(0,0,0,0.03);
+  }
+  .mobile-sub-link:last-child { border-bottom: none; }
+
+  .mobile-ctas {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid var(--border);
+    margin-top: 16px;
+  }
+  .mobile-cta-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--black);
+    color: var(--white);
+    padding: 14px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+  .mobile-cta-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid var(--border);
+    color: var(--dark-gray);
+    padding: 14px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+
+  /* ═══════════════════════════════════════
+     RESPONSIVE
+     ═══════════════════════════════════════ */
+  @media (max-width: 1024px) {
+    .header { padding: 0 24px; }
+    .nav-desktop { gap: 4px; }
+    .nav-link { padding: 8px 10px; font-size: 0.78rem; }
+    .header-upload { display: none; }
+  }
+
+  @media (max-width: 768px) {
+    .header { padding: 0 20px; }
+    .header-inner { height: 68px; }
+    .nav-desktop { display: none; }
+    .header-upload { display: none; }
+    .header-cta { display: none; }
+    .mobile-toggle { display: block; }
+    .mobile-menu { display: block; }
+    .logo img { height: 40px; }
+    .logo-name { font-size: 1rem; }
+  }
+
+  /* ═══════════════════════════════════════
+     DEMO PAGE CONTENT (remove in production)
+     ═══════════════════════════════════════ */
+  .demo-content {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 0 48px;
+  }
+  .demo-content h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 2rem;
+    color: var(--charcoal);
+    margin-bottom: 16px;
+  }
+  .demo-content p {
+    font-size: 1rem;
+    color: var(--mid-gray);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+  .demo-label {
+    display: inline-block;
+    background: var(--accent-pale);
+    color: var(--accent);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 24px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     HEADER
+     ═══════════════════════════════════════ -->
+<header class="header" id="header">
+  <div class="header-inner">
+
+    <!-- Logo -->
+    <a href="/" class="logo">
+      <img src="https://marketingwell.ca/mockups/jamesmcintyrelogo.png" alt="James & McIntyre CPAs">
+      <div class="logo-text">
+        <div class="logo-name">James & McIntyre</div>
+        <div class="logo-sub">Chartered Professional Accountants</div>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="nav-desktop">
+
+      <div class="nav-item">
+        <a href="/about" class="nav-link">About</a>
+      </div>
+
+      <div class="nav-item">
+        <span class="nav-link">
+          Services
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+        <div class="dropdown">
+          <a href="/mockups/accounting-tax-services.html" class="dropdown-link">
+            Corporate & Personal Tax
+            <span class="dropdown-link-sub">Planning, compliance & optimization</span>
+          </a>
+          <a href="/services/business-advisory" class="dropdown-link">
+            Business Advisory
+            <span class="dropdown-link-sub">Strategy, acquisitions & restructuring</span>
+          </a>
+          <a href="/services/estate-tax-planning" class="dropdown-link">
+            Estate Tax Planning
+            <span class="dropdown-link-sub">Estate administration & tax reduction</span>
+          </a>
+          <a href="/services/business-start-up" class="dropdown-link">
+            Business Start-Up
+            <span class="dropdown-link-sub">Structure, registration & setup</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="/team" class="nav-link">Our Team</a>
+      </div>
+
+      <div class="nav-item">
+        <span class="nav-link">
+          Locations
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+        <div class="dropdown">
+          <a href="/locations/victoria" class="dropdown-link">
+            Victoria
+            <span class="dropdown-link-sub">210, 1677 Poplar Avenue</span>
+          </a>
+          <a href="/locations/langford" class="dropdown-link">
+            Langford
+            <span class="dropdown-link-sub">867 Goldstream Ave (within Maxxam)</span>
+          </a>
+          <a href="/locations/calgary" class="dropdown-link">
+            Calgary
+            <span class="dropdown-link-sub">160 Quarry Park Blvd SE, Suite 300</span>
+          </a>
+          <a href="/locations/sechelt" class="dropdown-link">
+            Sechelt
+            <span class="dropdown-link-sub">#25A-5755 Cowrie Street</span>
+          </a>
+          <a href="/locations/gibsons" class="dropdown-link">
+            Gibsons
+            <span class="dropdown-link-sub">#100-938 Gibsons Way</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="/blog" class="nav-link">Blog</a>
+      </div>
+
+    </nav>
+
+    <!-- Header CTAs -->
+    <div class="header-ctas">
+      <a href="https://rfcpa.sharefile.com/filedrop" class="header-upload">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        Upload a File
+      </a>
+      <a href="/request-appointment" class="header-cta">Request an Appointment</a>
+    </div>
+
+    <!-- Mobile Toggle -->
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════
+     MOBILE MENU
+     ═══════════════════════════════════════ -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-header">
+    <a href="/" class="logo">
+      <img src="https://marketingwell.ca/mockups/jamesmcintyrelogo.png" alt="James & McIntyre" style="height:40px;">
+    </a>
+    <button class="mobile-close" id="mobileClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+
+  <div class="mobile-nav">
+    <a href="/about" class="mobile-nav-link">About</a>
+
+    <div class="mobile-section-label">Services</div>
+    <a href="/services/corporate-personal-tax" class="mobile-sub-link">Corporate & Personal Tax</a>
+    <a href="/services/business-advisory" class="mobile-sub-link">Business Advisory</a>
+    <a href="/services/estate-tax-planning" class="mobile-sub-link">Estate Tax Planning</a>
+    <a href="/services/business-start-up" class="mobile-sub-link">Business Start-Up</a>
+
+    <a href="/team" class="mobile-nav-link">Our Team</a>
+
+    <div class="mobile-section-label">Locations</div>
+    <a href="/locations/victoria" class="mobile-sub-link">Victoria</a>
+    <a href="/locations/langford" class="mobile-sub-link">Langford</a>
+    <a href="/locations/calgary" class="mobile-sub-link">Calgary</a>
+    <a href="/locations/sechelt" class="mobile-sub-link">Sechelt</a>
+    <a href="/locations/gibsons" class="mobile-sub-link">Gibsons</a>
+
+    <a href="/blog" class="mobile-nav-link">Blog</a>
+  </div>
+
+  <div class="mobile-ctas">
+    <a href="/request-appointment" class="mobile-cta-primary">Request an Appointment</a>
+    <a href="https://rfcpa.sharefile.com/filedrop" class="mobile-cta-secondary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+      Upload a File
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     DEMO CONTENT (shows the header in context)
+     ═══════════════════════════════════════ -->
+<div class="demo-content">
+  <div class="demo-label">Header Component</div>
+  <h2>James & McIntyre — Header Reference</h2>
+  <p>This is the header component for the J&M website rebuild. It includes the desktop navigation with dropdown menus for Services (4 items) and Locations (5 items), plus a fully functional mobile hamburger menu with the same structure.</p>
+  <p><strong>Desktop features:</strong> Sticky header with blur backdrop, hover dropdowns with smooth animation and descriptive subtitles, "Upload a File" secondary CTA linking to ShareFile, and the primary "Request an Appointment" button.</p>
+  <p><strong>Mobile features:</strong> Full-screen slide-in menu with organized sections, Services and Locations grouped under labeled headers, and both CTAs accessible at the bottom.</p>
+  <p><strong>Navigation structure:</strong></p>
+  <p>About &nbsp;|&nbsp; Services ▾ (Corporate & Personal Tax, Business Advisory, Estate Tax Planning, Business Start-Up) &nbsp;|&nbsp; Our Team &nbsp;|&nbsp; Locations ▾ (Victoria, Langford, Calgary, Sechelt, Gibsons) &nbsp;|&nbsp; Blog &nbsp;|&nbsp; [Upload a File] &nbsp;|&nbsp; [Request an Appointment]</p>
+  <p style="margin-top:40px; color:var(--light-gray); font-size:0.85rem;">Scroll down to test the sticky header behavior. The header gains a subtle shadow on scroll.</p>
+  <div style="height:1200px;"></div>
+  <p style="color:var(--light-gray); font-size:0.85rem;">End of scroll test area.</p>
+</div>
+
+<script>
+  // Sticky header shadow
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // Mobile menu
+  const mobileToggle = document.getElementById('mobileToggle');
+  const mobileClose = document.getElementById('mobileClose');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  mobileToggle.addEventListener('click', () => {
+    mobileMenu.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+
+  mobileClose.addEventListener('click', () => {
+    mobileMenu.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+
+  // Close mobile menu when clicking a link
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
+
+</body>
+</html>
