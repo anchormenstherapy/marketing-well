@@ -24,6 +24,9 @@ body{font-family:'Inter',sans-serif;color:var(--char);background:#F5F4F1;line-he
 .btn.ghost:hover{background:var(--brown-deep);color:var(--paper);}
 .btn.warn{border-color:#caa;color:#a55a3a;background:transparent;}
 .btn.warn:hover{background:#a55a3a;color:#fff;border-color:#a55a3a;}
+.reviewer-input{font-family:'IBM Plex Mono',monospace;font-size:12px;padding:8px 14px;border:1px solid var(--line);border-radius:99px;background:var(--paper);color:var(--char);width:180px;outline:none;transition:border-color .2s;}
+.reviewer-input:focus{border-color:var(--brown);box-shadow:0 0 0 3px rgba(139,115,85,.14);}
+.reviewer-input::placeholder{color:var(--mute);}
 .wrap{max-width:1080px;margin:0 auto;padding:40px 28px 120px;display:grid;grid-template-columns:228px 1fr;gap:48px;align-items:start;}
 .intro{grid-column:1/-1;background:var(--brown-deep);color:var(--paper);border-radius:14px;padding:40px 44px;margin-bottom:8px;}
 .intro h1{font-family:'EB Garamond',serif;font-weight:500;font-size:38px;line-height:1.1;margin-bottom:14px;}
@@ -90,6 +93,7 @@ body{font-family:'Inter',sans-serif;color:var(--char);background:#F5F4F1;line-he
 <body>
 <div class="toolbar">
   <span class="tt">Copy Review</span>
+  <input class="reviewer-input" id="reviewer-name" type="text" placeholder="Your name" autocomplete="off">
   <div class="prog"><div class="prog-bar"><div class="prog-fill" id="prog-fill"></div></div><span class="prog-txt" id="prog-txt">0 of 0</span></div>
   <button class="btn ghost" id="btn-print">Print / Save PDF</button>
   <button class="btn" id="btn-export">Export my changes</button>
@@ -622,11 +626,24 @@ body{font-family:'Inter',sans-serif;color:var(--char);background:#F5F4F1;line-he
 ],"flags":["Landing page copy is optimized for Google Ads — to confirm with client"]}
 ]</script>
 <script>(function clientMain(){
-  const KEY='jm-copy-review-v1';
+  const BASE_KEY='jm-copy-review-v1';
   const DATA=JSON.parse(document.getElementById('prd-data').textContent);
-  let S=JSON.parse(localStorage.getItem(KEY)||'{}');
+
+  const nameInput=document.getElementById('reviewer-name');
+  const savedName=localStorage.getItem(BASE_KEY+'-reviewer')||'';
+  nameInput.value=savedName;
+  function slug(n){return n.trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');}
+  function getKey(){const s=slug(nameInput.value); return s?BASE_KEY+'-'+s:BASE_KEY;}
+
+  let S=JSON.parse(localStorage.getItem(getKey())||'{}');
   S.edits=S.edits||{}; S.approved=S.approved||{}; S.notes=S.notes||{};
-  const save=()=>localStorage.setItem(KEY,JSON.stringify(S));
+  const save=()=>{localStorage.setItem(getKey(),JSON.stringify(S)); localStorage.setItem(BASE_KEY+'-reviewer',nameInput.value.trim());};
+  nameInput.addEventListener('change',()=>{
+    save();
+    S=JSON.parse(localStorage.getItem(getKey())||'{}');
+    S.edits=S.edits||{}; S.approved=S.approved||{}; S.notes=S.notes||{};
+    location.reload();
+  });
   const el=(tag,cls,txt)=>{const e=document.createElement(tag); if(cls)e.className=cls; if(txt!=null)e.textContent=txt; return e;};
 
   const toc=document.getElementById('toc');
@@ -705,7 +722,9 @@ body{font-family:'Inter',sans-serif;color:var(--char);background:#F5F4F1;line-he
   function currentText(p,it,ii){ const k=p.file+'#'+ii; return (k in S.edits)?S.edits[k]:it.t; }
   document.getElementById('btn-export').addEventListener('click',()=>{
     const d=new Date().toISOString().slice(0,10);
-    let out='# James & McIntyre CPAs — Website Copy Review\nExported '+d+'\n\n';
+    const reviewer=nameInput.value.trim();
+    if(!reviewer){nameInput.focus();nameInput.style.borderColor='#a55a3a';nameInput.style.boxShadow='0 0 0 3px rgba(165,90,58,.2)';setTimeout(()=>{nameInput.style.borderColor='';nameInput.style.boxShadow='';},2000);alert('Please enter your name before exporting.');return;}
+    let out='# James & McIntyre CPAs — Website Copy Review\nReviewer: '+reviewer+'\nExported '+d+'\n\n';
     DATA.forEach((p,pi)=>{
       out+='\n\n========================================\n';
       out+=(pi+1)+'. '+p.name+'  ('+p.file+')  —  '+(S.approved[p.file]?'APPROVED':'PENDING')+'\n';
@@ -724,7 +743,7 @@ body{font-family:'Inter',sans-serif;color:var(--char);background:#F5F4F1;line-he
     });
     const blob=new Blob([out],{type:'text/markdown'});
     const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
-    a.download='james-mcintyre-copy-review-'+d+'.md'; a.click();
+    a.download='james-mcintyre-copy-review-'+slug(reviewer)+'-'+d+'.md'; a.click();
   });
   document.getElementById('btn-print').addEventListener('click',()=>window.print());
   document.getElementById('btn-reset').addEventListener('click',()=>{
