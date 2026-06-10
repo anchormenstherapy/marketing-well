@@ -183,8 +183,9 @@ body { margin: 0; background: var(--bg-page); }
 
 /* ---------- team cards (reused) ---------- */
 .mm-team__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 54px; }
+.mm-team__grid--center { grid-template-columns: repeat(2, minmax(0, 400px)); justify-content: center; }
 @media (max-width: 900px) { .mm-team__grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .mm-team__grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .mm-team__grid { grid-template-columns: 1fr; } .mm-team__grid--center { grid-template-columns: minmax(0, 400px); } }
 .mm-tc { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-card); transition: transform .25s, box-shadow .25s; }
 .mm-tc:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
 .mm-tc__ph { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: top center; background: var(--brand-soft); }
@@ -310,6 +311,42 @@ body { margin: 0; background: var(--bg-page); }
 .mm-spec__link { margin-top: auto; font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; }
 .mm-spec__link svg { transition: transform .2s; }
 .mm-spec__link:hover svg { transform: translateX(3px); }
+
+/* ---------- modality page: dark feature band ---------- */
+.mm-banddark { background: var(--brand-deep); color: #fff; }
+.mm-banddark .mm-shead__eyebrow { color: var(--accent-soft); }
+.mm-banddark .mm-shead h2 { color: #fff; }
+.mm-banddark .mm-shead h2 em { color: var(--accent-soft); }
+.mm-banddark .mm-prose p { color: rgba(255,255,255,.84); }
+
+/* ---------- modality: how-it-works phases ---------- */
+.mm-phases { display: grid; gap: 0; margin: 48px auto 0; max-width: 880px; }
+.mm-phase { display: grid; grid-template-columns: 84px 1fr; gap: 28px; padding: 32px 0; border-top: 1px solid var(--line); }
+.mm-phase:last-child { border-bottom: 1px solid var(--line); }
+@media (max-width: 560px) { .mm-phase { grid-template-columns: 1fr; gap: 10px; } }
+.mm-phase__n { font-family: var(--font-display); font-weight: 600; font-size: 46px; line-height: 1; color: var(--accent); }
+.mm-phase h3 { font-family: var(--font-display); font-weight: 600; font-size: 24px; color: var(--brand-strong); margin: 0 0 8px; }
+.mm-phase p { color: var(--text-soft); font-size: 16px; line-height: 1.7; margin: 0; }
+
+/* ---------- modality: image + text split (life during/after) ---------- */
+.mm-imgsplit { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+@media (max-width: 860px) { .mm-imgsplit { grid-template-columns: 1fr; gap: 32px; } .mm-imgsplit__media { order: -1; } }
+.mm-imgsplit__img { width: 100%; height: 460px; object-fit: cover; border-radius: 24px; box-shadow: var(--shadow-lg); }
+@media (max-width: 860px) { .mm-imgsplit__img { height: 320px; } }
+.mm-imgsplit h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; color: var(--brand-strong); margin: 16px 0 0; letter-spacing: -.015em; }
+.mm-imgsplit h2 em { color: var(--accent); font-style: italic; }
+.mm-imgsplit p { color: var(--text-soft); font-size: 16.5px; line-height: 1.75; margin: 18px 0 0; }
+.mm-afterblock { margin-top: 26px; }
+.mm-afterblock h3 { font-family: var(--font-display); font-weight: 600; font-size: 20px; color: var(--brand-strong); margin: 0 0 6px; }
+.mm-afterblock p { font-size: 15.5px; line-height: 1.65; margin: 0; }
+.mm-afterblock + .mm-afterblock { margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--line); }
+
+/* ---------- modality: approaches that work alongside ---------- */
+.mm-along { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 48px; }
+@media (max-width: 700px) { .mm-along { grid-template-columns: 1fr; } }
+.mm-along__item { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 26px 28px; box-shadow: var(--shadow-card); }
+.mm-along__item h3 { font-family: var(--font-display); font-weight: 600; font-size: 21px; color: var(--brand-strong); margin: 0 0 7px; }
+.mm-along__item p { color: var(--text-soft); font-size: 15px; line-height: 1.6; margin: 0; }
 
 /* entrance: gentle fade-up, gated by .js-reveal so no-JS shows content */
 @media (prefers-reduced-motion: no-preference) {

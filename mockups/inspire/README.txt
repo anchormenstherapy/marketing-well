@@ -1,39 +1,36 @@
-Inspire Wellness Therapy — Homepage (Modern Minimal)
-=====================================================
+INSPIRE WELLNESS THERAPY — WEBSITE BUILD
+=========================================
 
-WHAT'S IN HERE
---------------
-A self-contained static website. Just upload the entire contents of this
-folder to your web server (preserving the folder structure) and it will work.
+HOW TO DEPLOY (read this first)
+-------------------------------
+1. Upload the ENTIRE contents of this folder to your /inspire/ directory,
+   overwriting everything. Don't cherry-pick files — just replace the whole
+   folder each time. That guarantees every page has the files it needs.
 
-  index.html              ← the homepage (open this / set as your site root)
-  modern-minimal.jsx      ← page layout & content
-  data.js                 ← all editable copy: team, services, FAQ, insurers, etc.
-  icons.js                ← inline icons
-  _ds/                    ← design system (fonts, colours, components) — do not rename
-  assets/images/          ← hero photo, team portraits, closing photo
+2. Keep the folder structure exactly as-is:
+   /inspire/
+     index.html        <- homepage
+     therapy.html      <- Anxiety (specialty template)
+     bio.html          <- Alysha (therapist bio template)
+     emdr.html         <- EMDR (modality template)
+     site.css, *.jsx, data.js, icons.js   <- shared code (every page needs these)
+     _ds/              <- design system (do not rename; the leading _ matters)
+     assets/           <- images
+     .nojekyll         <- leave this here (GitHub Pages needs it)
 
-HOW TO DEPLOY
--------------
-1. Upload everything in this folder to your server's web root
-   (e.g. public_html/) — keep the folder structure exactly as-is.
-2. Visit your domain. index.html is the entry point.
+3. ALWAYS open pages WITH the trailing slash or the .html:
+     https://www.marketingwell.ca/mockups/inspire/            (homepage)
+     https://www.marketingwell.ca/mockups/inspire/therapy     (or therapy.html)
+   Opening ".../inspire" WITHOUT the trailing slash can show a blank page,
+   because the browser then looks for the shared files one folder too high.
+   If the homepage is blank, add the "/" -> ".../inspire/".
 
-That's it — no build step or server-side software required. The page is
-plain HTML/CSS/JS and loads its libraries from a public CDN, so the server
-only needs to serve static files.
+PAGES
+-----
+- index.html   Homepage (Modern Minimal)
+- therapy.html Anxiety therapy — specialty page template
+- bio.html     Meet Alysha — therapist bio template
+- emdr.html    EMDR — modality page template
 
-EDITING CONTENT LATER
----------------------
-Most text (team names/titles, services, FAQ, insurers, phone/email/address)
-lives in data.js — edit that file and re-upload it.
-
-NOTES / NEXT STEPS
-------------------
-• Every "Book" button points to your JaneApp discovery-call link.
-• "Meet [Name]" links and the "Explore … therapy" links currently point to "#"
-  — wire them to real bio/service pages when those exist.
-• This build compiles the page in the browser (via Babel + React from a CDN),
-  which is great for review and works on any host. For a production site you
-  may eventually want a precompiled/optimized build for best load speed & SEO —
-  happy to prepare that when you're ready.
+Everything shares ONE site.css, ONE _ds/ folder, and ONE assets/ folder,
+so uploading the whole folder each time keeps them all in sync.
