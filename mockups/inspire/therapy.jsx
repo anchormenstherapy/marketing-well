@@ -60,33 +60,36 @@ const ANX_FAQS = [
 const ANX_THERAPISTS = ["Helena Morris", "Khanjan Pandya", "Jennifer Seniuk"];
 const RELATED = ["Depression", "Burnout", "OCD", "Trauma", "Self Worth", "Women's Health"];
 
+const OFFICE = [
+  { src: "office1", alt: "The Inspire Wellness reception and welcome desk" },
+  { src: "office2", alt: "A warm beverage station in the waiting area" },
+  { src: "office3", alt: "A comfortable mustard sofa by the window" },
+  { src: "office4", alt: "A soft bouclé armchair beside a plant" },
+  { src: "office5", alt: "A quiet therapy room with calming artwork" },
+  { src: "office6", alt: "A green sofa and side table with tissues and natural light" },
+];
+
 const SIGN_ICON = { wind: I.wind, cloud: I.cloud, clock: I.clock, shield: I.shield, heart: I.heart, leaf: I.leaf };
 
 function Hero() {
   return (
-    <section className="mm-ihero">
-      <div className="mm-wrap mm-ihero__grid">
-        <div>
-          <nav className="mm-crumb" aria-label="Breadcrumb">
-            <a href="index.html">Home</a>
-            <span className="sep">/</span>
-            <a href="therapy.html">What we help with</a>
-            <span className="sep">/</span>
-            <span className="cur">Anxiety</span>
-          </nav>
-          <p className="mm-ihero__eyebrow">Anxiety therapy</p>
-          <h1>When worry won't <em>switch off.</em></h1>
-          <p className="mm-ihero__sub">If your mind races, your chest tightens, and rest feels impossible, you are not broken and you are not alone. Anxiety is one of the most common, and most treatable, reasons people reach out.</p>
-          <div className="mm-ihero__cta">
-            <Book>Book a free 15-minute call</Book>
-            <span className="mm-ihero__note">No pressure, no commitment. Just a calmer first step.</span>
-          </div>
+    <section className="mm-hero">
+      <img className="mm-hero__bg" src={D.img.anxietyHero} alt="" />
+      <div className="mm-hero__scrim"></div>
+      <div className="mm-wrap mm-hero__in">
+        <h1 className="mm-hero__eyebrow">Anxiety Therapy In Calgary</h1>
+        <p className="mm-hero__display">When worry won't <em>switch off.</em></p>
+        <p className="mm-hero__sub">If your mind races, your chest tightens, and rest feels impossible, you are not broken and you are not alone. Anxiety is one of the most common, and most treatable, reasons people reach out.</p>
+        <div className="mm-hero__cta">
+          <Book>Book a free 15-minute call</Book>
+          <span className="mm-hero__note">No pressure, no commitment. Just a calmer first step.</span>
         </div>
-        <div className="mm-ihero__media">
-          <img className="mm-ihero__img" src={D.img.window} alt="A person sitting calmly by a window with a warm drink" />
-          <div className="mm-ihero__badge">
-            <span className="ic"><I.shield size={22} /></span>
-            <div><b>Direct billing available</b><small>Covered by most extended health plans</small></div>
+        <div className="mm-hero__trust">
+          <div className="mm-hero__trust-in">
+            <span className="mm-hero__trust-label"><I.shield size={19} />Direct billing available to 9 insurers</span>
+            <div className="mm-hero__trust-names">
+              {D.insurers.map((n) => <span key={n}>{n}</span>)}
+            </div>
           </div>
         </div>
       </div>
@@ -219,14 +222,32 @@ function Therapists() {
   );
 }
 
-function Fees() {
+function Gallery() {
   return (
     <section className="mm-white" style={{ padding: "var(--section-y) 0" }}>
+      <div className="mm-wrap">
+        <SectionHead center max={700}
+          eyebrow="Our space"
+          title={<>A room that meets you <em>halfway</em></>}
+          lede="You're already doing the hard part by showing up. Our Calgary office is designed to do the rest, with quiet rooms, soft light, and a sense of privacy that lets you settle in before the session even begins." />
+        <div className="mm-gallery">
+          {OFFICE.map((o) => (
+            <img className="mm-gallery__img mm-fade" key={o.src} src={D.img[o.src]} alt={o.alt} loading="lazy" />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Fees() {
+  return (
+    <section className="mm-sand" style={{ padding: "var(--section-y) 0" }}>
       <div className="mm-wrap">
         <SectionHead center max={680}
           eyebrow="Our services & fees"
           title={<>Clear, upfront <em>pricing</em></>}
-          lede="Direct billing available to 9+ insurers, so most clients pay little or nothing out of pocket." />
+          lede="Direct billing available to 9 insurers, so most clients pay little or nothing out of pocket." />
         <div className="mm-fees__grid">
           {FEES.map((f) => (
             <article className="mm-fee mm-fade" key={f.title}>
@@ -292,6 +313,7 @@ function App() {
       <HowWeHelp />
       <Process />
       <Therapists />
+      <Gallery />
       <Fees />
       <CTABand
         heading={<>You don't have to carry this <em>alone.</em></>}
