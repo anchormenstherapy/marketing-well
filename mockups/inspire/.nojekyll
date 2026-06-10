@@ -1,0 +1,2 @@
+# This file disables Jekyll processing on GitHub Pages so that the _ds/ folder
+# (and any other underscore-prefixed paths) are served as-is.
