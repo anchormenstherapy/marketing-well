@@ -114,6 +114,10 @@ body { margin: 0; background: var(--bg-page); }
 .mm-prose p { color: var(--text-soft); font-size: 17px; line-height: 1.8; margin: 0 0 20px; }
 .mm-prose p:last-child { margin-bottom: 0; }
 .mm-prose strong { color: var(--brand-strong); font-weight: 600; }
+.mm-prose h3 { font-family: var(--font-display); font-weight: 600; font-size: 25px; color: var(--brand-strong); margin: 38px 0 14px; letter-spacing: -.01em; }
+.mm-prose ul { margin: 0 0 20px; padding: 0; list-style: none; display: grid; gap: 12px; }
+.mm-prose ul li { position: relative; padding-left: 28px; color: var(--text-soft); font-size: 17px; line-height: 1.6; }
+.mm-prose ul li::before { content: ""; position: absolute; left: 3px; top: 10px; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
 
 /* split: narrative + aside card */
 .mm-split { display: grid; grid-template-columns: 1.25fr .75fr; gap: 56px; align-items: start; margin-top: 52px; }
@@ -251,6 +255,61 @@ body { margin: 0; background: var(--bg-page); }
 .mm-badges { display: flex; flex-wrap: wrap; gap: 8px; }
 .mm-badges span { font-size: 11.5px; color: rgba(255,255,255,.7); border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: 5px 12px; font-weight: 500; }
 .mm-foot__base { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.14); font-size: 12.5px; color: rgba(255,255,255,.5); }
+
+/* ---------- therapist bio: profile hero ---------- */
+.mm-profile { display: grid; grid-template-columns: .82fr 1.18fr; gap: 56px; align-items: center; padding-top: 60px; padding-bottom: 8px; }
+@media (max-width: 860px) { .mm-profile { grid-template-columns: 1fr; gap: 34px; padding-top: 40px; } }
+.mm-profile__media { position: relative; }
+.mm-profile__media::before { content: ""; position: absolute; right: -16px; bottom: -16px; width: 62%; height: 62%; border-radius: 24px; background: var(--accent-soft); z-index: 0; }
+.mm-profile__photo { position: relative; z-index: 1; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top center; border-radius: 24px; box-shadow: var(--shadow-lg); background: var(--brand-soft); }
+.mm-profile__cred { color: var(--accent); font-weight: 700; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; margin: 0; }
+.mm-profile__name { font-family: var(--font-display); font-weight: 600; font-size: clamp(40px, 5vw, 64px); line-height: 1.02; color: var(--brand-strong); margin: 13px 0 0; letter-spacing: -.02em; }
+.mm-profile__intro { color: var(--text-soft); font-size: 19px; line-height: 1.7; max-width: 540px; margin: 18px 0 24px; }
+.mm-profile__cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.mm-facts { display: flex; flex-wrap: wrap; gap: 11px; margin: 26px 0 0; }
+.mm-fact { display: inline-flex; align-items: center; gap: 9px; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 9px 16px; font-size: 13.5px; font-weight: 600; color: var(--brand); box-shadow: var(--shadow-card); }
+.mm-fact svg { color: var(--accent); flex: none; }
+
+/* ---------- bio: credentials list & pull quote ---------- */
+.mm-creds { list-style: none; padding: 0; display: grid; gap: 15px; margin: 0; }
+.mm-creds li { display: flex; gap: 14px; align-items: flex-start; font-size: 16px; color: var(--text-soft); line-height: 1.55; }
+.mm-creds li svg { color: var(--accent); flex: none; margin-top: 3px; }
+.mm-quote { max-width: 840px; margin: 0 auto; text-align: center; }
+.mm-quote__mark { font-family: var(--font-display); font-size: 64px; line-height: .6; color: var(--accent-soft); }
+.mm-quote p { font-family: var(--font-display); font-weight: 500; font-style: italic; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.3; color: var(--brand-strong); margin: 12px 0 0; }
+.mm-quote p em { color: var(--accent); font-style: italic; }
+.mm-quote cite { display: block; font-style: normal; font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); margin-top: 26px; }
+
+/* ---------- bio: hero meta, tagline, ghost btn, demographics, reiki ---------- */
+.mm-profile__tagline { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 14px 0 0; }
+.mm-profile__tagline span { font-size: 13px; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 8px; }
+.mm-profile__tagline span::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+.mm-profile__chips { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 20px; }
+.mm-profile__chips span { font-size: 13px; font-weight: 600; color: var(--brand); background: var(--brand-soft); border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; }
+.mm-profile__meta { display: flex; flex-wrap: wrap; gap: 14px 40px; margin: 24px 0; padding: 22px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.mm-profile__meta dt { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); margin: 0; }
+.mm-profile__meta dd { margin: 6px 0 0; font-size: 15.5px; font-weight: 600; color: var(--brand-strong); line-height: 1.4; }
+.mm-btn-ghost { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid var(--line-strong, var(--line)); color: var(--brand); font-weight: 600; font-size: 14.5px; padding: 12px 24px; border-radius: 999px; background: transparent; transition: border-color .2s, color .2s; }
+.mm-btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+.mm-demo { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 44px; }
+.mm-demo span { font-family: var(--font-display); font-weight: 500; font-size: 22px; color: var(--brand-strong); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 12px 26px; box-shadow: var(--shadow-card); }
+.mm-reiki { display: grid; grid-template-columns: 56px 1fr; gap: 20px; align-items: start; max-width: 760px; margin: 44px auto 0; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 30px 32px; box-shadow: var(--shadow-card); }
+.mm-reiki__ic { width: 56px; height: 56px; border-radius: 50%; background: var(--accent-soft); color: var(--accent-strong); display: grid; place-items: center; }
+.mm-reiki h3 { font-family: var(--font-display); font-weight: 600; font-size: 23px; color: var(--brand-strong); margin: 0 0 8px; }
+.mm-reiki p { color: var(--text-soft); font-size: 15.5px; line-height: 1.65; margin: 0; }
+
+/* ---------- issue / foundation cards (shared) ---------- */
+.mm-spec__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 56px; }
+@media (max-width: 900px) { .mm-spec__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .mm-spec__grid { grid-template-columns: 1fr; } }
+.mm-spec__card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 30px 30px 28px; display: flex; flex-direction: column; box-shadow: var(--shadow-card); transition: transform .25s, box-shadow .25s, border-color .25s; }
+.mm-spec__card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: transparent; }
+.mm-spec__med { width: 52px; height: 52px; border-radius: 50%; background: var(--brand-soft); color: var(--brand); display: grid; place-items: center; margin-bottom: 20px; }
+.mm-spec__card h3 { font-family: var(--font-display); font-weight: 600; font-size: 24px; color: var(--brand-strong); margin: 0 0 12px; }
+.mm-spec__card p { color: var(--text-soft); font-size: 15px; line-height: 1.65; margin: 0 0 22px; }
+.mm-spec__link { margin-top: auto; font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; }
+.mm-spec__link svg { transition: transform .2s; }
+.mm-spec__link:hover svg { transform: translateX(3px); }
 
 /* entrance: gentle fade-up, gated by .js-reveal so no-JS shows content */
 @media (prefers-reduced-motion: no-preference) {
