@@ -18,12 +18,12 @@ HOW TO DEPLOY (read this first)
      assets/           <- images
      .nojekyll         <- leave this here (GitHub Pages needs it)
 
-3. ALWAYS open pages WITH the trailing slash or the .html:
-     https://www.marketingwell.ca/mockups/inspire/            (homepage)
-     https://www.marketingwell.ca/mockups/inspire/therapy     (or therapy.html)
-   Opening ".../inspire" WITHOUT the trailing slash can show a blank page,
-   because the browser then looks for the shared files one folder too high.
-   If the homepage is blank, add the "/" -> ".../inspire/".
+3. The homepage works with OR without the trailing slash:
+     https://www.marketingwell.ca/mockups/inspire
+     https://www.marketingwell.ca/mockups/inspire/
+   Interior pages open as a clean URL or with .html:
+     https://www.marketingwell.ca/mockups/inspire/therapy
+     https://www.marketingwell.ca/mockups/inspire/therapy.html
 
 PAGES
 -----
