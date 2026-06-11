@@ -59,7 +59,6 @@ function Hero() {
           </dl>
           <div className="mm-profile__cta">
             <Book>Book your free 15-minute consult</Book>
-            <a className="mm-btn-ghost" href={"mailto:" + D.email}>Email {first}</a>
           </div>
         </div>
       </div>
