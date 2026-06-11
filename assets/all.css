@@ -290,6 +290,65 @@ img { max-width: 100%; height: auto; display: block; }
 .btn-on-accent:hover { background: color-mix(in srgb, var(--accent-ink) 88%, var(--accent)); transform: translateY(-2px); }
 
 /* ============================================================
+   PRICING (web design page)
+   ============================================================ */
+.pricing { padding: clamp(4rem, 7vw, 6rem) 0; background: var(--paper-2); }
+.usd-callout {
+  display: grid; grid-template-columns: auto 1fr; gap: clamp(1.4rem,3vw,2.4rem);
+  align-items: center; background: var(--pale); border: 1px solid var(--line-2);
+  border-radius: var(--r-lg); padding: clamp(1.6rem,3vw,2.4rem) clamp(1.8rem,3.5vw,2.6rem);
+  margin-bottom: clamp(2rem,4vw,3rem);
+}
+.usd-flag {
+  font-family: var(--serif); font-weight: var(--serif-w); font-size: 1.5rem;
+  color: var(--sage-2); white-space: nowrap; background: var(--surface);
+  border: 1px solid var(--line); border-radius: var(--r); padding: 1.2rem 1.5rem; text-align: center;
+}
+.usd-flag em { display: block; font-style: italic; font-size: 0.95rem; color: var(--accent); margin-top: 0.4rem; }
+.usd-copy h4 { font-family: var(--serif); font-weight: var(--serif-w); font-size: 1.3rem; color: var(--ink); margin-bottom: 0.5rem; }
+.usd-copy p { color: var(--ink-2); font-size: 1rem; line-height: 1.6; }
+
+.price-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-bottom: clamp(2.4rem,4vw,3.4rem); }
+.price-card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg);
+  padding: clamp(2rem,3.5vw,2.6rem); position: relative;
+}
+.price-card.featured { background: var(--foot); border-color: var(--foot); }
+.price-card.featured::before {
+  content: 'Recommended'; position: absolute; top: -12px; right: 24px;
+  background: var(--accent); color: var(--accent-ink); font-family: var(--sans);
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.4em 0.9em; border-radius: var(--r-pill);
+}
+.price-type { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage-2); margin-bottom: 0.8rem; }
+.price-card.featured .price-type { color: var(--foot-soft); }
+.price-card h3 { font-size: 1.7rem; margin-bottom: 1rem; }
+.price-card.featured h3 { color: var(--foot-ink); }
+.price-starting { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 0.4rem; }
+.price-card.featured .price-starting { color: var(--foot-soft); }
+.price-amount { font-family: var(--serif); font-weight: var(--serif-w); font-size: 2.8rem; line-height: 1; color: var(--ink); }
+.price-card.featured .price-amount { color: var(--foot-ink); }
+.price-cad { font-size: 0.85rem; color: var(--ink-2); margin: 0.4rem 0 1.4rem; }
+.price-card.featured .price-cad { color: var(--foot-soft); }
+.price-desc { font-size: 0.95rem; color: var(--ink-2); line-height: 1.6; }
+.price-card.featured .price-desc { color: color-mix(in srgb, var(--foot-ink) 82%, transparent); }
+
+.price-included h4, .price-addons h4 { font-family: var(--serif); font-weight: var(--serif-w); font-size: 1.35rem; color: var(--ink); margin-bottom: 1.2rem; }
+.price-included ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem 2.4rem; margin-bottom: clamp(2.4rem,4vw,3.4rem); }
+.price-included li { position: relative; padding-left: 1.7rem; font-size: 0.98rem; color: var(--ink); line-height: 1.5; }
+.price-included li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 13px; height: 2px; background: var(--accent); }
+.price-addons ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.price-addons li { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 1.1rem 1.3rem; }
+.price-addons strong { display: block; font-family: var(--serif); font-weight: var(--serif-w); font-size: 1.08rem; color: var(--ink); margin-bottom: 0.2rem; }
+.price-addons span { font-size: 0.85rem; color: var(--ink-2); }
+
+@media (max-width: 760px) {
+  .usd-callout { grid-template-columns: 1fr; }
+  .usd-flag { white-space: normal; }
+  .price-row, .price-included ul, .price-addons ul { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
    FAQ
    ============================================================ */
 .faq { padding: clamp(4rem, 7vw, 6rem) 0; }
