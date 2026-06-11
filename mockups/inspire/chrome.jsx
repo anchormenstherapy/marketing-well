@@ -46,6 +46,7 @@ const SITE_NAV = [
   { href: "team.html", label: "Our Team", key: "team" },
   { href: "about.html", label: "About", key: "about" },
   { href: "blog.html", label: "Blog", key: "blog" },
+  { href: "location.html", label: "Location", key: "location" },
   { href: "contact.html", label: "Contact", key: "contact" },
 ];
 

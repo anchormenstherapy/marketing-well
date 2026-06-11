@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Dynamic <base> so relative asset paths resolve on any host/subpath (GitHub Pages, etc.) — KEEP THIS -->
+<script>(function(){var b=document.createElement('base'),p=location.pathname;if(!p.endsWith('/'))p=p.replace(/\/[^/]*$/,'/');b.href=p;document.head.appendChild(b);})()</script>
+<script>document.documentElement.classList.add('js-reveal')</script>
+<title>Location &amp; Contact — Inspire Wellness Therapy</title>
+<link rel="stylesheet" href="_ds/marketing-well-core-design-system-2f2c2c66-b140-455f-9838-0f4a465d1163/styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/marketing-well-core-design-system-2f2c2c66-b140-455f-9838-0f4a465d1163/_ds_bundle.js"></script>
+<link rel="stylesheet" href="site.css" />
+<style>
+  /* location & contact page — page-specific styles */
+  .lc-hero { display: flex; align-items: center; min-height: 64vh; }
+  .lc-hero .mm-hero__in { padding-top: 88px; padding-bottom: 104px; width: 100%; }
+  @media (max-width: 700px) { .lc-hero { min-height: 0; } .lc-hero .mm-hero__in { padding-top: 64px; padding-bottom: 76px; } }
+  .lc-hero .mm-hero__bg { object-position: center 38%; }
+  .lc-welcome { margin-left: auto; margin-right: auto; text-align: center; }
+  .lc-welcome p { font-size: 18px; }
+
+  /* visit: map + details */
+  .lc-visit { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: stretch; margin-top: 52px; }
+  @media (max-width: 920px) { .lc-visit { grid-template-columns: 1fr; gap: 26px; } }
+  .lc-map { border-radius: 22px; overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid var(--line); min-height: 440px; min-width: 0; background: var(--brand-soft); }
+  .lc-map iframe { width: 100%; height: 100%; min-height: 440px; border: 0; display: block; }
+  .lc-details { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow-card); padding: 32px; min-width: 0; display: flex; flex-direction: column; gap: 26px; }
+  .lc-detail { display: flex; gap: 16px; align-items: flex-start; }
+  .lc-detail__ic { width: 40px; height: 40px; border-radius: 50%; background: var(--brand-soft); color: var(--brand); display: grid; place-items: center; flex: none; }
+  .lc-detail__lab { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted); margin: 0 0 6px; }
+  .lc-detail__val { font-family: var(--font-display); font-weight: 600; font-size: 21px; color: var(--brand-strong); margin: 0; line-height: 1.2; }
+  .lc-detail__sub { font-size: 15px; color: var(--text-soft); line-height: 1.6; margin: 6px 0 0; }
+  .lc-detail__email { font-family: var(--font-body); font-size: 15.5px; font-weight: 600; color: var(--brand); word-break: break-word; }
+  .lc-detail__email:hover { color: var(--accent); }
+  .lc-detail__link { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 14px; font-weight: 600; color: var(--accent); }
+  .lc-detail__link svg { transition: transform .2s var(--ease-out); }
+  .lc-detail__link:hover svg { transform: translateX(4px); }
+  .lc-hours { margin: 0; display: grid; gap: 7px; }
+  .lc-hours__row { display: flex; justify-content: space-between; gap: 16px; font-size: 15px; padding-bottom: 7px; border-bottom: 1px solid var(--line); }
+  .lc-hours__row:last-child { border-bottom: 0; padding-bottom: 0; }
+  .lc-hours__row dt { color: var(--text-soft); margin: 0; }
+  .lc-hours__row dd { color: var(--brand-strong); font-weight: 600; margin: 0; }
+  .lc-hours__row.is-closed dd { color: var(--text-muted); font-weight: 500; }
+
+  /* services grid */
+  .lc-services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 52px; }
+  @media (max-width: 920px) { .lc-services { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .lc-services { grid-template-columns: 1fr; } }
+  .lc-svc { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 30px 26px; box-shadow: var(--shadow-card); transition: transform .2s var(--ease-out), box-shadow .2s var(--ease-out); }
+  .lc-svc:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .lc-svc__ic { width: 48px; height: 48px; border-radius: 14px; background: var(--brand-soft); color: var(--brand); display: grid; place-items: center; margin-bottom: 18px; }
+  .lc-svc h3 { font-family: var(--font-display); font-weight: 600; font-size: 21px; color: var(--brand-strong); margin: 0 0 8px; letter-spacing: -.01em; }
+  .lc-svc p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--text-soft); }
+
+  /* serving: location chips */
+  .lc-near { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 24px; }
+  .lc-near span { font-size: 13.5px; font-weight: 600; color: var(--brand); background: var(--brand-soft); border-radius: 999px; padding: 8px 16px; }
+
+  /* contact */
+  .lc-contact { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: start; }
+  @media (max-width: 920px) { .lc-contact { grid-template-columns: 1fr; gap: 40px; } }
+  .lc-contact__h { font-family: var(--font-display); font-weight: 600; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; color: var(--brand-strong); margin: 14px 0 0; letter-spacing: -.015em; }
+  .lc-contact__h em { color: var(--accent); font-style: italic; }
+  .lc-contact__lede { color: var(--text-soft); font-size: 17px; line-height: 1.75; margin: 18px 0 0; }
+  .lc-contact__list { list-style: none; margin: 26px 0 0; padding: 0; display: grid; gap: 14px; }
+  .lc-contact__list li { display: flex; align-items: center; gap: 13px; font-size: 15.5px; color: var(--brand-strong); }
+  .lc-contact__list li span { width: 36px; height: 36px; border-radius: 50%; background: var(--brand-soft); color: var(--brand); display: grid; place-items: center; flex: none; }
+  .lc-contact__list a { color: var(--brand); font-weight: 600; }
+  .lc-contact__list a:hover { color: var(--accent); }
+  .lc-contact .mm-crisis { margin-top: 28px; max-width: 460px; }
+
+  .lc-form { background: var(--surface); border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow-card); padding: 36px; }
+  @media (max-width: 520px) { .lc-form { padding: 26px 22px; } }
+  .lc-form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 18px; }
+  @media (max-width: 520px) { .lc-form__row { grid-template-columns: 1fr; } }
+  .lc-form .mwc-field { margin-bottom: 18px; }
+  .lc-form__fine { font-size: 12.5px; color: var(--text-muted); line-height: 1.55; margin: 16px 0 0; text-align: center; }
+  .lc-form__sent { text-align: center; padding: 28px 8px; }
+  .lc-form__check { width: 60px; height: 60px; border-radius: 50%; background: var(--brand-soft); color: var(--brand); display: grid; place-items: center; margin: 0 auto 20px; }
+  .lc-form__sent h3 { font-family: var(--font-display); font-weight: 600; font-size: 27px; color: var(--brand-strong); margin: 0 0 12px; }
+  .lc-form__sent p { color: var(--text-soft); font-size: 16px; line-height: 1.7; max-width: 380px; margin: 0 auto 24px; }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="data.js"></script>
+  <script type="text/babel" src="icons.js"></script>
+  <script type="text/babel" src="chrome.jsx"></script>
+  <script type="text/babel" src="location.jsx"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Dynamic <base> so relative asset paths resolve on any host/subpath (GitHub Pages, etc.) — KEEP THIS -->
+<script>(function(){var b=document.createElement('base'),p=location.pathname;if(!p.endsWith('/'))p=p.replace(/\/[^/]*$/,'/');b.href=p;document.head.appendChild(b);})()</script>
+<script>document.documentElement.classList.add('js-reveal')</script>
+<title>Blog post — Inspire Wellness Therapy</title>
+<link rel="stylesheet" href="_ds/marketing-well-core-design-system-2f2c2c66-b140-455f-9838-0f4a465d1163/styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/marketing-well-core-design-system-2f2c2c66-b140-455f-9838-0f4a465d1163/_ds_bundle.js"></script>
+<link rel="stylesheet" href="site.css" />
+<style>
+  /* blog post — page-specific styles */
+  .bp-head { padding: 56px 0 40px; }
+  .bp-crumb { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-muted); margin-bottom: 22px; }
+  .bp-crumb a { color: var(--text-muted); text-decoration: none; }
+  .bp-crumb a:hover { color: var(--accent); }
+  .bp-crumb .cur { color: var(--accent); }
+  .bp-cat { font-weight: 700; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin: 0 0 14px; }
+  .bp-title { font-family: var(--font-display); font-weight: 600; font-size: clamp(32px, 4.4vw, 52px); line-height: 1.1; letter-spacing: -.015em; color: var(--brand-strong); margin: 0; text-wrap: balance; }
+  .bp-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 22px; font-size: 14.5px; color: var(--text-soft); }
+  .bp-meta__dot { color: var(--line-strong, #cfc9c2); }
+
+  /* featured image */
+  .bp-figure { background: linear-gradient(180deg, #F8F6F2 0 50%, #fff 50% 100%); }
+  .bp-figure img { width: 100%; max-height: 520px; object-fit: cover; border-radius: 24px; box-shadow: var(--shadow-lg); display: block; }
+
+  /* article body */
+  .bp-body { font-size: 17px; line-height: 1.78; color: var(--text-soft); }
+  .bp-body > p { margin: 0 0 22px; }
+  .bp-body .bp-lead { font-size: 19px; color: var(--text-soft); }
+  .bp-body h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(26px, 3vw, 34px); line-height: 1.18; letter-spacing: -.01em; color: var(--brand-strong); margin: 46px 0 16px; }
+  .bp-body ul { list-style: none; margin: 0 0 24px; padding: 0; display: grid; gap: 14px; }
+  .bp-body ul li { position: relative; padding-left: 30px; }
+  .bp-body ul li::before { content: ""; position: absolute; left: 4px; top: .62em; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  .bp-body strong { color: var(--brand-strong); font-weight: 600; }
+
+  .bp-inline-cta { margin: 40px 0 8px; }
+
+  .bp-soon { font-style: italic; color: var(--text-muted); }
+
+  .bp-related { margin-top: 44px; padding-top: 30px; border-top: 1px solid var(--line); }
+  .bp-related__lab { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted); margin: 0 0 16px; }
+  .bp-related ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .bp-related a { display: inline-flex; align-items: center; gap: 9px; font-family: var(--font-display); font-size: 21px; font-weight: 500; color: var(--brand-strong); text-decoration: none; }
+  .bp-related a svg { color: var(--accent); transition: transform .2s var(--ease-out); }
+  .bp-related a:hover { color: var(--accent); }
+  .bp-related a:hover svg { transform: translateX(4px); }
+
+  /* locations */
+  .bp-locs { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 52px; max-width: 880px; margin-left: auto; margin-right: auto; }
+  @media (max-width: 700px) { .bp-locs { grid-template-columns: 1fr; } }
+  .bp-loc { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 32px 30px; box-shadow: var(--shadow-card); text-align: center; }
+  .bp-loc__ic { width: 50px; height: 50px; border-radius: 50%; background: var(--brand-soft); color: var(--brand); display: grid; place-items: center; margin: 0 auto 18px; }
+  .bp-loc h3 { font-family: var(--font-display); font-weight: 600; font-size: 24px; color: var(--brand-strong); margin: 0 0 10px; }
+  .bp-loc__addr { color: var(--text-soft); font-size: 15.5px; line-height: 1.6; margin: 0 0 10px; }
+  .bp-loc__serves { color: var(--text-muted); font-size: 13.5px; line-height: 1.5; margin: 0; }
+
+  /* next post */
+  .bp-next { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 10px 22px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px 32px; box-shadow: var(--shadow-card); text-decoration: none; transition: transform .22s var(--ease-out), box-shadow .22s var(--ease-out), border-color .22s var(--ease-out); }
+  .bp-next:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: transparent; }
+  .bp-next__lab { grid-column: 1; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+  .bp-next__title { grid-column: 1; grid-row: 2; font-family: var(--font-display); font-weight: 600; font-size: clamp(20px, 2.4vw, 26px); line-height: 1.2; color: var(--brand-strong); }
+  .bp-next__arrow { grid-column: 2; grid-row: 1 / span 2; width: 48px; height: 48px; border-radius: 50%; background: var(--brand-soft); color: var(--brand); display: grid; place-items: center; transition: transform .2s var(--ease-out); }
+  .bp-next:hover .bp-next__arrow { transform: translateX(4px); }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="data.js"></script>
+  <script src="posts-content.js"></script>
+  <script type="text/babel" src="icons.js"></script>
+  <script type="text/babel" src="chrome.jsx"></script>
+  <script type="text/babel" src="blog-post.jsx"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Dynamic <base> so relative asset paths resolve on any host/subpath (GitHub Pages, etc.) — KEEP THIS -->
+<script>(function(){var b=document.createElement('base'),p=location.pathname;if(!p.endsWith('/'))p=p.replace(/\/[^/]*$/,'/');b.href=p;document.head.appendChild(b);})()</script>
+<script>document.documentElement.classList.add('js-reveal')</script>
+<title>Contact — Inspire Wellness Therapy</title>
+<link rel="stylesheet" href="_ds/marketing-well-core-design-system-2f2c2c66-b140-455f-9838-0f4a465d1163/styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/marketing-well-core-design-system-2f2c2c66-b140-455f-9838-0f4a465d1163/_ds_bundle.js"></script>
+<link rel="stylesheet" href="site.css" />
+<style>
+  /* contact page — page-specific styles */
+  .ct-hero { display: flex; align-items: center; min-height: 64vh; }
+  .ct-hero .mm-hero__in { padding-top: 88px; padding-bottom: 104px; width: 100%; }
+  @media (max-width: 700px) { .ct-hero { min-height: 0; } .ct-hero .mm-hero__in { padding-top: 64px; padding-bottom: 76px; } }
+  .ct-hero .mm-hero__bg { object-position: center 48%; }
+
+  /* FAQs: sticky head + accordion */
+  .ct-faqs { display: grid; grid-template-columns: .85fr 1.15fr; gap: 64px; align-items: start; }
+  @media (max-width: 920px) { .ct-faqs { grid-template-columns: 1fr; gap: 36px; } }
+  .ct-faqs__head { position: sticky; top: 100px; }
+  @media (max-width: 920px) { .ct-faqs__head { position: static; } }
+  .ct-faqs__head h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(34px, 4vw, 52px); line-height: 1.04; color: var(--brand-strong); margin: 14px 0 0; letter-spacing: -.015em; }
+  .ct-faqs__head h2 em { color: var(--accent); font-style: italic; }
+  .ct-faqs__sub { color: var(--text-soft); font-size: 16.5px; line-height: 1.7; margin: 20px 0 0; max-width: 360px; }
+  .ct-fees { margin-top: 32px; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow-card); padding: 24px 26px; max-width: 360px; }
+  .ct-fees__lab { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted); margin: 0 0 14px; }
+  .ct-fees__row { display: flex; justify-content: space-between; gap: 16px; font-size: 15.5px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+  .ct-fees__row span { color: var(--text-soft); }
+  .ct-fees__row b { color: var(--brand-strong); font-family: var(--font-display); font-size: 18px; font-weight: 600; }
+  .ct-fees__note { font-size: 13px; color: var(--text-muted); font-style: italic; margin: 14px 0 0; }
+
+  /* contact: info + form */
+  .ct-contact { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: start; margin-top: 52px; }
+  @media (max-width: 920px) { .ct-contact { grid-template-columns: 1fr; gap: 40px; } }
+  .ct-info { display: flex; flex-direction: column; gap: 22px; }
+  .ct-info__row { display: flex; gap: 15px; align-items: flex-start; }
+  .ct-info__ic { width: 42px; height: 42px; border-radius: 50%; background: var(--brand-soft); color: var(--brand); display: grid; place-items: center; flex: none; }
+  .ct-info__lab { font-family: var(--font-display); font-weight: 600; font-size: 19px; color: var(--brand-strong); margin: 0; line-height: 1.2; }
+  .ct-info__val { font-size: 15.5px; color: var(--text-soft); line-height: 1.6; margin: 6px 0 0; }
+  .ct-info__contact { font-weight: 600; color: var(--brand); }
+  .ct-info__contact:hover { color: var(--accent); }
+  .ct-info__link { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; font-size: 14px; font-weight: 600; color: var(--accent); }
+  .ct-info__link svg { transition: transform .2s var(--ease-out); }
+  .ct-info__link:hover svg { transform: translateX(4px); }
+  .ct-map { border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-card); border: 1px solid var(--line); height: 240px; background: var(--brand-soft); margin-top: 4px; }
+  .ct-map iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .ct-info .mm-crisis { margin-top: 4px; }
+
+  .ct-form { background: var(--surface); border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow-card); padding: 36px; }
+  @media (max-width: 520px) { .ct-form { padding: 26px 22px; } }
+  .ct-form__legend { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted); margin: 0 0 14px; }
+  .ct-form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 520px) { .ct-form__row { grid-template-columns: 1fr; } }
+  .ct-form .mwc-field { margin-bottom: 18px; }
+  .ct-form__fine { font-size: 12.5px; color: var(--text-muted); line-height: 1.55; margin: 16px 0 0; text-align: center; }
+  .ct-form__sent { text-align: center; padding: 28px 8px; }
+  .ct-form__check { width: 60px; height: 60px; border-radius: 50%; background: var(--brand-soft); color: var(--brand); display: grid; place-items: center; margin: 0 auto 20px; }
+  .ct-form__sent h3 { font-family: var(--font-display); font-weight: 600; font-size: 27px; color: var(--brand-strong); margin: 0 0 12px; }
+  .ct-form__sent p { color: var(--text-soft); font-size: 16px; line-height: 1.7; max-width: 380px; margin: 0 auto 24px; }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="data.js"></script>
+  <script type="text/babel" src="icons.js"></script>
+  <script type="text/babel" src="chrome.jsx"></script>
+  <script type="text/babel" src="contact.jsx"></script>
+</body>
+</html>

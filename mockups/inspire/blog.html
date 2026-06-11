@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Dynamic <base> so relative asset paths resolve on any host/subpath (GitHub Pages, etc.) — KEEP THIS -->
+<script>(function(){var b=document.createElement('base'),p=location.pathname;if(!p.endsWith('/'))p=p.replace(/\/[^/]*$/,'/');b.href=p;document.head.appendChild(b);})()</script>
+<script>document.documentElement.classList.add('js-reveal')</script>
+<title>Blog — Inspire Wellness Therapy</title>
+<link rel="stylesheet" href="_ds/marketing-well-core-design-system-2f2c2c66-b140-455f-9838-0f4a465d1163/styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/marketing-well-core-design-system-2f2c2c66-b140-455f-9838-0f4a465d1163/_ds_bundle.js"></script>
+<link rel="stylesheet" href="site.css" />
+<style>
+  /* blog index — page-specific styles */
+  .bl-intro__more { color: var(--text-muted); font-size: 15px; line-height: 1.7; max-width: 620px; margin: 22px auto 0; }
+
+  /* 3-up post grid with compact cards */
+  .bl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+  @media (max-width: 920px) { .bl-grid { grid-template-columns: repeat(2, 1fr); gap: 26px; } }
+  @media (max-width: 600px) { .bl-grid { grid-template-columns: 1fr; gap: 26px; } }
+
+  .bl-card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-card); transition: transform .22s var(--ease-out), box-shadow .22s var(--ease-out), border-color .22s var(--ease-out); }
+  .bl-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: transparent; }
+  .bl-card__media { display: block; aspect-ratio: 3 / 2; overflow: hidden; background: var(--brand-soft); }
+  .bl-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s var(--ease-out); }
+  .bl-card:hover .bl-card__media img { transform: scale(1.04); }
+
+  .bl-card__body { display: flex; flex-direction: column; flex: 1; padding: 22px 24px 24px; }
+  .bl-card__meta { display: flex; align-items: center; gap: 9px; font-size: 12px; color: var(--text-muted); margin-bottom: 12px; }
+  .bl-card__cat { font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-size: 11px; }
+  .bl-card__dot { color: var(--line-strong, #cfc9c2); }
+  .bl-card__title { font-family: var(--font-display); font-weight: 600; font-size: 21px; line-height: 1.22; letter-spacing: -.01em; margin: 0 0 11px; }
+  .bl-card__title a { color: var(--brand-strong); text-decoration: none; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .bl-card__title a:hover { color: var(--accent); }
+  .bl-card__excerpt { color: var(--text-soft); font-size: 14px; line-height: 1.6; margin: 0 0 18px; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+  .bl-card__more { margin-top: auto; display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--accent); text-decoration: none; }
+  .bl-card__more svg { transition: transform .2s var(--ease-out); }
+  .bl-card__more:hover svg { transform: translateX(4px); }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="data.js"></script>
+  <script type="text/babel" src="icons.js"></script>
+  <script type="text/babel" src="chrome.jsx"></script>
+  <script type="text/babel" src="blog.jsx"></script>
+</body>
+</html>

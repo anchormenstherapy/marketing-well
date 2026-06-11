@@ -72,7 +72,7 @@ function Hero() {
         </div>
         <div className="mm-trust">
           <div className="mm-trust__in">
-            <span className="mm-trust__label"><I.shield size={19} />Direct billing to 9+ insurers</span>
+            <span className="mm-trust__label"><I.shield size={19} />Direct billing to 9 insurers</span>
             <div className="mm-trust__names">
               {D.insurers.map((n) => <span key={n}>{n}</span>)}
             </div>
