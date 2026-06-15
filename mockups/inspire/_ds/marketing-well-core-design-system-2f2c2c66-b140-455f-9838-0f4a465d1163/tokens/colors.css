@@ -61,8 +61,8 @@
   --slate-600:    #717A95;   /* muted slate primary */
   --slate-400:    #9aa1b6;
   --slate-tint:   #ecedf2;
-  --mauve:        #9A7C95;   /* dusty mauve accent */
-  --mauve-tint:   #efe7ed;
+  --mauve:        #8A9586;   /* soft sage accent */
+  --mauve-tint:   #e8ebe5;
 
   /* ---- Functional ---- */
   --success:      #1f7d6e;
@@ -141,7 +141,7 @@
   --surface-inset: var(--off-white);
   --brand: var(--slate-600); --brand-strong: var(--slate-700); --brand-deep: var(--slate-700);
   --brand-soft: var(--slate-tint); --brand-tint: var(--slate-tint);
-  --accent: var(--mauve); --accent-strong: #8a6d85; --accent-soft: var(--mauve-tint);
+  --accent: var(--mauve); --accent-strong: #74806F; --accent-soft: var(--mauve-tint);
   --text: var(--slate-600); --text-on-brand: #ffffff; --text-on-accent: #ffffff;
   --line: color-mix(in srgb, var(--stone) 80%, transparent);
   --line-strong: var(--stone);

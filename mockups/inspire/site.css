@@ -215,14 +215,14 @@ body { margin: 0; background: var(--bg-page); }
 .mm-related__cell:hover svg { transform: translateX(4px); }
 
 /* ---------- CTA band (plum) ---------- */
-.mm-ctaband { position: relative; overflow: hidden; padding: 104px 0; text-align: center; background: linear-gradient(135deg, #8a6d85 0%, #6f5569 100%); }
+.mm-ctaband { position: relative; overflow: hidden; padding: 104px 0; text-align: center; background: linear-gradient(135deg, #8A9586 0%, #74806F 100%); }
 .mm-ctaband__glow { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 120% at 50% -10%, rgba(255,255,255,.16), transparent 60%); pointer-events: none; }
 .mm-ctaband__in { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 22px; }
 .mm-ctaband h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(32px, 4vw, 48px); line-height: 1.1; color: #FBF7F1; margin: 0; letter-spacing: -.015em; }
-.mm-ctaband h2 em { font-style: italic; color: #F0E4ED; }
+.mm-ctaband h2 em { font-style: italic; color: #E5EBE3; }
 .mm-ctaband p { color: rgba(251,247,241,.88); font-size: 18px; line-height: 1.65; max-width: 600px; margin: 18px auto 34px; }
-.mm-ctaband__btn { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; background: #FBF7F1; color: #6f5569; font-family: var(--font-body); font-weight: 600; font-size: 16px; padding: 16px 32px; border-radius: 999px; box-shadow: 0 6px 22px rgba(60,40,56,.28); transition: transform .2s var(--ease-out), box-shadow .2s var(--ease-out); }
-.mm-ctaband__btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(60,40,56,.34); }
+.mm-ctaband__btn { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; background: #FBF7F1; color: #74806F; font-family: var(--font-body); font-weight: 600; font-size: 16px; padding: 16px 32px; border-radius: 999px; box-shadow: 0 6px 22px rgba(60,40,56,.28); transition: transform .2s var(--ease-out), box-shadow .2s var(--ease-out); }
+.mm-ctaband__btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(70,80,60,.34); }
 .mm-ctaband__btn svg { transition: transform .2s var(--ease-out); }
 .mm-ctaband__btn:hover svg { transform: translateX(4px); }
 @media (max-width: 700px) { .mm-ctaband { padding: 72px 0; } }
