@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Dynamic <base> so relative asset paths resolve on any host/subpath (GitHub Pages, etc.) — KEEP THIS -->
+<script>(function(){var b=document.createElement('base'),p=location.pathname;if(!p.endsWith('/'))p=p.replace(/\/[^/]*$/,'/');b.href=p;document.head.appendChild(b);})()</script>
+<script>document.documentElement.classList.add('js-reveal')</script>
+<title>Anxiety Therapy (Sage) — Inspire Wellness Therapy</title>
+<link rel="stylesheet" href="_ds/marketing-well-core-design-system-2f2c2c66-b140-455f-9838-0f4a465d1163/styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/marketing-well-core-design-system-2f2c2c66-b140-455f-9838-0f4a465d1163/_ds_bundle.js"></script>
+<link rel="stylesheet" href="site.css" />
+<style>
+  /* Sage accent override */
+  .theme-slate {
+    --mauve: #8A9586;
+    --mauve-tint: #e8ebe5;
+    --accent-strong: #74806F;
+  }
+  /* CTA band — sage gradient */
+  .mm-ctaband { background: linear-gradient(135deg, #8A9586 0%, #74806F 100%); }
+  .mm-ctaband h2 em { color: #E5EBE3; }
+  .mm-ctaband__btn { color: #74806F; }
+  .mm-ctaband__btn:hover { box-shadow: 0 10px 30px rgba(70,80,60,.34); }
+</style>
+<style>
+  /* therapy specialty page — page-specific tweaks */
+  .tp-intro__grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 60px; align-items: center; }
+  @media (max-width: 900px) { .tp-intro__grid { grid-template-columns: 1fr; gap: 40px; } }
+  .tp-intro__img { width: 100%; height: 440px; object-fit: cover; border-radius: 24px; box-shadow: var(--shadow-md); }
+  @media (max-width: 900px) { .tp-intro__img { height: 320px; } }
+  .tp-stat { display: flex; gap: 16px; align-items: baseline; margin-top: 28px; }
+  .tp-stat b { font-family: var(--font-display); font-weight: 600; font-size: 46px; line-height: 1; color: var(--accent); }
+  .tp-stat span { font-size: 15px; color: var(--text-soft); line-height: 1.5; max-width: 280px; }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="data.js"></script>
+  <script type="text/babel" src="icons.js"></script>
+  <script type="text/babel" src="chrome.jsx"></script>
+  <script type="text/babel" src="therapy.jsx"></script>
+</body>
+</html>
