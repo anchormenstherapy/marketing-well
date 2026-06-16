@@ -187,6 +187,56 @@ function Process() {
   );
 }
 
+/* Life After Therapy — sub-blocks */
+const ANX_AFTER = [
+  { title: "You meet the moment, not the spiral", body: "A tight chest, a racing thought, a difficult email — these still happen. But they pass through you instead of taking over the rest of your day." },
+  { title: "Sleep, appetite, and energy start to even out", body: "With the nervous system no longer running in the background, the basics return. You wake more rested. You eat without a knot in your stomach. You have room for the things you care about." },
+  { title: "You stop organizing your life around 'what if'", body: "You say yes to the dinner, the trip, the harder conversation. Anxiety becomes something you have, on occasion — not the lens you live through." },
+];
+
+function LifeDuring() {
+  return (
+    <section className="mm-white" style={{ padding: "var(--section-y) 0" }}>
+      <div className="mm-wrap mm-imgsplit">
+        <div>
+          <p className="mm-shead__eyebrow">Life during therapy</p>
+          <h2>The worry doesn't vanish overnight. <em>It loosens its grip.</em></h2>
+          <p>The first few sessions are mostly listening. Your therapist gets to know what anxiety looks like for you — the situations, the body sensations, the thoughts that loop — and you start to notice the patterns yourself, without judgment.</p>
+          <p>From there, the work becomes practical. You'll learn to recognize the early signals before they spiral, and pick up tools that actually help in the moment: grounding, breathwork, ways to talk back to anxious thoughts, gentle exposure to the things you've been avoiding.</p>
+          <p>Most clients say the shift feels gradual, then suddenly obvious. A morning passes without the usual dread. A conversation that used to spin you no longer does. You're not a different person — you're a steadier version of the one you already are.</p>
+        </div>
+        <div className="mm-imgsplit__media">
+          <img className="mm-imgsplit__img" src={D.img.office5} alt="A warm, naturally lit therapy room with comfortable seating and soft greenery" loading="lazy" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function LifeAfter() {
+  return (
+    <section className="mm-sand" style={{ padding: "var(--section-y) 0" }}>
+      <div className="mm-wrap mm-imgsplit">
+        <div className="mm-imgsplit__media">
+          <img className="mm-imgsplit__img" src={D.img.lifeAfterMale} alt="A person walking outdoors at golden hour, calm and at ease" loading="lazy" />
+        </div>
+        <div>
+          <p className="mm-shead__eyebrow">Life after therapy</p>
+          <h2>A life that's no longer <em>organized around anxiety.</em></h2>
+          {ANX_AFTER.map((a) => (
+            <div className="mm-afterblock" key={a.title}>
+              <h3>{a.title}</h3>
+              <p>{a.body}</p>
+            </div>
+          ))}
+          <p style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: 22, color: "var(--brand-strong)", margin: "30px 0 22px" }}>You don't have to keep living around what worries you.</p>
+          <Book>Book your free discovery call</Book>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function TeamCard({ p }) {
   const first = p.name.split(" ")[0];
   return (
@@ -312,6 +362,8 @@ function App() {
       <Signs />
       <HowWeHelp />
       <Process />
+      <LifeDuring />
+      <LifeAfter />
       <Therapists />
       <Gallery />
       <Fees />

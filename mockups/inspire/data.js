@@ -40,6 +40,7 @@
       group: IMG + "team-group.webp",
       field: IMG + "field-sunset.jpeg",
       anxietyHero: IMG + "anxiety-hero.jpeg",
+      lifeAfterMale: IMG + "life-after-therapy-male.jpeg",
       office1: IMG + "office/office-1.jpeg",
       office2: IMG + "office/office-2.jpeg",
       office3: IMG + "office/office-3.jpeg",
