@@ -27,6 +27,7 @@ Marketing Well is run by Jordan Caron, a digital marketing specialist based on S
 - [Copywriting for Therapists](https://marketingwell.ca/copywriting-that-converts): How to craft compelling copy that connects with clients and grows your practice.
 - [How to Create Helpful Blog Content](https://marketingwell.ca/create-helpful-blogs): Writing blog content that genuinely helps your audience and improves search rankings.
 - [Custom vs. Template Websites for Therapists](https://marketingwell.ca/custom-therapy-websites-vs-templates): Comparing custom and template websites to determine which helps therapists book more clients.
+- [Do You Actually Need a CMS for Your Website?](https://marketingwell.ca/do-you-need-cms-therapy-website): When a static HTML site beats WordPress, Squarespace, or Wix for a therapy practice — on cost, page speed, and upkeep.
 - [Why Exact-Match Keywords Matter in Google Ads for Therapists](https://marketingwell.ca/exact-match-keywords-google-ads-for-therapists): How exact-match keywords deliver more qualified leads and reduce wasted spend.
 - [Facebook & Instagram Marketing for Therapists](https://marketingwell.ca/facebook-instagram-marketing-therapists): Using social media platforms effectively to grow a private therapy practice.
 - [Google Ads Credit for New Accounts](https://marketingwell.ca/google-ads-credit-for-new-accounts): How to take advantage of Google's ad credit offer when starting a new campaign.

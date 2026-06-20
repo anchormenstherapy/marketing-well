@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" data-palette="rose">
+<head>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="Ejj8w82Jyl91HuWmWYLHGRY3bLobMfSQoct6G0fGegM">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Do You Actually Need a CMS for Your Therapy Website? — Marketing Well</title>
+<meta name="description" content="Do therapists really need a CMS like WordPress or Squarespace? Compare static HTML vs a CMS on cost, page speed, and upkeep to choose the right fit for your practice.">
+<link rel="icon" href="/assets/images/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Hanken+Grotesk:wght@300;400;500;600;700;800&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Hanken+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<style>[data-palette="rose"]{--paper:#F8F2EC;--paper-2:#F0E3DA;--surface:#FDFAF6;--ink:#3A2F32;--ink-2:#5E5852;--sage:#96737B;--sage-2:#7A545C;--pale:#E8D5D8;--pale-2:#F0E0E3;--line:#E7D8D0;--line-2:#DCC8BE;--accent:#BF887E;--accent-ink:#fff;--accent-hov:#A8716A;--halo:#EAD5CE;--halo-2:#E8D5D8}
+:root{--foot:#63474D;--foot-2:#7A555C;--foot-ink:#F4EDE9;--foot-soft:#C4A8AD;--sans:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;--serif:"Newsreader",Georgia,serif;--serif-w:420;--serif-tight:-0.015em;--r:18px;--r-sm:11px;--r-lg:30px;--r-pill:999px}
+@font-face{font-family:"Hanken Grotesk";src:local("Arial");font-display:swap;size-adjust:100%;ascent-override:95%;descent-override:25%;line-gap-override:0%}
+@font-face{font-family:"Newsreader";src:local("Georgia");font-display:swap;size-adjust:105%;ascent-override:90%;descent-override:25%;line-gap-override:0%}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:18px;line-height:1.65;font-weight:400}
+h1,h2,h3,.serif{font-family:var(--serif);font-weight:var(--serif-w);letter-spacing:var(--serif-tight);line-height:1.06;color:var(--ink)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;height:auto;display:block}
+.wrap{width:min(1200px,92vw);margin-inline:auto}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--sage-2);display:inline-flex;align-items:center;gap:.7em}
+.eyebrow::before{content:"";width:26px;height:1.5px;background:var(--sage);display:inline-block}
+.btn{display:inline-flex;align-items:center;gap:.55em;font-family:var(--sans);font-weight:600;font-size:.98rem;padding:.9em 1.5em;border-radius:var(--r-pill);border:1.5px solid transparent;cursor:pointer;transition:all .25s ease;white-space:nowrap}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-2)}
+.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 80%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s ease,background .3s ease}
+.nav.scrolled{border-bottom-color:var(--line);background:color-mix(in srgb,var(--paper) 92%,transparent)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:80px}
+.nav-logo img{height:38px;width:auto;display:block}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{font-family:var(--serif);font-size:1.08rem;font-weight:600;color:var(--ink);white-space:nowrap;position:relative;padding:.3em 0}
+.nav-cta{display:flex;align-items:center;gap:1.2rem}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;width:44px;height:44px;position:relative;z-index:60}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--ink);position:absolute;left:11px;transition:all .3s ease}
+.nav-toggle span:nth-child(1){top:14px}.nav-toggle span:nth-child(2){top:21px}.nav-toggle span:nth-child(3){top:28px}
+.hero{position:relative;padding:clamp(3rem,7vw,6rem) 0 clamp(4rem,8vw,7rem);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+.hero h1{font-size:clamp(2.7rem,5.6vw,4.6rem);margin-bottom:1.4rem}
+.hero h1 em{font-style:italic;color:var(--sage-2)}
+.hero-sub{font-size:1.18rem;color:var(--ink-2);max-width:33ch;margin-bottom:2.2rem}
+.reveal{opacity:1}
+.testi-slide{display:none}.testi-slide.active{display:block}
+.mobile-only{display:none}
+@media(max-width:980px){.hero-grid{grid-template-columns:1fr}}
+@media(max-width:760px){body{font-size:17px}.nav-links{position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100vh;background:#F8F2EC;flex-direction:column;align-items:center;justify-content:center;padding:2rem;gap:.2rem;z-index:100;opacity:0;pointer-events:none;transition:opacity .3s ease}.nav-links.open{opacity:1;pointer-events:auto}.nav-toggle{display:block}.mobile-only{display:block}.nav-dropdown{display:none}}
+</style>
+<link rel="preload" href="/assets/all.css" as="style">
+<link href="/assets/all.css" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="/assets/all.css"></noscript>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-logo" href="/" aria-label="Marketing Well home">
+      <img src="/assets/logo.png" alt="Marketing Well"loading="lazy" >
+    </a>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about-me">About</a>
+      <div class="nav-dropdown"><a href="#">Services</a><div class="nav-dropdown-menu"><a href="/therapist-web-design">Web Design</a><a href="/google-ads-therapists">Google Ads</a><a href="/therapy-seo">SEO</a><a href="/consulting">Consulting</a></div></div>
+      <a href="/therapist-web-design" class="mobile-only">Web Design</a><a href="/google-ads-therapists" class="mobile-only">Google Ads</a><a href="/therapy-seo" class="mobile-only">SEO</a><a href="/consulting" class="mobile-only">Consulting</a>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/blog" class="active">Blog</a>
+      <a href="/contact-me">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      <a href="/contact-me" class="btn btn-primary">Book a Call</a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEAD -->
+<article>
+  <div class="article-head">
+    <div class="wrap">
+      <span class="blog-tag">Web Design</span>
+      <h1>Do You Actually Need a CMS for Your Website?</h1>
+      <div class="article-byline">
+        <img src="/assets/images/jordan-headshot.jpg" alt="Jordan Caron" style="width:40px;height:40px;border-radius:50%;object-fit:cover;flex-shrink:0"loading="lazy" >
+        <span>Jordan Caron</span>
+        <span class="dot"></span>
+        <span>June 19, 2026</span>
+        <span class="dot"></span>
+        <span>5 min read</span>
+      </div>
+      <div class="article-hero-img">
+        <img src="/assets/images/blog-do-you-need-cms-therapy-website.jpeg" alt="Do you actually need a CMS for your therapy website?"loading="lazy" >
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE BODY -->
+  <div class="article-body">
+    <div class="wrap">
+      <div class="prose">
+
+        <p>Most therapists assume the only way to get a website is through <a href="/website-builders-therapists">WordPress, Squarespace, or Wix</a>. That assumption costs you money every year, and depending on your needs, it might also cost you page speed and clients.</p>
+
+        <p>Here is what nobody tells you: if your website doesn't change often, you don't need a content management system at all. A static HTML site can do the job faster, cheaper, and with fewer moving parts to maintain.</p>
+
+        <h2>What "Static HTML" Actually Means</h2>
+
+        <p>A static HTML website is just a set of files. No database, plugins, admin login, or themes to update. When someone visits your site, the server hands them a page that already exists and is ready to load. That is why static sites tend to load almost instantly compared to WordPress, Squarespace, or Wix builds.</p>
+
+        <p>For a counselling practice, a coaching business, or any service provider who builds a site and rarely touches it after launch, this is often the most practical setup available. My website is not displayed through a CMS system. It was on WordPress, but since I hardly make any updates outside this blog, I moved it away from WordPress.</p>
+
+        <h2>The Cost Difference Adds Up</h2>
+
+        <p>Static HTML sites can be hosted for free on platforms like GitHub and pushed to Vercel. The only ongoing expense is your domain name, which costs about $15-$25 CAD per year. That is the whole bill.</p>
+
+        <p>WordPress on a Bluehost server runs about $120 CAD for three years of shared hosting if you pay up front. That works out to roughly $40 a year, plus your domain. Renewal rates jump after the initial term, but it remains one of the more affordable CMS routes if you need full content management.</p>
+
+        <p>Squarespace and Wix charge yearly subscriptions that include hosting, the platform, and templates. Squarespace is typically the more expensive of the two, with annual costs often climbing past a few hundred dollars once you factor in the plans needed for business features and analytics tracking. Wix sits slightly below that, though customization is more limited than with WordPress.</p>
+
+        <p>Over five years, the gap between a static HTML site at roughly $100 CAD total and a Squarespace site at well over $1,500 CAD becomes hard to justify if your site doesn't use everything Squarespace offers.</p>
+
+        <h2>Page Speed Matters More Than People Realize</h2>
+
+        <p>Google has been clear for years that page speed affects search rankings. A slow site also affects whether visitors stay long enough to read about your services or book a consultation.</p>
+
+        <p>Static HTML pages don't have to load a WordPress core, query a database, render through a theme, or fire off plugin scripts before showing up. They just appear. On modern hosting like Vercel, a static page can be served from a location close to the visitor, which makes it feel even faster.</p>
+
+        <p>With that said, WordPress websites require plugins, custom coding, or Cloudflare to improve page speed.</p>
+
+        <p>If you have ever opened a Squarespace or Wix site on a slow connection and watched it crawl into view section by section, you already know what the difference feels like.</p>
+
+        <h2>The Honest Trade-Off</h2>
+
+        <p>Static HTML sites have one real downside. You can't log in and edit a page from your browser.</p>
+
+        <p>If you want to swap out a paragraph, add a new service page, or update your hours, you either need to know how to edit HTML and push the change through GitHub to Vercel, or you need someone to do it for you. Finding someone reliable on a website like this is one route to keep things affordable. For weekly changes, that is a problem. For sites that get built once and updated once or twice a year, it isn't.</p>
+
+        <p>There is a middle path. Some static site setups include simple admin interfaces that let non-technical users edit content without touching code. That route adds a small amount of complexity but keeps the speed and hosting cost benefits intact.</p>
+
+        <h2>When a CMS Still Makes Sense</h2>
+
+        <p>A CMS is the right call when you <a href="/create-helpful-blogs">publish helpful blog posts</a> or new content regularly, when multiple team members need to update the site, or when you want to manage everything yourself without touching code.</p>
+
+        <p>WordPress is the most flexible CMS available, which is why it still powers a huge portion of the web. Squarespace and Wix offer simpler interfaces at higher long-term costs, with less room to customize the <a href="/therapist-web-design">therapy web design</a> or extend functionality. Wix in particular tends to lock you into the platform in ways that make moving your site elsewhere later a real headache.</p>
+
+        <h2>How to Decide</h2>
+
+        <p>Ask yourself two questions.</p>
+
+        <p>How often will you actually update this website after it launches? If the answer is rarely, static HTML is worth a serious look. If the answer is often, a CMS may fit better.</p>
+
+        <p>Who is going to make the updates when they happen? If it is you and you are not technical, a CMS removes a barrier. If you have a developer or an agency handling changes anyway, that barrier doesn't really exist.</p>
+
+        <p>A website is supposed to work for your practice, not the other way around. The right platform is the one that matches how you actually plan to use it, not the one that came up first when you searched how to build a website.</p>
+
+        <p>If you want help thinking through which option fits your practice, reach out. I build static HTML sites, WordPress sites, and <a href="/anatomy-high-converting-therapist-landing-page">custom landing pages</a> for counselling and psychology practices across Canada and the US. <a href="https://calendly.com/jordan-marketing-well/marketing-well-web-design-consultation" target="_blank" rel="noopener">Schedule a consultation with me</a> to learn more.</p>
+
+      </div>
+
+      <!-- AUTHOR BOX -->
+      <div class="author-box">
+        <img src="/assets/images/jordan-headshot.jpg" alt="Jordan Caron" style="width:84px;height:84px;border-radius:50%;object-fit:cover;flex-shrink:0"loading="lazy" >
+        <div>
+          <div class="who">Jordan Caron</div>
+          <p>Jordan helps therapists and wellness practitioners get found and get booked. Since 2012, he's specialized in SEO, Google Ads, and conversion-focused websites for practices across North America.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- RELATED -->
+<section class="related">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow center">Keep Reading</span>
+      <h2>Related posts</h2>
+    </div>
+    <div class="blog-grid">
+      <a href="/website-builders-therapists" class="blog-card">
+        <div class="blog-thumb">
+          <img src="/assets/images/blog-website-builders-therapists.jpeg" alt=""loading="lazy" >
+          <span class="blog-tag">Web Design</span>
+        </div>
+        <div class="blog-body">
+          <h3>The Best Website Builders for Therapists</h3>
+          <span class="blog-readmore">Read post <span class="arr">&rarr;</span></span>
+        </div>
+      </a>
+      <a href="/custom-therapy-websites-vs-templates" class="blog-card">
+        <div class="blog-thumb">
+          <img src="/assets/images/blog-custom-therapy-websites-vs-templates.jpeg" alt=""loading="lazy" >
+          <span class="blog-tag">Web Design</span>
+        </div>
+        <div class="blog-body">
+          <h3>Custom Therapy Websites vs Templates</h3>
+          <span class="blog-readmore">Read post <span class="arr">&rarr;</span></span>
+        </div>
+      </a>
+      <a href="/therapy-website-essentials" class="blog-card">
+        <div class="blog-thumb">
+          <img src="/assets/images/blog-therapy-website-essentials.jpeg" alt=""loading="lazy" >
+          <span class="blog-tag">Web Design</span>
+        </div>
+        <div class="blog-body">
+          <h3>Essentials for Your Therapy Website</h3>
+          <span class="blog-readmore">Read post <span class="arr">&rarr;</span></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section class="foot-cta">
+  <div class="wrap foot-cta-inner">
+    <div>
+      <h2 class="serif">Not sure which platform fits your practice?</h2>
+      <p>Your initial 20-minute strategy call is free.</p>
+    </div>
+    <a href="/contact-me" class="btn btn-primary">Book a Call <span class="arr">&rarr;</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="/assets/logo.png" alt="Marketing Well"loading="lazy" >
+        <p>Digital marketing built for therapists &amp; wellness practitioners.</p>
+        <div class="foot-contact">
+          <a href="tel:2502174176"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> 250-217-4176</a>
+          <a href="mailto:jordan@marketingwell.ca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 5L2 7"></path></svg> Email Jordan</a>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Salt Spring Island, BC</span>
+        </div>
+      </div>
+
+      <div class="foot-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="/consulting">Consulting</a></li>
+          <li><a href="/google-ads-therapists">Google Ads for Therapists</a></li>
+          <li><a href="/therapy-seo">SEO for Therapists</a></li>
+          <li><a href="/therapist-web-design">Web Design for Therapists</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h5>Popular Blog Posts</h5>
+        <ul>
+          <li><a href="/anatomy-high-converting-therapist-landing-page">The Anatomy of a High-Converting Therapist Landing Page</a></li>
+          <li><a href="/copywriting-that-converts">Copywriting That Converts</a></li>
+          <li><a href="/exact-match-keywords-google-ads-for-therapists">Why Exact-Match Keywords Matter in Google Ads</a></li>
+          <li><a href="/most-important-seo-factor-therapists">The Most Important SEO Factor for Therapists</a></li>
+          <li><a href="/improve-your-gbp-rankings-therapists">Five Ways to Improve Your GBP Rankings</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col foot-news">
+        <h5>Monthly Newsletter</h5>
+        <p>Practical marketing tips for your practice — once a month, no spam.</p>
+        <form onsubmit="return false">
+          <input type="text" placeholder="Name" aria-label="Name">
+          <input type="email" placeholder="Your email" aria-label="Email">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <p>&copy; 2026 &middot; All Rights Reserved &middot; Jordan J. Caron Holdings LTD &middot; <a href="/privacy-policy" style="text-decoration:underline">Privacy Policy</a></p>
+      <div class="foot-social">
+        <a href="https://www.youtube.com/@marketingwell" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 0 0 .5 6.19 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.81zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"></path></svg></a>
+        <a href="https://www.linkedin.com/in/jordancaron/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18.34V9.99H5.67v8.35h2.67zM7 8.82a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1zm11.34 9.52v-4.58c0-2.45-1.31-3.59-3.06-3.59-1.41 0-2.04.78-2.39 1.32v-1.13h-2.65c.04.75 0 8.35 0 8.35h2.65v-4.66c0-.24.02-.48.09-.65.19-.48.62-.97 1.35-.97.96 0 1.34.72 1.34 1.78v4.5h2.67z"></path></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.js"></script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NQGJMKP');</script>
+<!-- End Google Tag Manager -->
+</body>
+</html>
