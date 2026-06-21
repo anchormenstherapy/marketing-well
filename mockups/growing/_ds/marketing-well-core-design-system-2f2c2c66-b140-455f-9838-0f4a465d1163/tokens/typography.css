@@ -1,0 +1,52 @@
+/* ============================================================
+   Marketing Well Core — Typography tokens
+   ------------------------------------------------------------
+   Editorial display SERIF + humanist SANS. Headings set tight
+   with a touch of negative tracking; eyebrows are the signature
+   move — small, uppercase, wide-tracked, in the accent colour.
+   ============================================================ */
+
+:root {
+  /* ---- Families ---- */
+  --font-display:     "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-display-alt: "Petrona", Georgia, "Times New Roman", serif;
+  --font-body:        "Manrope", -apple-system, "Segoe UI", system-ui, sans-serif;
+  --font-body-alt:    "Mulish", -apple-system, "Segoe UI", system-ui, sans-serif;
+  --font-mono:        ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  /* ---- Weights ---- */
+  --weight-light:   300;
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold:600;
+  --weight-bold:    700;
+
+  /* ---- Display (serif) scale — fluid ---- */
+  --display-xl:  clamp(44px, 5.4vw, 76px); /* @kind font */
+  --display-lg:  clamp(36px, 3.8vw, 52px); /* @kind font */
+  --display-md:  clamp(30px, 3.0vw, 44px); /* @kind font */
+  --display-sm:  clamp(25px, 2.2vw, 30px); /* @kind font */
+
+  /* ---- Body (sans) scale ---- */
+  --text-xl:   19px;
+  --text-lg:   17px;
+  --text-base: 15.5px;
+  --text-sm:   14px;
+  --text-xs:   12.5px;
+
+  /* ---- Eyebrow (uppercase kicker) ---- */
+  --eyebrow-size:    12px;
+  --eyebrow-tracking:0.18em;
+  --eyebrow-weight:  var(--weight-semibold);
+
+  /* ---- Line heights ---- */
+  --leading-display: 1.12;
+  --leading-tight:   1.2;
+  --leading-snug:    1.45;
+  --leading-body:    1.65;
+  --leading-relaxed: 1.75;
+
+  /* ---- Tracking ---- */
+  --tracking-display: -0.01em;
+  --tracking-wide:    0.18em;
+}

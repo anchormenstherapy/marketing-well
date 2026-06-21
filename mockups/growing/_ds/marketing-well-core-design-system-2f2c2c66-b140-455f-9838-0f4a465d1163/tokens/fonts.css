@@ -1,0 +1,19 @@
+/* ============================================================
+   Marketing Well Core — Webfonts
+   ------------------------------------------------------------
+   The house pairing is an editorial display SERIF + a clean,
+   humanist SANS. Two interchangeable pairings are shipped so a
+   client site can lean warmer (Cormorant) or sturdier (Petrona):
+
+     • Display serif : Cormorant Garamond  (primary)  /  Petrona (alt)
+     • Body sans     : Manrope             (primary)  /  Mulish  (alt)
+
+   NOTE / SUBSTITUTION FLAG ────────────────────────────────────
+   The source client sites all load these from the Google Fonts
+   CDN rather than self-hosting binaries, so we mirror that here
+   with an @import. If you need offline / self-hosted woff2 files,
+   drop them in tokens/fonts/ and replace this import with
+   @font-face rules. (Flagged to the user in the README.)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Petrona:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700;800&family=Mulish:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');

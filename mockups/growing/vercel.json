@@ -1,0 +1,20 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/families", "destination": "/", "permanent": true },
+    { "source": "/parents-and-guardians", "destination": "/", "permanent": true },
+    { "source": "/icbc", "destination": "/", "permanent": true },
+    { "source": "/mental-health-first-aid", "destination": "/", "permanent": true },
+
+    { "source": "/depression-and-anxiety", "destination": "/depression-therapy", "permanent": true },
+    { "source": "/add-adhd", "destination": "/add-adhd-therapy", "permanent": true },
+    { "source": "/asd", "destination": "/asd-autism-therapy", "permanent": true },
+    { "source": "/emdr", "destination": "/emdr-therapy", "permanent": true },
+    { "source": "/trauma-and-ptsd", "destination": "/trauma-therapy", "permanent": true },
+    { "source": "/teens-and-young-adults", "destination": "/teen-therapy", "permanent": true },
+
+    { "source": "/latest-from-alisa", "destination": "/", "permanent": false },
+    { "source": "/blog", "destination": "/", "permanent": false }
+  ]
+}
