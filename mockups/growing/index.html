@@ -20,6 +20,23 @@
 <style>
   html,body{margin:0;padding:0;background:#f8f7f2;}
   h1 em,h2 em,h3 em{color:var(--brand)!important;}
+  /* Site nav: dropdown + hamburger */
+  .gm-dropdown summary::-webkit-details-marker{display:none;}
+  .gm-dropdown summary::marker{content:"";}
+  .gm-dropdown[open]>summary>svg{transform:rotate(180deg);}
+  .gm-dropdown-menu a:hover{background:var(--brand-tint);}
+  .gm-nav>a:hover{color:var(--brand-strong);}
+  @media(max-width:1100px){
+    .gm-hamburger{display:block!important;}
+    .gm-nav{display:none!important;position:absolute;top:100%;left:0;right:0;flex-direction:column!important;align-items:stretch!important;background:var(--surface);padding:18px;border-top:1px solid var(--line);box-shadow:var(--shadow-md);gap:6px!important;z-index:50;}
+    .gm-nav>a,.gm-dropdown>summary{padding:11px 14px;border-radius:8px;font-size:15px;}
+    .gm-nav>a:hover,.gm-dropdown>summary:hover{background:var(--brand-tint);}
+    .gm-dropdown{position:static!important;}
+    .gm-dropdown-menu{position:static!important;transform:none!important;box-shadow:none!important;border:none!important;padding:4px 0 8px 14px!important;background:transparent!important;min-width:0!important;}
+    #gm-menu-toggle:checked~header .gm-nav{display:flex!important;}
+    #gm-menu-toggle:checked~header .gm-hamburger .gm-icon-open{display:none;}
+    #gm-menu-toggle:checked~header .gm-hamburger .gm-icon-close{display:block!important;}
+  }
   @media(max-width:680px){
     [data-m="therapist-grid"]{grid-template-columns:1fr!important;gap:16px!important;}
     [data-m="therapist-grid"]>article{padding:20px!important;}
@@ -51,25 +68,42 @@
 
 <template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="16" fill="#c2ddcc"/><g transform="translate(30,28) scale(1.75)" fill="none" stroke="#3b4d42" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-7"/><path d="M12 14a5.5 5.5 0 0 0 5.5-5.5C17.5 5 15 3 12 3S6.5 5 6.5 8.5A5.5 5.5 0 0 0 12 14Z"/><path d="m9.3 9.2 2.7-2.4 2.7 2.4"/></g></svg></template>
 <div style="font-family:var(--font-body);color:var(--text);background:var(--bg-page);--font-display:'Lora',Georgia,'Times New Roman',serif;--bg-page:#f8f7f2;--bg-alt:#eef3ee;--surface:#ffffff;--surface-warm:#fcfbf7;--brand:#4a6053;--brand-strong:#3b4d42;--brand-deep:#2c3a31;--brand-soft:#c2ddcc;--brand-tint:#dceae1;--accent:#4a6053;--accent-strong:#3b4d42;--accent-soft:#ffe8d6;--text:#2c352f;--text-soft:rgba(44,53,47,.72);--text-muted:rgba(44,53,47,.5);--text-on-brand:#ffffff;--text-on-accent:#ffffff;--eyebrow:#52705f;--cream:#FEFAE0;--cream-100:#fff2e9;--line:rgba(74,96,83,.16);--line-strong:rgba(74,96,83,.3);--focus-ring:rgba(74,96,83,.24);">
-
   <!-- ============ HEADER ============ -->
-  <header data-screen-label="Homepage" style="background:rgba(248,247,242,.92);border-bottom:1px solid var(--line);position:relative;z-index:5">
+  <input type="checkbox" id="gm-menu-toggle" hidden>
+  <header data-screen-label="Homepage" style="background:rgba(248,247,242,.92);border-bottom:1px solid var(--line);position:relative;z-index:50">
     <div class="mw-wrap mw-wrap--wide" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:15px;padding-bottom:15px">
-      <a href="#top" style="display:flex;align-items:center;gap:12px">
+      <a href="index.html" style="display:flex;align-items:center;gap:12px;flex:none">
         <img src="uploads/growing-minds-logo.png" alt="Growing Minds" style="height:46px;width:auto;flex:none;display:block">
         <span style="display:flex;flex-direction:column;line-height:1.05">
           <span style="font-family:var(--font-display);font-size:20px;font-weight:600;color:var(--brand-strong);letter-spacing:-.01em;white-space:nowrap">Growing Minds</span>
           <span style="font-family:var(--font-body);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--eyebrow);font-weight:600;margin-top:2px">Counselling &amp; Consulting Ltd.</span>
         </span>
       </a>
-      <nav data-m="nav" style="display:flex;align-items:center;gap:16px;font-family:var(--font-body);font-size:14px;font-weight:500;color:var(--text-soft);white-space:nowrap">
-        <a href="#about" style="color:inherit">About</a>
-        <a href="#therapists" style="color:inherit">Our Therapists</a>
-        <a href="#services" style="color:inherit">Services</a>
-        <a href="#approach" style="color:inherit">Approach</a>
-        <a href="couples-therapy.html#couples-faqs" style="color:inherit">Rates &amp; FAQs</a>
+      <label for="gm-menu-toggle" class="gm-hamburger" aria-label="Toggle menu" style="display:none;cursor:pointer;flex:none;color:var(--brand-strong);padding:6px">
+        <svg class="gm-icon-open" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <svg class="gm-icon-close" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </label>
+      <nav class="gm-nav" style="display:flex;align-items:center;gap:18px;font-family:var(--font-body);font-size:14px;font-weight:500;color:var(--text-soft);white-space:nowrap">
+        <a href="index.html#about" style="color:inherit">About</a>
+        <details class="gm-dropdown" style="position:relative">
+          <summary style="cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:5px;color:inherit">Our Services<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition:transform .2s ease"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="gm-dropdown-menu" style="position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:8px;min-width:280px;display:flex;flex-direction:column;box-shadow:var(--shadow-md);z-index:60">
+            <a href="anxiety-therapy.html" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">Anxiety Therapy</a>
+            <a href="depression-therapy.html" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">Depression Therapy</a>
+            <a href="emdr-therapy.html" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">EMDR Therapy</a>
+            <a href="trauma-therapy.html" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">Trauma Therapy</a>
+            <a href="add-adhd-therapy.html" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">ADHD and AuDHD Therapy</a>
+            <a href="asd-autism-therapy.html" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">ASD/Autism and AuDHD Therapy</a>
+            <a href="teen-therapy.html" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">Teen &amp; Young Adults Therapy</a>
+            <a href="firstresponders.html" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">First Responders</a>
+            <a href="saje.html" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">SAJE</a>
+            <a href="couples-therapy.html" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">Couples Therapy</a>
+          </div>
+        </details>
+        <a href="index.html#approach" style="color:inherit">Therapeutic Approach</a>
+        <a href="index.html#fees" style="color:inherit">Rates &amp; FAQ&rsquo;s</a>
+        <a href="index.html#blog" style="color:inherit">Blog</a>
         <a href="#contact" style="color:inherit">Contact</a>
-        <a href="#blog" style="color:inherit">Blog</a>
       </nav>
       <a class="mwc-btn mwc-btn--brand mwc-btn--sm" href="#contact" style="flex:none">Book a Consult</a>
     </div>
@@ -293,36 +327,33 @@
 
   <!-- ============ THERAPEUTIC APPROACH ============ -->
   <section id="approach" class="mw-section" style="background:var(--surface-warm)">
-    <div class="mw-wrap" style="max-width:880px">
-      <svg width="56" height="40" viewBox="0 0 56 40" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--brand);opacity:.6;margin-bottom:4px">
-        <path d="M28 39V11"/>
-        <path d="M28 27c-8-1-13-7-14-14 8 1 13 6 14 13"/>
-        <path d="M28 22c8-1 13-7 14-14-8 1-13 6-14 13"/>
-        <path d="M28 11c-2-3-2-6 0-9 2 3 2 6 0 9"/>
-      </svg>
-      <p class="mw-eyebrow">Our Approach</p>
-      <h2 class="mw-display mw-display-lg" style="margin-top:12px">Grounded methods, <em>chosen for you.</em></h2>
-      <p style="margin-top:16px;font-size:17px;color:var(--text-soft);line-height:1.7;max-width:620px">We draw on evidence-based modalities and match them to what you need, rather than fitting you to a single method. These are the three we lean on most.</p>
+    <div class="mw-wrap" style="max-width:760px">
+      <p class="mw-eyebrow">Therapeutic Approach</p>
+      <h2 class="mw-display mw-display-lg" style="margin-top:14px">It begins <em>with you.</em></h2>
 
-      <div style="margin-top:42px;display:flex;flex-direction:column;gap:30px;max-width:600px">
-        <div>
-          <h3 style="font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--brand-strong)">EMDR</h3>
-          <p style="margin-top:7px;font-size:17px;color:var(--text-soft);line-height:1.7">Used to gently work through events that still feel charged, without having to talk through every detail.</p>
-          <a href="#" class="mwc-linkarrow" style="margin-top:10px">Explore EMDR<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      <p style="margin-top:28px;font-size:18px;line-height:1.8;color:var(--text-soft)">My therapeutic approach begins with you, you are the expert in your life. Therapy at Growing Minds is much more than a one-sided conversation. I bring compassion, deep listening, and a touch of humour. I also bring reflection, impactful questions, and gentle challenges to help you dig a little deeper, process difficult emotions, recognize your strengths, and safely explore what matters most to you.</p>
+
+      <h3 style="margin-top:40px;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--brand-strong);text-align:center;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><em>Therapy is all about you.</em></h3>
+
+      <p style="margin-top:34px;font-size:18px;line-height:1.8;color:var(--text-soft)">It is a safe, caring, and confidential space to explore your thoughts, feelings, and beliefs. No matter what you want to talk about, I am here to listen in a caring, empathetic, and judgement-free way. Tailoring therapy for each client, I use a client-centred, evidence-based, and trauma-informed approach including attachment therapy, motivational interviewing, psycho-education, harm reduction, and mindfulness.</p>
+
+      <p style="margin-top:20px;font-size:18px;line-height:1.8;color:var(--text-soft)">Growing Minds is a neurodivergent-affirming and 2SLGBTQA+ affirming space where all identities are respected and celebrated.</p>
+
+      <div style="margin-top:40px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:32px">
+        <div style="display:flex;align-items:center;gap:14px">
+          <span style="width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--brand-soft);color:var(--brand);flex:none">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c1.5 4 4 6 8 6-4 0-6.5 2-8 6-1.5-4-4-6-8-6 4 0 6.5-2 8-6Z"/><path d="M12 14v8"/></svg>
+          </span>
+          <p class="mw-eyebrow" style="margin:0">Therapy may also involve</p>
         </div>
-        <div>
-          <h3 style="font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--brand-strong)">CBT</h3>
-          <p style="margin-top:7px;font-size:17px;color:var(--text-soft);line-height:1.7">Helpful when thoughts feel stuck on a loop and you want practical tools to shift the pattern.</p>
-          <a href="#" class="mwc-linkarrow" style="margin-top:10px">Explore CBT<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-        </div>
-        <div>
-          <h3 style="font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--brand-strong)">DBT</h3>
-          <p style="margin-top:7px;font-size:17px;color:var(--text-soft);line-height:1.7">A structured approach for managing intense emotions, distress, and relationship patterns.</p>
-          <a href="#" class="mwc-linkarrow" style="margin-top:10px">Explore DBT<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-        </div>
+        <ul style="margin:18px 0 0;padding:0;list-style:none;display:grid;gap:12px">
+          <li style="padding-left:24px;position:relative;font-size:17px;line-height:1.6;color:var(--text-soft)"><span style="position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--brand-soft)"></span>Cognitive Behavioural Therapy (CBT)</li>
+          <li style="padding-left:24px;position:relative;font-size:17px;line-height:1.6;color:var(--text-soft)"><span style="position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--brand-soft)"></span>Family Systems Therapy</li>
+          <li style="padding-left:24px;position:relative;font-size:17px;line-height:1.6;color:var(--text-soft)"><span style="position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--brand-soft)"></span>Narrative Therapy</li>
+          <li style="padding-left:24px;position:relative;font-size:17px;line-height:1.6;color:var(--text-soft)"><span style="position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--brand-soft)"></span>Solution Focused Brief Therapy</li>
+          <li style="padding-left:24px;position:relative;font-size:17px;line-height:1.6;color:var(--text-soft)"><span style="position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--brand-soft)"></span>Eye Movement Desensitization &amp; Reprocessing (EMDR)</li>
+        </ul>
       </div>
-
-      <p style="margin-top:38px;padding-top:22px;border-top:1px solid var(--line);font-size:15px;color:var(--text-muted);line-height:1.7;max-width:620px">Also draws on Family Systems, Narrative Therapy, Motivational Interviewing, and Eco Therapy depending on what fits.</p>
     </div>
   </section>
 
