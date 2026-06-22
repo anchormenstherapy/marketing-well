@@ -22,6 +22,7 @@
 <style>
   html,body{margin:0;padding:0;background:#f8f7f2;}
   h1 em,h2 em,h3 em{color:var(--brand)!important;}
+  @media(max-width:760px){[data-m="footer-cols"]{grid-template-columns:1fr!important;gap:32px!important}}
   .gm-dropdown summary::-webkit-details-marker{display:none;}
   .gm-dropdown summary::marker{content:"";}
   .gm-dropdown[open]>summary>svg{transform:rotate(180deg);}
@@ -177,7 +178,7 @@
   <!-- ============ FOOTER ============ -->
   <footer style="background:var(--brand-deep);color:rgba(255,255,255,.78)">
     <div class="mw-wrap mw-wrap--wide" style="padding-top:64px;padding-bottom:40px">
-      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px">
+      <div data-m="footer-cols" style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px">
         <div>
           <div style="display:flex;align-items:center;gap:12px">
             <span style="width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#fff;flex:none">
