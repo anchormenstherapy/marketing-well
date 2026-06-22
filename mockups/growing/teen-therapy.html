@@ -197,9 +197,10 @@
   <section class="mw-section">
     <div class="mw-wrap mw-wrap--wide">
       <div style="max-width:640px;margin-bottom:42px">
-        <p class="mw-eyebrow">Meet Your Counsellor</p>
-        <h2 class="mw-display mw-display-lg" style="margin-top:14px">You would be working with <em>Alisa.</em></h2>
+        <p class="mw-eyebrow">Meet Your Counsellors</p>
+        <h2 class="mw-display mw-display-lg" style="margin-top:14px">You&rsquo;d be working with <em>Alisa or Darren.</em></h2>
       </div>
+      <div data-m="therapist-stack" style="display:grid;gap:24px">
       <div data-m="counsellor-card" class="mwc-card" style="display:grid;grid-template-columns:300px 1fr;gap:40px;padding:36px;align-items:start">
         <div>
           <div style="width:100%;aspect-ratio:1/1;border-radius:18px;overflow:hidden;border:1px solid var(--line)">
@@ -222,6 +223,30 @@
             </a>
           </div>
         </div>
+      </div>
+      <div data-m="counsellor-card" class="mwc-card" style="display:grid;grid-template-columns:300px 1fr;gap:40px;padding:36px;align-items:start">
+        <div>
+          <div style="width:100%;aspect-ratio:1/1;border-radius:18px;border:1px solid var(--line);background:linear-gradient(150deg,var(--brand-soft),#d6e7dd);display:grid;place-items:center;color:var(--brand)">
+            <svg viewBox="0 0 24 24" width="72" height="72" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3.5"/><path d="M5.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/></svg>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:18px">
+            <span class="mwc-badge">CBT</span>
+            <span class="mwc-badge">DBT</span>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-family:var(--font-display);font-size:30px;font-weight:600;color:var(--brand-strong)">Darren Dyal</h3>
+          <p style="font-family:var(--font-body);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--eyebrow);font-weight:600;margin-top:7px">Mental Health Clinician &middot; MA Counselling Psychology</p>
+          <p style="margin-top:20px;font-size:16px;line-height:1.75;color:var(--text-soft)">I walk alongside people through anxiety, depression, stress, and life transitions, meeting you where you are rather than where you think you should be.</p>
+          <p style="margin-top:14px;font-size:16px;line-height:1.75;color:var(--text-soft)">Together we build practical, evidence-based skills, grounded in CBT and DBT, to help you feel steady and in control again.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:18px;align-items:center;margin-top:24px">
+            <x-import component-from-global-scope="MarketingWellCoreDesignSystem_2f2c2c.Button" variant="brand" size="sm" arrow="{{ true }}" href="#" style="display:inline-block" hint-size="auto,40px">Book With Darren</x-import>
+            <a class="mwc-linkarrow" href="meet-darren.html">Learn more about Darren
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
   </section>
