@@ -4,8 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <base href="/mockups/growing/">
-<title>Parents &amp; Guardians | Growing Minds</title>
-<meta name="description" content="Is your child struggling emotionally? Compassionate family counselling in New Westminster to rebuild communication, connection, and hope.">
+<title>What Happens When We Start Speaking Kindly to Ourselves | Growing Minds</title>
+<meta name="description" content="The way we talk to ourselves can really shape our lives. Positive self-talk helps us feel more balanced, easing anxiety and boosting confidence and resilience.">
+<meta property="og:title" content="What Happens When We Start Speaking Kindly to Ourselves | Growing Minds">
+<meta property="og:type" content="article">
 <script src="./support.js"></script>
 <link rel="stylesheet" href="_ds/marketing-well-core-design-system-2f2c2c66-b140-455f-9838-0f4a465d1163/tokens/fonts.css">
 <link rel="stylesheet" href="_ds/marketing-well-core-design-system-2f2c2c66-b140-455f-9838-0f4a465d1163/tokens/colors.css">
@@ -20,7 +22,6 @@
 <style>
   html,body{margin:0;padding:0;background:#f8f7f2;}
   h1 em,h2 em,h3 em{color:var(--brand)!important;}
-  /* Site nav: dropdown + hamburger */
   .gm-dropdown summary::-webkit-details-marker{display:none;}
   .gm-dropdown summary::marker{content:"";}
   .gm-dropdown[open]>summary>svg{transform:rotate(180deg);}
@@ -38,8 +39,7 @@
     #gm-menu-toggle:checked~header .gm-hamburger .gm-icon-close{display:block!important;}
   }
   @media(max-width:760px){
-    [data-m="parents-hero"]{grid-template-columns:1fr!important;gap:34px!important}
-    [data-m="counsellor-card"]{grid-template-columns:1fr!important}
+    [data-m="blog-grid"]{grid-template-columns:1fr!important;}
   }
 </style>
 </head>
@@ -49,9 +49,9 @@
 <div style="font-family:var(--font-body);color:var(--text);background:var(--bg-page);--font-display:'Lora',Georgia,'Times New Roman',serif;--bg-page:#f8f7f2;--bg-alt:#eef3ee;--surface:#ffffff;--surface-warm:#fcfbf7;--brand:#4a6053;--brand-strong:#3b4d42;--brand-deep:#2c3a31;--brand-soft:#c2ddcc;--brand-tint:#dceae1;--accent:#4a6053;--accent-strong:#3b4d42;--accent-soft:#ffe8d6;--text:#2c352f;--text-soft:rgba(44,53,47,.72);--text-muted:rgba(44,53,47,.5);--text-on-brand:#ffffff;--text-on-accent:#ffffff;--eyebrow:#52705f;--cream:#FEFAE0;--cream-100:#fff2e9;--line:rgba(74,96,83,.16);--line-strong:rgba(74,96,83,.3);--focus-ring:rgba(74,96,83,.24);">
   <!-- ============ HEADER ============ -->
   <input type="checkbox" id="gm-menu-toggle" style="position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;appearance:none;-webkit-appearance:none;margin:0;padding:0">
-  <header data-screen-label="Parents &amp; Guardians page" style="background:rgba(248,247,242,.92);border-bottom:1px solid var(--line);position:relative;z-index:50">
+  <header data-screen-label="Blog post: What Happens When We Start Speaking Kindly to Ourselves" style="background:rgba(248,247,242,.92);border-bottom:1px solid var(--line);position:relative;z-index:50">
     <div class="mw-wrap mw-wrap--wide" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:15px;padding-bottom:15px">
-      <a href="index.html" style="display:flex;align-items:center;gap:12px;flex:none">
+      <a href="/mockups/growing/" style="display:flex;align-items:center;gap:12px;flex:none">
         <img src="uploads/growing-minds-logo.png" alt="Growing Minds" style="height:46px;width:auto;flex:none;display:block">
         <span style="display:flex;flex-direction:column;line-height:1.05">
           <span style="font-family:var(--font-display);font-size:20px;font-weight:600;color:var(--brand-strong);letter-spacing:-.01em;white-space:nowrap">Growing Minds</span>
@@ -66,23 +66,23 @@
         <details class="gm-dropdown" style="position:relative">
           <summary style="cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:5px;color:inherit">About<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition:transform .2s ease"><path d="M6 9l6 6 6-6"/></svg></summary>
           <div class="gm-dropdown-menu" style="position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:8px;min-width:220px;display:flex;flex-direction:column;box-shadow:var(--shadow-md);z-index:60">
-            <a href="meet-alisa.html" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">Alisa Farina</a>
-            <a href="meet-darren.html" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">Darren Dyal</a>
+            <a href="/mockups/growing/meet-alisa" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">Alisa Farina</a>
+            <a href="/mockups/growing/meet-darren" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">Darren Dyal</a>
           </div>
         </details>
         <details class="gm-dropdown" style="position:relative">
           <summary style="cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:5px;color:inherit">Our Services<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition:transform .2s ease"><path d="M6 9l6 6 6-6"/></svg></summary>
           <div class="gm-dropdown-menu" style="position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:8px;min-width:280px;display:flex;flex-direction:column;box-shadow:var(--shadow-md);z-index:60">
-            <a href="anxiety-therapy.html" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">Anxiety Therapy</a>
-            <a href="depression-therapy.html" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">Depression Therapy</a>
-            <a href="emdr-therapy.html" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">EMDR Therapy</a>
-            <a href="trauma-therapy.html" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">Trauma Therapy</a>
-            <a href="add-adhd-therapy.html" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">ADHD and AuDHD Therapy</a>
-            <a href="asd-autism-therapy.html" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">ASD/Autism and AuDHD Therapy</a>
-            <a href="teen-therapy.html" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">Teen &amp; Young Adults Therapy</a>
-            <a href="firstresponders.html" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">First Responders</a>
-            <a href="saje.html" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">SAJE</a>
-            <a href="couples-therapy.html" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">Couples Therapy</a>
+            <a href="/mockups/growing/anxiety-therapy" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">Anxiety Therapy</a>
+            <a href="/mockups/growing/depression-therapy" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">Depression Therapy</a>
+            <a href="/mockups/growing/emdr-therapy" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">EMDR Therapy</a>
+            <a href="/mockups/growing/trauma-therapy" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">Trauma Therapy</a>
+            <a href="/mockups/growing/add-adhd-therapy" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">ADHD and AuDHD Therapy</a>
+            <a href="/mockups/growing/asd-autism-therapy" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">ASD/Autism and AuDHD Therapy</a>
+            <a href="/mockups/growing/teen-therapy" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">Teen &amp; Young Adults Therapy</a>
+            <a href="/mockups/growing/firstresponders" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">First Responders</a>
+            <a href="/mockups/growing/saje" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">SAJE</a>
+            <a href="/mockups/growing/couples-therapy" style="padding:9px 14px;border-radius:8px;color:var(--brand-strong);text-decoration:none;font-size:14px;display:block">Couples Therapy</a>
           </div>
         </details>
         <a href="/mockups/growing#approach" style="color:inherit">Therapeutic Approach</a>
@@ -90,90 +90,58 @@
         <a href="/mockups/growing/blog" style="color:inherit">Blog</a>
         <a href="/mockups/growing#contact" style="color:inherit">Contact</a>
       </nav>
-      <a class="mwc-btn mwc-btn--brand mwc-btn--sm" href="#parents-contact" style="flex:none">Book a Consult</a>
+      <a class="mwc-btn mwc-btn--brand mwc-btn--sm" href="/mockups/growing#contact" style="flex:none">Book a Consult</a>
     </div>
   </header>
 
-  <section id="parents-top" class="mw-section" style="background:var(--cream);padding-top:74px;padding-bottom:84px">
-    <div data-m="parents-hero" class="mw-wrap mw-wrap--wide" style="display:grid;grid-template-columns:1fr 1.02fr;gap:56px;align-items:center">
-      <div>
-        <p class="mw-eyebrow">Parents &amp; Guardians</p>
-        <h1 class="mw-display mw-display-xl" style="margin-top:18px">Supporting your child&rsquo;s <em>emotional well-being.</em></h1>
-        <p style="margin-top:24px;font-size:18px;line-height:1.7;color:var(--text-soft);max-width:540px">Is your child struggling emotionally? We recognize the signs of distress, withdrawal from loved ones, changes in behaviour, difficulty coping with daily life, even thoughts of self-harm. You&rsquo;re not alone, and we&rsquo;re here to help.</p>
-        <div style="display:flex;gap:18px;margin-top:32px;flex-wrap:wrap;align-items:center">
-          <x-import component-from-global-scope="MarketingWellCoreDesignSystem_2f2c2c.Button" variant="brand" size="lg" arrow="{{ true }}" href="#parents-contact" style="display:inline-block" hint-size="auto,56px">Book a Free Consultation</x-import>
-          <span style="font-family:var(--font-body);font-size:14px;color:var(--text-muted)">In person or virtual across BC.</span>
-        </div>
-      </div>
-      <div data-m="parents-hero-placeholder" style="position:relative;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:5/6;border:1px solid var(--line);background:var(--brand-tint);display:grid;place-items:center;text-align:center;padding:32px">
-        <div>
-          <p class="mw-eyebrow" style="color:var(--brand-strong)">Hero photo</p>
-          <p style="margin-top:10px;font-family:var(--font-display);font-style:italic;font-size:18px;color:var(--brand-strong);line-height:1.5">Warm, natural portrait to be added.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="mw-section" style="background:var(--brand-tint);padding-top:80px;padding-bottom:80px">
-    <div class="mw-wrap" style="max-width:760px;text-align:center">
-      <p class="mw-eyebrow">You see the signs</p>
-      <p style="margin-top:18px;font-size:18px;line-height:1.7;color:var(--brand-strong)">Withdrawal from family and friends. Sudden changes in mood or routine. Trouble at school. A child who used to laugh and connect now feels distant, anxious, or shut down.</p>
-      <div style="width:64px;height:1px;background:var(--line-strong);margin:36px auto"></div>
-      <p style="font-size:18px;line-height:1.75;color:var(--brand-strong)">You don&rsquo;t have to figure this out alone, and your child doesn&rsquo;t either. Compassionate counselling can help your family understand what&rsquo;s happening and find a way forward together.</p>
-    </div>
-  </section>
-
-  <section class="mw-section">
-    <div class="mw-wrap" style="max-width:760px">
-      <p class="mw-eyebrow">How we help</p>
-      <h2 class="mw-display mw-display-lg" style="margin-top:12px">Compassionate support for <em>your whole family.</em></h2>
-      <p style="margin-top:26px;font-size:18px;line-height:1.8;color:var(--text-soft)">Through compassionate counselling, we work together to understand your family dynamics, improve communication, and address concerns with evidence-based techniques.</p>
-      <p style="margin-top:18px;font-size:18px;line-height:1.8;color:var(--text-soft)">Our goal is to empower you to support your child effectively, rebuild your connection, and cultivate a nurturing environment where both you and your child can thrive.</p>
-    </div>
-  </section>
-
-  <section class="mw-section">
-    <div class="mw-wrap mw-wrap--wide">
-      <div style="max-width:640px;margin-bottom:42px">
-        <p class="mw-eyebrow">Meet Your Counsellor</p>
-        <h2 class="mw-display mw-display-lg" style="margin-top:14px">You would be working with <em>Alisa.</em></h2>
-      </div>
-      <div data-m="counsellor-card" class="mwc-card" style="display:grid;grid-template-columns:300px 1fr;gap:40px;padding:36px;align-items:start">
-        <div>
-          <div style="width:100%;aspect-ratio:1/1;border-radius:18px;overflow:hidden;border:1px solid var(--line)">
-            <img src="uploads/alisa.jpeg" alt="Alisa Farina, Registered Clinical Counsellor" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
-          </div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:18px">
-            <span class="mwc-badge">30+ Years Experience</span>
-            <span class="mwc-badge">Family-Focused</span>
-          </div>
-        </div>
-        <div>
-          <h3 style="font-family:var(--font-display);font-size:30px;font-weight:600;color:var(--brand-strong)">Alisa Farina</h3>
-          <p style="font-family:var(--font-body);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--eyebrow);font-weight:600;margin-top:7px">Registered Clinical Counsellor &middot; RCC &middot; BCACC</p>
-          <p style="margin-top:20px;font-size:16px;line-height:1.75;color:var(--text-soft)">I&rsquo;ve spent over 30 years walking alongside children, teens, and families. Genuine connection comes first, and we work at a pace that feels safe for everyone in the room.</p>
-          <p style="margin-top:14px;font-size:16px;line-height:1.75;color:var(--text-soft)">Together, we build practical tools that help your family communicate, repair, and reconnect.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:18px;align-items:center;margin-top:24px">
-            <x-import component-from-global-scope="MarketingWellCoreDesignSystem_2f2c2c.Button" variant="brand" size="sm" arrow="{{ true }}" href="#" style="display:inline-block" hint-size="auto,40px">Book With Alisa</x-import>
-            <a class="mwc-linkarrow" href="meet-alisa.html">Learn more about Alisa
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="parents-contact" class="mw-section" style="background:var(--brand);text-align:center">
+  <!-- ============ ARTICLE ============ -->
+  <article class="mw-section" style="padding-top:56px;padding-bottom:72px">
     <div class="mw-wrap" style="max-width:720px">
-      <h2 class="mw-display mw-display-lg" style="color:var(--cream)">Your family doesn&rsquo;t have to carry this alone.</h2>
-      <p style="margin-top:16px;font-size:18px;color:rgba(255,255,255,.84);line-height:1.7;max-width:560px;margin-left:auto;margin-right:auto">Compassionate, evidence-based counselling for parents, guardians, and the children they love. Book a free consultation today.</p>
-      <div style="margin-top:30px;display:flex;justify-content:center">
-        <x-import component-from-global-scope="MarketingWellCoreDesignSystem_2f2c2c.Button" variant="cream" size="lg" arrow="{{ true }}" href="#" style="display:inline-block" hint-size="auto,56px">Book a Free Consultation</x-import>
+      <a href="/mockups/growing/blog" class="mwc-linkarrow" style="font-size:13px;transform:scaleX(-1);display:inline-flex"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      <p class="mw-eyebrow" style="margin-top:18px">Growing Minds Blog</p>
+      <h1 class="mw-display mw-display-lg" style="margin-top:14px">What Happens When We Start Speaking Kindly to Ourselves</h1>
+      <p style="margin-top:16px;font-family:var(--font-body);font-size:14px;color:var(--text-muted);letter-spacing:.02em">By Alisa Farina &middot; August 9, 2025</p>
+
+      <div style="margin-top:14px">
+      <p style="margin-top:22px;font-size:18px;line-height:1.8;color:var(--text-soft)">Many of us have been using self-talk since we were just three years old. It is such a natural part of our daily lives, most of us do not even notice when we are doing it. Whether we are chatting out loud or having a little conversation inside our heads, the way we talk to ourselves plays an instrumental role in how we see ourselves and what we believe we are capable of. Just like the Little Engine That Could taught us, what we say to ourselves truly matters.</p>
+      <p style="margin-top:22px;font-size:18px;line-height:1.8;color:var(--text-soft)">Over time the way we talk to ourselves can really shape our lives. When we say things like, &ldquo;You&rsquo;ve got this,&rdquo; instead of &ldquo;I can&rsquo;t do that,&rdquo; it makes a big difference. Positive self-talk helps us to feel more balanced emotionally and mentally. It can ease feelings of anxiety and depression while boosting our motivation, confidence, and resilience. By believing in ourselves through uplifting words, we nurture self-compassion and self-acceptance, making it more likely that we will achieve our goals.</p>
+      <h2 class="mw-display mw-display-md" style="margin-top:42px;font-size:26px">How do I start speaking kindly to myself?</h2>
+      <p style="margin-top:22px;font-size:18px;line-height:1.8;color:var(--text-soft)">The first step is to focus inward and listen to your inner voice. Self-talk comes in three forms: instructional, negative, and positive.</p>
+      <p style="margin-top:22px;font-size:18px;line-height:1.8;color:var(--text-soft)">When you go to the grocery store to buy milk without a list, you are using instructional self-talk. We use this type of self-talk throughout the day to keep ourselves organized.</p>
+      <p style="margin-top:22px;font-size:18px;line-height:1.8;color:var(--text-soft)">For many of us, negative self-talk happens just as often.</p>
+      <p style="margin-top:22px;font-size:18px;line-height:1.8;color:var(--text-soft)">Does your self-talk sound like this?</p>
+      <ul style="margin-top:22px;padding:0;list-style:none;display:grid;gap:12px">
+        <li style="padding-left:24px;position:relative;font-size:18px;line-height:1.7;color:var(--text-soft)"><span style="position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--brand-soft)"></span>Personalization: blaming yourself for everything</li>
+        <li style="padding-left:24px;position:relative;font-size:18px;line-height:1.7;color:var(--text-soft)"><span style="position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--brand-soft)"></span>Magnification: focusing only on the negative aspects of the situation</li>
+        <li style="padding-left:24px;position:relative;font-size:18px;line-height:1.7;color:var(--text-soft)"><span style="position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--brand-soft)"></span>Catastrophization: expecting the worst and making things bigger than they really are</li>
+      </ul>
+      <p style="margin-top:22px;font-size:18px;line-height:1.8;color:var(--text-soft)">When you notice yourself slipping into negative self-talk, take a moment to ask, &ldquo;Whose voice is this?&rdquo; Consider where this &ldquo;I&rsquo;m not good enough&rdquo; voice originated.</p>
+      <p style="margin-top:22px;font-size:18px;line-height:1.8;color:var(--text-soft)">The secret to turning those negative thoughts into positive ones is to treat yourself like your own best friend. When you catch yourself thinking negatively, ask, &ldquo;What would I say to my best friend in this situation?&rdquo; You will probably find a much kinder and more encouraging response waiting for you.</p>
+      </div>
+      <div style="margin-top:52px;padding-top:30px;border-top:1px solid var(--line);display:flex;gap:20px;align-items:flex-start">
+        <div style="width:84px;height:84px;border-radius:50%;overflow:hidden;border:1px solid var(--line);flex:none">
+          <img src="uploads/alisa.jpeg" alt="Alisa Farina" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
+        </div>
+        <div>
+          <p style="font-family:var(--font-body);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--eyebrow);font-weight:600">About the Author</p>
+          <p style="margin-top:8px;font-size:15.5px;line-height:1.7;color:var(--text-soft)">Alisa Farina is a Registered Clinical Counsellor (RCC), a Canadian Certified Counsellor (CCC), an EMDR-trained therapist, and the Founder of Growing Minds Counselling and Consulting. She holds a Master of Arts in Counselling Psychology with Distinction, a Bachelor of Arts in Child and Youth Care, and a Diploma in Special Education. With over 30 years of experience in education, youth work, and counselling, Alisa brings deep compassion, insight, and real-world understanding to her writing and her therapy sessions.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- CTA -->
+  <section class="mw-section" style="background:var(--brand);text-align:center;padding-top:72px;padding-bottom:72px">
+    <div class="mw-wrap" style="max-width:680px">
+      <h2 class="mw-display mw-display-md" style="color:var(--cream)">Ready to take the first step?</h2>
+      <p style="margin-top:14px;font-size:18px;color:rgba(255,255,255,.84);line-height:1.7;max-width:520px;margin-left:auto;margin-right:auto">Book a free consultation with Alisa Farina today. No pressure, no commitment.</p>
+      <div style="margin-top:28px;display:flex;justify-content:center">
+        <x-import component-from-global-scope="MarketingWellCoreDesignSystem_2f2c2c.Button" variant="cream" size="lg" arrow="{{ true }}" href="/mockups/growing#contact" style="display:inline-block" hint-size="auto,56px">Book a Free Consultation</x-import>
       </div>
     </div>
   </section>
 
+  <!-- ============ FOOTER ============ -->
   <footer style="background:var(--brand-deep);color:rgba(255,255,255,.78)">
     <div class="mw-wrap mw-wrap--wide" style="padding-top:64px;padding-bottom:40px">
       <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px">
@@ -194,12 +162,12 @@
         <div>
           <p style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);font-weight:600">Explore</p>
           <div style="display:flex;flex-direction:column;gap:11px;margin-top:16px;font-size:14.5px">
-            <a href="index.html#about" style="color:inherit">About</a>
-            <a href="index.html#therapists" style="color:inherit">Our Therapists</a>
-            <a href="index.html#services" style="color:inherit">Services</a>
+            <a href="/mockups/growing#about" style="color:inherit">About</a>
+            <a href="/mockups/growing#therapists" style="color:inherit">Our Therapists</a>
+            <a href="/mockups/growing#services" style="color:inherit">Services</a>
             <a href="/mockups/growing#approach" style="color:inherit">Approach</a>
-            <a href="couples-therapy.html#couples-faqs" style="color:inherit">Rates &amp; FAQs</a>
-            <a href="/mockups/growing#blog" style="color:inherit">Blog</a>
+            <a href="/mockups/growing/couples-therapy#couples-faqs" style="color:inherit">Rates &amp; FAQs</a>
+            <a href="/mockups/growing/blog" style="color:inherit">Blog</a>
           </div>
         </div>
         <div>
@@ -227,14 +195,11 @@
       </div>
     </div>
   </footer>
-
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  renderVals() {
-    return {};
-  }
+  renderVals() { return {}; }
 }
 </script>
 </body>

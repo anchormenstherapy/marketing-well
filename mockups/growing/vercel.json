@@ -9,7 +9,6 @@
     { "source": "/trauma-and-ptsd", "destination": "/trauma-therapy", "permanent": true },
     { "source": "/teens-and-young-adults", "destination": "/teen-therapy", "permanent": true },
 
-    { "source": "/latest-from-alisa", "destination": "/", "permanent": false },
-    { "source": "/blog", "destination": "/", "permanent": false }
+    { "source": "/latest-from-alisa", "destination": "/blog", "permanent": true }
   ]
 }
