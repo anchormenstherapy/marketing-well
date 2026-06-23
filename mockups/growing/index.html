@@ -43,14 +43,9 @@
     #gm-menu-toggle:checked~header .gm-hamburger .gm-icon-close{display:block!important;}
   }
   @media(max-width:680px){
-    [data-m="therapist-grid"]{grid-template-columns:1fr!important;gap:16px!important;}
-    [data-m="therapist-grid"]>article{padding:20px!important;}
-    [data-m="alisa-inner"]{grid-template-columns:1fr!important;gap:14px!important;}
-    [data-m="alisa-photo"]{width:100%!important;height:auto!important;aspect-ratio:1!important;}
-    [data-m="alisa-bio"]{display:none!important;}
-    [data-m="sarah-photo"]{height:180px!important;}
-    [data-m="sarah-placeholder"]{display:none!important;}
-    [data-m="sarah-bio"]{display:none!important;}
+    [data-m="therapist-stack-home"]>article{padding:24px!important;}
+    [data-m="alisa-inner"],[data-m="darren-inner"]{grid-template-columns:1fr!important;gap:22px!important;}
+    [data-m="alisa-photo"],[data-m="darren-photo"]{width:100%!important;height:auto!important;aspect-ratio:4/5!important;max-width:300px;}
     [data-m="services-new"]{grid-template-columns:1fr!important;}
     [data-m="therapy-grid"]{grid-template-columns:1fr!important;}
     [data-m="therapy-grid"]>*{grid-column:auto!important;}
@@ -168,39 +163,68 @@
         <h2 class="mw-display mw-display-lg" style="margin-top:12px">A small team, <em>chosen with care.</em></h2>
         <p class="mw-lead" style="margin-top:16px">You should feel a real fit with the person you talk to. Here is who you would be working with at Growing Minds.</p>
       </div>
-      <div data-m="therapist-grid" style="display:grid;grid-template-columns:1.5fr 1fr;gap:26px;margin-top:46px;align-items:start">
+      <div data-m="therapist-stack-home" style="display:grid;gap:26px;margin-top:46px">
 
-        <article class="mwc-card mwc-card--hover" style="padding:30px">
-          <div data-m="alisa-inner" style="display:grid;grid-template-columns:160px 1fr;gap:26px;align-items:start">
+        <article class="mwc-card" style="padding:38px">
+          <div data-m="alisa-inner" style="display:grid;grid-template-columns:260px 1fr;gap:40px;align-items:start">
             <div>
-              <div data-m="alisa-photo" style="width:160px;height:160px;border-radius:16px;border:1px solid rgba(74,96,83,.18);overflow:hidden"><img src="uploads/alisa.jpeg" alt="Alisa, Founder" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+              <div data-m="alisa-photo" style="width:260px;height:320px;border-radius:18px;border:1px solid rgba(74,96,83,.18);overflow:hidden"><img src="uploads/alisa.jpeg" alt="Alisa Farina, Registered Clinical Counsellor" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block"></div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px">
+                <span class="mwc-badge">RCC</span><span class="mwc-badge">CCC</span><span class="mwc-badge">EMDR-Trained</span><span class="mwc-badge">ADHD-CCSP</span>
+              </div>
             </div>
             <div>
               <p style="font-family:var(--font-body);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--eyebrow);font-weight:600">Founder</p>
-              <h3 style="font-family:var(--font-display);font-size:28px;font-weight:600;color:var(--brand-strong);margin-top:3px">Alisa</h3>
-              <p style="font-family:var(--font-body);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--eyebrow);font-weight:600;margin-top:7px">Registered Clinical Counsellor</p>
-              <p style="font-family:var(--font-body);font-size:13px;color:var(--text-muted);margin-top:8px;line-height:1.5">BCACC &middot; EMDR Certified &middot; ADHD-CCSP &middot; 30+ years experience</p>
-              <p data-m="alisa-bio" style="margin-top:18px;font-size:15.5px;color:var(--text-soft);line-height:1.7">My approach is grounded in genuine connection and practical tools, drawing on your strengths to build change that lasts.</p>
-              <p style="margin-top:14px;font-family:var(--font-display);font-style:italic;font-size:16px;color:var(--brand-strong);line-height:1.55">Working with anxiety, depression, trauma, EMDR, ADHD, and AuDHD.</p>
-              <a href="meet-alisa.html" class="mwc-linkarrow" style="margin-top:20px">Learn more about Alisa
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-              </a>
+              <h3 style="font-family:var(--font-display);font-size:32px;font-weight:600;color:var(--brand-strong);margin-top:3px">Alisa Farina</h3>
+              <p style="font-family:var(--font-body);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--eyebrow);font-weight:600;margin-top:8px">Registered Clinical Counsellor &middot; RCC &middot; CCC &middot; BCACC &middot; 30+ years</p>
+              <p style="margin-top:20px;font-size:16px;line-height:1.8;color:var(--text-soft)">Welcome to a turning point in your life. I&rsquo;m Alisa, RCC, CCC, EMDR-Trained Therapist, and ADHD-Certified Clinical Service Provider, and I&rsquo;m here for one person: you.</p>
+              <p style="margin-top:16px;font-size:16px;line-height:1.8;color:var(--text-soft)">Yes, you. The one who&rsquo;s been carrying more than anyone realizes. The one who knows life can feel better than this, and is finally ready to reach for it.</p>
+              <p style="margin-top:16px;font-size:16px;line-height:1.8;color:var(--text-soft)">Here&rsquo;s the truth. You don&rsquo;t need to keep fighting alone. You don&rsquo;t need to keep guessing what&rsquo;s wrong. You don&rsquo;t need to pretend you&rsquo;re &ldquo;fine.&rdquo; There is a next step. A clear step. A step you can take today.</p>
+              <p style="margin-top:16px;font-size:16px;line-height:1.8;color:var(--text-soft)">Imagine this for a moment. You set the weight down. You stop apologizing for your struggles. You stop pushing your feelings aside just to get through the day. And for the first time in a long time, you feel safe enough to breathe.</p>
+              <p style="margin-top:16px;font-size:16px;line-height:1.8;color:var(--text-soft)">Inner peace isn&rsquo;t a myth. Self-acceptance isn&rsquo;t out of reach. And the strengths you forgot you had? They&rsquo;re still there, waiting to be uncovered.</p>
+              <p style="margin-top:16px;font-size:16px;line-height:1.8;color:var(--text-soft)">Over the past 30 years, I&rsquo;ve supported youth and adults through the very challenges you might be facing:</p>
+              <ul style="margin:14px 0 0;padding:0;list-style:none;display:grid;gap:10px">
+                <li style="padding-left:24px;position:relative;font-size:16px;line-height:1.55;color:var(--text-soft)"><span style="position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:50%;background:var(--brand-soft)"></span>Depression</li>
+                <li style="padding-left:24px;position:relative;font-size:16px;line-height:1.55;color:var(--text-soft)"><span style="position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:50%;background:var(--brand-soft)"></span>Anxiety</li>
+                <li style="padding-left:24px;position:relative;font-size:16px;line-height:1.55;color:var(--text-soft)"><span style="position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:50%;background:var(--brand-soft)"></span>Overwhelming transitions</li>
+                <li style="padding-left:24px;position:relative;font-size:16px;line-height:1.55;color:var(--text-soft)"><span style="position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:50%;background:var(--brand-soft)"></span>Trauma</li>
+                <li style="padding-left:24px;position:relative;font-size:16px;line-height:1.55;color:var(--text-soft)"><span style="position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:50%;background:var(--brand-soft)"></span>Late-identified ADHD, Autism/ASD, AuDHD</li>
+                <li style="padding-left:24px;position:relative;font-size:16px;line-height:1.55;color:var(--text-soft)"><span style="position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:50%;background:var(--brand-soft)"></span>Or the quiet, painful feeling of being misunderstood your whole life</li>
+              </ul>
+              <p style="margin-top:18px;font-size:16px;line-height:1.8;color:var(--text-soft)">Here, you get to show up exactly as you are. No masks. No judgment. Just a deeply safe space where you can explore, heal, and finally grow into the version of yourself you&rsquo;ve always sensed beneath the surface.</p>
+              <p style="margin-top:16px;font-size:16px;line-height:1.8;color:var(--text-soft)">And it all starts with one simple action. One small moment of courage. Your future self will look back and say this was the moment everything began to change.</p>
+              <p style="margin-top:16px;font-size:16px;line-height:1.8;color:var(--text-soft)">So don&rsquo;t wait. Let&rsquo;s take this step, together.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:18px;align-items:center;margin-top:24px">
+                <x-import component-from-global-scope="MarketingWellCoreDesignSystem_2f2c2c.Button" variant="brand" size="sm" arrow="{{ true }}" href="#contact" style="display:inline-block" hint-size="auto,40px">Book a Free Consultation</x-import>
+                <a href="meet-alisa.html" class="mwc-linkarrow">Learn more about Alisa
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                </a>
+              </div>
             </div>
           </div>
         </article>
 
-        <article class="mwc-card mwc-card--hover" style="padding:26px">
-          <div data-m="sarah-photo" style="width:100%;height:158px;border-radius:14px;border:1px solid rgba(74,96,83,.18);background-color:#b9d6c5;background-image:radial-gradient(rgba(255,255,255,.18) 0.8px,transparent 0.8px),radial-gradient(rgba(44,53,47,.10) 0.8px,transparent 0.8px);background-size:3px 3px,4px 4px;background-position:0 0,1px 2px"></div>
-          <p data-m="sarah-placeholder" style="font-family:var(--font-body);font-style:italic;font-size:12px;color:var(--text-muted);margin-top:9px">Therapist photo to be added</p>
-          <p style="font-family:var(--font-body);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--eyebrow);font-weight:600;margin-top:18px">Newest Team Member</p>
-          <h3 style="font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--brand-strong);margin-top:3px">Darren Dyal</h3>
-          <p style="font-family:var(--font-body);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--eyebrow);font-weight:600;margin-top:7px">Mental Health Clinician</p>
-          <p style="font-family:var(--font-body);font-size:13px;color:var(--text-muted);margin-top:8px;line-height:1.5">MA Counselling Psychology &middot; CBT &middot; DBT &middot; 7+ years experience</p>
-          <p data-m="sarah-bio" style="margin-top:16px;font-size:15px;color:var(--text-soft);line-height:1.65">I walk alongside people through anxiety, depression, stress, life transitions, and substance use. Rather than telling you where you should be, my work is to meet you where you are and help you get to where you want to be, through authentic connection and practical, evidence-based tools.</p>
-          <p style="margin-top:12px;font-family:var(--font-display);font-style:italic;font-size:15.5px;color:var(--brand-strong);line-height:1.55">Working with anxiety, depression, addictions, and substance use.</p>
-          <a href="meet-darren.html" class="mwc-linkarrow" style="margin-top:18px">Learn more about Darren
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </a>
+        <article class="mwc-card" style="padding:38px">
+          <div data-m="darren-inner" style="display:grid;grid-template-columns:260px 1fr;gap:40px;align-items:start">
+            <div>
+              <div data-m="darren-photo" style="width:260px;height:320px;border-radius:18px;border:1px solid rgba(74,96,83,.18);background:linear-gradient(150deg,var(--brand-soft),#d6e7dd);display:grid;place-items:center;color:var(--brand)">
+                <svg viewBox="0 0 24 24" width="72" height="72" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3.5"/><path d="M5.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/></svg>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px">
+                <span class="mwc-badge">CBT</span><span class="mwc-badge">DBT</span><span class="mwc-badge">Gottman L1</span>
+              </div>
+            </div>
+            <div>
+              <p style="font-family:var(--font-body);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--eyebrow);font-weight:600">Newest Team Member</p>
+              <h3 style="font-family:var(--font-display);font-size:32px;font-weight:600;color:var(--brand-strong);margin-top:3px">Darren Dyal</h3>
+              <p style="font-family:var(--font-body);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--eyebrow);font-weight:600;margin-top:8px">Mental Health Clinician &middot; MA Counselling Psychology &middot; 7+ years</p>
+              <p style="margin-top:20px;font-size:16px;line-height:1.8;color:var(--text-soft)">I walk alongside people through anxiety, depression, stress, life transitions, and substance use. Rather than telling you where you should be, my work is to meet you where you are and help you get to where you want to be, through authentic connection and practical, evidence-based tools.</p>
+              <p style="margin-top:16px;font-size:16px;line-height:1.8;color:var(--text-soft)">My approach draws on Cognitive Behavioural Therapy, Dialectical Behaviour Therapy, Emotion-Focused Family Therapy, Motivational Interviewing, and the Gottman Method.</p>
+              <a href="meet-darren.html" class="mwc-linkarrow" style="margin-top:20px">Learn more about Darren
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
         </article>
 
       </div>
