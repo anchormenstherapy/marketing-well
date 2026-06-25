@@ -46,8 +46,7 @@
     [data-m="anx-hero"]{grid-template-columns:1fr!important;gap:34px!important}
     [data-m="anx-transform"]{grid-template-columns:1fr!important}
     [data-m="anx-steps"]{grid-template-columns:1fr!important}
-    [data-m="anx-therapists"]{grid-template-columns:1fr!important}
-    [data-m="anx-tcard"]{grid-template-columns:1fr!important;gap:18px!important}
+    [data-m="counsellor-card"]{grid-template-columns:1fr!important}
   }
 </style>
 </head>
@@ -125,7 +124,7 @@
 
   <!-- ============ PAIN + REASSURANCE ============ -->
   <section class="mw-section" style="background:var(--brand-tint);padding-top:80px;padding-bottom:80px">
-    <div class="mw-wrap" style="max-width:760px">
+    <div class="mw-wrap" style="max-width:760px;text-align:center">
       <p class="mw-eyebrow" style="text-align:center">When the worry won&rsquo;t quiet</p>
       <p style="margin-top:18px;font-size:18px;line-height:1.7;color:var(--brand-strong);text-align:center">You lie awake at night replaying conversations, feeling your heart pound even when nothing&rsquo;s wrong. You tell yourself to &ldquo;just relax,&rdquo; but the worry comes back stronger.</p>
       <div style="width:64px;height:1px;background:var(--line-strong);margin:40px auto"></div>
@@ -209,48 +208,51 @@
         <p class="mw-eyebrow">Meet Your Anxiety Therapists</p>
         <h2 class="mw-display mw-display-lg" style="margin-top:14px">Two people who <em>get it.</em></h2>
       </div>
-      <div data-m="anx-therapists" style="display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start">
-
-        <article class="mwc-card" style="padding:30px">
-          <div data-m="anx-tcard" style="display:grid;grid-template-columns:150px 1fr;gap:26px;align-items:start">
-            <div>
-              <div style="width:150px;height:150px;border-radius:16px;overflow:hidden;border:1px solid var(--line)"><img src="uploads/alisa.jpeg" alt="Alisa Farina" style="width:100%;height:100%;object-fit:cover;display:block"></div>
-              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px">
-                <span class="mwc-badge">EMDR</span><span class="mwc-badge">CBT</span>
-              </div>
-            </div>
-            <div>
-              <p style="font-family:var(--font-body);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--eyebrow);font-weight:600">Founder</p>
-              <h3 style="font-family:var(--font-display);font-size:27px;font-weight:600;color:var(--brand-strong);margin-top:3px">Alisa Farina</h3>
-              <p style="font-family:var(--font-body);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--eyebrow);font-weight:600;margin-top:7px">Registered Clinical Counsellor &middot; BCACC</p>
-              <p style="margin-top:16px;font-size:15.5px;line-height:1.7;color:var(--text-soft)">With more than 30 years of experience, I help people quiet the racing mind and steady the body using practical tools and EMDR. We work from your strengths to build calm that lasts beyond our sessions.</p>
-              <div style="margin-top:18px">
-                <x-import component-from-global-scope="MarketingWellCoreDesignSystem_2f2c2c.Button" variant="brand" size="sm" arrow="{{ true }}" href="https://growingmindscounselling.janeapp.com/#/staff_member/1" target="_blank" rel="noopener noreferrer" style="display:inline-block" hint-size="auto,40px">Book With Alisa</x-import>
-              </div>
-            </div>
+      <div data-m="therapist-stack" style="display:grid;gap:24px">
+      <div data-m="counsellor-card" class="mwc-card" style="display:grid;grid-template-columns:300px 1fr;gap:40px;padding:36px;align-items:start">
+        <div>
+          <div style="width:100%;aspect-ratio:1/1;border-radius:18px;overflow:hidden;border:1px solid var(--line)">
+            <img src="uploads/alisa.jpeg" alt="Alisa Farina, Registered Clinical Counsellor" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
           </div>
-        </article>
-
-        <article class="mwc-card" style="padding:30px">
-          <div data-m="anx-tcard" style="display:grid;grid-template-columns:150px 1fr;gap:26px;align-items:start">
-            <div>
-              <div style="width:150px;height:150px;border-radius:16px;border:1px solid var(--line);background:linear-gradient(150deg,var(--brand-soft),#d6e7dd);display:grid;place-items:center;color:var(--brand)"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3.5"/><path d="M5.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/></svg></div>
-              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px">
-                <span class="mwc-badge">CBT</span><span class="mwc-badge">DBT</span>
-              </div>
-            </div>
-            <div>
-              <p style="font-family:var(--font-body);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--eyebrow);font-weight:600">Mental Health Clinician</p>
-              <h3 style="font-family:var(--font-display);font-size:27px;font-weight:600;color:var(--brand-strong);margin-top:3px">Darren Dyal</h3>
-              <p style="font-family:var(--font-body);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--eyebrow);font-weight:600;margin-top:7px">MA Counselling Psychology</p>
-              <p style="margin-top:16px;font-size:15.5px;line-height:1.7;color:var(--text-soft)">I support people through anxiety, stress, and overwhelm by meeting you where you are. Together we build practical, evidence-based skills, grounded in CBT and DBT, to help you feel in control again.</p>
-              <div style="margin-top:18px">
-                <x-import component-from-global-scope="MarketingWellCoreDesignSystem_2f2c2c.Button" variant="brand" size="sm" arrow="{{ true }}" href="https://growingmindscounselling.janeapp.com/#/staff_member/2" target="_blank" rel="noopener noreferrer" style="display:inline-block" hint-size="auto,40px">Book With Darren</x-import>
-              </div>
-            </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:18px">
+            <span class="mwc-badge">EMDR Certified</span>
+            <span class="mwc-badge">CBT</span>
           </div>
-        </article>
-
+        </div>
+        <div>
+          <h3 style="font-family:var(--font-display);font-size:30px;font-weight:600;color:var(--brand-strong)">Alisa Farina</h3>
+          <p style="font-family:var(--font-body);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--eyebrow);font-weight:600;margin-top:7px">Registered Clinical Counsellor &middot; RCC &middot; BCACC</p>
+          <p style="margin-top:20px;font-size:16px;line-height:1.75;color:var(--text-soft)">With more than 30 years of experience, I help people quiet the racing mind and steady the body using practical tools and EMDR. We work from your strengths to build calm that lasts beyond our sessions.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:18px;align-items:center;margin-top:24px">
+            <x-import component-from-global-scope="MarketingWellCoreDesignSystem_2f2c2c.Button" variant="brand" size="sm" arrow="{{ true }}" href="https://growingmindscounselling.janeapp.com/#/staff_member/1" target="_blank" rel="noopener noreferrer" style="display:inline-block" hint-size="auto,40px">Book With Alisa</x-import>
+            <a class="mwc-linkarrow" href="meet-alisa.html">Learn more about Alisa
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div data-m="counsellor-card" class="mwc-card" style="display:grid;grid-template-columns:300px 1fr;gap:40px;padding:36px;align-items:start">
+        <div>
+          <div style="width:100%;aspect-ratio:1/1;border-radius:18px;border:1px solid var(--line);background:linear-gradient(150deg,var(--brand-soft),#d6e7dd);display:grid;place-items:center;color:var(--brand)">
+            <svg viewBox="0 0 24 24" width="72" height="72" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3.5"/><path d="M5.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/></svg>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:18px">
+            <span class="mwc-badge">CBT</span>
+            <span class="mwc-badge">DBT</span>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-family:var(--font-display);font-size:30px;font-weight:600;color:var(--brand-strong)">Darren Dyal</h3>
+          <p style="font-family:var(--font-body);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--eyebrow);font-weight:600;margin-top:7px">Canadian Certified Counsellor &middot; MA Counselling Psychology</p>
+          <p style="margin-top:20px;font-size:16px;line-height:1.75;color:var(--text-soft)">I support people through anxiety, stress, and overwhelm by meeting you where you are. Together we build practical, evidence-based skills, grounded in CBT and DBT, to help you feel in control again.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:18px;align-items:center;margin-top:24px">
+            <x-import component-from-global-scope="MarketingWellCoreDesignSystem_2f2c2c.Button" variant="brand" size="sm" arrow="{{ true }}" href="https://growingmindscounselling.janeapp.com/#/staff_member/2" target="_blank" rel="noopener noreferrer" style="display:inline-block" hint-size="auto,40px">Book With Darren</x-import>
+            <a class="mwc-linkarrow" href="meet-darren.html">Learn more about Darren
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
   </section>
@@ -305,7 +307,7 @@
           </div>
           <div style="display:flex;align-items:center;gap:10px;margin-top:18px">
             <span style="width:30px;height:19px;border-radius:4px;flex:none;background:linear-gradient(180deg,#e63946 0 16.6%,#f3722c 16.6% 33.3%,#f9c74f 33.3% 50%,#43aa8b 50% 66.6%,#577590 66.6% 83.3%,#9a4c95 83.3% 100%)"></span>
-            <span style="font-size:14px">2SLGBTQ+ affirming</span>
+            <span style="font-size:14px">2SLGBTQIA+ affirming</span>
           </div>
         </div>
       </div>
