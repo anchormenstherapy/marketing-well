@@ -30,10 +30,11 @@
   .gm-nav-book{display:none;}
   @media(max-width:1100px){
     .gm-hamburger{display:block!important;}
+    header{position:sticky!important;top:0;}
     .gm-header-book{display:none!important;}
     .gm-nav-book{display:inline-flex!important;align-items:center;justify-content:center;background:var(--brand);color:#fff!important;padding:13px 18px;border-radius:999px;font-weight:600;font-size:15px;margin-top:10px;text-align:center;}
     .gm-nav-book:hover{background:var(--brand-strong);}
-    .gm-nav{display:none!important;position:absolute;top:100%;left:0;right:0;flex-direction:column!important;align-items:stretch!important;background:var(--surface);padding:18px;border-top:1px solid var(--line);box-shadow:var(--shadow-md);gap:6px!important;z-index:50;}
+    .gm-nav{display:none!important;position:absolute;top:calc(100% + 8px);left:12px;right:12px;flex-direction:column!important;align-items:stretch!important;background:var(--surface);padding:14px;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-lg);gap:6px!important;z-index:50;}
     .gm-nav>a,.gm-dropdown>summary{padding:11px 14px;border-radius:8px;font-size:15px;}
     .gm-nav>a:hover,.gm-dropdown>summary:hover{background:var(--brand-tint);}
     .gm-dropdown{position:static!important;}
@@ -48,6 +49,7 @@
     [data-m="teen-steps"]{grid-template-columns:1fr!important}
   }
 </style>
+<script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest(".gm-nav a");if(a){var t=document.getElementById("gm-menu-toggle");if(t)t.checked=false;}});</script>
 </head>
 <body>
 <x-dc>
