@@ -31,6 +31,7 @@
   @media(max-width:1100px){
     .gm-hamburger{display:block!important;}
     header{position:sticky!important;top:0;}
+    html{scroll-padding-top:84px;}
     .gm-header-book{display:none!important;}
     .gm-nav-book{display:inline-flex!important;align-items:center;justify-content:center;background:var(--brand);color:#fff!important;padding:13px 18px;border-radius:999px;font-weight:600;font-size:15px;margin-top:10px;text-align:center;}
     .gm-nav-book:hover{background:var(--brand-strong);}
@@ -64,7 +65,7 @@
   details.gm-faq[open] .gm-chev{transform:rotate(180deg);}
   details.gm-faq[open] .gm-q{color:var(--brand);}
 </style>
-<script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest(".gm-nav a");if(a){var t=document.getElementById("gm-menu-toggle");if(t)t.checked=false;}});</script>
+<script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest(".gm-nav a");if(a){var t=document.getElementById("gm-menu-toggle");if(t)t.checked=false;}});(function(){if(!location.hash)return;var n=0,iv=setInterval(function(){var el=document.getElementById(decodeURIComponent(location.hash.slice(1)));if(el){el.scrollIntoView();clearInterval(iv);}if(++n>50)clearInterval(iv);},100);})();</script>
 </head>
 <body>
 <x-dc>
