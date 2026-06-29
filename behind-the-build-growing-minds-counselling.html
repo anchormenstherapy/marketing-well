@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" data-palette="rose">
+<head>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="Ejj8w82Jyl91HuWmWYLHGRY3bLobMfSQoct6G0fGegM">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Behind the Build: The Growing Minds Counselling Website — Marketing Well</title>
+<meta name="description" content="A behind-the-scenes look at the Growing Minds Counselling website — a fast, static HTML build for a New Westminster therapy practice, designed to convert visitors into booked consultations.">
+<link rel="icon" href="/assets/images/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Hanken+Grotesk:wght@300;400;500;600;700;800&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Hanken+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<style>[data-palette="rose"]{--paper:#F8F2EC;--paper-2:#F0E3DA;--surface:#FDFAF6;--ink:#3A2F32;--ink-2:#5E5852;--sage:#96737B;--sage-2:#7A545C;--pale:#E8D5D8;--pale-2:#F0E0E3;--line:#E7D8D0;--line-2:#DCC8BE;--accent:#BF887E;--accent-ink:#fff;--accent-hov:#A8716A;--halo:#EAD5CE;--halo-2:#E8D5D8}
+:root{--foot:#63474D;--foot-2:#7A555C;--foot-ink:#F4EDE9;--foot-soft:#C4A8AD;--sans:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;--serif:"Newsreader",Georgia,serif;--serif-w:420;--serif-tight:-0.015em;--r:18px;--r-sm:11px;--r-lg:30px;--r-pill:999px}
+@font-face{font-family:"Hanken Grotesk";src:local("Arial");font-display:swap;size-adjust:100%;ascent-override:95%;descent-override:25%;line-gap-override:0%}
+@font-face{font-family:"Newsreader";src:local("Georgia");font-display:swap;size-adjust:105%;ascent-override:90%;descent-override:25%;line-gap-override:0%}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:18px;line-height:1.65;font-weight:400}
+h1,h2,h3,.serif{font-family:var(--serif);font-weight:var(--serif-w);letter-spacing:var(--serif-tight);line-height:1.06;color:var(--ink)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;height:auto;display:block}
+.wrap{width:min(1200px,92vw);margin-inline:auto}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--sage-2);display:inline-flex;align-items:center;gap:.7em}
+.eyebrow::before{content:"";width:26px;height:1.5px;background:var(--sage);display:inline-block}
+.btn{display:inline-flex;align-items:center;gap:.55em;font-family:var(--sans);font-weight:600;font-size:.98rem;padding:.9em 1.5em;border-radius:var(--r-pill);border:1.5px solid transparent;cursor:pointer;transition:all .25s ease;white-space:nowrap}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-2)}
+.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 80%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s ease,background .3s ease}
+.nav.scrolled{border-bottom-color:var(--line);background:color-mix(in srgb,var(--paper) 92%,transparent)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:80px}
+.nav-logo img{height:38px;width:auto;display:block}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{font-family:var(--serif);font-size:1.08rem;font-weight:600;color:var(--ink);white-space:nowrap;position:relative;padding:.3em 0}
+.nav-cta{display:flex;align-items:center;gap:1.2rem}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;width:44px;height:44px;position:relative;z-index:60}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--ink);position:absolute;left:11px;transition:all .3s ease}
+.nav-toggle span:nth-child(1){top:14px}.nav-toggle span:nth-child(2){top:21px}.nav-toggle span:nth-child(3){top:28px}
+.hero{position:relative;padding:clamp(3rem,7vw,6rem) 0 clamp(4rem,8vw,7rem);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+.hero h1{font-size:clamp(2.7rem,5.6vw,4.6rem);margin-bottom:1.4rem}
+.hero h1 em{font-style:italic;color:var(--sage-2)}
+.hero-sub{font-size:1.18rem;color:var(--ink-2);max-width:33ch;margin-bottom:2.2rem}
+.reveal{opacity:1}
+.testi-slide{display:none}.testi-slide.active{display:block}
+.mobile-only{display:none}
+@media(max-width:980px){.hero-grid{grid-template-columns:1fr}}
+@media(max-width:760px){body{font-size:17px}.nav-links{position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100vh;background:#F8F2EC;flex-direction:column;align-items:center;justify-content:center;padding:2rem;gap:.2rem;z-index:100;opacity:0;pointer-events:none;transition:opacity .3s ease}.nav-links.open{opacity:1;pointer-events:auto}.nav-toggle{display:block}.mobile-only{display:block}.nav-dropdown{display:none}}
+</style>
+<link rel="preload" href="/assets/all.css" as="style">
+<link href="/assets/all.css" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="/assets/all.css"></noscript>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-logo" href="/" aria-label="Marketing Well home">
+      <img src="/assets/logo.png" alt="Marketing Well"loading="lazy" >
+    </a>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about-me">About</a>
+      <div class="nav-dropdown"><a href="#">Services</a><div class="nav-dropdown-menu"><a href="/therapist-web-design">Web Design</a><a href="/google-ads-therapists">Google Ads</a><a href="/therapy-seo">SEO</a><a href="/consulting">Consulting</a></div></div>
+      <a href="/therapist-web-design" class="mobile-only">Web Design</a><a href="/google-ads-therapists" class="mobile-only">Google Ads</a><a href="/therapy-seo" class="mobile-only">SEO</a><a href="/consulting" class="mobile-only">Consulting</a>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/blog" class="active">Blog</a>
+      <a href="/contact-me">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      <a href="/contact-me" class="btn btn-primary">Book a Call</a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEAD -->
+<article>
+  <div class="article-head">
+    <div class="wrap">
+      <span class="blog-tag">Web Design</span>
+      <h1>Behind the Build: The Growing Minds Counselling Website</h1>
+      <div class="article-byline">
+        <img src="/assets/images/jordan-headshot.jpg" alt="Jordan Caron" style="width:40px;height:40px;border-radius:50%;object-fit:cover;flex-shrink:0"loading="lazy" >
+        <span>Jordan Caron</span>
+        <span class="dot"></span>
+        <span>June 29, 2026</span>
+        <span class="dot"></span>
+        <span>6 min read</span>
+      </div>
+      <div class="article-hero-img">
+        <img src="/assets/images/blog-behind-the-build-growing-minds-counselling.jpeg" alt="The Growing Minds Counselling website built by Marketing Well"loading="lazy" >
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE BODY -->
+  <div class="article-body">
+    <div class="wrap">
+      <div class="prose">
+
+        <p>Every website project starts with a gap between where a practice is and where it wants to be. For Growing Minds Counselling in New Westminster, British Columbia, the gap was about speed, clarity, and control: a thoughtful, growing practice whose existing Wix site felt slow and generic, and didn't reflect the warmth of the care being offered. This is the story of how we closed that gap with a fast, custom-built static website.</p>
+
+        <h2>The Brief</h2>
+
+        <p>Growing Minds Counselling is a New Westminster practice serving teens, young adults, parents, couples, and families. Alisa and the team offer a wide range of support — anxiety, depression, trauma, EMDR, DBT, ADHD, autism assessments, addiction, and first-responder counselling — but the old website didn't make that breadth easy to navigate, and it loaded slowly enough to cost them visitors before they ever reached a booking link.</p>
+
+        <p>The brief was clear: build a digital presence through professional <a href="/therapist-web-design">web design for therapists</a> that loads instantly, communicates the full range of services, and moves visitors toward booking a consultation. New Westminster sits in a competitive Metro Vancouver market, and the practice needed a site that could compete on both polish and performance.</p>
+
+        <p>There was also a practical dimension. Growing Minds doesn't rebuild its website every week. It needed a site that would look excellent, rank well, and run cheaply for years — without the overhead of a platform the practice didn't really use.</p>
+
+        <h2>Why Static HTML</h2>
+
+        <p>This is where the Growing Minds build differs from most therapy websites. Rather than rebuilding on Wix or moving to WordPress, we built the site in <strong>clean, static HTML</strong>. For a practice that updates its site occasionally rather than daily, that decision pays off in three ways: dramatically faster load times, near-zero hosting costs, and far fewer moving parts to maintain.</p>
+
+        <p>If you're weighing platforms for your own practice, I wrote a full breakdown of the trade-offs in <a href="/do-you-need-cms-therapy-website">do you actually need a CMS for your website?</a> The short version: when a site doesn't change often, a static build is frequently the smarter, faster, and cheaper choice. Growing Minds was exactly that case.</p>
+
+        <h2>User-Centered Design</h2>
+
+        <p>The design process started with a simple question: who is visiting this site, and what state are they in when they arrive? People reaching a counselling website are rarely browsing casually. They're arriving during vulnerable moments — after a hard week, during a sleepless night, or at the quiet urging of someone who cares about them. They're looking for a reason to trust.</p>
+
+        <p>With that in mind, the hero section leads with local context and warmth: mental health support for individuals and couples in New Westminster, stated plainly. Every page is built around a single, repeated call-to-action — book a consultation through JaneApp — so visitors always know the next step instead of hunting for it.</p>
+
+        <h2>Visual Identity</h2>
+
+        <p>The visual identity was built to communicate calm and growth. We used a <strong>soft, layered green palette</strong> — sage and forest tones grounded in nature — balanced with warm cream and a gentle peach accent. Greens evoke growth, stability, and safety, which matches both the practice name and the feeling clients want when they reach out.</p>
+
+        <p>Typography paired an <strong>editorial serif with a clean sans-serif body</strong>. The serif headings carry warmth and trustworthiness; the sans-serif body keeps longer passages about therapeutic approaches comfortable to read. The result is a tone I think of as "elevated approachable" — sophisticated enough to convey competence, warm enough to feel welcoming.</p>
+
+        <h2>Technical Architecture &amp; SEO</h2>
+
+        <p>The site does two jobs that can feel contradictory: <strong>emotional resonance and SEO</strong>. Visitors need to feel something; search engines need to understand something. We built <strong>dedicated service pages</strong> for each modality — anxiety, depression, trauma, EMDR, DBT, ADHD, autism, couples, addiction, teen therapy, and first responders — each written to serve both the person searching for help and the search engine trying to understand the page.</p>
+
+        <p>Every page follows a consistent rhythm: empathetic, problem-aware copy up top, the therapeutic approach in the middle, the relevant clinician, and a clear call-to-action to close. <a href="/therapy-seo">SEO</a>-friendly internal linking ties services to therapist profiles and back again, helping search engines map the site's topical authority while guiding visitors deeper into the content that matters.</p>
+
+        <p>Because the site is static and served from a global edge network, pages load almost instantly — which matters for both rankings and for the majority of visitors arriving on a phone in a private moment when they're finally ready to seek help.</p>
+
+        <h2>The Result</h2>
+
+        <p>The new Growing Minds Counselling website is fast, warm, and built to convert. It reflects the quality of care the practice delivers, communicates its full range of services clearly, and gives the team a low-maintenance foundation they can build their marketing on with confidence. You can <a href="https://www.growingmindscounselling.com/" target="_blank" rel="noopener">see the live site here</a>.</p>
+
+        <p>Every therapy practice deserves a website that works as hard as the clinicians behind it. For Growing Minds, the new site isn't just a digital brochure — it's the front door to a practice that helps people grow, and now it looks and feels like it.</p>
+
+      </div>
+
+      <!-- AUTHOR BOX -->
+      <div class="author-box">
+        <img src="/assets/images/jordan-headshot.jpg" alt="Jordan Caron" style="width:84px;height:84px;border-radius:50%;object-fit:cover;flex-shrink:0"loading="lazy" >
+        <div>
+          <div class="who">Jordan Caron</div>
+          <p>Jordan helps therapists and wellness practitioners get found and get booked. Since 2012, he's specialized in SEO, Google Ads, and conversion-focused websites for practices across North America.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- RELATED -->
+<section class="related">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow center">Keep Reading</span>
+      <h2>Related posts</h2>
+    </div>
+    <div class="blog-grid">
+      <a href="/do-you-need-cms-therapy-website" class="blog-card">
+        <div class="blog-thumb">
+          <img src="/assets/images/blog-do-you-need-cms-therapy-website.jpeg" alt=""loading="lazy" >
+          <span class="blog-tag">Web Design</span>
+        </div>
+        <div class="blog-body">
+          <h3>Do You Actually Need a CMS for Your Website?</h3>
+          <span class="blog-readmore">Read post <span class="arr">&rarr;</span></span>
+        </div>
+      </a>
+      <a href="/behind-the-build-launching-the-new-cataraqui-counselling-website" class="blog-card">
+        <div class="blog-thumb">
+          <img src="/assets/images/blog-behind-the-build-launching-the-new-cataraqui-counselling-website.jpg" alt=""loading="lazy" >
+          <span class="blog-tag">Web Design</span>
+        </div>
+        <div class="blog-body">
+          <h3>Behind the Build: The Cataraqui Counselling Website</h3>
+          <span class="blog-readmore">Read post <span class="arr">&rarr;</span></span>
+        </div>
+      </a>
+      <a href="/why-most-therapist-websites-dont-convert" class="blog-card">
+        <div class="blog-thumb">
+          <img src="/assets/images/blog-why-most-therapist-websites-dont-convert.jpeg" alt=""loading="lazy" >
+          <span class="blog-tag">Web Design</span>
+        </div>
+        <div class="blog-body">
+          <h3>Why Most Therapist Websites Don't Convert</h3>
+          <span class="blog-readmore">Read post <span class="arr">&rarr;</span></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section class="foot-cta">
+  <div class="wrap foot-cta-inner">
+    <div>
+      <h2 class="serif">Want a website like this for your practice?</h2>
+      <p>Your initial 20-minute strategy call is free.</p>
+    </div>
+    <a href="/contact-me" class="btn btn-primary">Book a Call <span class="arr">&rarr;</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="/assets/logo.png" alt="Marketing Well"loading="lazy" >
+        <p>Digital marketing built for therapists &amp; wellness practitioners.</p>
+        <div class="foot-contact">
+          <a href="tel:2502174176"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> 250-217-4176</a>
+          <a href="mailto:jordan@marketingwell.ca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 5L2 7"></path></svg> Email Jordan</a>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Salt Spring Island, BC</span>
+        </div>
+      </div>
+
+      <div class="foot-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="/consulting">Consulting</a></li>
+          <li><a href="/google-ads-therapists">Google Ads for Therapists</a></li>
+          <li><a href="/therapy-seo">SEO for Therapists</a></li>
+          <li><a href="/therapist-web-design">Web Design for Therapists</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h5>Popular Blog Posts</h5>
+        <ul>
+          <li><a href="/anatomy-high-converting-therapist-landing-page">The Anatomy of a High-Converting Therapist Landing Page</a></li>
+          <li><a href="/copywriting-that-converts">Copywriting That Converts</a></li>
+          <li><a href="/exact-match-keywords-google-ads-for-therapists">Why Exact-Match Keywords Matter in Google Ads</a></li>
+          <li><a href="/most-important-seo-factor-therapists">The Most Important SEO Factor for Therapists</a></li>
+          <li><a href="/improve-your-gbp-rankings-therapists">Five Ways to Improve Your GBP Rankings</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col foot-news">
+        <h5>Monthly Newsletter</h5>
+        <p>Practical marketing tips for your practice — once a month, no spam.</p>
+        <form onsubmit="return false">
+          <input type="text" placeholder="Name" aria-label="Name">
+          <input type="email" placeholder="Your email" aria-label="Email">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <p>&copy; 2026 &middot; All Rights Reserved &middot; Jordan J. Caron Holdings LTD &middot; <a href="/privacy-policy" style="text-decoration:underline">Privacy Policy</a></p>
+      <div class="foot-social">
+        <a href="https://www.youtube.com/@marketingwell" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 0 0 .5 6.19 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.81zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"></path></svg></a>
+        <a href="https://www.linkedin.com/in/jordancaron/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18.34V9.99H5.67v8.35h2.67zM7 8.82a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1zm11.34 9.52v-4.58c0-2.45-1.31-3.59-3.06-3.59-1.41 0-2.04.78-2.39 1.32v-1.13h-2.65c.04.75 0 8.35 0 8.35h2.65v-4.66c0-.24.02-.48.09-.65.19-.48.62-.97 1.35-.97.96 0 1.34.72 1.34 1.78v4.5h2.67z"></path></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.js"></script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NQGJMKP');</script>
+<!-- End Google Tag Manager -->
+</body>
+</html>

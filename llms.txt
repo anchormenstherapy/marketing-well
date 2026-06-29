@@ -23,6 +23,7 @@ Marketing Well is run by Jordan Caron, a digital marketing specialist based on S
 - [The Anatomy of a High-Converting Therapist Landing Page](https://marketingwell.ca/anatomy-high-converting-therapist-landing-page): How to build landing pages that convert visitors into therapy clients.
 - [How to Avoid Wasted Clicks on Google Ads](https://marketingwell.ca/avoid-wasted-clicks-google-ads): Understanding keywords vs. search terms to stop wasting ad budget on irrelevant clicks.
 - [Behind the Build: Launching the Cataraqui Counselling Website](https://marketingwell.ca/behind-the-build-launching-the-new-cataraqui-counselling-website): A case study on redesigning the Cataraqui Counselling Clinic website.
+- [Behind the Build: The Growing Minds Counselling Website](https://marketingwell.ca/behind-the-build-growing-minds-counselling): How a fast, static HTML site was built for Growing Minds Counselling, a New Westminster therapy practice.
 - [How to Identify Blog Topics for Therapists](https://marketingwell.ca/blogging-for-therapists): Finding the right blog topics to attract potential therapy clients.
 - [Copywriting for Therapists](https://marketingwell.ca/copywriting-that-converts): How to craft compelling copy that connects with clients and grows your practice.
 - [How to Create Helpful Blog Content](https://marketingwell.ca/create-helpful-blogs): Writing blog content that genuinely helps your audience and improves search rankings.
